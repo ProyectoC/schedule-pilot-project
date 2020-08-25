@@ -96,7 +96,22 @@ public class UserAccountServiceImp implements UserAccountService {
 
     @Override
     @Transactional
-    public Validator validationUserBeforeSave(UserAccountDto userAccountDto) {
+    public UserAccountDto save(UserAccountDto userAccountDto) {
+        userAccountDto.setBlock(false);
+        userAccountDto.setFailedAttempts(0);
+        userAccountDto.setIsActive(false);
+        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
+    }
+
+    @Override
+    @Transactional
+    public UserAccountDto update(UserAccountDto userAccountDto) {
+        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
+    }
+
+    @Override
+    @Transactional
+    public Validator validationBeforeSave(UserAccountDto userAccountDto) {
         Validator validator = new Validator();
 
         Optional<UserAccountEntity> optional = this.accountUserRepository.findByUsername(userAccountDto.getUsername());
@@ -135,18 +150,5 @@ public class UserAccountServiceImp implements UserAccountService {
         }
         validator.setValid(true);
         return validator;
-    }
-
-    @Override
-    @Transactional
-    public UserAccountDto save(UserAccountDto userAccountDto) {
-        userAccountDto.setIsActive(false);
-        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
-    }
-
-    @Override
-    @Transactional
-    public UserAccountDto update(UserAccountDto userAccountDto) {
-        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
     }
 }

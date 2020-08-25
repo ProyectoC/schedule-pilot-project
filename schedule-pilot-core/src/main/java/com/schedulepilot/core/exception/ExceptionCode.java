@@ -5,9 +5,20 @@ import lombok.Getter;
 @Getter
 public enum ExceptionCode {
 
-    ERROR_MANAGE_USER_CREATE_USER("1001", "No se ha podido crear el usuario."),
+    // Manage User
+    ERROR_MANAGE_USER_CREATE_USER("1001", "User account could not be created."),
+
+    // Manage Rol
+    ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),
+
+    // Manage Parameter
+    ERROR_MANAGE_PARAMETER_NOT_FOUND("1003", "Parameter not found."),
+
+    // Manage Token
+    ERROR_MANAGE_TOKEN_TYPE_NOT_FOUND("1004", "Token type not found."),
+
     ERROR_CLIENT("99", "Error de cliente."),
-    ERROR_UNKNOWN("98", "Error, consulte al administrador del sistema."),
+    ERROR_UNKNOWN("98", "Error check with your system administrator."),
     ERROR_RECORD_NOT_FOUND("97", "Error, el registro no se ha encontrado."),
     ERROR_INVALID_DATA("96", "Error, datos no validos."),
     ERROR_SEND_EMAIL("95", "Error, no fue posible enviar el email."),

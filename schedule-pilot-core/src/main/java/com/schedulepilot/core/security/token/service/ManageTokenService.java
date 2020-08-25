@@ -35,7 +35,7 @@ public interface ManageTokenService {
     // Methods
     TokenDto createUserAccountAuthToken(String userName, String[] authorities);
 
-    TokenDto createUserAccountActivationToken(Integer daysExpiration);
+    TokenDto createUserAccountActivationToken();
 
     String validateUserToken(String token, String keySecret);
 

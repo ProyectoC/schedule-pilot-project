@@ -76,7 +76,7 @@ public class UserAccountEntity extends BaseEntity {
     private TokenEntity authTokenEntity;
 
     @ManyToOne
-    @JoinColumn(name = "activation_token_id_fk", nullable = true)
+    @JoinColumn(name = "activation_token_id_fk", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private TokenEntity activationTokenEntity;
 

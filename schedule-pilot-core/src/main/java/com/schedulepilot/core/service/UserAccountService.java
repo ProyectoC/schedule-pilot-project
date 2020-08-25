@@ -53,9 +53,9 @@ public interface UserAccountService extends UserDetailsService {
 
     UserDetails loadUserById(Long id);
 
-    Validator validationUserBeforeSave(UserAccountDto userAccountDto);
-
     UserAccountDto save(UserAccountDto userAccountDto);
 
     UserAccountDto update(UserAccountDto userAccountDto);
+
+    Validator validationBeforeSave(UserAccountDto userAccountDto);
 }

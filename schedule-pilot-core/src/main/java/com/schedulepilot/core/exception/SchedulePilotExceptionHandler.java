@@ -59,7 +59,7 @@ public class SchedulePilotExceptionHandler extends ResponseEntityExceptionHandle
         ResponseDto<ErrorResponseDto> error = new ResponseDto(ResponseDto.ERROR_CODE, HttpStatus.UNAUTHORIZED.getReasonPhrase(), errorResponseDto);
         return new ResponseEntity(error, HttpStatus.UNAUTHORIZED);
     }
-    
+
     @ExceptionHandler(SchedulePilotException.class)
     public final ResponseEntity<Object> handleSchedulePilotExceptionExceptions(SchedulePilotException ex, WebRequest request) {
         return this.getInternalServerErrorResponseEntity(ex, request);
@@ -67,7 +67,11 @@ public class SchedulePilotExceptionHandler extends ResponseEntityExceptionHandle
 
     @ExceptionHandler(ManageUserException.class)
     public final ResponseEntity<Object> handleAllManageUserExceptions(ManageUserException ex, WebRequest request) {
-        return this.getBadRequestResponseEntity(ex, request);
+        if (ex.getError().equals(ExceptionCode.ERROR_MANAGE_USER_AUTH_FAILED)) {
+            return this.getUnauthorizedErrorResponseEntity(ex, request);
+        } else {
+            return this.getBadRequestResponseEntity(ex, request);
+        }
     }
 
     @ExceptionHandler(ManageRolException.class)
@@ -91,6 +95,15 @@ public class SchedulePilotExceptionHandler extends ResponseEntityExceptionHandle
         ResponseDto<ErrorResponseDto> error = new ResponseDto(ResponseDto.ERROR_CODE, HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), errorResponseDto);
         saveError(error, request, HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    public ResponseEntity<Object> getUnauthorizedErrorResponseEntity(SchedulePilotException ex, WebRequest request) {
+        LOGGER.error(SecurityUtil.USER_AUTHENTICATION_ERROR_MESSAGE);
+        LOGGER.error(CommonUtil.LOG_ERROR_DEFAULT, ex.getError().getCode(), ExceptionUtils.getStackTrace(ex));
+        ErrorResponseDto errorResponseDto = new ErrorResponseDto(String.valueOf(HttpStatus.UNAUTHORIZED.value()), LocalDateTime.now(), ex.getError().getDescription(), Collections.emptyList());
+        ResponseDto<ErrorResponseDto> error = new ResponseDto(ResponseDto.ERROR_CODE, HttpStatus.UNAUTHORIZED.getReasonPhrase(), errorResponseDto);
+        saveError(error, request, HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity(error, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(TokenException.class)

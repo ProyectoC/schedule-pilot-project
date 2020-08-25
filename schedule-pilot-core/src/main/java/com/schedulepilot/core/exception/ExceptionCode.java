@@ -7,6 +7,7 @@ public enum ExceptionCode {
 
     // Manage User
     ERROR_MANAGE_USER_CREATE_USER("1001", "User account could not be created."),
+    ERROR_MANAGE_USER_AUTH_FAILED("1005", "Username and/or password are not valid."),
 
     // Manage Rol
     ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),

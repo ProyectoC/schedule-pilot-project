@@ -84,7 +84,7 @@ public class ManageUserServiceImp implements ManageUserService {
         uriBuilder.append("?message=");
 
         UserAccountDto userAccountDto = this.userAccountService.getByIdThrow(userAccountId);
-        Validator validator = userAccountDto.validationForActivationUser();
+        Validator validator = userAccountDto.validationForActivateUserAccount();
         if (!validator.isValid()) {
             uriBuilder.append(validator.getFirstError());
             return uriBuilder.toString();
@@ -98,8 +98,11 @@ public class ManageUserServiceImp implements ManageUserService {
         }
 
         userAccountDto.setIsActive(true);
+
         userAccountDto = this.userAccountService.update(userAccountDto);
+
         this.notificationLayerService.sendNotificationActivationUserAccount(userAccountDto);
+
         return uriBuilder.append(EmailConstants.SUBJECT_DEFAULT_SEND_ACTIVATE_USER_ACCOUNT).toString();
     }
 
@@ -107,9 +110,9 @@ public class ManageUserServiceImp implements ManageUserService {
     @Transactional
     public UserAccountAuthResponse authUserAccount(UserAccountAuthRequest userAccountAuthRequest) throws SchedulePilotException {
         UserAccountDto userAccountDto = this.userAccountService.getByUsernameThrow(userAccountAuthRequest.getUsername());
-        Validator validator = userAccountDto.validationForAuthUser();
+        Validator validator = userAccountDto.validationForAuthUserAccount();
         if (!validator.isValid()) {
-            throw new SchedulePilotException(validator.getFirstError());
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_AUTH_FAILED, validator.getFirstError());
         }
 
         try {
@@ -121,7 +124,7 @@ public class ManageUserServiceImp implements ManageUserService {
             if (ex instanceof AuthenticationException) {
                 this.updateUserFailedAuth(userAccountDto);
             }
-            throw new SchedulePilotException("Auth for user account failed, username or password not valid.");
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_AUTH_FAILED, "Auth for user account failed, username or password not valid.");
         }
 
         TokenDto authToken = this.manageTokenService.createUserAccountAuthToken(userAccountDto.getUsername(),

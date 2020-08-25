@@ -56,7 +56,7 @@ public class ManageTokenServiceImp implements ManageTokenService {
             LOGGER.error(ERROR_TOKEN_USER_CREATION_UNSUPPORTED, exception.getMessage());
         } catch (JWTCreationException exception) {
             LOGGER.error(ERROR_TOKEN_USER_CREATION, exception.getMessage());
-        } catch (SchedulePilotException ex) {
+        } catch (ManageTokenException ex) {
             LOGGER.error(ERROR_TOKEN_TYPE_NOT_FOUND, ex.getMessage());
         }
         return null;

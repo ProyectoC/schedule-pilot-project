@@ -1,0 +1,265 @@
+{
+  "general": {
+    "company": "SchedulePilot"
+  },
+  "left-menu": {
+    "item-projects": "Projects",
+    "item-reports": "Reports",
+    "sub-item-sprints": "Sprints",
+    "sub-item-programmers": "Programmers",
+    "item-notifications": "Notifications",
+    "item-configurations": "SetUp",
+    "sub-item-profile": "My Profile",
+    "sub-item-password": "Password",
+    "sub-item-logout": "Logout",
+    "item-about": "About",
+    "sub-item-code": "Code"
+  },
+  "top-menu": {
+    "search-placeholder": "Search...",
+    "button-search": "Search",
+    "boards": "Boards",
+    "sub-item.config": "Configurations",
+    "sub-item.notifications": "Show All",
+    "sub-item-all-notifications": "Mark all Read",
+    "sub-item-profile": "Profile",
+    "sub-item-logout": "Logout"
+  },
+  "board": {
+    "title": "Board from Sprint: ",
+    "return": "Return",
+    "tooltip-completed-before-time": "Completed before time",
+    "tooltip-completed-on-time": "Completed on time",
+    "tooltip-completed-after-time": "Completed after time",
+    "tooltip-finish-today": "Finish today",
+    "tooltip-to-go": "To go",
+    "tooltip-delay": "Delay",
+    "kambas": {
+      "requests": "Requests",
+      "tooltip-create-request": "Create Request",
+      "tooltip-create-activity": "Create Activity",
+      "tooltip-assign-activity": "Assign Activity",
+      "create": "Create",
+      "activities": "Activities",
+      "assign": "Assign",
+      "assigned": "Assigned:",
+      "times": "times",
+      "update": "Update",
+      "modified": "Modified:",
+      "show": "Show",
+      "created-by": "Created by:",
+      "see-attached": "See Attached",
+      "request": "Request:",
+      "deadline": "Deadline:",
+      "priority": "Priority:"
+    }
+  },
+  "spinner": {
+    "message": "Updating..."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Let's work together and form a team to respond to the needs of your company. Send us a message.",
+    "form": {
+      "title": "Send us a message",
+      "description": "Enter your information",
+      "label.name": "Name",
+      "label.name.placeholder": "Enter your name",
+      "label.name.invalid": "Enter a valid name.",
+      "label.email": "Email",
+      "label.email.placeholder": "Enter your email",
+      "label.email.invalid": "Enter a valid email.",
+      "label.email.extension.invalid": "Enter a valid email extension",
+      "label.email.protected": "We will not share your email with anyone!",
+      "label.subject": "Subject",
+      "label.subject.placeholder": "Enter the subject of your interest",
+      "label.subject.invalid": "Enter a valid subject.",
+      "label.message": "Message",
+      "label.message.placeholder": "Enter the message of your interest",
+      "label.message.invalid": "Enter a valid message.",
+      "label.term.conditions": "I declare that I have read and accept the Terms and Conditions",
+      "label.term.conditions.invalid": "You must agree to terms and conditions",
+      "label.term.description.one": "By clicking Send, you accept the ",
+      "label.term.description.two": "terms and conditions",
+      "label.term.description.three": " and the ",
+      "label.term.description.four": "privacy policy of "
+    },
+    "send.message.title": "Shipping",
+    "send.message.correct.text": "Your information has been registered, we will contact you immediately.",
+    "send.message.incorrect.text": "Your information has not been registered, what a pity!",
+    "send.message.correct": "Successful registration, please check your email to confirm your account.",
+    "alert.send.invalid": "The selected name is already in use.",
+    "address.title": "Find us",
+    "address.content": "Crr 73 F No. 33 a 13 sur - Kennedy Central",
+    "address.zone": "",
+    "address.country": "Colombia",
+    "address.email": "contacto.acquaboard@acquaboard.ml",
+    "address.phone": "Tel. +57 4527367; +57 319-3191948"
+  },
+  "captcha": {
+    "label.captcha.invalid": "Prove you are not a robot.",
+    "language": "en"
+  },
+  "common": {
+    "select": {},
+    "buttons": {
+      "button.loading": "Loading...",
+      "button.login": "Log in",
+      "button.create": "Create",
+      "button.create.count": "Check in",
+      "button.search": "Consult",
+      "button.update": "To update",
+      "button.delete": "Remove",
+      "button.ok": "To accept",
+      "button.cancel": "Cancel",
+      "button.close": "Close",
+      "button.view": "See details",
+      "button.register": "Register",
+      "button.response": "Answer",
+      "button.send": "Send"
+    },
+    "messages": {
+      "message.title.default": "AcquaBoard",
+      "message.body.default": "Stairway to Learn, el sitio ideal para aprender.",
+      "correct": {
+        "title.common": "Correcto",
+        "message.common": "Acción completada correctamente!",
+        "icon.common": "../assets/images/messages/message-success.png"
+      },
+      "error": {
+        "title.common": "Error",
+        "message.common": "Stairway To Learn pide disculpas, en estos momentos tu solicitud no podra ser atendida.",
+        "icon.common": "../assets/images/messages/message-incorrect.png"
+      },
+      "information": {
+        "title.common": "Información",
+        "message.common": "Mensaje de información",
+        "icon.common": "../assets/images/messages/message-information.png"
+      },
+      "warning": {
+        "title.common": "Advertencia",
+        "message.common": "Advertencia.",
+        "icon.common": "../assets/images/messages/message-warning.png"
+      }
+    }
+  },
+  "header": {
+    "home": "Home",
+    "register": "Register",
+    "forgot-password": "Forgot Password",
+    "login": "Login",
+    "language": "Language"
+  },
+  "error.app": {
+    "title": "Upsss! We are having problems",
+    "title.page": "Error",
+    "description": "At this time your request cannot be answered",
+    "description.solution": "Please try again later."
+  },
+  "footer": {
+    "rigths": "All rights reserved.",
+    "term.conditions": "Terms and Conditions",
+    "policy": "Privacy Policy"
+  },
+  "carousel": {
+    "item.one.title": "Software Solutions",
+    "item.one.description": "We offer efficient technology solutions, making use of the good practices required by the development of the current market.",
+    "item.two.title": "Resource Optimization",
+    "item.two.description": "It is in our philosophy to design, develop and implement solutions that optimize your company's software and hardware resources.",
+    "item.two.button": "Our services",
+    "item.three.title": "Custom design",
+    "item.three.description": "We understand that the needs of our customers are different, so it is important to analyze and design solutions that meet the requirements.",
+    "item.three.button": "Let's work together"
+  },
+  "us": {
+    "title": "Us",
+    "description": "We are a company that was born to give quick and efficient solutions to your business. We also implement the best design and development techniques. Optimization is a fundamental principle, which is why all our products and solutions are tailor-made, guaranteeing optimal use of available resources.",
+    "team": {
+      "title": "Work team.",
+      "title.description": "All for one!",
+      "description": "Our work team is responsible for Analyzing, Designing and Implementing the technology solutions required by our clients.",
+      "item.one": {
+        "title": "Development Methodologies",
+        "description": "We implement the agile development methodology <b> SCRUM </b> in our engineering and design projects; guaranteeing to deliver a product that generates value to your company and optimize your response times and improve the quality of your business."
+      },
+      "item.two": {
+        "title": "Development tools",
+        "description": "We make use of the best Development tools that currently exist, this facilitates the construction of the solutions. We use IDE's as they are:",
+        "ide.intellij": "IntelliJ IDEA",
+        "ide.eclipse": "Eclipse",
+        "ide.netbeans": "NetBeans",
+        "ide.visual": "Visual Studio"
+      },
+      "item.three": {
+        "title": "Technologies",
+        "description": "We design and build solutions with current market technologies. We use <b> Java </b>, <b> C # </b>, <b> JavaScript </b> and <b> TypeScript </b> development languages. We handle technologies in <b> MySQL </b>, <b> Oracle </b>, <b> PostgreSQL </b> and <b> Mongo DB </b> databases."
+      }
+    }
+  },
+  "optimization": {
+    "title": "Optimization",
+    "title.description": "for your business.",
+    "description": "Our technological products not only meet the client's requirements, in addition to this, the functionalities are optimized, which allows a better performance in the daily tasks performed with the solution implemented."
+  },
+  "design": {
+    "title": "Custom design.",
+    "title.description": "It fits the needs.",
+    "description": "Our products comply with the Analysis and Design phase, which allows us to deliver to our clients functional quality prototypes prior to the delivery of the final solution.",
+    "item.one": {
+      "title": "Product Analysis",
+      "description": "We analyze the problems of our customers to understand their needs and determine the product that best fits to contribute to the solution. We determine the functional and non-functional requirements of the solution."
+    },
+    "item.two": {
+      "title": "Solution Design",
+      "description": "We build the architecture of the solution prioritizing the optimization of the different processes that the product will perform. The use of the latest technologies are contemplated in the design of the final solution."
+    }
+  },
+  "services": {
+    "title": "Services",
+    "description": "We seek to offer a portfolio of services that cover the needs of society and industry. Our services are adapted to any industry requirement. Our plus are in the processes that each of our services performs.",
+    "service.one.title": "WEB DESIGN",
+    "service.one.description": "We implement technologies such as: <b> HTML5 </b>, <b> Css </b>, <b> Sass </b> and <b> JavaScript </b> to generate nice pages.",
+    "service.two.title": "WEB DEVELOPMENT",
+    "service.two.description": "<b> ASP.NET </b>, <b> Spring MVC </b> and the <b> Angular </b> framework in versions 6, 7 and 8 to generate enterprise web applications.",
+    "service.three.title": "MOBILE DEVELOPMENT",
+    "service.three.description": "We use the <b> Ionic </b> framework in versions 3 and 4 to generate applications that improve the user experience.",
+    "service.four.title": "ADMINISTRATION OF DATABASES",
+    "service.four.description": "Administration in database musts such as: <b> Oracle 11g and 12c </b>, <b> Sql Server </b>, <b> MySQL </b> and <b> PostgreSQL. </b>",
+    "service.five.title": "DEVELOPMENT IN PL-SQL",
+    "service.five.description": "Development of products in PL / SQL to implement these capabilities in the Oracle database engine.",
+    "service.six.title": "BACKUP POLICY IMPLEMENTATION",
+    "service.six.description": "Backups are essential for any business, they require solidity and this is consolidated through policies."
+  },
+  "why.us": {
+    "title": "Why choose us?",
+    "description": "We are new to the market and we seek to generate changes in the software industry, through solutions that contribute to a healthy development of society.",
+    "top.one.title": "OPTIMIZATION",
+    "top.one.description": "All the processes that are generated in our technology solutions optimize resources.",
+    "top.two.title": "SCALABILITY",
+    "top.two.description": "Our products and solutions are open to constant updates, without affecting quality.",
+    "top.three.title": "USER EXPERIENCE",
+    "top.three.description": "Our products improve the user experience by making application management simpler.",
+    "counter.title": "Statistics",
+    "counter.description": "According to our experience.",
+    "counter.one": "Development Hours",
+    "counter.two": "Happy customers",
+    "counter.three": "Finished projects",
+    "counter.four": "Innovation Projects"
+  },
+  "notfound": {
+    "title": "This page no longer exists.",
+    "description": "We couldn't find the page you were looking for.",
+    "description.solution": "Please try again later.",
+    "error.title.page": "404 - Not Found"
+  },
+  "legal": {
+    "term.conditions": {
+      "title": "Terms and Conditions",
+      "content": "<span class=\"badge badge-info\">Updated: May 05, 2020</span>\n<p><strong>RELEVANT INFORMATION</strong></p>\n<p>It is a necessary requirement for the acquisition of the products offered on this site, that you read and\n    Accept the following Terms and Conditions that are written below. The use of our\n    services as well as the purchase of our products will imply that you have read and accepted the\n    Terms and Conditions of Use in this document. All products &nbsp; that are offered\n    through our website could be created, charged, sent or submitted by a web page\n    third and in that case they would be subject to their own Terms and Conditions. In some cases, for\n    acquiring a product, registration by the user will be necessary, with data entry\n    Reliable personnel and definition of a password.</p>\n<p>The user can choose and change the password for their account administration access in\n    any time, in case you have registered and that is necessary for the purchase of any of\n    our products. AcquaBoard does not assume responsibility in case\n    deliver this key to third parties.</p>\n<p>All purchases and transactions carried out through this website are subject to\n    a confirmation and verification process, which could include stock verification and\n    product availability, payment method validation, invoice validation (in case of\n    exist) and compliance with the conditions required by the selected payment method. In\n    Some cases may require verification by email.</p>\n<p>The prices of the products offered in this Online Store is valid only in purchases\n    made on this website.</p>\n<p><strong>LICENSE</strong></p>\n<p>AcquaBoard &nbsp; Through its website it grants a license for users to use &nbsp;\n    the products that are sold on this website according to the Terms and Conditions that are\n    described in this document.</p>\n<p><strong>UNAUTHORIZED USE</strong></p>\n<p>If applicable (for software, temple sales, or other design product and\n    programming) you cannot place one of our products, modified or unmodified, in a\n    CD, website or any other means and offer them for redistribution or resale of any\n    type.</p>\n<p><strong>PROPERTY</strong></p>\n<p>You cannot declare intellectual or exclusive property to any of our products,\n    modified or unmodified. All products are property of the suppliers of the\n    content. In case you do not specify otherwise, our products are provided &nbsp;\n    without any warranty, express or implied. In no way will this company be responsible for\n    no damage including, but not limited to, direct, indirect, special, incidental or consequential damages\n    consequential or other losses resulting from the use or inability to use our\n    products.</p>\n<p><strong>REFUND AND GUARANTEE POLICY</strong></p>\n<p>In the case of products that are &nbsp; irrevocable non-tangible goods, we do not perform\n    Refunds after the product is shipped, you have the responsibility to understand before\n    buy. &nbsp; We ask that you read carefully before buying it. We only make exceptions\n    with this rule when the description does not fit the product. There are some products that could\n    have guarantee and possibility of refund but this will be specified when buying the product. In\n    such cases the warranty will only cover factory faults and will only become effective when the product is\n    have used correctly. The warranty does not cover breakdowns or damage caused by misuse. The\n    warranty terms are associated with manufacturing and operation failures in conditions\n    normal of the products and these terms will only become effective if the equipment has been used\n    correctly. This includes:</p>\n<p>– According to the technical specifications indicated for each product. <br> - Under conditions\n    environmental standards according to the specifications indicated by the manufacturer. <br> - In specific use for\n    the function with which it was designed at the factory. <br> - Under electrical operating conditions in accordance\n    with\n    the specifications and tolerances indicated.</p>\n<p><strong>ANTI-FRAUD CHECK</strong></p>\n<p>The customer's purchase can be postponed for the anti-fraud check. Can also be\n    suspended for longer for more rigorous investigation, to avoid transactions\n    fraudulent</p>\n<p><strong>PRIVACY</strong></p>\n<p>This <a href=\"http://acquaboard.ml\" target=\"_blank\">web site</a> guarantees that personal information\n    that you send has the\n    necessary security. The data entered by user or in the case of requiring a validation of the\n    Orders will not be delivered to third parties, unless it must be disclosed in compliance with an order\n    judicial or legal requirements.</p>\n<p>Subscription to advertising email newsletters is voluntary and could be\n    selected at the time of creating your account.</p>\n<p>AcquaBoard reserves the right to change or modify these terms without prior notice.</p>\n"
+    },
+    "polity-privacy": {
+      "title": "Privacy Policy",
+      "content": "<span class=\"badge badge-info\">Updated: May 05, 2020</span>\n<p>This Privacy Policy establishes the terms in which AcquaBoard uses and protects the\n    information that is provided by its users when using its website. This company\n    It is committed to the security of its users' data. When we ask you to fill in the fields\n    of personal information with which you can be identified, we do it by ensuring that you only\n    will use in accordance with the terms of this document. However this Privacy Policy\n    It may change over time or be updated so we recommend and emphasize review\n    continuously this page to make sure you agree with those changes.</p>\n<p><strong>Information that is collected</strong></p>\n<p>Our website may collect personal information such as: Name, &nbsp; information of\n    contact as &nbsp; Your email address and demographic information. Likewise when\n    if necessary, specific information may be required to process an order or make a\n    delivery or billing.</p>\n<p><strong>Use of the information collected</strong></p>\n<p>Our website uses the information in order to provide the best possible service,\n    particularly to keep a record of users, of orders if applicable, and to improve\n    Our products and services. & nbsp; Emails may be sent\n    periodically through our site with special offers, new products and other information\n    advertising that we consider relevant to you or that can provide you with some benefit, these\n    Emails will be sent to the address you provide and may be canceled at\n    any moment.</p>\n<p>AcquaBoard is highly committed to fulfill the commitment to maintain its\n    secure information. We use the most advanced systems and constantly update them to\n    make sure there is no unauthorized access.</p>\n<p><strong>Cookies</strong></p>\n<p>A cookie refers to a file that is sent for the purpose of requesting permission to\n    be stored on your computer, accepting that file is created and the cookie is then used to have\n    information regarding web traffic, and also facilitates future visits to a recurring website.\n    Another function that cookies have is that with them the websites can recognize you individually and\n    therefore provide you with the best personalized service on your website.</p>\n<p>Our website uses cookies to identify the pages that are visited and their\n    frequency. This information is used only for statistical analysis and then the\n    Information is permanently deleted. You can delete cookies at any time\n    from your computer. However cookies help to provide a better service of the sites\n    web, you are not giving access to information from your computer or from you, unless you do so\n    want and provide it directly, <a href=\"https://custommapposter.com/es/\" target=\"_blank\">visits\n        to a web </a>. You can accept or deny the use of cookies, however most of\n    Browsers accept cookies automatically as it serves to have a better web service. As well\n    You can change your computer settings to decline cookies. If they decline it is\n    You may not be able to use some of our services.</p>\n<p><strong>Third Party Links</strong></p>\n<p>This website may contain links to other sites that may be of interest to you. Once\n    you click on these links and leave our page, we no longer have control over the site at\n    which is redirected and therefore we are not responsible for the terms or privacy or the\n    protection of your data on those other third party sites. These sites are subject to their own\n    privacy policies so it is advisable to consult them to confirm that you are\n    Agree with these.</p>\n<p><strong>Control of your personal information</strong></p>\n<p>At any time you may restrict the collection or use of personal information that\n    is provided to our website. &nbsp; Each time you are asked to fill out a form, such as\n    the user registration, you can check or uncheck the option to receive information by mail\n    electronic. &nbsp; In case you have marked the option to receive our newsletter or advertising\n    You can cancel it at any time.</p>\n<p>This company will not sell, assign or distribute personal information that is collected without your\n    consent, unless required by a judge with a court order.</p>\n<p>AcquaBoard reserves the right to change the terms of this Privacy Policy anytime.</p>"
+    }
+  }
+}

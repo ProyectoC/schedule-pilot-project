@@ -44,10 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public final static String ALL_RESOURCES = "/*";
 
-    private final List<String> allowedHeaders = new ArrayList<String>() {{
-        add("*");
-    }};
-
     @Autowired
     private UserAccountService userAccountService;
 
@@ -103,7 +99,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().disable()
                 .httpBasic().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .cors().configurationSource(corsConfigurationSource()).and()
                 .authorizeRequests()
                 .antMatchers(SecurityUtil.SING_HOST_REST_DEFAULT).permitAll()
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.CREATE_USER_ACCOUNT_REST).permitAll()
@@ -131,41 +126,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .failureHandler(oAuth2AuthenticationFailureHandler);
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-    }
-
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        List<String> allowedOrigins = new ArrayList<>();
-        allowedOrigins.add("*");
-
-        LOGGER.info("Allowed origins, angular app domain {}", allowedOrigins);
-        List<String> headers = buildAllowedHeaders();
-
-        CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOrigins(allowedOrigins);
-        corsConfig.setAllowedMethods(
-                Arrays.asList(HttpMethod.OPTIONS.name(), HttpMethod.GET.name(), HttpMethod.POST.name(),
-                        HttpMethod.PUT.name(), HttpMethod.DELETE.name()));
-        corsConfig.setAllowedHeaders(headers);
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration(ALL_RESOURCES, corsConfig);
-
-        return source;
-    }
-
-    private List<String> buildAllowedHeaders() {
-        List<String> headers = new ArrayList<>();
-        headers.addAll(
-                Arrays.asList(HttpHeaders.ACCEPT, HttpHeaders.ACCEPT_ENCODING, HttpHeaders.ACCEPT_LANGUAGE,
-                        HttpHeaders.CACHE_CONTROL, HttpHeaders.CONNECTION, HttpHeaders.CONTENT_LENGTH,
-                        HttpHeaders.CONTENT_TYPE, HttpHeaders.HOST, HttpHeaders.ORIGIN, HttpHeaders.PRAGMA,
-                        HttpHeaders.REFERER, HttpHeaders.USER_AGENT, HttpHeaders.AUTHORIZATION));
-
-        if (!StringUtils.isEmpty(this.allowedHeaders)) {
-            headers.addAll(this.allowedHeaders);
-        }
-        LOGGER.info("Allowed headers, angular app domain {}", headers);
-        return headers;
     }
 }

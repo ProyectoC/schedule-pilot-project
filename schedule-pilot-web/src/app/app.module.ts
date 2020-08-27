@@ -10,6 +10,9 @@ import { FooterModule } from './shared/footer/footer.module';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component';
 
+//Service
+import { ScrollTopService } from '@services/scroll-top/scroll-top.service';
+
 // Translate
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {
@@ -29,6 +32,7 @@ import { GlobalErrorHandler } from '@services/global-error/global-error.handler.
 
 // HTTP Interceptor
 import { AuthInterceptor } from '@services/http-interceptor/auth-interceptor.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, PublicLayoutComponent, PrivateLayoutComponent],
@@ -47,13 +51,14 @@ import { AuthInterceptor } from '@services/http-interceptor/auth-interceptor.ser
     AppRoutingModule,
     HeaderMenuModule,
     FooterModule,
+    NgbModule,
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AuthGuard,
-    NoAuthGuard,
+    NoAuthGuard, ScrollTopService
   ],
   bootstrap: [AppComponent],
 })

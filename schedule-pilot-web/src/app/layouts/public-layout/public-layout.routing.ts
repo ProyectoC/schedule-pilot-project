@@ -9,8 +9,8 @@ const routers: Routes = [
     redirectTo: 'auth',
     pathMatch: 'full',
   },
-  { path: 'auth', component: AuthenticationComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'auth', component: AuthenticationComponent, data: { title: 'Auth | SchedulePilot' } },
+  { path: 'register', component: RegisterComponent, data: { title: 'Register | SchedulePilot' } },
 ];
 
 @NgModule({

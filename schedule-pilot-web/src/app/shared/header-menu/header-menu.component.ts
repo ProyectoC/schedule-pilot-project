@@ -20,9 +20,9 @@ export class HeaderMenuComponent implements OnInit {
 
   public publicMenu = [
     { id: 0, name: 'header.home', url: '/home-carousel' },
-    { id: 1, name: 'header.register', url: '/register' },
-    { id: 2, name: 'header.forgot-password', url: '/forgot-password' },
-    { id: 3, name: 'header.login', url: '/login' },
+    { id: 1, name: 'header.register', url: '/public/register' },
+    { id: 2, name: 'header.forgot-password', url: '/public/forgot-password' },
+    { id: 3, name: 'header.login', url: '/public/auth' },
   ];
   
   constructor(

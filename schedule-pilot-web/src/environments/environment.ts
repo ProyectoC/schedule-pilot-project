@@ -20,7 +20,7 @@ export const environment = {
       'label.remember.password': 'Recordar contraseña',
       'label.forgot.password': '¿Olvidaste tu nombre de usuario o contraseña?',
       'label.register': '¿No tienes cuenta? Regístrate',
-      'login.message.incorrect': 'Usuario y/o contraseña no validos.'
+      'login.message.incorrect': 'Usuario y/o contraseña no validos.',
     },
     header: {
       'logo': '../../assets/images/common/kentaurus-logo.png',

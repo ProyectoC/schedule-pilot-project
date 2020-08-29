@@ -7,15 +7,13 @@ export class RoutingConstants {
   static readonly URL_PRIVATE_LAYOUT: string = '/' + RoutingConstants.ROUTING_URL_PRIVATE_LAYOUT;
 
   static readonly ROUTING_URL_AUTHENTICATION: string = 'auth';
-  static readonly URL_AUTHENTICATION = RoutingConstants.URL_PUBLIC_LAYOUT + '/' + RoutingConstants.ROUTING_URL_AUTHENTICATION;
+  static readonly URL_AUTHENTICATION: string = RoutingConstants.URL_PUBLIC_LAYOUT + '/' + RoutingConstants.ROUTING_URL_AUTHENTICATION;
   
   static readonly ROUTING_URL_REGISTER: string = 'register';
-  static readonly URL_REGISTER = '/' + RoutingConstants.ROUTING_URL_REGISTER;
+  static readonly URL_REGISTER: string = '/' + RoutingConstants.ROUTING_URL_REGISTER;
   
-
-
-  static ROUTING_URL_HOME: string = 'home';
-  static URL_HOME: string = '/private/home';
+  static readonly ROUTING_URL_HOME: string = 'home';
+  static readonly URL_HOME: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_HOME;
   
 
   static URL_MENU_HOME = '/home-carousel';

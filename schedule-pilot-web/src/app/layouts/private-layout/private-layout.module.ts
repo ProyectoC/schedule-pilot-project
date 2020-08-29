@@ -6,12 +6,12 @@ import { PrivateLayoutRouting } from './private-layout.routing';
 
 import { HomeComponent } from '../../pages/home/home.component';
 
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
-    // NgbModule
+    NgbModule,
     FormsModule,
     PrivateLayoutRouting,
   ],

@@ -14,12 +14,12 @@ export class AppComponent {
   public activeLang = 'es';
 
   constructor(
-    private translate: TranslateService,
+    private translateService: TranslateService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title
   ) {
-    this.translate.setDefaultLang(this.activeLang);
+    this.translateService.setDefaultLang(this.activeLang);
   }
 
   ngOnInit() {

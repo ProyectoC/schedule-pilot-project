@@ -7,14 +7,16 @@ import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/no-auth.guard';
 
+import { RoutingConstants } from '@constants/routing-constants';
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'public',
+    redirectTo: RoutingConstants.ROUTING_URL_PUBLIC_LAYOUT,
     pathMatch: 'full',
   },
   {
-    path: 'public',
+    path: RoutingConstants.ROUTING_URL_PUBLIC_LAYOUT,
     component: PublicLayoutComponent,
     children: [
       {
@@ -24,7 +26,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'private',
+    path: RoutingConstants.ROUTING_URL_PRIVATE_LAYOUT,
     component: PrivateLayoutComponent,
     children: [
       {

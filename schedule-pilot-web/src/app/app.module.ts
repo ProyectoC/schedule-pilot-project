@@ -10,7 +10,7 @@ import { FooterModule } from './shared/footer/footer.module';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component';
 
-//Service
+//Services
 import { ScrollTopService } from '@services/scroll-top/scroll-top.service';
 
 // Translate

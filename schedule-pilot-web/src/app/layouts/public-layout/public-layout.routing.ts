@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationComponent } from '../../pages/authentication/authentication.component';
 import { RegisterComponent } from '../../pages/register/register.component';
+import { RoutingConstants } from '@constants/routing-constants';
 
 const routers: Routes = [
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: RoutingConstants.ROUTING_URL_AUTHENTICATION,
     pathMatch: 'full',
   },
-  { path: 'auth', component: AuthenticationComponent, data: { title: 'Auth | SchedulePilot' } },
-  { path: 'register', component: RegisterComponent, data: { title: 'Register | SchedulePilot' } },
+  { path: RoutingConstants.ROUTING_URL_AUTHENTICATION, component: AuthenticationComponent, data: { title: 'Auth | SchedulePilot' } },
+  { path: RoutingConstants.ROUTING_URL_REGISTER, component: RegisterComponent, data: { title: 'Register | SchedulePilot' } },
 ];
 
 @NgModule({

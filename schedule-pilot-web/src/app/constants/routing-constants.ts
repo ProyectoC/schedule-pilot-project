@@ -48,8 +48,9 @@ export class RoutingConstants {
   static URL_REPORT_NOTIFICATIONS: string = '/notifications';
   static ROUTING_URL_NOTIFICATIONS: string = 'notifications';
 
-  static URL_ERROR: string = '/error';
-  static ROUTING_URL_ERROR: string = 'error';
+  static readonly ROUTING_URL_ERROR: string = 'error';
+  static readonly URL_ERROR: string = '/' + RoutingConstants.ROUTING_URL_ERROR;
+  
 
   static URL_PAGE_NOT_FOUND = '**';
 

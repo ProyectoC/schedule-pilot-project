@@ -12,6 +12,7 @@ import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.
 
 //Services
 import { ScrollTopService } from '@services/scroll-top/scroll-top.service';
+import { AuthenticationService } from '@services/authentication/authentication.service'
 
 // Translate
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -58,7 +59,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AuthGuard,
-    NoAuthGuard, ScrollTopService
+    NoAuthGuard, ScrollTopService, AuthenticationService
   ],
   bootstrap: [AppComponent],
 })

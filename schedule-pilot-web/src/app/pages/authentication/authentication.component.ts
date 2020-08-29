@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Response } from '@models/response';
-import * as CommonConst from '@constants/common';
-import * as HeaderConst from '@constants/header-menu';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorResponse } from '@models/error-response';
@@ -12,6 +10,8 @@ import { ScrollTopService } from '@services/scroll-top/scroll-top.service';
 import { MessagesService } from '@services/messages/message.service';
 import { environment } from '@env/environment';
 import { Validations } from '@utils/forms/validations';
+import { CommonConstants } from '@constants/common-constants';
+import { RoutingConstants } from '@constants/routing-constants';
 
 @Component({
   selector: 'app-authentication',
@@ -22,7 +22,6 @@ export class AuthenticationComponent implements OnInit {
   public authForm: FormGroup;
   public properties: any;
   public variables: any;
-  public urls: any;
   public isLoadingForm: boolean;
   public labelButtonLogin: string;
 
@@ -38,13 +37,16 @@ export class AuthenticationComponent implements OnInit {
     this.authForm = this.createForm();
     this.properties = environment.components.login;
     this.variables = environment;
-    this.urls = HeaderConst;
     this.loadingForm(false);
     this.validations = Validations;
   }
 
   ngOnInit(): void {
     this.scrollTop.setScrollTop();
+  }
+
+  get routingConstants() {
+    return RoutingConstants
   }
 
   private createForm() {
@@ -54,6 +56,8 @@ export class AuthenticationComponent implements OnInit {
       rememberPassword: false,
     });
   }
+
+  
 
   trackByFn(index, item) {
     return item.id;
@@ -83,8 +87,8 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.loginUser(user).subscribe(
       (bodyResponse: Response) => {
         this.loadingForm(false);
-        if (bodyResponse.code === CommonConst.SUCCESS_CODE) {
-          this.router.navigate([HeaderConst.URL_HOME]).then(() => {});
+        if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+          this.router.navigate([RoutingConstants.URL_HOME]).then(() => {});
         } else {
           this.messageService.generateErrorMessage(
             'Error Autenticación Normal',

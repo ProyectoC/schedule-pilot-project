@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import * as LoginConst from '../../constants/login';
-import * as CommonConst from '../../constants/common';
-import { Response } from '../../models/response';
-import { Login } from '../../models/login';
+import { Response } from '@models/response';
+import { Login } from '@models/login';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
 import * as UrlServicesConst from '../../url-services/url-services';
 import { catchError, map } from 'rxjs/operators';
 import { GlobalErrorHandler } from '@services/global-error/global-error.handler.service';
+import { CommonConstants } from '@constants/common-constants';
+import { LocalStorageConstants } from '@constants/local-storage-constants';
 
 @Injectable({
   providedIn: 'root',
@@ -29,8 +29,8 @@ export class AuthenticationService {
   public loginUser(data: Login): Observable<Response> {
     return this.http.post<any>(`${this.URL}${UrlServicesConst.SERVICE_LOGIN}`, data)
       .pipe(map(bodyResponse => {
-        if (bodyResponse.code === CommonConst.SUCCESS_CODE) {
-          localStorage.setItem(LoginConst.USER_SESSION, JSON.stringify(bodyResponse.result));
+        if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+          localStorage.setItem(LocalStorageConstants.USER_SESSION, JSON.stringify(bodyResponse.result));
           // localStorage.setItem(CommonConst.CLIENTS_SESSION, JSON.stringify(bodyResponse.result.clientsList));
           // localStorage.setItem(CommonConst.USERS_SESSION, JSON.stringify(bodyResponse.result.usersList));
           // localStorage.setItem(CommonConst.STATUS_SESSION, JSON.stringify(bodyResponse.result.statusList));
@@ -45,7 +45,7 @@ export class AuthenticationService {
   }
 
   public get isLoggedIn() {
-    const userAuth = JSON.parse(localStorage.getItem(LoginConst.USER_SESSION));
+    const userAuth = JSON.parse(localStorage.getItem(LocalStorageConstants.USER_SESSION));
     if (userAuth === null) {
       this.loggedIn.next(false);
       return this.loggedIn.asObservable();
@@ -56,7 +56,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    localStorage.removeItem(LoginConst.USER_SESSION);
+    localStorage.removeItem(LocalStorageConstants.USER_SESSION);
     this.loggedIn.next(false);
   }
 }

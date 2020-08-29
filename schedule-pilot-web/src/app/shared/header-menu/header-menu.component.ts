@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import * as HeaderConst from '@constants/header-menu';
+import { RoutingConstants } from '@constants/routing-constants';
 
 @Component({
   selector: 'app-header-menu',
@@ -56,7 +56,7 @@ export class HeaderMenuComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate([HeaderConst.URL_LOGIN]).then(() => {
+    this.router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {
     });
   }
 }

@@ -10,7 +10,7 @@ const routers: Routes = [
     redirectTo: RoutingConstants.ROUTING_URL_AUTHENTICATION,
     pathMatch: 'full',
   },
-  { path: RoutingConstants.ROUTING_URL_AUTHENTICATION, component: AuthenticationComponent, data: { title: 'Auth | SchedulePilot' } },
+  { path: RoutingConstants.ROUTING_URL_AUTHENTICATION, component: AuthenticationComponent, data: { title: 'menu.name | translate' } },
   { path: RoutingConstants.ROUTING_URL_REGISTER, component: RegisterComponent, data: { title: 'Register | SchedulePilot' } },
 ];
 

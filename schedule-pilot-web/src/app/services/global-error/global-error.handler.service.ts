@@ -1,8 +1,8 @@
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import * as HeaderConst from '../../constants/header-menu';
 import { throwError } from 'rxjs';
+import { RoutingConstants } from '@constants/routing-constants';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
@@ -18,13 +18,13 @@ export class GlobalErrorHandler implements ErrorHandler {
       console.error('Backend returned status code:', error.status);
       console.error('Response body: ', error.message);
       if (error && error.status === 401) {
-        router.navigate([HeaderConst.URL_LOGIN]).then(() => {
+        router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {
         });
       }
     } else {
       console.error('And error ocurred:', error);
     }
-    router.navigate([HeaderConst.URL_ERROR]).then(() => {
+    router.navigate([RoutingConstants.URL_ERROR]).then(() => {
     });
   }
 

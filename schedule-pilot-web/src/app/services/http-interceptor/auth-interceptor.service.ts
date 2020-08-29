@@ -1,14 +1,14 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import * as HeaderConst from '../../constants/header-menu';
 import * as UrlTokenServicesCompanyConst from '../../url-services/url-services-token-company';
-import * as LoginConst from '../../constants/login';
 import { map, catchError, retry } from 'rxjs/operators';
 import { GlobalErrorHandler } from '../global-error/global-error.handler.service';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication/authentication.service';
-import { environment } from '../../../environments/environment';
+import { AuthenticationService } from '@services/authentication/authentication.service';
+import { environment } from '@env/environment';
+import { LocalStorageConstants } from '@constants/local-storage-constants';
+import { RoutingConstants } from '@constants/routing-constants';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -33,18 +33,18 @@ export class AuthInterceptor implements HttpInterceptor {
       retries = 0;
     } else {
       // Token User
-      const usuarioAutentificado = JSON.parse(localStorage.getItem(LoginConst.USER_SESSION));
-      if (usuarioAutentificado) {
+      const authUSer = JSON.parse(localStorage.getItem(LocalStorageConstants.USER_SESSION));
+      if (authUSer) {
         req = req.clone({
           setHeaders: {
-            'Authorization': 'Bearer ' + usuarioAutentificado.token,
+            'Authorization': 'Bearer ' + authUSer.token,
             'Content.Type': 'application/json',
             'Accept': 'application/json'
           }
         });
         retries = 2;
       } else {
-        this.router.navigate([HeaderConst.URL_LOGIN]);
+        this.router.navigate([RoutingConstants.URL_AUTHENTICATION]);
       }
     }
     return next.handle(req).pipe(retry(retries),
@@ -61,7 +61,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate([HeaderConst.URL_LOGIN]).then(() => {
+    this.router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {
     });
   }
 

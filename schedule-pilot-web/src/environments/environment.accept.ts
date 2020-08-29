@@ -16,7 +16,7 @@ export const environment = {
       'label.remember.password': 'Recordar contraseña',
       'label.forgot.password': '¿Olvidaste tu nombre de usuario o contraseña?',
       'label.register': '¿No tienes cuenta? Regístrate',
-      'login.message.incorrect': 'Usuario y/o contraseña no validos.',
+      'login.message.incorrect': 'Usuario y/o contraseña no validos.'
     },
     header: {
       'logo': '../../assets/images/common/kentaurus-logo.png',
@@ -49,7 +49,7 @@ export const environment = {
     },
   },
   services: {
-    'end.point': 'http://localhost:8080/api/v1',
+    'end.point': 'http://localhost:8082/api/v1',
     'current.url.app': 'http://localhost:4200/#',
     'content.type': 'application/json',
     // 'token.company': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOiJ3ZWJfY2xpZW50IiwiaG9zdCI6IndlYl9ob3N0IiwiY3JlYXRlZF9hdCI6MTU4Mzk4MDcxOSwiaWRfdHlwZSI6InVzZXJfaG9zdF9jdXN0b21lciIsImV4cCI6MTYxNTUxNjcxOX0.2YasL9jwclDu-EAq-3aL8Te6GuDyDTvJwdvcIy5ok6k'
@@ -97,12 +97,3 @@ export const environment = {
     }
   }
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

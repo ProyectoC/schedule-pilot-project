@@ -1,10 +1,13 @@
 export class RoutingConstants {
   // Layouts
   static readonly ROUTING_URL_PUBLIC_LAYOUT: string = 'public';
+  static readonly URL_PUBLIC_LAYOUT: string = '/' + RoutingConstants.ROUTING_URL_PUBLIC_LAYOUT;
+
   static readonly ROUTING_URL_PRIVATE_LAYOUT: string = 'private';
+  static readonly URL_PRIVATE_LAYOUT: string = '/' + RoutingConstants.ROUTING_URL_PRIVATE_LAYOUT;
 
   static readonly ROUTING_URL_AUTHENTICATION: string = 'auth';
-  static readonly URL_AUTHENTICATION = '/' + RoutingConstants.ROUTING_URL_PUBLIC_LAYOUT + '/' + RoutingConstants.ROUTING_URL_AUTHENTICATION;
+  static readonly URL_AUTHENTICATION = RoutingConstants.URL_PUBLIC_LAYOUT + '/' + RoutingConstants.ROUTING_URL_AUTHENTICATION;
   
   static readonly ROUTING_URL_REGISTER: string = 'register';
   static readonly URL_REGISTER = '/' + RoutingConstants.ROUTING_URL_REGISTER;

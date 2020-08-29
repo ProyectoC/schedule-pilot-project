@@ -3,12 +3,12 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'app/services/authentication/authentication.service';
 import { map, take } from 'rxjs/operators';
+import { RoutingConstants } from '@constants/routing-constants';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate {
       take(1),
       map((isLoggedIn: boolean) => {
         if (!isLoggedIn) {
-          this.router.navigate(['/public']);
+          this.router.navigate([RoutingConstants.URL_PUBLIC_LAYOUT]);
           return false;
         }
         return true;

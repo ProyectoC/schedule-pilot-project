@@ -9,6 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'app/services/authentication/authentication.service';
 import { map, take } from 'rxjs/operators';
+import { RoutingConstants } from '@constants/routing-constants';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +30,7 @@ export class NoAuthGuard implements CanActivate {
         if (!isLoggedIn) {
           return true;
         } else {
-          this.router.navigate(['/private']);
+          this.router.navigate([RoutingConstants.URL_PRIVATE_LAYOUT]);
           return false;
         }
       })

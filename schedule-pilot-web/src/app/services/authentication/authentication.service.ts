@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Response } from '@models/response';
-import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '@env/environment';
-import * as UrlServicesConst from '../../url-services/url-services';
 import { catchError, map } from 'rxjs/operators';
 import { GlobalErrorHandler } from '@services/global-error/global-error.handler.service';
 import { CommonConstants } from '@constants/common-constants';
@@ -12,6 +10,7 @@ import { LocalStorageConstants } from '@constants/local-storage-constants';
 import { ErrorResponse } from '@models/error-response';
 import { AuthenticationMessageService } from '@services/messages/authentication.message.service';
 import { AuthUser } from '@models/auth-user';
+import { EndPointsHttpConstants } from '@constants/end-points-http-constants';
 
 @Injectable({
   providedIn: 'root',
@@ -21,10 +20,10 @@ export class AuthenticationService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
-  public URL: string = environment.services['end.point'];
+  public apiScheduleEndPoint: string =
+    environment.apis['schedule-api']['end.point'];
 
   constructor(
-    private router: Router,
     public httpClient: HttpClient,
     private authenticationMessageService: AuthenticationMessageService
   ) {
@@ -34,22 +33,24 @@ export class AuthenticationService {
   public authenticateUser(data: AuthUser): Observable<Response> {
     this.isLoading = true;
     return this.httpClient
-      .post<any>(`${this.URL}${UrlServicesConst.SERVICE_LOGIN}`, data)
+      .post<any>(
+        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_AUTHENTICATION}`,
+        data
+      )
       .pipe(
         map((bodyResponse) => {
+          this.isLoading = false;
           if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
             localStorage.setItem(
               LocalStorageConstants.USER_SESSION,
               JSON.stringify(bodyResponse.result)
             );
-            this.isLoading = false;
             return bodyResponse;
           } else {
             this.authenticationMessageService.generalErrorAuthentication(
               bodyResponse.description
             );
           }
-          this.isLoading = false;
           return bodyResponse;
         }),
         catchError((err) => {

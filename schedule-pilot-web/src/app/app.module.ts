@@ -1,18 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 
+// Modules
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderMenuModule } from './shared/header-menu/header-menu.module';
 import { FooterModule } from './shared/footer/footer.module';
 
+// Components
+import { AppComponent } from './app.component';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component';
 
 //Services
 import { ScrollTopService } from '@services/scroll-top/scroll-top.service';
-import { AuthenticationService } from '@services/authentication/authentication.service'
+import { AuthenticationService } from '@services/authentication/authentication.service';
 
 // Translate
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -33,7 +35,6 @@ import { GlobalErrorHandler } from '@services/global-error/global-error.handler.
 
 // HTTP Interceptor
 import { AuthInterceptor } from '@services/http-interceptor/auth-interceptor.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, PublicLayoutComponent, PrivateLayoutComponent],
@@ -59,7 +60,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AuthGuard,
-    NoAuthGuard, ScrollTopService, AuthenticationService
+    NoAuthGuard,
+    ScrollTopService,
+    AuthenticationService,
   ],
   bootstrap: [AppComponent],
 })

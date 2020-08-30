@@ -12,7 +12,6 @@ import { RoutingConstants } from '@constants/routing-constants';
   styleUrls: ['./header-menu.component.scss'],
 })
 export class HeaderMenuComponent implements OnInit {
-
   public properties: any;
   public isExpanded = false;
   public activeLang = 'es';
@@ -24,7 +23,7 @@ export class HeaderMenuComponent implements OnInit {
     { id: 2, name: 'header.forgot-password', url: '/public/forgot-password' },
     { id: 3, name: 'header.login', url: '/public/auth' },
   ];
-  
+
   constructor(
     private translate: TranslateService,
     private authenticationService: AuthenticationService,
@@ -56,7 +55,6 @@ export class HeaderMenuComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {
-    });
+    this.router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {});
   }
 }

@@ -26,11 +26,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [HeaderMenuComponent],
   exports: [HeaderMenuComponent],
 })
-export class HeaderMenuModule { 
-    static forRoot(): any {
-        return {
-            ngModule: HeaderMenuModule,
-            providers: []
-        };
-    }
+export class HeaderMenuModule {
+  static forRoot(): any {
+    return {
+      ngModule: HeaderMenuModule,
+      providers: [],
+    };
+  }
 }

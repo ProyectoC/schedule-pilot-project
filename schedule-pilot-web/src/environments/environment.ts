@@ -1,5 +1,17 @@
 export const environment = {
   production: false,
+  apis: {
+    "schedule-api": {
+      "end.point": "http://localhost:8080/api/v1"
+    }
+  },
+  services: {
+    'end.point': 'http://localhost:8080/api/v1',
+    'current.url.app': 'http://localhost:4200/#',
+    'content.type': 'application/json',
+    // 'token.company': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOiJ3ZWJfY2xpZW50IiwiaG9zdCI6IndlYl9ob3N0IiwiY3JlYXRlZF9hdCI6MTU4Mzk4MDcxOSwiaWRfdHlwZSI6InVzZXJfaG9zdF9jdXN0b21lciIsImV4cCI6MTYxNTUxNjcxOX0.2YasL9jwclDu-EAq-3aL8Te6GuDyDTvJwdvcIy5ok6k'
+    'token.company': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOiJ3ZWJfY2xpZW50IiwiaG9zdCI6IndlYl9ob3N0IiwiY3JlYXRlZF9hdCI6MTU4NzQ5MjQ3OCwiaWRfdHlwZSI6InVzZXJfaG9zdF9jdXN0b21lciIsImV4cCI6MTYxOTAyODQ3OH0.smK9RAtTGOebkdxOHpCyHfCDmxvrncel8tGd34HuyiE'
+  },
   components: {
     header: {
       'logo': '../../assets/images/common/kentaurus-logo.png',
@@ -30,13 +42,6 @@ export const environment = {
       'message.no.dashboards': 'Aun no tienes calificaciones!',
       'url.image.no.dashboards': '../../assets/imgs/no-dashboards.png',
     },
-  },
-  services: {
-    'end.point': 'http://localhost:8080/api/v1',
-    'current.url.app': 'http://localhost:4200/#',
-    'content.type': 'application/json',
-    // 'token.company': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOiJ3ZWJfY2xpZW50IiwiaG9zdCI6IndlYl9ob3N0IiwiY3JlYXRlZF9hdCI6MTU4Mzk4MDcxOSwiaWRfdHlwZSI6InVzZXJfaG9zdF9jdXN0b21lciIsImV4cCI6MTYxNTUxNjcxOX0.2YasL9jwclDu-EAq-3aL8Te6GuDyDTvJwdvcIy5ok6k'
-    'token.company': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOiJ3ZWJfY2xpZW50IiwiaG9zdCI6IndlYl9ob3N0IiwiY3JlYXRlZF9hdCI6MTU4NzQ5MjQ3OCwiaWRfdHlwZSI6InVzZXJfaG9zdF9jdXN0b21lciIsImV4cCI6MTYxOTAyODQ3OH0.smK9RAtTGOebkdxOHpCyHfCDmxvrncel8tGd34HuyiE'
   },
   common: {
     select: {

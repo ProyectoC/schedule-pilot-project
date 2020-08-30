@@ -1,5 +1,10 @@
 export const environment = {
   production: true,
+  apis: {
+    "schedule-api": {
+      "end.point": "http://192.168.120.45:8080/api/v1"
+    }
+  },
   components: {
     login: {
       'title': 'Login | AcquaBoard',

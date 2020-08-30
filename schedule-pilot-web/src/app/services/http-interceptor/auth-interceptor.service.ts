@@ -9,6 +9,7 @@ import { AuthenticationService } from '@services/authentication/authentication.s
 import { environment } from '@env/environment';
 import { LocalStorageConstants } from '@constants/local-storage-constants';
 import { RoutingConstants } from '@constants/routing-constants';
+import { EndPointsHttpConstants } from '@constants/end-points-http-constants';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -20,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let retries = 0;
-    if (this.validateUrlWithTokenCompany(req.url)) {
+    if (this.isEndPointServicePublic(req.url)) {
       // Token Company
       const tokenCompany = environment.services['token.company'];
       req = req.clone({
@@ -65,14 +66,14 @@ export class AuthInterceptor implements HttpInterceptor {
     });
   }
 
-  validateUrlWithTokenCompany(url: string): boolean {
-    const endPoint = environment.services['end.point'];
-    for (let i = 0; i < this.urlTokensCompany.length; i++) {
-      const serviceTemp = endPoint + this.urlTokensCompany[i];
+  isEndPointServicePublic(url: string): boolean {
+    const scheduleApiEndPoint = environment.apis["schedule-api"]["end.point"];
+    EndPointsHttpConstants.PUBLIC_SERVICES.forEach(publicServiceTemp =>{
+      const serviceTemp = scheduleApiEndPoint + publicServiceTemp;
       if (url === serviceTemp) {
         return true;
       }
-    }
+    });
     return false;
   }
 }

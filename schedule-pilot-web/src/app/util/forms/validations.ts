@@ -1,7 +1,6 @@
 import { FormControl, FormGroup } from '@angular/forms';
 
 export class Validations {
-
   static isValidCheck(field: string, formGroup: FormGroup) {
     if (!formGroup.get(field).errors) {
       return 'fa fa-check-circle check';
@@ -35,7 +34,7 @@ export class Validations {
   }
 
   static validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
+    Object.keys(formGroup.controls).forEach((field) => {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
         control.markAsTouched({ onlySelf: true });
@@ -45,7 +44,18 @@ export class Validations {
     });
   }
 
-  static validatePasswords(passwordKey: string, passwordConfirmationKey: string) {
+  static validateFormData(formGroup: FormGroup) {
+    if (!formGroup.valid) {
+      Validations.validateAllFormFields(formGroup);
+      return false;
+    }
+    return true;
+  }
+
+  static validatePasswords(
+    passwordKey: string,
+    passwordConfirmationKey: string
+  ) {
     return (group: FormGroup) => {
       const passwordInput = group.controls[passwordKey];
       const passwordConfirmationInput = group.controls[passwordConfirmationKey];

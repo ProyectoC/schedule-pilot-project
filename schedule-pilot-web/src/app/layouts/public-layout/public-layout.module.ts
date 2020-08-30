@@ -9,6 +9,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Components
 import { AuthenticationComponent } from '../../pages/authentication/authentication.component';
 import { RegisterComponent } from '../../pages/register/register.component';
+import { ShowPasswordComponent } from '../../pages/authentication/show-password/show-password.component';
+// Services
+import { FormsService } from '@services/forms/forms.service';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   imports: [
@@ -17,7 +28,22 @@ import { RegisterComponent } from '../../pages/register/register.component';
     ReactiveFormsModule,
     NgbModule,
     PublicLayoutRouting,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      isolate: false,
+    }),
   ],
-  declarations: [AuthenticationComponent, RegisterComponent],
+  declarations: [ShowPasswordComponent, AuthenticationComponent, RegisterComponent],
 })
-export class PublicLayoutModule {}
+export class PublicLayoutModule {
+  static forRoot(): any {
+    return {
+      ngModule: PublicLayoutModule,
+      providers: [FormsService],
+    };
+  }
+}

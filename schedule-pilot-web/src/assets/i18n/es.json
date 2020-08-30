@@ -2,6 +2,36 @@
   "general": {
     "company": "Schedule-Pilot"
   },
+  "components" : {
+    "authentication": {
+      "title": "Iniciar Sesión",
+      "forms": {
+        "auth": {
+          "label.username": "Usuario",
+          "label.username.invalid": "El nombre del usuario no es valído.",
+          "label.password": "Contraseña",
+          "label.password.invalid": "La contraseña no es valida.",
+          "label.remember-password": "Recordar mi contraseña",
+          "button.auth": "Iniciar Sesión",
+          "label.social-networks": "Inicia sesión con alguna de las siguientes cuentas",
+          "label.facebook": "Facebook",
+          "label.twitter": "Twitter",
+          "label.google": "Google"
+        }
+      },
+      "link.forgot-password": "¿Olvidaste tu nombre de usuario o contraseña?",
+      "link.register": "¿No tienes cuenta? Regístrate"
+    }
+  },
+  "messages": {
+    "services": {
+      "authentication": {
+          "error": {
+            "title": "Error autenticación"
+          }
+      }
+    }
+  },
   "left-menu": {
     "item-projects": "Proyectos",
     "item-reports": "Reportes",

@@ -1,23 +1,6 @@
 export const environment = {
   production: false,
   components: {
-    login: {
-      'title': 'Login | AcquaBoard',
-      'label.another.accounts': 'Inicia sesión con alguna de las siguientes cuentas',
-      'label.facebook': 'Facebook',
-      'label.twitter': 'Twitter',
-      'label.google': 'Google',
-      'description': 'Por favor ingresa tus datos para entrar',
-      'label.userOrEmail': 'Nombre Usuario o Correo Electronico',
-      'label.help.userOrEmail': 'Ingresa tu usuario o correo electronico para iniciar sesión',
-      'label.userOrEmail.invalid': 'Ingresa un usuario o email valido.',
-      'label.password': 'Contraseña',
-      'label.password.invalid': 'Ingresa una contraseña valida.',
-      'label.remember.password': 'Recordar contraseña',
-      'label.forgot.password': '¿Olvidaste tu nombre de usuario o contraseña?',
-      'label.register': '¿No tienes cuenta? Regístrate',
-      'login.message.incorrect': 'Usuario y/o contraseña no validos.',
-    },
     header: {
       'logo': '../../assets/images/common/kentaurus-logo.png',
       'logo.text': 'Kentaurus Logo',

@@ -2,16 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Response } from '@models/response';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorResponse } from '@models/error-response';
-import { Login } from '@models/login';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthUser } from '@models/auth-user';
+import { FormGroup } from '@angular/forms';
 import { ScrollTopService } from '@services/scroll-top/scroll-top.service';
-import { MessagesService } from '@services/messages/message.service';
-import { environment } from '@env/environment';
 import { Validations } from '@utils/forms/validations';
-import { CommonConstants } from '@constants/common-constants';
 import { RoutingConstants } from '@constants/routing-constants';
+import { FormsService } from '@services/forms/forms.service';
+import { FormTemplate } from '@models/form-template';
+import { ItemFormTemplate } from '@models/item-form-template';
 
 @Component({
   selector: 'app-authentication',
@@ -20,115 +18,52 @@ import { RoutingConstants } from '@constants/routing-constants';
 })
 export class AuthenticationComponent implements OnInit {
   public authForm: FormGroup;
-  public properties: any;
-  public variables: any;
-  public isLoadingForm: boolean;
-  public labelButtonLogin: string;
-
-  public validations: any;
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
+    public formsService: FormsService,
     public authenticationService: AuthenticationService,
-    private scrollTop: ScrollTopService,
-    private messageService: MessagesService
+    private scrollTopService: ScrollTopService
   ) {
-    this.authForm = this.createForm();
-    this.properties = environment.components.login;
-    this.variables = environment;
-    this.loadingForm(false);
-    this.validations = Validations;
+    this.buildAuthForm();
   }
 
   ngOnInit(): void {
-    this.scrollTop.setScrollTop();
+    this.scrollTopService.setScrollTop();
+  }
+
+  private buildAuthForm() {
+    let formTemplate = new FormTemplate();
+    formTemplate.addItem(new ItemFormTemplate('username', '', true));
+    formTemplate.addItem(new ItemFormTemplate('password', '', true));
+    formTemplate.addItem(new ItemFormTemplate('rememberPassword', true, false));
+    this.authForm = this.formsService.getFormGroup(formTemplate);
   }
 
   get routingConstants() {
-    return RoutingConstants
+    return RoutingConstants;
   }
 
-  private createForm() {
-    return this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      rememberPassword: false,
-    });
+  get validations() {
+    return Validations;
   }
 
-  
-
-  trackByFn(index, item) {
-    return item.id;
-  }
-
-  loadingForm(isLoading: boolean) {
-    if (isLoading) {
-      this.isLoadingForm = true;
-    } else {
-      this.isLoadingForm = false;
+  authenticateUser() {
+    if (!Validations.validateFormData(this.authForm)) {
+      return;
     }
-  }
 
-  validateData() {
-    if (this.authForm.valid) {
-      const login: Login = new Login();
-      login.username = this.authForm.value['username'];
-      login.password = this.authForm.value['password'];
-      this.loginUser(login);
-    } else {
-      Validations.validateAllFormFields(this.authForm);
-    }
-  }
+    let authUser: AuthUser = new AuthUser();
+    authUser.username = this.authForm.value['username'];
+    authUser.password = this.authForm.value['password'];
 
-  loginUser(user: Login) {
-    this.loadingForm(true);
-    this.authenticationService.loginUser(user).subscribe(
+    this.authenticationService.authenticateUser(authUser).subscribe(
       (bodyResponse: Response) => {
-        this.loadingForm(false);
-        if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
-          this.router.navigate([RoutingConstants.URL_HOME]).then(() => {});
-        } else {
-          this.messageService.generateErrorMessage(
-            'Error Autenticación Normal',
-            bodyResponse.description
-          );
-        }
+        this.router.navigate([RoutingConstants.URL_HOME]).then(() => {});
       },
       (error) => {
         console.log(error);
-        this.loadingForm(false);
-        const errorResponse: HttpErrorResponse = error;
-        switch (errorResponse.status) {
-          case 0:
-            this.messageService.generateErrorMessage(
-              'Error Autenticación',
-              null
-            );
-            break;
-          case 400:
-            const errorResponse: ErrorResponse = error.error;
-            this.messageService.generateErrorMessage(
-              'Error Autenticación',
-              errorResponse.result.message
-            );
-            break;
-        }
       }
     );
-  }
-
-  showPassword() {
-    var x: any = document.getElementById('password-user');
-    if (x.type === 'password') {
-      x.type = 'text';
-      document.getElementById('icon-password').classList.add('fa-eye-slash');
-      document.getElementById('icon-password').classList.remove('fa-eye');
-    } else {
-      x.type = 'password';
-      document.getElementById('icon-password').classList.remove('fa-eye-slash');
-      document.getElementById('icon-password').classList.add('fa-eye');
-    }
   }
 }

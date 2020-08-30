@@ -2,6 +2,36 @@
   "general": {
     "company": "Schedule-Pilot"
   },
+  "components" : {
+    "authentication": {
+      "title": "Log in",
+      "forms": {
+        "auth": {
+          "label.username": "Username",
+          "label.username.invalid": "The username is not valid.",
+          "label.password": "Password",
+          "label.password.invalid": "The password is not valid.",
+          "label.remember-password": "Remember my password",
+          "button.auth": "Log in",
+          "label.social-networks": "Login with any of the following accounts",
+          "label.facebook": "Facebook",
+          "label.twitter": "Twitter",
+          "label.google": "Google"
+        }
+      },
+      "link.forgot-password": "Forgot your username or password?",
+      "link.register": "You do not have an account? Sign up"
+    }
+  },
+  "messages": {
+    "services": {
+      "authentication": {
+          "error": {
+            "title": "Authentication error"
+          }
+      }
+    }
+  },
   "left-menu": {
     "item-projects": "Projects",
     "item-reports": "Reports",
@@ -213,22 +243,6 @@
       "title": "Solution Design",
       "description": "We build the architecture of the solution prioritizing the optimization of the different processes that the product will perform. The use of the latest technologies are contemplated in the design of the final solution."
     }
-  },
-  "services": {
-    "title": "Services",
-    "description": "We seek to offer a portfolio of services that cover the needs of society and industry. Our services are adapted to any industry requirement. Our plus are in the processes that each of our services performs.",
-    "service.one.title": "WEB DESIGN",
-    "service.one.description": "We implement technologies such as: <b> HTML5 </b>, <b> Css </b>, <b> Sass </b> and <b> JavaScript </b> to generate nice pages.",
-    "service.two.title": "WEB DEVELOPMENT",
-    "service.two.description": "<b> ASP.NET </b>, <b> Spring MVC </b> and the <b> Angular </b> framework in versions 6, 7 and 8 to generate enterprise web applications.",
-    "service.three.title": "MOBILE DEVELOPMENT",
-    "service.three.description": "We use the <b> Ionic </b> framework in versions 3 and 4 to generate applications that improve the user experience.",
-    "service.four.title": "ADMINISTRATION OF DATABASES",
-    "service.four.description": "Administration in database musts such as: <b> Oracle 11g and 12c </b>, <b> Sql Server </b>, <b> MySQL </b> and <b> PostgreSQL. </b>",
-    "service.five.title": "DEVELOPMENT IN PL-SQL",
-    "service.five.description": "Development of products in PL / SQL to implement these capabilities in the Oracle database engine.",
-    "service.six.title": "BACKUP POLICY IMPLEMENTATION",
-    "service.six.description": "Backups are essential for any business, they require solidity and this is consolidated through policies."
   },
   "why.us": {
     "title": "Why choose us?",

@@ -21,7 +21,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./layouts/public-layout/public-layout.module').then(m => m.PublicLayoutModule), canActivate: [NoAuthGuard]
+        loadChildren: () =>
+          import('./layouts/public-layout/public-layout.module').then(
+            (m) => m.PublicLayoutModule
+          ),
+        canActivate: [NoAuthGuard],
       },
     ],
   },
@@ -31,7 +35,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./layouts/private-layout/private-layout.module').then(m => m.PrivateLayoutModule), canActivate: [AuthGuard]
+        loadChildren: () =>
+          import('./layouts/private-layout/private-layout.module').then(
+            (m) => m.PrivateLayoutModule
+          ),
+        canActivate: [AuthGuard],
       },
     ],
   },

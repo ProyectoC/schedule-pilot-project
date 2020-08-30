@@ -12,7 +12,9 @@ export class AuthenticationMessageService {
   ) {}
 
   generalErrorAuthentication(message: string) {
-    let titleMessage = this.translate.instant('messages.services.authentication.error.title');
+    let titleMessage = this.translate.instant(
+      'messages.services.authentication.error.title'
+    );
     this.messageService.generateErrorMessage(titleMessage, message);
   }
 }

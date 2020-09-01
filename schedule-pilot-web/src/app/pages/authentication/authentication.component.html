@@ -1,0 +1,56 @@
+<div class="card">
+    <h5 class="card-title text-center">{{'components.authentication.title' | translate}}</h5>
+    <div class="card-body">
+        <form [formGroup]="authForm" (ngSubmit)="authenticateUser()">
+            <div class="form-group">
+                <label for="username">{{'components.authentication.forms.auth.label.username' | translate}}</label>
+                <i [ngClass]="validations.isValidCheck('username', this.authForm)"></i>
+                <input formControlName="username" type="text" class="form-control" id="username"
+                    [ngClass]="validations.isValidInput('username', this.authForm)">
+                <div class="invalid-feedback">
+                    {{'components.authentication.forms.auth.label.username.invalid' | translate}}</div>
+            </div>
+            <div class="form-group">
+                <label for="password">{{'components.authentication.forms.auth.label.password' | translate}}</label>
+                <i [ngClass]="validations.isValidCheck('password', this.authForm)"></i>
+                <div class="input-group mb-3">
+                    <input formControlName="password" type="password" class="form-control" id="password-user"
+                        [ngClass]="validations.isValidInput('password', this.authForm)">
+                    <app-show-password elementId="password-user"></app-show-password>
+                    <div class="invalid-feedback">
+                        {{'components.authentication.forms.auth.label.password.invalid' | translate}}</div>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <input formControlName="rememberPassword" type="checkbox" class="form-check-input"
+                    id="remember-password">
+                <label class="form-check-label"
+                    for="remember-password">{{'components.authentication.forms.auth.label.remember-password' | translate}}</label>
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <button type="submit" class="btn btn-danger btn-block">
+                    <i class="fas fa-lock-open"></i>
+                    {{'components.authentication.forms.auth.button.auth' | translate}}
+                    <span class="spinner-border spinner-border-sm"
+                        [hidden]="authenticationService.isLoading == false"></span>
+                </button>
+            </div>
+            <div class="or-seperator"><i>o</i></div>
+            <p class="text-center">{{'components.authentication.forms.auth.label.social-networks' | translate}}</p>
+            <div class="text-center social-btn">
+                <button class="btn btn-primary"><i class="fa fa-facebook"></i>&nbsp;
+                    {{'components.authentication.forms.auth.label.facebook' | translate}}</button>
+                <button class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp;
+                    {{'components.authentication.forms.auth.label.twitter' | translate}}</button>
+                <button class="btn btn-danger"><i class="fa fa-google"></i>&nbsp;
+                    {{'components.authentication.forms.auth.label.google' | translate}}</button>
+            </div>
+        </form>
+    </div>
+    <div class="form-group" style="text-align: center;">
+        <a id="link-forgot-password" class="nav-link primary"
+            [routerLink]="routingConstants.URL_FORGOT_PASSWORD">{{'components.authentication.link.forgot-password' | translate}}</a>
+        <a id="link-register-user" class="nav-link primary"
+            [routerLink]="routingConstants.URL_REGISTER">{{'components.authentication.link.register' | translate}}</a>
+    </div>
+</div>

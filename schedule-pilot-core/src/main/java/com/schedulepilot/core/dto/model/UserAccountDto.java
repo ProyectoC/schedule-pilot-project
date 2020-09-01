@@ -92,7 +92,7 @@ public class UserAccountDto extends BaseDto implements UserDetails {
     }
 
     // Validations
-    public Validator validationForActivationUser() {
+    public Validator validationForActivateUserAccount() {
         Validator validator = new Validator();
         if (this.getBlock()) {
             validator.setValid(false);
@@ -108,7 +108,7 @@ public class UserAccountDto extends BaseDto implements UserDetails {
         return validator;
     }
 
-    public Validator validationForAuthUser() {
+    public Validator validationForAuthUserAccount() {
         Validator validator = new Validator();
         if (this.getBlock()) {
             validator.setValid(false);

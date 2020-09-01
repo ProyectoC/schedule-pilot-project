@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+body {
+    padding-right: 0 !important;
+  }
+  
+  .swal2-container { padding-right: 0px !important; }
+  
+  .btn-primary {
+    background-color: red;
+  }
+  
+  .check {
+    color: #42A948;
+    padding-left: 5px;
+  }
+  
+  .uncheck {
+    color: #a94442;
+    padding-left: 5px;
+  }
+  
+  .item-orange {
+    border-left-style: solid;
+    border-width: 5px;
+    border-left-color: orange;
+    padding-left: 10px;
+  }
+  

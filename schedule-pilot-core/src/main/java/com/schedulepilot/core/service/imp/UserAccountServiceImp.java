@@ -2,6 +2,8 @@ package com.schedulepilot.core.service.imp;
 
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.entities.model.UserAccountEntity;
+import com.schedulepilot.core.exception.ExceptionCode;
+import com.schedulepilot.core.exception.ManageUserException;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.repository.AccountUserRepository;
 import com.schedulepilot.core.service.UserAccountService;
@@ -46,7 +48,7 @@ public class UserAccountServiceImp implements UserAccountService {
     @Transactional
     public UserAccountDto getByUsernameThrow(String username) throws SchedulePilotException {
         Optional<UserAccountEntity> entity = accountUserRepository.findByUsername(username);
-        return entity.map(UserAccountService::convertEntityToDTO).orElseThrow(() -> new SchedulePilotException("User Account Not Found"));
+        return entity.map(UserAccountService::convertEntityToDTO).orElseThrow(() -> new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_AUTH_FAILED, "User Account Not Found"));
     }
 
     @Override
@@ -96,7 +98,22 @@ public class UserAccountServiceImp implements UserAccountService {
 
     @Override
     @Transactional
-    public Validator validationUserBeforeSave(UserAccountDto userAccountDto) {
+    public UserAccountDto save(UserAccountDto userAccountDto) {
+        userAccountDto.setBlock(false);
+        userAccountDto.setFailedAttempts(0);
+        userAccountDto.setIsActive(false);
+        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
+    }
+
+    @Override
+    @Transactional
+    public UserAccountDto update(UserAccountDto userAccountDto) {
+        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
+    }
+
+    @Override
+    @Transactional
+    public Validator validationBeforeSave(UserAccountDto userAccountDto) {
         Validator validator = new Validator();
 
         Optional<UserAccountEntity> optional = this.accountUserRepository.findByUsername(userAccountDto.getUsername());
@@ -135,18 +152,5 @@ public class UserAccountServiceImp implements UserAccountService {
         }
         validator.setValid(true);
         return validator;
-    }
-
-    @Override
-    @Transactional
-    public UserAccountDto save(UserAccountDto userAccountDto) {
-        userAccountDto.setIsActive(false);
-        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
-    }
-
-    @Override
-    @Transactional
-    public UserAccountDto update(UserAccountDto userAccountDto) {
-        return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
     }
 }

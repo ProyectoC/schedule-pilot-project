@@ -1,5 +1,6 @@
 package com.schedulepilot.core.service.imp;
 
+import com.schedulepilot.core.constants.ParameterConstants;
 import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.dto.model.TokenDto;
 import com.schedulepilot.core.dto.model.UserAccountDto;
@@ -52,24 +53,27 @@ public class ManageUserServiceImp implements ManageUserService {
     @Override
     @Transactional
     public UserAccountDto createUserAccount(UserAccountCreateRequest userAccountCreateRequest) throws SchedulePilotException {
-        UserAccountDto userAccountDto = UserAccountService.convertRequestToDTO(userAccountCreateRequest);
-        Validator validator = this.userAccountService.validationUserBeforeSave(userAccountDto);
+
+        UserAccountDto userAccount = UserAccountService.convertRequestToDTO(userAccountCreateRequest);
+
+        Validator validator = this.userAccountService.validationBeforeSave(userAccount);
         if (!validator.isValid())
             throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CREATE_USER, validator.getFirstError());
 
-        RolAccountDto rolSelected = this.globalListDinamicService.getRolAccountByIdThrow(userAccountDto.getRolAccountEntity().getId());
-        validator = rolSelected.validationForCreateUser(userAccountDto);
+        RolAccountDto rolAccount = this.globalListDinamicService.getRolAccountByIdOrException(userAccount.getRolAccountEntity().getId());
+        validator = rolAccount.validationForCreateUser(userAccount);
         if (!validator.isValid())
             throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CREATE_USER, validator.getFirstError());
 
-        userAccountDto.setActivationTokenEntity(this.manageTokenService.createUserAccountActivationToken(1));
-        userAccountDto.setPassword(this.passwordEncoder.encode(userAccountDto.getPassword()));
-        userAccountDto.setFailedAttempts(0);
-        userAccountDto.setPasswordExpiredDate(LocalDateTime.now().plusMonths(6));
-        userAccountDto.setBlock(false);
-        userAccountDto = this.userAccountService.save(userAccountDto);
-        this.notificationLayerService.sendNotificationCreateUserAccount(userAccountDto);
-        return userAccountDto;
+        userAccount.setActivationTokenEntity(this.manageTokenService.createUserAccountActivationToken());
+        userAccount.setPassword(this.passwordEncoder.encode(userAccount.getPassword()));
+        userAccount.setPasswordExpiredDate(LocalDateTime.now().plusSeconds(this.getPasswordExpiration()));
+
+        userAccount = this.userAccountService.save(userAccount);
+
+        this.notificationLayerService.sendNotificationCreateUserAccount(userAccount);
+
+        return userAccount;
     }
 
     @Override
@@ -80,7 +84,7 @@ public class ManageUserServiceImp implements ManageUserService {
         uriBuilder.append("?message=");
 
         UserAccountDto userAccountDto = this.userAccountService.getByIdThrow(userAccountId);
-        Validator validator = userAccountDto.validationForActivationUser();
+        Validator validator = userAccountDto.validationForActivateUserAccount();
         if (!validator.isValid()) {
             uriBuilder.append(validator.getFirstError());
             return uriBuilder.toString();
@@ -94,8 +98,11 @@ public class ManageUserServiceImp implements ManageUserService {
         }
 
         userAccountDto.setIsActive(true);
+
         userAccountDto = this.userAccountService.update(userAccountDto);
+
         this.notificationLayerService.sendNotificationActivationUserAccount(userAccountDto);
+
         return uriBuilder.append(EmailConstants.SUBJECT_DEFAULT_SEND_ACTIVATE_USER_ACCOUNT).toString();
     }
 
@@ -103,9 +110,9 @@ public class ManageUserServiceImp implements ManageUserService {
     @Transactional
     public UserAccountAuthResponse authUserAccount(UserAccountAuthRequest userAccountAuthRequest) throws SchedulePilotException {
         UserAccountDto userAccountDto = this.userAccountService.getByUsernameThrow(userAccountAuthRequest.getUsername());
-        Validator validator = userAccountDto.validationForAuthUser();
+        Validator validator = userAccountDto.validationForAuthUserAccount();
         if (!validator.isValid()) {
-            throw new SchedulePilotException(validator.getFirstError());
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_AUTH_FAILED, validator.getFirstError());
         }
 
         try {
@@ -117,7 +124,7 @@ public class ManageUserServiceImp implements ManageUserService {
             if (ex instanceof AuthenticationException) {
                 this.updateUserFailedAuth(userAccountDto);
             }
-            throw new SchedulePilotException("Auth for user account failed, username or password not valid.");
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_AUTH_FAILED, "Auth for user account failed, username or password not valid.");
         }
 
         TokenDto authToken = this.manageTokenService.createUserAccountAuthToken(userAccountDto.getUsername(),
@@ -137,6 +144,10 @@ public class ManageUserServiceImp implements ManageUserService {
             userAccountDto.setBlock(true);
         userAccountDto.setFailedAttempts(failedAttempts);
         this.userAccountService.update(userAccountDto);
+    }
+
+    private Long getPasswordExpiration() throws SchedulePilotException {
+        return this.globalListDinamicService.getParameterValueAsLongOrException(ParameterConstants.PARAMETER_PASSWORD_EXPIRATION_USER_ACCOUNT);
     }
 
 }

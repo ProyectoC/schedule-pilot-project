@@ -4,8 +4,13 @@ INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, va
 VALUES('default_script', now(), 'URL con el end point de los servicios api', FALSE, 'url.api.web', 'http://localhost:8080/api'); -- http://acquaboard.ml:8082/api
 INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, value)
 VALUES('default_script', now(), 'Numero de intentos antes de bloquear el usuario', FALSE, 'limit.failed.authentication', '3');
+
 INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, value)
-VALUES('default_script', now(), 'Numero de meses antes de expirar password', FALSE, 'password.expiration', '1');
+VALUES('default_script', now(), 'Tiempo en sengudos antes de expirar la contraseña de la cuenta de usuario', FALSE, 'password.expiration.user-account', '2592000');
+
+INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, value)
+VALUES('default_script', now(), 'Tiempo en segundos antes de expirar token de activacion de la cuenta de usuario', FALSE, 'token.activation.expiration.user-account', '86400');
+
 INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, value)
 VALUES('default_script', now(), 'URL de destino despues de la confirmacion del email', FALSE, 'mail.confirmation.destination.url', 'http://localhost:4200/#/login'); -- http://acquaboard.ml/#/login
 

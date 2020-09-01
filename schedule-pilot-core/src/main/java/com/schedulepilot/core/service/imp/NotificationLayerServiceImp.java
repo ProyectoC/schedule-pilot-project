@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -87,7 +88,7 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
             notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
             this.notificationSenderService.sendValidationNotification(notificationDto);
         } catch (SchedulePilotException ex) {
-            LOGGER.error("Could not send notification to Myventory CEO. Error: {}", ex.getMessage());
+            LOGGER.error("Could not send notification to Schedule Pilot CEO. Error: {}", ex.getMessage());
         }
     }
 
@@ -108,7 +109,7 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
 
         // Build Notification
         NotificationDto notificationDto = new NotificationDto();
-        notificationDto.setEmails(Arrays.asList(userAccountDto.getEmail()));
+        notificationDto.setEmails(Collections.singletonList(userAccountDto.getEmail()));
         notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_RESPONSE_VALIDATION_EMAIL);
         try {
             notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));

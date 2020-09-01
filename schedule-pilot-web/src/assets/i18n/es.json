@@ -1,0 +1,295 @@
+{
+  "general": {
+    "company": "Schedule-Pilot"
+  },
+  "components" : {
+    "authentication": {
+      "title": "Iniciar Sesión",
+      "forms": {
+        "auth": {
+          "label.username": "Usuario",
+          "label.username.invalid": "El nombre del usuario no es valído.",
+          "label.password": "Contraseña",
+          "label.password.invalid": "La contraseña no es valida.",
+          "label.remember-password": "Recordar mi contraseña",
+          "button.auth": "Iniciar Sesión",
+          "label.social-networks": "Inicia sesión con alguna de las siguientes cuentas",
+          "label.facebook": "Facebook",
+          "label.twitter": "Twitter",
+          "label.google": "Google"
+        }
+      },
+      "link.forgot-password": "¿Olvidaste tu nombre de usuario o contraseña?",
+      "link.register": "¿No tienes cuenta? Regístrate"
+    }
+  },
+  "messages": {
+    "services": {
+      "authentication": {
+          "error": {
+            "title": "Error autenticación"
+          }
+      }
+    }
+  },
+  "left-menu": {
+    "item-projects": "Proyectos",
+    "item-reports": "Reportes",
+    "sub-item-sprints": "Sprints",
+    "sub-item-programmers": "Programadores",
+    "item-notifications": "Notificaciones",
+    "item-configurations": "Configuraciones",
+    "sub-item-profile": "Mi Perfil",
+    "sub-item-password": "Contraseña",
+    "sub-item-logout": "Cerrar Sesión",
+    "item-about": "Acerca de",
+    "sub-item-code": "Fuentes"
+  },
+  "top-menu": {
+    "search-placeholder": "Buscar...",
+    "button-search": "Buscar",
+    "boards": "Tableros",
+    "sub-item.config": "Configuración",
+    "sub-item.notifications": "Ver Notificaciones",
+    "sub-item-all-notifications": "Marcar Todas Leídas",
+    "sub-item-profile": "Perfil",
+    "sub-item-logout": "Cerrar Sesión"
+  },
+  "board": {
+    "title": "Board del Sprint: ",
+    "return": "Regresar",
+    "tooltip-completed-before-time": "Completadas antes de tiempo",
+    "tooltip-completed-on-time": "Completadas a tiempo",
+    "tooltip-completed-after-time": "Completadas despues de tiempo",
+    "tooltip-finish-today": "Finalizan hoy",
+    "tooltip-to-go": "Por terminar",
+    "tooltip-delay": "Retrasadas",
+    "kambas": {
+      "requests": "Requerimientos",
+      "tooltip-create-request": "Crear Requerimiento",
+      "tooltip-create-activity": "Crear Actividad",
+      "tooltip-assign-activity": "Asignar Actividades",
+      "create": "Crear",
+      "activities": "Actividades",
+      "assign": "Asignar",
+      "assigned": "Asignada:",
+      "times": "veces",
+      "update": "Actualizar",
+      "modified": "Modificado:",
+      "show": "Ver",
+      "created-by": "Creado por:",
+      "see-attached": "Ver Adjunto",
+      "request": "Requerimiento:",
+      "deadline": "Fecha Limite:",
+      "priority": "Prioridad:"
+    }
+  },
+  "spinner": {
+    "message": "Actualizando..."
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Trabajemos juntos y conformemos un equipo de trabajo para responder a las necesidades de su empresa. Envíenos un mensaje.",
+    "form": {
+      "title": "Envíenos un mensaje",
+      "description": "Ingrese sus datos",
+      "label.name": "Nombre",
+      "label.name.placeholder": "Ingrese su nombre",
+      "label.name.invalid": "Ingrese un nombre valido.",
+      "label.email": "Correo Electrónico",
+      "label.email.placeholder": "Ingrese su correo electrónico",
+      "label.email.invalid": "Ingrese un correo valido.",
+      "label.email.extension.invalid": "Ingrese una extensión de correo valida",
+      "label.email.protected": "Nosotros no compartiremos su correo con ¡nadie!",
+      "label.subject": "Asunto",
+      "label.subject.placeholder": "Ingrese el asunto de su interés",
+      "label.subject.invalid": "Ingrese un asunto valido.",
+      "label.message": "Mensaje",
+      "label.message.placeholder": "Ingrese el mensaje de su interés",
+      "label.message.invalid": "Ingrese un mensaje valido.",
+      "label.term.conditions": "Declaro que he leído y acepto los Términos y Condiciones",
+      "label.term.conditions.invalid": "Debe aceptar los términos y condiciones",
+      "label.term.description.one": "Al hacer click en Enviar, acepta los ",
+      "label.term.description.two": "términos y condiciones",
+      "label.term.description.three": " y la ",
+      "label.term.description.four": "política de privacidad de "
+    },
+    "send.message.title": "Mensaje contacto",
+    "send.message.correct.text": "Su información se ha registrado, nos pondremos en contacto de inmediato.",
+    "send.message.incorrect.text": "Su información no se ha registrado, intente más tarde!",
+    "send.message.correct": "Registro exitoso, por favor revise su correo para confirmar su cuenta.",
+    "alert.send.invalid": "El nombre seleccionado ya está en uso.",
+    "address.title": "Estamos en",
+    "address.content": "Crr 73 F No. 33 a 13 sur - Kennedy Central",
+    "address.zone": "",
+    "address.country": "Colombia",
+    "address.email": "contacto.acquaboard@acquaboard.ml",
+    "address.phone": "Tel. +57 4527367; +57 319-3191948"
+  },
+  "captcha": {
+    "label.captcha.invalid": "Demuestre que no usted no es un robot.",
+    "language": "es"
+  },
+  "common": {
+    "select": {},
+    "buttons": {
+      "button.loading": "Cargando...",
+      "button.login": "Iniciar Sesión",
+      "button.create": "Crear",
+      "button.create.count": "Registrarse",
+      "button.search": "Consultar",
+      "button.update": "Actualizar",
+      "button.delete": "Eliminar",
+      "button.ok": "Aceptar",
+      "button.cancel": "Cancelar",
+      "button.close": "Cerrar",
+      "button.view": "Ver Detalles",
+      "button.register": "Registrar",
+      "button.response": "Responder",
+      "button.send": "Enviar"
+    },
+    "messages": {
+      "message.title.default": "AcquaBoard",
+      "message.body.default": "Optimization and Design",
+      "correct": {
+        "title.common": "Correcto",
+        "message.common": "Acción completada correctamente!",
+        "icon.common": "../assets/images/messages/message-success.png"
+      },
+      "error": {
+        "title.common": "Error",
+        "message.common": "AcquaBoard pide disculpas, en estos momentos su solicitud no podra ser atendida.",
+        "icon.common": "../assets/images/messages/message-incorrect.png"
+      },
+      "information": {
+        "title.common": "Información",
+        "message.common": "Mensaje de información",
+        "icon.common": "../assets/images/messages/message-information.png"
+      },
+      "warning": {
+        "title.common": "Advertencia",
+        "message.common": "Advertencia.",
+        "icon.common": "../assets/images/messages/message-warning.png"
+      }
+    }
+  },
+  "header": {
+    "home": "Home",
+    "register": "Registrate",
+    "forgot-password": "Olvidaste tu Contraseña",
+    "login": "Ingresa",
+    "language": "Lenguaje"
+  },
+  "error.app": {
+    "title": "Upsss! Estamos teniendo problemas",
+    "title.page": "Error",
+    "description": "En estos momentos su solicitud no puede ser atendida",
+    "description.solution": "Por favor intente más tarde."
+  },
+  "footer": {
+    "rigths": "Todos los Derechos Reservados.",
+    "term.conditions": "Términos y condiciones",
+    "policy": "Política de privacidad"
+  },
+  "carousel": {
+    "item.one.title": "Soluciones de Software",
+    "item.one.description": "Ofrecemos soluciones de tecnología eficientes, haciendo uso de las buenas practicas que exige el desarrollo del mercado actual.",
+    "item.two.title": "Optimizar Recursos",
+    "item.two.description": "Está en nuestra filosofía diseñar, desarrollar e implementar soluciones que optimicen los recursos de software y hardware de su empresa.",
+    "item.two.button": "Nuestros Servicios",
+    "item.three.title": "Diseño a la medida",
+    "item.three.description": "Entendemos que las necesidades de nuestros clientes son diferentes, por eso, es importante analizar y diseñar soluciones que cumplan con lo requerido.",
+    "item.three.button": "Trabajemos juntos"
+  },
+  "us": {
+    "title": "Nosotros",
+    "description": "Somos una empresa que ha nacido para dar soluciones rápidas y eficientes a su negocio. Además implementamos las mejores técnicas de diseño y desarrollo. La optimización es un principio fundamental, es por esto que todos nuestros productos y soluciones, están hechos a la medida, garantizando un optimo uso de los recursos disponibles.",
+    "team": {
+      "title": "Equipo de Trabajo.",
+      "title.description": "Todos para uno!",
+      "description": "Nuestro equipo de trabajo es responsable de Analizar, Diseñar e Implementar las soluciones de tecnología requeridas por nuestros clientes.",
+      "item.one": {
+        "title": "Metodologías de Desarrollo",
+        "description": "Implementamos la metodología ágil de desarrollo <b>SCRUM</b> en nuestros proyectos de ingeniería y diseño; garantizando entregar un producto que genere valor a su empresa y optimice sus tiempos de respuesta y mejore la calidad de su negocio."
+      },
+      "item.two": {
+        "title": "Herramientas de Desarrollo",
+        "description": "Hacemos uso de las mejores herramientas de Desarrollo que actualmente existen, esto facilita la construcción de las soluciones. Usamos IDE's como son:",
+        "ide.intellij": "IntelliJ IDEA",
+        "ide.eclipse": "Eclipse",
+        "ide.netbeans": "NetBeans",
+        "ide.visual": "Visual Studio"
+      },
+      "item.three": {
+        "title": "Tecnologías",
+        "description": "Diseñamos y construimos soluciones con las tecnologías actuales del mercado. Utilizamos lenguajes de desarrollo <b>Java</b>, <b>C#</b>, <b>JavaScript</b> y <b>TypeScript</b>. Manejamos tecnologías en bases de datos <b>MySQL</b>, <b>Oracle</b>, <b>PostgreSQL</b> y <b>Mongo DB</b>."
+      }
+    }
+  },
+  "optimization": {
+    "title": "Optimización",
+    "title.description": "para su negocio.",
+    "description": "Nuestros productos tecnológicos no solo cumplen con los requerimientos del cliente, además de esto, las funcionalidades están optimizadas, lo que permite un mejor desempeño en las tareas diarias realizadas con la solución implementada."
+  },
+  "design": {
+    "title": "Diseño a la medida.",
+    "title.description": "Se ajusta a las necesidades.",
+    "description": "Nuestros productos cumplen con la fase de Análisis y Diseño, lo que permite entregar a nuestros clientes prototipos de calidad funcional previos a la entrega de la solución final.",
+    "item.one": {
+      "title": "Análisis del Producto",
+      "description": "Analizamos los problemas de nuestros clientes para entender sus necesidades y determinar el producto que mejor se ajusta a contribuir a la solución. Determinamos los requerimientos funcionales y no funcionales de la solución."
+    },
+    "item.two": {
+      "title": "Diseño de la Solución",
+      "description": "Construimos la arquitectura de la solución priorizando la optimización de los distintos procesos que realizará el producto. El uso de los últimas tecnologías son contempladas en el diseño de la solución final."
+    }
+  },
+  "services": {
+    "title": "Servicios",
+    "description": "Procuramos ofrecer un portafolio de servicios que cubra las necesidades de la sociedad e industria. Nuestros servicios se adaptan a cualquier requisito de industria. Nuestro plus esta en los procesos que realiza cada uno de nuestros servicios.",
+    "service.one.title": "DISEÑO WEB",
+    "service.one.description": "Implementamos tecnologías como son: <b>HTML5</b>, <b>Css</b>, <b>Sass</b> y <b>JavaScript</b> para generar páginas agradables.",
+    "service.two.title": "DESARROLLO WEB",
+    "service.two.description": "<b>ASP.NET</b>, <b>Spring MVC</b> y el framework <b>Angular</b> en sus versiones 6, 7 y 8 para generar aplicaciones web empresariales.",
+    "service.three.title": "DESARROLLO MÓVIL",
+    "service.three.description": "Hacemos uso del framework <b>Ionic</b> en versiones 3 y 4 para generar aplicaciones que mejoren la experiencia de usuario.",
+    "service.four.title": "ADMINISTRACIÓN DE BASES DE DATOS",
+    "service.four.description": "Administración en mostos de bases de datos como son: <b>Oracle 11g y 12c</b>, <b>Sql Server</b>, <b>MySQL</b> y <b>PostgreSQL.</b>",
+    "service.five.title": "DESARROLLO EN PL-SQL",
+    "service.five.description": "Desarrollo de productos en PL/SQL para realizar implementaciones de estas capacidades en el motor de base de datos Oracle.",
+    "service.six.title": "IMPLEMENTACIÓN POLÍTICAS DE BACKUP",
+    "service.six.description": "Las copias de seguridad son esenciales para cualquier negocio, requieren solidez y esto se consolida mediante políticas."
+  },
+  "why.us": {
+    "title": "¿Por qué escogernos?",
+    "description": "Somos nuevos en el mercado y buscamos generar cambios en la industria del software, a través de soluciones que contribuyan a un desarrollo sano de la sociedad.",
+    "top.one.title": "OPTIMIZACIÓN",
+    "top.one.description": "Todos los procesos que se generan en nuestras soluciones tecnológicas optimizan los recursos.",
+    "top.two.title": "ESCALABILIDAD",
+    "top.two.description": "Nuestros productos y soluciones están abiertos a actualizaciones constantes, sin afectar la calidad.",
+    "top.three.title": "EXPERIENCIA DE USUARIO",
+    "top.three.description": "Nuestros productos mejoran la experiencia de usuario haciendo más simple el manejo de aplicaciones.",
+    "counter.title": "Estadísticas",
+    "counter.description": "De acuerdo a nuestra experiencia.",
+    "counter.one": "Horas de Desarrollo",
+    "counter.two": "Clientes Felices",
+    "counter.three": "Proyectos Terminados",
+    "counter.four": "Proyectos de Innovación"
+  },
+  "notfound": {
+    "title": "Esta página ya no existe.",
+    "description": "No pudimos encontrar la página que estabas buscando.",
+    "description.solution": "Por favor intenta más tarde.",
+    "error.title.page": "404 - Not Found"
+  },
+  "legal": {
+    "term.conditions": {
+      "title": "Terminos y Condiciones",
+      "content": "<span class=\"badge badge-info\">Actualizado: Mayo 05, 2020</span>\n<p><strong>INFORMACIÓN RELEVANTE</strong></p>\n<p>Es requisito necesario para la adquisición de los productos que se ofrecen en este sitio, que lea y\n    acepte los siguientes Términos y Condiciones que a continuación se redactan. El uso de nuestros\n    servicios así como la compra de nuestros productos implicará que usted ha leído y aceptado los\n    Términos y Condiciones de Uso en el presente documento. Todas los productos &nbsp;que son ofrecidos\n    por nuestro sitio web pudieran ser creadas, cobradas, enviadas o presentadas por una página web\n    tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para\n    adquirir un producto, será necesario el registro por parte del usuario, con ingreso de datos\n    personales fidedignos y definición de una contraseña.</p>\n<p>El usuario puede elegir y cambiar la clave para su acceso de administración de la cuenta en\n    cualquier momento, en caso de que se haya registrado y que sea necesario para la compra de alguno de\n    nuestros productos. AcquaBoard no asume la responsabilidad en caso de que\n    entregue dicha clave a terceros.</p>\n<p>Todas las compras y transacciones que se lleven a cabo por medio de este sitio web, están sujetas a\n    un proceso de confirmación y verificación, el cual podría incluir la verificación del stock y\n    disponibilidad de producto, validación de la forma de pago, validación de la factura (en caso de\n    existir) y el cumplimiento de las condiciones requeridas por el medio de pago seleccionado. En\n    algunos casos puede que se requiera una verificación por medio de correo electrónico.</p>\n<p>Los precios de los productos ofrecidos en esta Tienda Online es válido solamente en las compras\n    realizadas en este sitio web.</p>\n<p><strong>LICENCIA</strong></p>\n<p>AcquaBoard&nbsp; a través de su sitio web concede una licencia para que los usuarios utilicen&nbsp;\n    los productos que son vendidos en este sitio web de acuerdo a los Términos y Condiciones que se\n    describen en este documento.</p>\n<p><strong>USO NO AUTORIZADO</strong></p>\n<p>En caso de que aplique (para venta de software, templetes, u otro producto de diseño y\n    programación) usted no puede colocar uno de nuestros productos, modificado o sin modificar, en un\n    CD, sitio web o ningún otro medio y ofrecerlos para la redistribución o la reventa de ningún\n    tipo.</p>\n<p><strong>PROPIEDAD</strong></p>\n<p>Usted no puede declarar propiedad intelectual o exclusiva a ninguno de nuestros productos,\n    modificado o sin modificar. Todos los productos son propiedad &nbsp;de los proveedores del\n    contenido. En caso de que no se especifique lo contrario, nuestros productos se proporcionan&nbsp;\n    sin ningún tipo de garantía, expresa o implícita. En ningún esta compañía será &nbsp;responsables de\n    ningún daño incluyendo, pero no limitado a, daños directos, indirectos, especiales, fortuitos o\n    consecuentes u otras pérdidas resultantes del uso o de la imposibilidad de utilizar nuestros\n    productos.</p>\n<p><strong>POLÍTICA DE REEMBOLSO Y GARANTÍA</strong></p>\n<p>En el caso de productos que sean&nbsp; mercancías irrevocables no-tangibles, no realizamos\n    reembolsos después de que se envíe el producto, usted tiene la responsabilidad de entender antes de\n    comprarlo. &nbsp;Le pedimos que lea cuidadosamente antes de comprarlo. Hacemos solamente excepciones\n    con esta regla cuando la descripción no se ajusta al producto. Hay algunos productos que pudieran\n    tener garantía y posibilidad de reembolso pero este será especificado al comprar el producto. En\n    tales casos la garantía solo cubrirá fallas de fábrica y sólo se hará efectiva cuando el producto se\n    haya usado correctamente. La garantía no cubre averías o daños ocasionados por uso indebido. Los\n    términos de la garantía están asociados a fallas de fabricación y funcionamiento en condiciones\n    normales de los productos y sólo se harán efectivos estos términos si el equipo ha sido usado\n    correctamente. Esto incluye:</p>\n<p>– De acuerdo a las especificaciones técnicas indicadas para cada producto.<br>– En condiciones\n    ambientales acorde con las especificaciones indicadas por el fabricante.<br>– En uso específico para\n    la función con que fue diseñado de fábrica.<br>– En condiciones de operación eléctricas acorde con\n    las especificaciones y tolerancias indicadas.</p>\n<p><strong>COMPROBACIÓN ANTIFRAUDE</strong></p>\n<p>La compra del cliente puede ser aplazada para la comprobación antifraude. También puede ser\n    suspendida por más tiempo para una investigación más rigurosa, para evitar transacciones\n    fraudulentas.</p>\n<p><strong>PRIVACIDAD</strong></p>\n<p>Este <a href=\"http://acquaboard.ml/#/login\" target=\"_blank\">sitio web</a> garantiza que la información personal\n    que usted envía cuenta con la\n    seguridad necesaria. Los datos ingresados por usuario o en el caso de requerir una validación de los\n    pedidos no serán entregados a terceros, salvo que deba ser revelada en cumplimiento a una orden\n    judicial o requerimientos legales.</p>\n<p>La suscripción a boletines de correos electrónicos publicitarios es voluntaria y podría ser\n    seleccionada al momento de crear su cuenta.</p>\n<p>AcquaBoard reserva los derechos de cambiar o de modificar estos términos sin previo aviso.</p>"
+    },
+    "polity-privacy": {
+      "title": "Politica de Privacidad",
+      "content": "<span class=\"badge badge-info\">Actualizado: Mayo 05, 2020</span>\n<p>El presente Política de Privacidad establece los términos en que AcquaBoard usa y protege la\n    información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía\n    está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos\n    de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se\n    empleará de acuerdo con los términos de este documento. Sin embargo esta Política de Privacidad\n    puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar\n    continuamente esta página para asegurarse que está de acuerdo con dichos cambios.</p>\n<p><strong>Información que es recogida</strong></p>\n<p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre,&nbsp; información de\n    contacto como&nbsp; su dirección de correo electrónica e información demográfica. Así mismo cuando\n    sea necesario podrá ser requerida información específica para procesar algún pedido o realizar una\n    entrega o facturación.</p>\n<p><strong>Uso de la información recogida</strong></p>\n<p>Nuestro sitio web emplea la información con el fin de proporcionar el mejor servicio posible,\n    particularmente para mantener un registro de usuarios, de pedidos en caso que aplique, y mejorar\n    nuestros productos y servicios. &nbsp;Es posible que sean enviados correos electrónicos\n    periódicamente a través de nuestro sitio con ofertas especiales, nuevos productos y otra información\n    publicitaria que consideremos relevante para usted o que pueda brindarle algún beneficio, estos\n    correos electrónicos serán enviados a la dirección que usted proporcione y podrán ser cancelados en\n    cualquier momento.</p>\n<p>AcquaBoard está altamente comprometido para cumplir con el compromiso de mantener su\n    información segura. Usamos los sistemas más avanzados y los actualizamos constantemente para\n    asegurarnos que no exista ningún acceso no autorizado.</p>\n<p><strong>Cookies</strong></p>\n<p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar permiso para\n    almacenarse en su ordenador, al aceptar dicho fichero se crea y la cookie sirve entonces para tener\n    información respecto al tráfico web, y también facilita las futuras visitas a una web recurrente.\n    Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente y\n    por tanto brindarte el mejor servicio personalizado de su web.</p>\n<p>Nuestro sitio web emplea las cookies para poder identificar las páginas que son visitadas y su\n    frecuencia. Esta información es empleada únicamente para análisis estadístico y después la\n    información se elimina de forma permanente. Usted puede eliminar las cookies en cualquier momento\n    desde su ordenador. Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios\n    web, estás no dan acceso a información de su ordenador ni de usted, a menos de que usted así lo\n    quiera y la proporcione directamente, <a href=\"http://acquaboard.ml\" target=\"_blank\">visitas\n        a una web </a>. Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de\n    navegadores aceptan cookies automáticamente pues sirve para tener un mejor servicio web. También\n    usted puede cambiar la configuración de su ordenador para declinar las cookies. Si se declinan es\n    posible que no pueda utilizar algunos de nuestros servicios.</p>\n<p><strong>Enlaces a Terceros</strong></p>\n<p>Este sitio web pudiera contener en laces a otros sitios que pudieran ser de su interés. Una vez que\n    usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al\n    que es redirigido y por lo tanto no somos responsables de los términos o privacidad ni de la\n    protección de sus datos en esos otros sitios terceros. Dichos sitios están sujetos a sus propias\n    políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está\n    de acuerdo con estas.</p>\n<p><strong>Control de su información personal</strong></p>\n<p>En cualquier momento usted puede restringir la recopilación o el uso de la información personal que\n    es proporcionada a nuestro sitio web.&nbsp; Cada vez que se le solicite rellenar un formulario, como\n    el de alta de usuario, puede marcar o desmarcar la opción de recibir información por correo\n    electrónico. &nbsp;En caso de que haya marcado la opción de recibir nuestro boletín o publicidad\n    usted puede cancelarla en cualquier momento.</p>\n<p>Esta compañía no venderá, cederá ni distribuirá la información personal que es recopilada sin su\n    consentimiento, salvo que sea requerido por un juez con un orden judicial.</p>\n<p>AcquaBoard Se reserva el derecho de cambiar los términos de la presente Política de Privacidad\n    en cualquier momento.</p>"
+    }
+  }
+}

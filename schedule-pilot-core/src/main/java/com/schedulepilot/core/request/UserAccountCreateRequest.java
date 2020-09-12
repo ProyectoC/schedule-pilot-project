@@ -21,10 +21,6 @@ import javax.validation.constraints.NotNull;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserAccountCreateRequest {
 
-    @NotNull(message = "username can not be null.")
-    @NotBlank(message = "username can not be blank.")
-    private String username;
-
     @NotNull(message = "password can not be null.")
     @NotBlank(message = "password can not be blank.")
     private String password;

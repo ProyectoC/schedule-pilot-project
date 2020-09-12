@@ -55,6 +55,7 @@ public class ManageUserServiceImp implements ManageUserService {
     public UserAccountDto createUserAccount(UserAccountCreateRequest userAccountCreateRequest) throws SchedulePilotException {
 
         UserAccountDto userAccount = UserAccountService.convertRequestToDTO(userAccountCreateRequest);
+        userAccount.setUsername(userAccount.getEmail());
 
         Validator validator = this.userAccountService.validationBeforeSave(userAccount);
         if (!validator.isValid())

@@ -13,7 +13,7 @@ export class DynamicFormComponent implements OnInit {
 
   // Inputs
 
-  @Input() controls: BaseInput<string>[] = [];
+  @Input() baseInputs: BaseInput<string>[] = [];
 
   // Outputs
 
@@ -25,7 +25,7 @@ export class DynamicFormComponent implements OnInit {
   constructor(private dynamicFormService: DynamicFormService) { }
 
   ngOnInit(): void {
-    this.formGroup = this.dynamicFormService.getFormGroup(this.controls);
+    this.formGroup = this.dynamicFormService.getFormGroup(this.baseInputs);
   }
 
   onSubmit() {

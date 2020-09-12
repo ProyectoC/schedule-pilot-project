@@ -1,15 +1,22 @@
 <div class="form-group" [formGroup]="formGroup">
 
+    <div [ngSwitch]="baseInput.controlType">
+        <div class="form-group form-check" *ngSwitchCase="formConstants.CHECK_BOX_CONTROL_TYPE">
+            <input formControlName="rememberPassword" type="checkbox" class="form-check-input" id="remember-password">
+            <label class="form-check-label" for="remember-password">{{'components.authentication.forms.auth.label.remember-password' | translate}}</label>
+        </div>
+    </div>
+    
     <label [attr.for]="baseInput.key">{{baseInput.label}}</label>
     <i [ngClass]="validations.isValidCheck(baseInput.key, formGroup)"></i>
 
     <div [ngSwitch]="baseInput.controlType">
 
-        <input *ngSwitchCase="formConstants().TEXT_BOX_CONTROL_TYPE" class="form-control"
+        <input *ngSwitchCase="formConstants.TEXT_BOX_CONTROL_TYPE" class="form-control"
             [formControlName]="baseInput.key" [id]="baseInput.key" [type]="baseInput.type"
             [ngClass]="validations.isValidInput(baseInput.key, formGroup)">
 
-        <input *ngSwitchCase="formConstants().PASSWORD_BOX_CONTROL_TYPE" class="form-control"
+        <input *ngSwitchCase="formConstants.PASSWORD_BOX_CONTROL_TYPE" class="form-control"
             [formControlName]="baseInput.key" [id]="baseInput.key" [type]="baseInput.type"
             [ngClass]="validations.isValidInput(baseInput.key, formGroup)">
 

@@ -1,17 +1,20 @@
+import { CollageCareer } from './collage-career';
 import { PasswordUser } from './password-user';
 import { RolUser } from './rol-user';
 
 export class User {
     public firstName: string;
     public lastName: string;
-    public identification: number;
+    public identification: string;
+    public identificationCode: string;
     public email: string;
-    public userName: string;
-    public passwordSecurityEntity: PasswordUser;
-    public rolSecurityEntity: RolUser;
+    public emailBackup: string;
+    public password: string;
+    public rolAccount: RolUser;
+    public collegeCareer: CollageCareer;
 
     constructor() {
-        this.passwordSecurityEntity = new PasswordUser();
-        this.rolSecurityEntity = new RolUser();
+        this.collegeCareer = new CollageCareer();
+        this.rolAccount = new RolUser();
     }
 }

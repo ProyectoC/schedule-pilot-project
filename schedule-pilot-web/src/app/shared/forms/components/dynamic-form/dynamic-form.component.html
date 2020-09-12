@@ -1,0 +1,7 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
+    <app-dynamic-form-group [baseInputs]="baseInputs" [formGroup]="formGroup"></app-dynamic-form-group>
+
+    <ng-content></ng-content>
+
+</form>

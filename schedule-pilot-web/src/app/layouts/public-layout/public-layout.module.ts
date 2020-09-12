@@ -10,6 +10,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationComponent } from '../../pages/authentication/authentication.component';
 import { RegisterComponent } from '../../pages/register/register.component';
 import { ShowPasswordComponent } from '../../pages/authentication/show-password/show-password.component';
+
+import { DynamicFormComponent } from '../../shared/forms/components/dynamic-form/dynamic-form.component';
+import { DynamicFormGroupComponent } from '../../shared/forms/components/dynamic-form-group/dynamic-form-group.component';
+import { DynamicFormInputComponent } from '../../shared/forms/components/dynamic-form-input/dynamic-form-input.component';
+
 // Services
 import { FormsService } from '@services/forms/forms.service';
 
@@ -37,7 +42,14 @@ export function HttpLoaderFactory(http: HttpClient) {
       isolate: false,
     }),
   ],
-  declarations: [ShowPasswordComponent, AuthenticationComponent, RegisterComponent],
+  declarations: [
+    ShowPasswordComponent,
+    AuthenticationComponent,
+    RegisterComponent,
+    DynamicFormComponent,
+    DynamicFormGroupComponent,
+    DynamicFormInputComponent,
+  ],
 })
 export class PublicLayoutModule {
   static forRoot(): any {

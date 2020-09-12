@@ -1,0 +1,56 @@
+<div class="form-group" [formGroup]="formGroup">
+
+    <label [attr.for]="baseInput.key">{{baseInput.label}}</label>
+    <i [ngClass]="validations.isValidCheck(baseInput.key, formGroup)"></i>
+
+    <div [ngSwitch]="baseInput.controlType">
+
+        <input *ngSwitchCase="formConstants().TEXT_BOX_CONTROL_TYPE" class="form-control"
+            [formControlName]="baseInput.key" [id]="baseInput.key" [type]="baseInput.type"
+            [ngClass]="validations.isValidInput(baseInput.key, formGroup)">
+
+        <input *ngSwitchCase="formConstants().PASSWORD_BOX_CONTROL_TYPE" class="form-control"
+            [formControlName]="baseInput.key" [id]="baseInput.key" [type]="baseInput.type"
+            [ngClass]="validations.isValidInput(baseInput.key, formGroup)">
+
+        <!-- <input *ngSwitchCase="'emailbox'" class="form-control" [formControlName]="baseInput.key" [id]="baseInput.key"
+            [type]="baseInput.type" [ngClass]="validations.isValidInput(baseInput.key, formGroup)"> -->
+
+        <!-- <div *ngIf="control.required" class="invalid-feedback">{{control.label}} is required</div> -->
+
+        <div *ngFor="let validation of baseInput.validations">
+
+            <div *ngIf="validation.name === validationConstants.REQUIRED">
+                <div *ngIf="formGroup.get(baseInput.key).errors?.required && formGroup.get(baseInput.key).touched"
+                    class="invalid-item">
+                    {{validation.errorMessage}}
+                </div>
+            </div>
+            
+            <div *ngIf="validation.name === validationConstants.MIN_LENGTH">
+                <div *ngIf="formGroup.get(baseInput.key).errors?.minlength" class="invalid-item">
+                    {{validation.errorMessage}}
+                </div>
+            </div>
+
+            <div *ngIf="validation.name === validationConstants.MAX_LENGTH">
+                <div *ngIf="formGroup.get(baseInput.key).errors?.maxlength" class="invalid-item">
+                    {{validation.errorMessage}}
+                </div>
+            </div>
+
+            <div *ngIf="validation.name === validationConstants.REGULAR_EXPRESSION">
+                <div *ngIf="formGroup.get(baseInput.key).errors?.pattern" class="invalid-item">
+                    {{validation.errorMessage}}
+                </div>
+            </div>
+
+            <div *ngIf="validation.name === validationConstants.PASSWORD_VALIDATION">
+                <div *ngIf="formGroup.get(baseInput.key).hasError('notEquivalent') && formGroup.get(baseInput.key).touched"
+                    class="invalid-item">
+                    {{validation.errorMessage}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

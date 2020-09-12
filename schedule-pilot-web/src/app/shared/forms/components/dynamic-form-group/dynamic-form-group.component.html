@@ -1,0 +1,13 @@
+<div [formGroup]="formGroup">
+    <div *ngFor="let baseInput of baseInputs">
+        <div *ngIf="baseInput.isGroup">
+            <div [formGroupName]="baseInput.key">
+                <app-dynamic-form-group [baseInputs]="baseInput.inputs" [formGroup]="formGroup.get(baseInput.key)">
+                </app-dynamic-form-group>
+            </div>
+        </div>
+        <div *ngIf="!baseInput.isGroup">
+            <app-dynamic-form-input [baseInput]="baseInput" [formGroup]="formGroup"></app-dynamic-form-input>
+        </div>
+    </div>
+</div>

@@ -35,6 +35,7 @@ import { GlobalErrorHandler } from '@services/global-error/global-error.handler.
 
 // HTTP Interceptor
 import { AuthInterceptor } from '@services/http-interceptor/auth-interceptor.service';
+import { TestDynamicFormService } from './shared/forms/services/dynamic-form/test-dynamic-form.service';
 
 @NgModule({
   declarations: [AppComponent, PublicLayoutComponent, PrivateLayoutComponent],
@@ -63,6 +64,7 @@ import { AuthInterceptor } from '@services/http-interceptor/auth-interceptor.ser
     NoAuthGuard,
     ScrollTopService,
     AuthenticationService,
+    TestDynamicFormService
   ],
   bootstrap: [AppComponent],
 })

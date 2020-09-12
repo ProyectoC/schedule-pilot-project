@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Response } from '@models/response';
 import { Router } from '@angular/router';
@@ -10,6 +10,10 @@ import { RoutingConstants } from '@constants/routing-constants';
 import { FormsService } from '@services/forms/forms.service';
 import { FormTemplate } from '@models/form-template';
 import { ItemFormTemplate } from '@models/item-form-template';
+import { Observable } from 'rxjs';
+import { BaseInput } from 'app/shared/forms/model/base-input';
+import { DynamicFormComponent } from 'app/shared/forms/components/dynamic-form/dynamic-form.component';
+import { TestDynamicFormService } from '../../shared/forms/services/dynamic-form/test-dynamic-form.service';
 
 @Component({
   selector: 'app-authentication',
@@ -17,15 +21,32 @@ import { ItemFormTemplate } from '@models/item-form-template';
   styleUrls: ['./authentication.component.scss'],
 })
 export class AuthenticationComponent implements OnInit {
+  // Forms
+
+  public controls$: Observable<BaseInput<any>[]>;
+
+  @ViewChild(DynamicFormComponent, { static: false })
+  private dynamicFormComponent: DynamicFormComponent;
+
   public authForm: FormGroup;
 
   constructor(
     private router: Router,
     public formsService: FormsService,
     public authenticationService: AuthenticationService,
-    private scrollTopService: ScrollTopService
+    private scrollTopService: ScrollTopService,
+    public testDynamicFormService: TestDynamicFormService
   ) {
+    this.controls$ = testDynamicFormService.getControls();
     this.buildAuthForm();
+  }
+
+  submitFormDynamic(event: string) {
+    console.log(event);
+  }
+
+  cancelProcess() {
+    this.dynamicFormComponent.cleanForm();
   }
 
   ngOnInit(): void {

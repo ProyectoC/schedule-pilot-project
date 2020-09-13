@@ -1,33 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
+@import "~bootstrap/scss/bootstrap";
 
 body {
-    padding-right: 0 !important;
-  }
-  
-  .swal2-container { padding-right: 0px !important; }
-  
-  .btn-primary {
-    background-color: red;
-  }
-  
-  .check {
-    color: #42A948;
-    padding-left: 5px;
-  }
-  
-  .uncheck {
-    color: #a94442;
-    padding-left: 5px;
-  }
-  
-  .item-orange {
-    border-left-style: solid;
-    border-width: 5px;
-    border-left-color: orange;
-    padding-left: 10px;
-  }
-  
+  padding-right: 0 !important;
+}
+
+.swal2-container {
+  padding-right: 0px !important;
+}
+
+.btn-primary {
+  background-color: red;
+}
+
+// Form Styles - Start
+.check {
+  color: #42a948;
+  padding-left: 5px;
+}
+
+.uncheck {
+  color: #a94442;
+  padding-left: 5px;
+}
+
+input.ng-invalid.ng-touched {
+  border-left: 5px solid #a94442;
+}
+
+input.ng-valid.ng-dirty {
+  border-left: 5px solid #42a948;
+}
+
+input.ng-valid.ng-touched {
+  box-shadow: 0 0 10px #42a948;
+}
+
+.invalid-item {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+// Form Styles - End
+
+.item-orange {
+  border-left-style: solid;
+  border-width: 5px;
+  border-left-color: orange;
+  padding-left: 10px;
+}

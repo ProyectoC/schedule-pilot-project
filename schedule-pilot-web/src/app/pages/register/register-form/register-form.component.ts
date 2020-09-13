@@ -5,7 +5,6 @@ import { Validations } from '@utils/forms/validations';
 import { BaseFormComponent } from '../../../shared/forms/components/base-form.component';
 import { RoutingConstants } from '../../../constants/routing-constants';
 import { RegisterPasswordFormComponent } from '../register-password-form/register-password-form.component';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-register-form',
@@ -31,12 +30,11 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
     [4, 'Contaduria Publica'],
   ]);
 
-  constructor(private formBuilder: FormBuilder, private spinner: NgxSpinnerService) {
+  constructor(private formBuilder: FormBuilder) {
     super();
   }
 
   ngOnInit(): void {
-    this.spinner.show();
     this.buildForm();
   }
 

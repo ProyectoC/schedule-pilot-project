@@ -1,3 +1,6 @@
+<ngx-spinner bdColor="rgba(235,233,233,0.8)" size="default" color="black" type="square-loader" [fullScreen]="false">
+    <p style="color: black"> Loading... </p>
+</ngx-spinner>
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation">
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -51,9 +54,9 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="type-user">Tipo Usuario</label>
+            <label for="rol-account">Tipo Usuario</label>
             <i [ngClass]="isValidCheck('rolAccount')"></i>
-            <select formControlName="rolAccount" class="form-control" id="type-user"
+            <select formControlName="rolAccount" class="form-control" id="rol-account"
                 [ngClass]="isValidInput('rolAccount')">
                 <option value="" selected>Selecciona una opción</option>
                 <option *ngFor="let rol of rolAccounts | keyvalue; trackBy: trackByFn" [value]="rol.key">
@@ -63,9 +66,9 @@
             <div class="invalid-feedback">El tipo de usuario seleccionado no es valido.</div>
         </div>
         <div class="form-group col-md-6">
-            <label for="type-user">Carrera Universitaria</label>
+            <label for="college-career">Carrera Universitaria</label>
             <i [ngClass]="isValidCheck('collegeCareer')"></i>
-            <select formControlName="collegeCareer" class="form-control" id="type-user"
+            <select formControlName="collegeCareer" class="form-control" id="college-career"
                 [ngClass]="isValidInput('collegeCareer')">
                 <option value="" selected>Selecciona una opción</option>
                 <option *ngFor="let college of collegeCareers | keyvalue; trackBy: trackByFn" [value]="college.key">
@@ -86,8 +89,7 @@
             Debes aceptar terminos y condiciones.</div>
     </div>
     <div class="form-group" style="text-align: center;">
-        <button type="submit" class="btn btn-primary btn-block">
-            <!-- <span class="spinner-border spinner-border-sm" [hidden]="registerService.isLoading == false"></span> -->
+        <button type="submit" class="btn btn-primary btn-block" disabled>
             Registrarse
         </button>
     </div>

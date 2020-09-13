@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,12 +25,15 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
   imports: [
+    NgxSpinnerModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -55,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterFormComponent,
     RegisterPasswordFormComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PublicLayoutModule {
   static forRoot(): any {

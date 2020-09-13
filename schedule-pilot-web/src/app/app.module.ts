@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -37,11 +37,16 @@ import { GlobalErrorHandler } from '@services/global-error/global-error.handler.
 import { AuthInterceptor } from '@services/http-interceptor/auth-interceptor.service';
 import { TestDynamicFormService } from './shared/forms/services/dynamic-form/test-dynamic-form.service';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [AppComponent, PublicLayoutComponent, PrivateLayoutComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+    NgxSpinnerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -67,5 +72,6 @@ import { TestDynamicFormService } from './shared/forms/services/dynamic-form/tes
     TestDynamicFormService
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

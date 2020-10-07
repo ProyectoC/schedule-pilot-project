@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollTop.setScrollTop();
-    this.spinner.show();
+    // this.spinner.show();
   }
 
   get routingConstants() {

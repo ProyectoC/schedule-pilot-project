@@ -1,9 +1,13 @@
 package com.schedulepilot.core.controllers;
 
 import com.schedulepilot.core.constants.AccountUserConstants;
+import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.UserAccountAuthRequest;
+import com.schedulepilot.core.request.UserAccountChangePasswordRequest;
 import com.schedulepilot.core.request.UserAccountCreateRequest;
+import com.schedulepilot.core.request.UserAccountForgotPasswordRequest;
+import com.schedulepilot.core.response.UserAccountAuthResponse;
 import com.schedulepilot.core.service.ManageUserService;
 import com.schedulepilot.core.util.CommonUtil;
 import com.schedulepilot.core.util.dto.ResponseDto;
@@ -27,7 +31,7 @@ public class AccountUserController {
 
     @ResponseBody
     @PostMapping(AccountUserConstants.CREATE_USER_ACCOUNT_REST)
-    public ResponseEntity<?> createUserAccount(@RequestBody @Valid UserAccountCreateRequest userAccountCreateRequest) throws SchedulePilotException {
+    public ResponseEntity<ResponseDto<UserAccountDto>> createUserAccount(@RequestBody @Valid UserAccountCreateRequest userAccountCreateRequest) throws SchedulePilotException {
         return new ResponseEntity<>(ResponseDto.success(this.manageUserService.createUserAccount(userAccountCreateRequest)), HttpStatus.CREATED);
     }
 
@@ -40,7 +44,21 @@ public class AccountUserController {
 
     @ResponseBody
     @PostMapping(AccountUserConstants.AUTH_AUTHORIZE_USER_ACCOUNT_REST)
-    public ResponseDto<?> authUserAccount(@RequestBody @Valid UserAccountAuthRequest userAccountCreateRequest) throws SchedulePilotException {
+    public ResponseDto<UserAccountAuthResponse> authUserAccount(@RequestBody @Valid UserAccountAuthRequest userAccountCreateRequest) throws SchedulePilotException {
         return ResponseDto.success(this.manageUserService.authUserAccount(userAccountCreateRequest));
+    }
+
+    @ResponseBody
+    @PostMapping(AccountUserConstants.FORGOT_PASSWORD_USER_ACCOUNT_REST)
+    public ResponseDto<String> restorePasswordUserAccount(@RequestBody @Valid UserAccountForgotPasswordRequest request) throws SchedulePilotException {
+        this.manageUserService.restorePasswordUserAccount(request);
+        return ResponseDto.success("Password restored successfully.");
+    }
+
+    @ResponseBody
+    @PostMapping(AccountUserConstants.CHANGE_PASSWORD_USER_ACCOUNT_REST)
+    public ResponseDto<String> changePasswordUserAccount(@RequestBody @Valid UserAccountChangePasswordRequest request) throws SchedulePilotException {
+        this.manageUserService.changePasswordUserAccount(request);
+        return ResponseDto.success("Password changed successfully.");
     }
 }

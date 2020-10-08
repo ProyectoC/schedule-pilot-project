@@ -56,11 +56,11 @@ public class EmailConstants {
     public static final String ERROR_EMAIL_SEND_ME = "ERROR SENDING EMAIL OWN, ERROR CODE: {} - ERROR DESCRIPTION: {}";
 
     // Default Messages
-    public static final String TITLE_DEFAULT_EMAIL = "Myventory - 2020";
-    public static final String SUBJECT_DEFAULT_SEND_REGISTER_USER = "Myventory - Confirmación de email";
-    public static final String SUBJECT_DEFAULT_SEND_REGISTER_USER_US = "Myventory - Nuevo usuario registrado";
-    public static final String SUBJECT_DEFAULT_SEND_RESPONSE_VALIDATION_EMAIL = "Myventory - Email validado";
-    public static final String SUBJECT_DEFAULT_SEND_CHANGE_PASSWORD = "Myventory - Cambio de contraseña";
-    public static final String SUBJECT_DEFAULT_SEND_REMEMBER_PASSWORD = "Myventory - Restauración de contraseña";
+    public static final String TITLE_DEFAULT_EMAIL = "SchedulePilot - 2020";
+    public static final String SUBJECT_DEFAULT_SEND_REGISTER_USER = "SchedulePilot - Confirmación de email";
+    public static final String SUBJECT_DEFAULT_SEND_REGISTER_USER_US = "SchedulePilot - Nuevo usuario registrado";
+    public static final String SUBJECT_DEFAULT_SEND_RESPONSE_VALIDATION_EMAIL = "SchedulePilot - Email validado";
+    public static final String SUBJECT_DEFAULT_SEND_CHANGE_PASSWORD = "SchedulePilot - Cambio de contraseña";
+    public static final String SUBJECT_DEFAULT_SEND_REMEMBER_PASSWORD = "SchedulePilot - Restauración de contraseña";
     public static final String SUBJECT_DEFAULT_SEND_ACTIVATE_USER_ACCOUNT = "Account verified successfully.";
 }

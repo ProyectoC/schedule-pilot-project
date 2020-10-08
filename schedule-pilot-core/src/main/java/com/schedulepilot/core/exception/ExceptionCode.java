@@ -8,6 +8,10 @@ public enum ExceptionCode {
     // Manage User
     ERROR_MANAGE_USER_CREATE_USER("1001", "User account could not be created."),
     ERROR_MANAGE_USER_AUTH_FAILED("1005", "Username and/or password are not valid."),
+    ERROR_MANAGE_USER_NOT_FOUND("1006", "User account not found."),
+    ERROR_MANAGE_USER_FORGOT_PASSWORD("1007", "Password from user account could not be restored."),
+    ERROR_MANAGE_USER_CHANGE_PASSWORD("1008", "Password from user account could not be changed."),
+    ERROR_MANAGE_USER_CHANGE_PASSWORD_MATCH("1009", "Actual password from user account is not valid."),
 
     // Manage Rol
     ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),

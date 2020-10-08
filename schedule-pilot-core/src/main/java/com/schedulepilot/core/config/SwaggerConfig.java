@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 .version(ApplicationConstants.APPLICATION_VERSION)
                 .description(ApplicationConstants.APPLICATION_DESCRIPTION)
                 .termsOfServiceUrl(ApplicationConstants.APPLICATION_SERVICES)
-                .contact(new Contact("Felipe Galicia", "https://github.com/ProyectoC/", "frediih@hotmail.es"))
+                .contact(new Contact("Felipe Galicia and Cesar Ricaurte", "https://github.com/ProyectoC/", "frediih@hotmail.es"))
                 .license("License MIT")
                 .licenseUrl("https://opensource.org/licenses/MIT")
                 .build();

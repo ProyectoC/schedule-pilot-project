@@ -9,13 +9,16 @@ import com.schedulepilot.core.exception.ExceptionCode;
 import com.schedulepilot.core.exception.ManageUserException;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.UserAccountAuthRequest;
+import com.schedulepilot.core.request.UserAccountChangePasswordRequest;
 import com.schedulepilot.core.request.UserAccountCreateRequest;
+import com.schedulepilot.core.request.UserAccountForgotPasswordRequest;
 import com.schedulepilot.core.response.UserAccountAuthResponse;
 import com.schedulepilot.core.security.token.service.ManageTokenService;
 import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.service.ManageUserService;
 import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.UserAccountService;
+import com.schedulepilot.core.util.SecurityUtil;
 import com.schedulepilot.core.util.dto.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -110,11 +113,10 @@ public class ManageUserServiceImp implements ManageUserService {
     @Override
     @Transactional
     public UserAccountAuthResponse authUserAccount(UserAccountAuthRequest userAccountAuthRequest) throws SchedulePilotException {
-        UserAccountDto userAccountDto = this.userAccountService.getByUsernameThrow(userAccountAuthRequest.getUsername());
+        UserAccountDto userAccountDto = this.userAccountService.getByUsernameOrException(userAccountAuthRequest.getUsername());
         Validator validator = userAccountDto.validationForAuthUserAccount();
-        if (!validator.isValid()) {
+        if (!validator.isValid())
             throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_AUTH_FAILED, validator.getFirstError());
-        }
 
         try {
             Authentication authentication = authenticationManager.authenticate(
@@ -134,6 +136,49 @@ public class ManageUserServiceImp implements ManageUserService {
         userAccountDto.setFailedAttempts(0);
         this.userAccountService.update(userAccountDto);
         return new UserAccountAuthResponse(authToken.getKey());
+    }
+
+    @Override
+    public void restorePasswordUserAccount(UserAccountForgotPasswordRequest userAccountForgotPasswordRequest) throws SchedulePilotException {
+        UserAccountDto userAccountDto = this.userAccountService.getByUsernameOrNull(userAccountForgotPasswordRequest.getUsername());
+        if (userAccountDto == null)
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_NOT_FOUND, "User account: " +
+                    userAccountForgotPasswordRequest.getUsername() + " not found.");
+
+        Validator validator = userAccountDto.validationForRestorePasswordUserAccount();
+        if (!validator.isValid())
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_FORGOT_PASSWORD, validator.getFirstError());
+
+        userAccountDto.setPasswordExpiredDate(LocalDateTime.now().plusSeconds(this.getPasswordExpiration()));
+        userAccountDto.setBlock(false);
+        userAccountDto.setIsActive(true);
+        userAccountDto.setFailedAttempts(0);
+        String newPassword = SecurityUtil.generatePassword();
+        userAccountDto.setPassword(this.passwordEncoder.encode(newPassword));
+        userAccountDto = this.userAccountService.update(userAccountDto);
+        this.notificationLayerService.sendNotificationForgotPasswordUserAccount(userAccountDto, newPassword);
+    }
+
+    @Override
+    public void changePasswordUserAccount(UserAccountChangePasswordRequest userAccountChangePasswordRequest) throws SchedulePilotException {
+        UserAccountDto userAccountDto = this.userAccountService.getByUsernameOrNull(userAccountChangePasswordRequest.getUsername());
+        if (userAccountDto == null)
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_NOT_FOUND, "User account: " +
+                    userAccountChangePasswordRequest.getUsername() + " not found.");
+
+        Validator validator = userAccountDto.validationForChangePasswordUserAccount();
+        if (!validator.isValid())
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CHANGE_PASSWORD, validator.getFirstError());
+
+        if (!this.passwordEncoder.matches(userAccountChangePasswordRequest.getActualPassword(), userAccountDto.getPassword()))
+            throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CHANGE_PASSWORD_MATCH, "Actual password: " +
+                    userAccountChangePasswordRequest.getActualPassword() + " is not valid.");
+
+        userAccountDto.setPasswordExpiredDate(LocalDateTime.now().plusSeconds(this.getPasswordExpiration()));
+        userAccountDto.setPassword(this.passwordEncoder.encode(userAccountChangePasswordRequest.getNewPassword()));
+        userAccountDto.setFailedAttempts(0);
+        userAccountDto = this.userAccountService.update(userAccountDto);
+        this.notificationLayerService.sendNotificationChangePasswordUserAccount(userAccountDto);
     }
 
     private void updateUserFailedAuth(UserAccountDto userAccountDto) throws SchedulePilotException {

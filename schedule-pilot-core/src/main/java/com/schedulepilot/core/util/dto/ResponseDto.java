@@ -1,5 +1,10 @@
 package com.schedulepilot.core.util.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ResponseDto<T> {
 
     private static final int SUCCESS_CODE = 0;

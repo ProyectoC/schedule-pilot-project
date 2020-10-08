@@ -17,24 +17,17 @@ public interface UserAccountService extends UserDetailsService {
 
     static UserAccountDto convertRequestToDTO(UserAccountCreateRequest dto) {
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
-        UserAccountDto entity = modelMapper.map(dto, UserAccountDto.class);
-        return entity;
+        return modelMapper.map(dto, UserAccountDto.class);
     }
 
     static UserAccountEntity convertDTOToEntity(UserAccountDto dto) {
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
-        UserAccountEntity entity = modelMapper.map(dto, UserAccountEntity.class);
-        return entity;
+        return modelMapper.map(dto, UserAccountEntity.class);
     }
 
     static UserAccountDto convertEntityToDTO(UserAccountEntity entity) {
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
-        if (entity != null) {
-            UserAccountDto dto = modelMapper.map(entity, UserAccountDto.class);
-            return dto;
-        } else {
-            return null;
-        }
+        return modelMapper.map(entity, UserAccountDto.class);
     }
 
     UserAccountDto getByIdNull(Long id);
@@ -43,7 +36,9 @@ public interface UserAccountService extends UserDetailsService {
 
     UserAccountDto getByUsername(String username);
 
-    UserAccountDto getByUsernameThrow(String username) throws SchedulePilotException;
+    UserAccountDto getByUsernameOrException(String username) throws SchedulePilotException;
+
+    UserAccountDto getByUsernameOrNull(String username);
 
     UserAccountDto getByIdentification(String identification);
 

@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -17,12 +17,17 @@ import java.io.Serializable;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserAccountAuthRequest implements Serializable {
+public class UserAccountChangePasswordRequest implements Serializable {
 
     @NotNull(message = "username can not be null.")
-    @NotEmpty(message = "username can not be empty")
+    @NotBlank(message = "username can not be blank.")
     private String username;
-    @NotNull(message = "password can not be null.")
-    @NotEmpty(message = "password can not be empty")
-    private String password;
+
+    @NotNull(message = "actualPassword can not be null.")
+    @NotBlank(message = "actualPassword can not be blank.")
+    private String actualPassword;
+
+    @NotNull(message = "newPassword can not be null.")
+    @NotBlank(message = "newPassword can not be blank.")
+    private String newPassword;
 }

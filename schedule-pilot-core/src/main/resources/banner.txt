@@ -4,5 +4,5 @@ ${Ansi.BLUE} \___ \   / __| | '_ \   / _ \  / _` | | | | | | |  / _ \  _____  | 
 ${Ansi.BLUE}  ___) | | (__  | | | | |  __/ | (_| | | |_| | | | |  __/ |_____| | |_) | | | | | | (_) | | |_  |_____| | (__  | (_) | | |    |  __/
 ${Ansi.BLUE} |____/   \___| |_| |_|  \___|  \__,_|  \__,_| |_|  \___|         | .__/  |_| |_|  \___/   \__|          \___|  \___/  |_|     \___|
 ${Ansi.BLUE}                                                                  |_|
-${Ansi.BLUE} :: <Felipe Galicia, Cesar - 2020 - Schedule-piloto-core-project
+${Ansi.BLUE} :: <Felipe Galicia, Cesar Ricaurte - 2020 - Schedule-pilot-core-project
 ${Ansi.RED} :: Spring Boot${spring-boot.formatted-version} :: ${Ansi.DEFAULT}

@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -19,7 +20,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserAccountCreateRequest {
+public class UserAccountCreateRequest implements Serializable {
 
     @NotNull(message = "password can not be null.")
     @NotBlank(message = "password can not be blank.")

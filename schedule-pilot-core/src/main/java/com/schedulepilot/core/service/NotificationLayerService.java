@@ -23,6 +23,10 @@ public interface NotificationLayerService {
 
     void sendNotificationActivationUserAccount(UserAccountDto userAccountDto);
 
+    void sendNotificationForgotPasswordUserAccount(UserAccountDto userAccountDto, String newPassword);
+
+    void sendNotificationChangePasswordUserAccount(UserAccountDto userAccountDto);
+
 //    void sendNotificationVerificationUser(com.acqua.board.coremodule.dto.UserSecurityDTO userSecurityDTO);
 //
 //    void sendNotificationRestorePasswordUser(com.acqua.board.coremodule.dto.UserSecurityDTO userSecurityDTO,

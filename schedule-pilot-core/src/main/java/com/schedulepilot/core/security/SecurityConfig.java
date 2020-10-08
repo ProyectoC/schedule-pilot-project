@@ -104,6 +104,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.CREATE_USER_ACCOUNT_REST).permitAll()
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.ACTIVATE_USER_ACCOUNT_REST).permitAll()
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.AUTH_AUTHORIZE_USER_ACCOUNT_REST).permitAll()
+                .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.FORGOT_PASSWORD_USER_ACCOUNT_REST).permitAll()
                 .antMatchers(SecurityUtil.VERIFICATION_EMAIL_REST_DEFAULT + ALL_RESOURCES, "/oauth2/authorize-client").permitAll()
                 .antMatchers(SecurityUtil.AUTH_WHITELIST_APIS_DEFAULT()).permitAll()
                 .antMatchers("/oauth/token").permitAll()

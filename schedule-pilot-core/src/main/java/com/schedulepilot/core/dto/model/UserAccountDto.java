@@ -134,4 +134,36 @@ public class UserAccountDto extends BaseDto implements UserDetails {
         return validator;
     }
 
+    public Validator validationForRestorePasswordUserAccount() {
+        Validator validator = new Validator();
+        if (!this.getActivationTokenEntity().getUsed()) {
+            validator.setValid(false);
+            validator.addError("Restore password for user account failed, user account is not active yet.");
+            return validator;
+        }
+        validator.setValid(true);
+        return validator;
+    }
+
+    public Validator validationForChangePasswordUserAccount() {
+        Validator validator = new Validator();
+        if (this.getBlock()) {
+            validator.setValid(false);
+            validator.addError("Change password for user account failed, user is blocked.");
+            return validator;
+        }
+        if (!this.getIsActive()) {
+            validator.setValid(false);
+            validator.addError("Change password for user account failed, user account is not active yet.");
+            return validator;
+        }
+        if (!this.getActivationTokenEntity().getUsed()) {
+            validator.setValid(false);
+            validator.addError("Change password for user account failed, user account is not active yet.");
+            return validator;
+        }
+        validator.setValid(true);
+        return validator;
+    }
+
 }

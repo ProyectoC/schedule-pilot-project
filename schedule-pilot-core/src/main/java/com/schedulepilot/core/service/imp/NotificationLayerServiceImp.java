@@ -118,43 +118,53 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
             LOGGER.error("Could not send verification notification user. Error: {}", ex.getMessage());
         }
     }
-//
-//    @Async
-//    @Override
-//    public void sendNotificationRestorePasswordUser(com.acqua.board.coremodule.dto.UserSecurityDTO userNew, String newPassword) {
-//        Path filePath = Paths.get(appPropertiesService.getFilePath(), EmailConstants.EMAIL_SEND_FORGOT_PASSWORD_USER);
-//        String templateClient = filePath.toString();
-//        Map<String, String> parameters = new HashMap<>();
-//        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userNew.getFirstName());
-//        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_PASSWORD, newPassword);
-//        NotificationDto notificationDto = new NotificationDto();
-//        notificationDto.setEmails(Arrays.asList(userNew.getEmail()));
-//        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_REMEMBER_PASSWORD);
-//        try {
-//            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
-//            this.notificationSenderService.sendValidationNotification(notificationDto);
-//        } catch (AcquaBoardException ex) {
-//            LOGGER.error("Could not send notification restore user. Error: {}", ex.getMessage());
-//        }
-//    }
-//
-//    @Async
-//    @Override
-//    public void sendNotificationChangePasswordUser(com.acqua.board.coremodule.dto.UserSecurityDTO userNew) {
-//        Path filePath = Paths.get(appPropertiesService.getFilePath(), EmailConstants.EMAIL_SEND_CHANGE_PASSWORD_USER);
-//        String templateClient = filePath.toString();
-//        Map<String, String> parameters = new HashMap<>();
-//        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userNew.getFirstName());
-//        NotificationDto notificationDto = new NotificationDto();
-//        notificationDto.setEmails(Arrays.asList(userNew.getEmail()));
-//        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_CHANGE_PASSWORD);
-//        try {
-//            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
-//            this.notificationSenderService.sendValidationNotification(notificationDto);
-//        } catch (AcquaBoardException ex) {
-//            LOGGER.error("Could not send notification change password user. Error: {}", ex.getMessage());
-//        }
-//    }
+
+    @Async
+    @Override
+    public void sendNotificationForgotPasswordUserAccount(UserAccountDto userAccountDto, String newPassword) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_FORGOT_PASSWORD_USER);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userAccountDto.getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_PASSWORD, newPassword);
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(userAccountDto.getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_REMEMBER_PASSWORD);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send forgot password notification user. Error: {}", ex.getMessage());
+        }
+    }
+
+    @Async
+    @Override
+    public void sendNotificationChangePasswordUserAccount(UserAccountDto userAccountDto) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_CHANGE_PASSWORD_USER);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userAccountDto.getFirstName());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(userAccountDto.getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_CHANGE_PASSWORD);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification to change password user. Error: {}", ex.getMessage());
+        }
+    }
 //
 //    @Async
 //    @Override

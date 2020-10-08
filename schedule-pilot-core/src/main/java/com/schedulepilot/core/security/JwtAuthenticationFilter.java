@@ -96,6 +96,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.CREATE_USER_ACCOUNT_REST)
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.ACTIVATE_USER_ACCOUNT_REST)
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.AUTH_AUTHORIZE_USER_ACCOUNT_REST)
+                || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.FORGOT_PASSWORD_USER_ACCOUNT_REST)
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + "/logout")
                 || request.getRequestURI().contains(SwaggerConfig.SWAGGER_UI)
                 || request.getRequestURI().contains(SwaggerConfig.SPRING_ADMIN));

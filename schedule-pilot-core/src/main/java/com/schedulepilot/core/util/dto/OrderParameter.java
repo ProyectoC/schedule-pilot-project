@@ -2,6 +2,11 @@ package com.schedulepilot.core.util.dto;
 
 import lombok.*;
 
+/**
+ * @author Cristhian Castillo
+ * @since 1.0
+ */
+
 @Getter
 @Setter
 @Builder

@@ -2,8 +2,8 @@ package com.schedulepilot.core.service.imp;
 
 import com.schedulepilot.core.util.dto.OrderParameter;
 import lombok.Getter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,12 +16,26 @@ import java.util.PriorityQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * This task allows pagination and ordering of queries from an @Repository component
+ * <p>
+ * It allows to generate the necessary objects to paginate and order for any entity
+ *
+ * @author cristhian.castillo@ptesa.com
+ * @since 1.0
+ */
+
 @Component
 @Scope("prototype")
 public class PaginationAndOrderTask {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(PaginationAndOrderTask.class);
+    // Constants
+    private static final Logger CLASS_LOGGER = LogManager.getLogger(PaginationAndOrderTask.class);
 
+    /**
+     * Pattern used to validate the sort fields.
+     * Must come in the following form <sort_order>:<field>:<priority>
+     */
     private static final Pattern PATTERN = Pattern.compile("(desc|asc):([^ ]*):(\\d)");
 
     private static final String ASC_SORT_TYPE = "asc";
@@ -30,14 +44,20 @@ public class PaginationAndOrderTask {
     private static final String PER_PAGE_PARAMETER = "per_page";
     private static final String ORDER_BY_PARAMETER = "order_by";
 
+    // Fields
+
     private int page;
     private int pageSize;
-    private PriorityQueue<OrderParameter> orderParametersQueue;
+
+    /**
+     * Priority queue used to sort the fields according to the specified priority level.
+     */
+    private final PriorityQueue<OrderParameter> orderParametersQueue;
 
     // Input fields
 
-    private Map<String, String> parameters;
-    private List<String> listAttributes;
+    private final Map<String, String> parameters;
+    private final List<String> listAttributes;
 
 
     // Output fields
@@ -50,9 +70,6 @@ public class PaginationAndOrderTask {
 
     // Constructors
 
-//    public PaginationAndOrderTask() {
-//    }
-
     public PaginationAndOrderTask(Map<String, String> parameters, List<String> listAttributes) {
         this.parameters = parameters;
         this.listAttributes = listAttributes;
@@ -63,9 +80,9 @@ public class PaginationAndOrderTask {
     }
 
     // Class logic
-
+    
     public void execute() {
-        LOGGER.info("Starting");
+        CLASS_LOGGER.info("Starting");
 
         // OrderBy
         this.initializeOrder();
@@ -75,33 +92,51 @@ public class PaginationAndOrderTask {
         this.initializePagination();
         this.generatePagination();
 
-        LOGGER.info("Finished successfully");
+        CLASS_LOGGER.info("Finished successfully");
     }
 
+    /**
+     * Validate if the list of parameters contains the parameter 'order_by'.
+     * If it does, the process separates all possible sort fields to initialize the priority queue.
+     */
     private void initializeOrder() {
         if (parameters.containsKey(ORDER_BY_PARAMETER)) {
             String orderByParameters = parameters.get(ORDER_BY_PARAMETER);
             String[] parameterOrderArray = orderByParameters.split(",");
             if (parameterOrderArray.length > 0) {
-                for (String parameterTemp : parameterOrderArray) {
-                    Matcher matcher = PATTERN.matcher(parameterTemp);
-                    if (matcher.matches()) {
-                        String type = matcher.group(1);
-                        String property = matcher.group(2);
-                        int priority = Integer.parseInt(matcher.group(3));
-                        if (this.isAnAttribute(property)) {
-                            OrderParameter orderParameter = OrderParameter.builder()
-                                    .type(type)
-                                    .value(property)
-                                    .priority(priority).build();
-                            this.orderParametersQueue.add(orderParameter);
-                        }
-                    }
-                }
+                this.initializePriorityQueue(parameterOrderArray);
             }
         }
     }
 
+    /**
+     * Initializes the priority queue with the identified sort fields.
+     *
+     * @param parameterOrderArray List of fields to sort.
+     */
+    private void initializePriorityQueue(String[] parameterOrderArray) {
+        for (String parameterTemp : parameterOrderArray) {
+            Matcher matcher = PATTERN.matcher(parameterTemp);
+            if (!matcher.matches()) {
+                continue;
+            }
+            String type = matcher.group(1);
+            String property = matcher.group(2);
+            int priority = Integer.parseInt(matcher.group(3));
+            if (!this.isAnAttribute(property)) {
+                continue;
+            }
+            OrderParameter orderParameter = OrderParameter.builder()
+                    .type(type)
+                    .value(property)
+                    .priority(priority).build();
+            this.orderParametersQueue.add(orderParameter);
+        }
+    }
+
+    /**
+     * Use the priority queue to create Sort instances.
+     */
     private void generateSort() {
         for (int i = 0; i < this.orderParametersQueue.size(); i++) {
             OrderParameter temp = orderParametersQueue.poll();
@@ -123,6 +158,10 @@ public class PaginationAndOrderTask {
         }
     }
 
+    /**
+     * Validate if the list of parameters contains the parameter 'page' and the parameter 'per_page'.
+     * If it does, the process initializes the variable of number of records per page and the page number.
+     */
     private void initializePagination() {
         if (this.parameters.containsKey(PAGE_PARAMETER) && this.parameters.containsKey(PER_PAGE_PARAMETER)) {
             this.page = Integer.parseInt(this.parameters.get(PAGE_PARAMETER));
@@ -130,6 +169,9 @@ public class PaginationAndOrderTask {
         }
     }
 
+    /**
+     * Try to create a Page applying the Sort parameters or create a Page without applying the Sort parameters.
+     */
     private void generatePagination() {
         if ((page > -1 && pageSize > -1) && this.sortData != null) {
             this.pageData = PageRequest.of(page, pageSize, this.sortData);
@@ -138,6 +180,12 @@ public class PaginationAndOrderTask {
         }
     }
 
+    /**
+     * Validate if a field found in the list of parameters in a valid field name to apply the ordering.
+     *
+     * @param name Parameter name-
+     * @return true: if it is a valid parameter, false: when it is not a valid parameter.
+     */
     private boolean isAnAttribute(String name) {
         for (String attribute : this.listAttributes) {
             if (attribute.equals(name))
@@ -146,11 +194,23 @@ public class PaginationAndOrderTask {
         return false;
     }
 
+    /**
+     * Return a Sort instance of descending type.
+     *
+     * @param property Sort field.
+     * @return Sort instance
+     */
     private Sort orderByDesc(String property) {
-        return Sort.by(Sort.Direction.DESC, property);
+        return new Sort(Sort.Direction.DESC, property);
     }
 
+    /**
+     * Return a Sort instance of ascending type.
+     *
+     * @param property Sort field.
+     * @return Sort instance
+     */
     private Sort orderByAsc(String property) {
-        return Sort.by(Sort.Direction.ASC, property);
+        return new Sort(Sort.Direction.ASC, property);
     }
 }

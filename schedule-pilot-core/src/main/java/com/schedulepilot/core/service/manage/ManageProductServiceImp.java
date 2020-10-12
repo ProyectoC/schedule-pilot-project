@@ -1,18 +1,14 @@
-package com.schedulepilot.core.service.imp;
+package com.schedulepilot.core.service.manage;
 
 import com.schedulepilot.core.dto.PageResponseDto;
 import com.schedulepilot.core.dto.model.ProductDto;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.ProductCreateRequest;
-import com.schedulepilot.core.service.ManageProductService;
+import com.schedulepilot.core.service.manage.ManageProductService;
 import com.schedulepilot.core.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Component

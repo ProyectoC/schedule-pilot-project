@@ -5,7 +5,7 @@ import com.schedulepilot.core.dto.PageResponseDto;
 import com.schedulepilot.core.dto.model.ProductDto;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.ProductCreateRequest;
-import com.schedulepilot.core.service.ManageProductService;
+import com.schedulepilot.core.service.manage.ManageProductService;
 import com.schedulepilot.core.util.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -44,14 +44,6 @@ public class SchedulePilotCoreApplication implements CommandLineRunner {
 
     public static final Logger LOGGER = LogManager.getLogger(SchedulePilotCoreApplication.class);
 
-
-    public static void main(String[] args) {
-        System.setProperty("spring.devtools.restart.enabled", "false");
-        LOGGER.info(CommonUtil.LOG_STARTING_APPLICATION_START, ApplicationConstants.APPLICATION_NAME);
-        SpringApplication.run(SchedulePilotCoreApplication.class, args);
-        LOGGER.info(CommonUtil.LOG_STARTING_APPLICATION_END, ApplicationConstants.APPLICATION_NAME);
-    }
-
     @Autowired
     private TokenTypeService tokenTypeService;
 
@@ -97,6 +89,13 @@ public class SchedulePilotCoreApplication implements CommandLineRunner {
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.initialize();
         return executor;
+    }
+
+    public static void main(String[] args) {
+        System.setProperty("spring.devtools.restart.enabled", "false");
+        LOGGER.info(CommonUtil.LOG_STARTING_APPLICATION_START, ApplicationConstants.APPLICATION_NAME);
+        SpringApplication.run(SchedulePilotCoreApplication.class, args);
+        LOGGER.info(CommonUtil.LOG_STARTING_APPLICATION_END, ApplicationConstants.APPLICATION_NAME);
     }
 
     @Override

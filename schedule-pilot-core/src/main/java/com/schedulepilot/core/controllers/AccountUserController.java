@@ -8,7 +8,7 @@ import com.schedulepilot.core.request.UserAccountChangePasswordRequest;
 import com.schedulepilot.core.request.UserAccountCreateRequest;
 import com.schedulepilot.core.request.UserAccountForgotPasswordRequest;
 import com.schedulepilot.core.response.UserAccountAuthResponse;
-import com.schedulepilot.core.service.ManageUserService;
+import com.schedulepilot.core.service.manage.ManageUserService;
 import com.schedulepilot.core.util.CommonUtil;
 import com.schedulepilot.core.util.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;

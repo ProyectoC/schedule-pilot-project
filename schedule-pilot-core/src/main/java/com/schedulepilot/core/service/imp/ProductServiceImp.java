@@ -6,6 +6,7 @@ import com.schedulepilot.core.entities.model.ProductEntity;
 import com.schedulepilot.core.entities.model.ProductEntity_;
 import com.schedulepilot.core.repository.ProductRepository;
 import com.schedulepilot.core.service.ProductService;
+import com.schedulepilot.core.tasks.PaginationAndOrderTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;

@@ -34,12 +34,14 @@
               "src/styles.scss",
               "src/assets/styles/demo.css",
               "src/assets/styles/spur.css",
+              "src/assets/styles/style.css",
               "src/assets/styles/font-awesome-animation.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.min.js",
               "./node_modules/popper.js/dist/umd/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/main.js"
             ]
           },
           "configurations": {
@@ -164,12 +166,14 @@
               "src/styles.scss",
               "src/assets/styles/demo.css",
               "src/assets/styles/spur.css",
+              "src/assets/styles/style.css",
               "src/assets/styles/font-awesome-animation.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.min.js",
               "./node_modules/popper.js/dist/umd/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/main.js"
             ]
           }
         },

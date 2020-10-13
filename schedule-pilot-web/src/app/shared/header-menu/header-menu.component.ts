@@ -52,9 +52,4 @@ export class HeaderMenuComponent implements OnInit {
   trackByFn(index, item) {
     return item.id;
   }
-
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {});
-  }
 }

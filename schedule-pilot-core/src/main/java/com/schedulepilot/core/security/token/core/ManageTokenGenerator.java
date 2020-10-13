@@ -17,8 +17,7 @@ public interface ManageTokenGenerator {
 
     String TOKEN_PARAMETER_AUTHORITIES = "authorities";
     String TOKEN_PARAMETER_SUBJECT = "schedulepiloto_api_2020";
-    // TODO: This can change in the future.
-    String[] TOKEN_PARAMETER_AUDIENCE_DEFAULT = {"http://schedule-piloto.ml/", "https://schedule-piloto.ml/"};
+    String[] TOKEN_PARAMETER_AUDIENCE_DEFAULT = {"http://schedule-piloto.tk/", "https://schedule-piloto.tk/"};
 
     static String generateCommonToken(String keySecret, Map<String, String> parameters, Integer secondsExpired, String[] authorities) throws UnsupportedEncodingException {
         Algorithm algorithm = Algorithm.HMAC512(keySecret);

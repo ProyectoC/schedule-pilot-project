@@ -1,4 +1,4 @@
-package com.schedulepilot.core.service.imp;
+package com.schedulepilot.core.service.manage;
 
 import com.schedulepilot.core.constants.ParameterConstants;
 import com.schedulepilot.core.dto.model.RolAccountDto;
@@ -15,7 +15,7 @@ import com.schedulepilot.core.request.UserAccountForgotPasswordRequest;
 import com.schedulepilot.core.response.UserAccountAuthResponse;
 import com.schedulepilot.core.security.token.service.ManageTokenService;
 import com.schedulepilot.core.service.GlobalListDinamicService;
-import com.schedulepilot.core.service.ManageUserService;
+import com.schedulepilot.core.service.manage.ManageUserService;
 import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.UserAccountService;
 import com.schedulepilot.core.util.SecurityUtil;

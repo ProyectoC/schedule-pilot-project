@@ -1,4 +1,4 @@
-package com.schedulepilot.core.service;
+package com.schedulepilot.core.service.manage;
 
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.exception.SchedulePilotException;

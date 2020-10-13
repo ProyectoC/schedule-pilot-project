@@ -1,4 +1,4 @@
-package com.schedulepilot.core.service;
+package com.schedulepilot.core.service.manage;
 
 import com.schedulepilot.core.dto.PageResponseDto;
 import com.schedulepilot.core.dto.model.ProductDto;

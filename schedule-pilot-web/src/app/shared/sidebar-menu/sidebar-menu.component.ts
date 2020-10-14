@@ -11,13 +11,15 @@ declare var $: any;
   styleUrls: ['./sidebar-menu.component.scss'],
 })
 export class SidebarMenuComponent implements OnInit {
-
-  sidebar: boolean;
+  showSidebar: boolean;
+  public actualYear: string;
 
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
-  ) {}
+  ) {
+    this.actualYear = new Date().getFullYear().toString();
+  }
 
   ngOnInit(): void {
     $(document).ready(function () {
@@ -27,8 +29,8 @@ export class SidebarMenuComponent implements OnInit {
     });
   }
 
-  sidebarCollapse() {
-    this.sidebar = !this.sidebar;
+  changeSidebar() {
+    this.showSidebar = !this.showSidebar;
   }
 
   logout() {

@@ -9,7 +9,11 @@ const routers: Routes = [
     redirectTo: RoutingConstants.ROUTING_URL_HOME,
     pathMatch: 'full',
   },
-  { path: RoutingConstants.ROUTING_URL_HOME, component: HomeComponent },
+  {
+    path: RoutingConstants.ROUTING_URL_HOME,
+    component: HomeComponent,
+    data: { title: 'DashBoard | SchedulePilot' },
+  },
 ];
 
 @NgModule({

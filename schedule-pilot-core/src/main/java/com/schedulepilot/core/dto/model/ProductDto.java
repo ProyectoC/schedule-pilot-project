@@ -2,7 +2,9 @@ package com.schedulepilot.core.dto.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.schedulepilot.core.dto.BaseDto;
+import com.schedulepilot.core.util.dto.Validator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +29,20 @@ public class ProductDto extends BaseDto implements Serializable {
     private String serial4;
     private String serial5;
     private String observations;
+    @JsonProperty("productStatus")
     private ProductStatusDto productStatusEntity;
+    @JsonProperty("productType")
     private ProductTypeDto productTypeEntity;
+
+    // Validations
+    public Validator validationForDisableProduct() {
+        Validator validator = new Validator();
+        if (!this.getIsActive()) {
+            validator.setValid(false);
+            validator.addError("The product must be active for disable.");
+            return validator;
+        }
+        validator.setValid(true);
+        return validator;
+    }
 }

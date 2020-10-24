@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser(user: User) {
     this.registerService.registerUser(user).subscribe(
-      (bodyResponse: Response) => {
+      (bodyResponse: Response<any>) => {
         this.messageService.generateSuccessMessage(
           'Registro',
           'Registro exitoso, por favor revisa tu email para activar tu cuenta'

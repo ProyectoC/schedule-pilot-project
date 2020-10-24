@@ -7,6 +7,8 @@ public class ProductConstants {
 
     // REST
     public static final String CREATE_PRODUCT_REST = "/create";
+    public static final String UPDATE_PRODUCT_REST = "/update";
+    public static final String DELETE_PRODUCT_REST = "/delete";
 
     private ProductConstants() {
     }

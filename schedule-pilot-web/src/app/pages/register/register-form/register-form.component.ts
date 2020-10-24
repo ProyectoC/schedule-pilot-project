@@ -12,6 +12,7 @@ import { RegisterPasswordFormComponent } from '../register-password-form/registe
   styleUrls: ['./register-form.component.scss'],
 })
 export class RegisterFormComponent extends BaseFormComponent implements OnInit {
+  
   @ViewChild(RegisterPasswordFormComponent, { static: true })
   registerPasswordForm: RegisterPasswordFormComponent;
 

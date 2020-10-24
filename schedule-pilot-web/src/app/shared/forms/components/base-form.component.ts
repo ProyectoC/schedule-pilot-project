@@ -21,6 +21,7 @@ export class BaseFormComponent implements OnInit {
       return;
     } else {
       this.payLoad = JSON.stringify(this.formGroup.getRawValue());
+      console.log(this.payLoad);
       this.onSubmitForm.emit(this.payLoad);
     }
   }

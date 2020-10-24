@@ -44,21 +44,21 @@ public class AccountUserController {
 
     @ResponseBody
     @PostMapping(AccountUserConstants.AUTH_AUTHORIZE_USER_ACCOUNT_REST)
-    public ResponseDto<UserAccountAuthResponse> authUserAccount(@RequestBody @Valid UserAccountAuthRequest userAccountCreateRequest) throws SchedulePilotException {
-        return ResponseDto.success(this.manageUserService.authUserAccount(userAccountCreateRequest));
+    public ResponseEntity<ResponseDto<UserAccountAuthResponse>> authUserAccount(@RequestBody @Valid UserAccountAuthRequest userAccountCreateRequest) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.manageUserService.authUserAccount(userAccountCreateRequest)), HttpStatus.OK);
     }
 
     @ResponseBody
     @PostMapping(AccountUserConstants.FORGOT_PASSWORD_USER_ACCOUNT_REST)
-    public ResponseDto<String> restorePasswordUserAccount(@RequestBody @Valid UserAccountForgotPasswordRequest request) throws SchedulePilotException {
+    public ResponseEntity<ResponseDto<String>> restorePasswordUserAccount(@RequestBody @Valid UserAccountForgotPasswordRequest request) throws SchedulePilotException {
         this.manageUserService.restorePasswordUserAccount(request);
-        return ResponseDto.success("Password restored successfully.");
+        return new ResponseEntity<>(ResponseDto.success("Password restored successfully."), HttpStatus.OK);
     }
 
     @ResponseBody
     @PostMapping(AccountUserConstants.CHANGE_PASSWORD_USER_ACCOUNT_REST)
-    public ResponseDto<String> changePasswordUserAccount(@RequestBody @Valid UserAccountChangePasswordRequest request) throws SchedulePilotException {
+    public ResponseEntity<ResponseDto<String>> changePasswordUserAccount(@RequestBody @Valid UserAccountChangePasswordRequest request) throws SchedulePilotException {
         this.manageUserService.changePasswordUserAccount(request);
-        return ResponseDto.success("Password changed successfully.");
+        return new ResponseEntity<>(ResponseDto.success("Password changed successfully."), HttpStatus.OK);
     }
 }

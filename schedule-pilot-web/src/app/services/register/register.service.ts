@@ -9,7 +9,6 @@ import { catchError, map } from 'rxjs/operators';
 import { CommonConstants } from '@constants/common-constants';
 import { RegisterMessageService } from '@services/messages/register.message.service';
 import { ErrorResponse } from '@models/error-response';
-import { GlobalErrorHandler } from '@services/global-error/global-error.handler.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +22,7 @@ export class RegisterService {
     this.isLoading = false;
   }
 
-  public registerUser(data: User): Observable<Response> {
+  public registerUser(data: User): Observable<Response<any>> {
     this.isLoading = true;
     return this.httpClient
       .post<any>(
@@ -63,7 +62,7 @@ export class RegisterService {
               );
               break;
           }
-          return GlobalErrorHandler.handleErrorRequest;
+          throw Error(err);
         })
       );
   }

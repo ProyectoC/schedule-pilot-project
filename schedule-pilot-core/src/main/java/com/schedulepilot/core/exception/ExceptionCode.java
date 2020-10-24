@@ -13,6 +13,9 @@ public enum ExceptionCode {
     ERROR_MANAGE_USER_CHANGE_PASSWORD("1008", "Password from user account could not be changed."),
     ERROR_MANAGE_USER_CHANGE_PASSWORD_MATCH("1009", "Actual password from user account is not valid."),
 
+    // Manage Product
+    ERROR_MANAGE_PRODUCT_DISABLE_FAILED("1010", "Product can not be disable."),
+
     // Manage Rol
     ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),
 

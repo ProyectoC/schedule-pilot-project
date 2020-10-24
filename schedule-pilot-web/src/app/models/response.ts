@@ -1,6 +1,5 @@
-export class Response {
+export class Response<T> {
   public code: number;
   public description: string;
-  public details: any;
-  public result: any;
+  public result: T;
 }

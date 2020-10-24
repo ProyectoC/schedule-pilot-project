@@ -1,9 +1,8 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import * as UrlTokenServicesCompanyConst from '../../url-services/url-services-token-company';
 import { map, catchError, retry } from 'rxjs/operators';
-import { GlobalErrorHandler } from '../global-error/global-error.handler.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { environment } from '@env/environment';
@@ -22,7 +21,6 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let retries = 0;
     if (this.isEndPointServicePublic(req.url)) {
-      // Token Company
       const tokenCompany = environment.services['token.company'];
       req = req.clone({
         setHeaders: {
@@ -33,37 +31,34 @@ export class AuthInterceptor implements HttpInterceptor {
       });
       retries = 0;
     } else {
-      // Token User
-      const authUSer = JSON.parse(localStorage.getItem(LocalStorageConstants.USER_SESSION));
-      if (authUSer) {
+      const authUser = JSON.parse(localStorage.getItem(LocalStorageConstants.USER_SESSION));
+      if (authUser) {
         req = req.clone({
           setHeaders: {
-            'Authorization': 'Bearer ' + authUSer.token,
+            'Authorization': 'Bearer ' + authUser.token,
             'Content.Type': 'application/json',
             'Accept': 'application/json'
           }
         });
-        retries = 2;
+        retries = 0;
       } else {
         this.router.navigate([RoutingConstants.URL_AUTHENTICATION]);
       }
     }
+
     return next.handle(req).pipe(retry(retries),
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           console.log('event--->>>', event);
         }
-        if (event instanceof HttpResponse && event.status === 401) {
+        if (event instanceof HttpErrorResponse && event.status === 401) {
           this.logout();
         }
         return event;
-      }), catchError(GlobalErrorHandler.handleErrorRequest));
-  }
-
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {
-    });
+      }), catchError((error: HttpErrorResponse) => {
+        this.handleErrorRequest(error);
+        return throwError(error);
+      }));
   }
 
   isEndPointServicePublic(url: string): boolean {
@@ -75,5 +70,30 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     });
     return false;
+  }
+
+  handleErrorRequest(error: HttpErrorResponse): void {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred client side:', error.error.message);
+    } 
+    if (error instanceof HttpErrorResponse) {
+      if (!navigator.onLine) {
+        console.log('No Internet Connection');
+      } else {
+        console.log(`${error.status} - ${error.message}`);
+      }
+    }
+    console.error('It happens: ', error);
+    if (error && error.status === 401) {
+       this.logout();
+    }
+    const errorJsonStr = JSON.stringify(error);
+    const errorJson = JSON.parse(errorJsonStr);
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate([RoutingConstants.URL_AUTHENTICATION]).then(() => {
+    });
   }
 }

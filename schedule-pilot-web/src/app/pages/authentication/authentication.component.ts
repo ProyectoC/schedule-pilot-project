@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 import { BaseInput } from 'app/shared/forms/model/base-input';
 import { DynamicFormComponent } from 'app/shared/forms/components/dynamic-form/dynamic-form.component';
 import { TestDynamicFormService } from '../../shared/forms/services/dynamic-form/test-dynamic-form.service';
+import { AuthResponse } from '@models/authentication/response/auth-response';
 
 @Component({
   selector: 'app-authentication',
@@ -79,7 +80,7 @@ export class AuthenticationComponent implements OnInit {
     authUser.password = this.authForm.value['password'];
 
     this.authenticationService.authenticateUser(authUser).subscribe(
-      (bodyResponse: Response) => {
+      (bodyResponse: Response<AuthResponse>) => {
         this.router.navigate([RoutingConstants.URL_HOME]).then(() => {});
       },
       (error) => {

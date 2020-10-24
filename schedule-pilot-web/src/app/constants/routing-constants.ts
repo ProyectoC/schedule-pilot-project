@@ -14,6 +14,9 @@ export class RoutingConstants {
   
   static readonly ROUTING_URL_HOME: string = 'home';
   static readonly URL_HOME: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_HOME;
+
+  static readonly ROUTING_URL_PRODUCTS: string = 'products';
+  static readonly URL_PRODUCTS: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_PRODUCTS;
   
 
   static URL_MENU_HOME = '/home-carousel';

@@ -10,9 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,7 +56,7 @@ public class PaginationAndOrderTask {
 
     private final Map<String, String> parameters;
     private final List<String> listAttributes;
-
+    private final Map<String, String> listMapAttributes;
 
     // Output fields
 
@@ -73,6 +71,17 @@ public class PaginationAndOrderTask {
     public PaginationAndOrderTask(Map<String, String> parameters, List<String> listAttributes) {
         this.parameters = parameters;
         this.listAttributes = listAttributes;
+        this.listMapAttributes = new HashMap<>();
+
+        this.page = -1;
+        this.pageSize = -1;
+        this.orderParametersQueue = new PriorityQueue<>();
+    }
+
+    public PaginationAndOrderTask(Map<String, String> parameters, Map<String, String> listMapAttributes) {
+        this.parameters = parameters;
+        this.listAttributes = new ArrayList<>();
+        this.listMapAttributes = listMapAttributes;
 
         this.page = -1;
         this.pageSize = -1;
@@ -80,7 +89,7 @@ public class PaginationAndOrderTask {
     }
 
     // Class logic
-    
+
     public void execute() {
         CLASS_LOGGER.info("Starting");
 
@@ -123,9 +132,18 @@ public class PaginationAndOrderTask {
             String type = matcher.group(1);
             String property = matcher.group(2);
             int priority = Integer.parseInt(matcher.group(3));
-            if (!this.isAnAttribute(property)) {
-                continue;
+
+            if (!this.listAttributes.isEmpty()) {
+                if (!this.isAnAttribute(property)) {
+                    continue;
+                }
+            } else {
+                property = this.getKeyFromMapAttributes(property);
+                if (property == null) {
+                    continue;
+                }
             }
+
             OrderParameter orderParameter = OrderParameter.builder()
                     .type(type)
                     .value(property)
@@ -183,7 +201,7 @@ public class PaginationAndOrderTask {
     /**
      * Validate if a field found in the list of parameters in a valid field name to apply the ordering.
      *
-     * @param name Parameter name-
+     * @param name Parameter name.
      * @return true: if it is a valid parameter, false: when it is not a valid parameter.
      */
     private boolean isAnAttribute(String name) {
@@ -193,6 +211,22 @@ public class PaginationAndOrderTask {
         }
         return false;
     }
+
+    /**
+     * Returns the correct sql column of ordering according to the name of the parameter map key.
+     *
+     * @param name Key name.
+     * @return Sql column.
+     */
+    private String getKeyFromMapAttributes(String name) {
+        for (Map.Entry<String, String> entry : this.listMapAttributes.entrySet()) {
+            if (entry.getKey().equals(name)) {
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+
 
     /**
      * Return a Sort instance of descending type.

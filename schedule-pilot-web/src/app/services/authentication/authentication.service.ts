@@ -4,13 +4,13 @@ import { Response } from '@models/response';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { catchError, map } from 'rxjs/operators';
-import { GlobalErrorHandler } from '@services/global-error/global-error.handler.service';
 import { CommonConstants } from '@constants/common-constants';
 import { LocalStorageConstants } from '@constants/local-storage-constants';
 import { ErrorResponse } from '@models/error-response';
 import { AuthenticationMessageService } from '@services/messages/authentication.message.service';
 import { AuthUser } from '@models/auth-user';
 import { EndPointsHttpConstants } from '@constants/end-points-http-constants';
+import { AuthResponse } from '@models/authentication/response/auth-response';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +30,7 @@ export class AuthenticationService {
     this.isLoading = false;
   }
 
-  public authenticateUser(data: AuthUser): Observable<Response> {
+  public authenticateUser(data: AuthUser): Observable<Response<AuthResponse>> {
     this.isLoading = true;
     return this.httpClient
       .post<any>(
@@ -74,7 +74,7 @@ export class AuthenticationService {
               );
               break;
           }
-          return GlobalErrorHandler.handleErrorRequest;
+          throw Error(err);
         })
       );
   }

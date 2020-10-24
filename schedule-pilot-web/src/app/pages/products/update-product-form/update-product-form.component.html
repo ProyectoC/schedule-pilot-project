@@ -1,0 +1,59 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="first-name-user">Nombre</label>
+            <i [ngClass]="isValidCheck('name')"></i>
+            <input formControlName="name" type="text" class="form-control" id="name" [ngClass]="isValidInput('name')">
+            <div class="invalid-feedback">El nombre del producto no es valido.</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="first-name-user">Serial</label>
+            <i [ngClass]="isValidCheck('serial1')"></i>
+            <input formControlName="serial1" type="text" class="form-control" id="serial1"
+                [ngClass]="isValidInput('serial1')">
+            <div class="invalid-feedback">El serial del producto no es valido.</div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="last-name-user">Descripción</label>
+            <i [ngClass]="isValidCheck('description')"></i>
+            <textarea formControlName="description" class="form-control" id="description" rows="3"
+                [ngClass]="isValidInput('description')"></textarea>
+            <div class="invalid-feedback">La descripción del producto no es valida.</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="last-name-user">Observaciones</label>
+            <i [ngClass]="isValidCheck('observations')"></i>
+            <textarea formControlName="observations" class="form-control" id="observations" rows="3"
+                [ngClass]="isValidInput('observations')"></textarea>
+            <div class="invalid-feedback">Las observaciónes del producto no son validas.</div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="rol-account">Estado del Producto</label>
+            <i [ngClass]="isValidCheck('productStatus')"></i>
+            <select formControlName="productStatus" class="form-control" id="product-status"
+                [ngClass]="isValidInput('productStatus')">
+                <option value="" selected>Selecciona una opción</option>
+                <option *ngFor="let status of productStatus | keyvalue;" [value]="status.key">
+                    {{status.value}}
+                </option>
+            </select>
+            <div class="invalid-feedback">El estado del producto no es valido.</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="rol-account">Tipo de Producto</label>
+            <i [ngClass]="isValidCheck('productType')"></i>
+            <select formControlName="productType" class="form-control" id="product-type"
+                [ngClass]="isValidInput('productType')">
+                <option value="" selected>Selecciona una opción</option>
+                <option *ngFor="let type of productTypes | keyvalue;" [value]="type.key">
+                    {{type.value}}
+                </option>
+            </select>
+            <div class="invalid-feedback">El tipo de producto no es valido.</div>
+        </div>
+    </div>
+</form>

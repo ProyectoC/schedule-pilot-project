@@ -92,24 +92,25 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
     });
   }
 
-  // onSubmit() {
-  //   if (this.registerForm.valid) {
-  //     const user: User = new User();
-  //     user.password = this.registerForm.get('passwordFormGroup').value[
-  //       'password'
-  //     ];
-  //     user.firstName = this.registerForm.value['firstName'];
-  //     user.lastName = this.registerForm.value['lastName'];
-  //     user.identification = this.registerForm.value['identification'];
-  //     user.identificationCode = this.registerForm.value['identificationCode'];
-  //     user.email = this.registerForm.value['email'];
-  //     user.emailBackup = this.registerForm.value['emailBackup'];
-  //     user.rolAccount.id = Number(this.registerForm.value['rolAccount']);
-  //     user.collegeCareer.id = Number(this.registerForm.value['collegeCareer']);
-  //   } else {
-  //     Validations.validateAllFormFields(this.registerForm);
-  //   }
-  // }
+  onSubmit() {
+    if (this.formGroup.valid) {
+      const user: User = new User();
+      user.password = this.formGroup.get('password').value[
+        'password'
+      ];
+      user.firstName = this.formGroup.value['firstName'];
+      user.lastName = this.formGroup.value['lastName'];
+      user.identification = this.formGroup.value['identification'];
+      user.identificationCode = this.formGroup.value['identificationCode'];
+      user.email = this.formGroup.value['email'];
+      user.emailBackup = this.formGroup.value['emailBackup'];
+      user.rolAccount.id = Number(this.formGroup.value['rolAccount']);
+      user.collegeCareer.id = Number(this.formGroup.value['collegeCareer']);
+      this.onSubmitForm.emit(user);
+    } else {
+      Validations.validateAllFormFields(this.formGroup);
+    }
+  }
 
   trackByFn(index, item) {
     return item.id;

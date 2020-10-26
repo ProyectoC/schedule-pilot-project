@@ -31,8 +31,9 @@ export class RegisterComponent implements OnInit {
     return RoutingConstants;
   }
 
-  formResult(event) {
+  formResult(event: User) {
     console.log(event);
+    this.registerUser(event);
   }
 
   registerUser(user: User) {

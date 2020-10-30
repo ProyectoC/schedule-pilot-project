@@ -9,18 +9,18 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product_type")
+@Table(name = "item_status")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductTypeEntity extends BaseEntity {
+public class ItemStatusEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "product_type_sequence_key_id")
+    @GeneratedValue(generator = "item_status_sequence_key_id")
     @SequenceGenerator(
-            name = "product_type_sequence_key_id",
-            sequenceName = "product_type_sequence_key_id",
+            name = "item_status_sequence_key_id",
+            sequenceName = "item_status_sequence_key_id",
             initialValue = 1
     )
     private Long id;

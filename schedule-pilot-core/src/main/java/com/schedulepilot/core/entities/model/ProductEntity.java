@@ -52,9 +52,4 @@ public class ProductEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "product_status_id_fk", nullable = false)
     private ProductStatusEntity productStatusEntity;
-
-    @ManyToOne
-    @JoinColumn(name = "product_type_id_fk", nullable = false)
-    private ProductTypeEntity productTypeEntity;
-
 }

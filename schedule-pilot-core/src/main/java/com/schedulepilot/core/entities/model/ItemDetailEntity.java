@@ -17,11 +17,11 @@ import javax.persistence.*;
 public class ItemDetailEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "item_detail_sequence_key_id")
+    @GeneratedValue(generator = "item_detail_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "item_detail_sequence_key_id",
             sequenceName = "item_detail_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

@@ -9,25 +9,22 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product_request_status")
+@Table(name = "ticket_check_status")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductRequestStatusEntity extends BaseEntity {
+public class TicketCheckStatusEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "product_request_status_sequence_key_id", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "ticket_check_status_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
-            name = "product_request_status_sequence_key_id",
-            sequenceName = "product_request_status_sequence_key_id",
+            name = "ticket_check_status_sequence_key_id",
+            sequenceName = "ticket_check_status_sequence_key_id",
             allocationSize = 1
     )
     private Long id;
 
     @Column(nullable = false, name = "name", unique = true)
     private String name;
-
-    @Column(nullable = false, name = "description")
-    private String description;
 }

@@ -15,11 +15,11 @@ import javax.persistence.*;
 public class LogAuditEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "log_audit_sequence_key_id")
+    @GeneratedValue(generator = "log_audit_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "log_audit_sequence_key_id",
             sequenceName = "log_audit_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

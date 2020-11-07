@@ -17,11 +17,11 @@ import javax.persistence.*;
 public class ProductStatusEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "product_status_sequence_key_id")
+    @GeneratedValue(generator = "product_status_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "product_status_sequence_key_id",
             sequenceName = "product_status_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

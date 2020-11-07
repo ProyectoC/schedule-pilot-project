@@ -18,11 +18,11 @@ import java.util.List;
 public class NotificationEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "notification_sequence_key_id")
+    @GeneratedValue(generator = "notification_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "notification_sequence_key_id",
             sequenceName = "notification_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

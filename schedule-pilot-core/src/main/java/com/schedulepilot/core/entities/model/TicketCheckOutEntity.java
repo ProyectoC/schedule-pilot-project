@@ -7,27 +7,34 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "request_check_in")
+@Table(name = "ticket_check_out")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RequestCheckInEntity extends BaseEntity {
+public class TicketCheckOutEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "request_check_in_sequence_key_id", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "ticket_check_out_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
-            name = "request_check_in_sequence_key_id",
-            sequenceName = "request_check_in_sequence_key_id",
+            name = "ticket_check_out_sequence_key_id",
+            sequenceName = "ticket_check_out_sequence_key_id",
             allocationSize = 1
     )
     private Long id;
 
     @Column(nullable = false, name = "track_id", unique = true)
     private String trackId;
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_check_in_id_fk", nullable = false)
+    private TicketCheckInEntity ticketCheckInEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_check_status_id_fk", nullable = false)
+    private TicketCheckStatusEntity ticketCheckStatusEntity;
 
     @ManyToOne
     @JoinColumn(name = "user_account_id_fk", nullable = false)

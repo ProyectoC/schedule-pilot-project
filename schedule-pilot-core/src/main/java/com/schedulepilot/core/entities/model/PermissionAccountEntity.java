@@ -17,11 +17,11 @@ import javax.persistence.*;
 public class PermissionAccountEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "permission_account_sequence_key_id")
+    @GeneratedValue(generator = "permission_account_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "permission_account_sequence_key_id",
             sequenceName = "permission_account_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

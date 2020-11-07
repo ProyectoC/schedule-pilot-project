@@ -24,11 +24,11 @@ import java.util.Objects;
 public class RequestCheckInProductId implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id_fk")
     private ProductEntity productEntity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "request_check_in")
+    @JoinColumn(name = "request_check_in_fk")
     private RequestCheckInEntity requestCheckInEntity;
 
     @Override

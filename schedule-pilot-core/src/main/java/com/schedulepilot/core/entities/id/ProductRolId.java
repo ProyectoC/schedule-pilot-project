@@ -24,11 +24,11 @@ import java.util.Objects;
 public class ProductRolId implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id_fk")
     private ProductEntity productEntity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "rol_id")
+    @JoinColumn(name = "rol_id_fk")
     private RolAccountEntity rolAccountEntity;
 
     public ProductRolId(ProductEntity productEntity) {

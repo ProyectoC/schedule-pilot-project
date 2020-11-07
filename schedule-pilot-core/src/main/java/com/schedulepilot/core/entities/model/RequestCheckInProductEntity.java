@@ -22,7 +22,7 @@ import java.io.Serializable;
 public class RequestCheckInProductEntity extends BaseEntity implements Serializable {
 
     @EmbeddedId
-    private RequestCheckInProductId id;
+    private RequestCheckInProductId requestCheckInProductId;
 
     @Column(nullable = false, name = "count")
     private int count;

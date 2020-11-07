@@ -32,11 +32,11 @@ import javax.persistence.*;
 public class ErrorAuditEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "error_audit_sequence_key_id")
+    @GeneratedValue(generator = "error_audit_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "error_audit_sequence_key_id",
             sequenceName = "error_audit_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

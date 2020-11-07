@@ -21,11 +21,11 @@ import java.util.List;
 public class UserAccountEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "user_account_sequence_key_id")
+    @GeneratedValue(generator = "user_account_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "user_account_sequence_key_id",
             sequenceName = "user_account_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

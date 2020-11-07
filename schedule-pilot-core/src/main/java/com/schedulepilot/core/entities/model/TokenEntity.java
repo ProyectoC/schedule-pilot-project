@@ -18,11 +18,11 @@ import java.time.LocalDateTime;
 public class TokenEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "token_sequence_key_id")
+    @GeneratedValue(generator = "token_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "token_sequence_key_id",
             sequenceName = "token_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

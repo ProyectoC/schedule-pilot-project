@@ -17,11 +17,11 @@ import javax.persistence.*;
 public class UserNotificationEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "user_notification_sequence_key_id")
+    @GeneratedValue(generator = "user_notification_sequence_key_id", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(
             name = "user_notification_sequence_key_id",
             sequenceName = "user_notification_sequence_key_id",
-            initialValue = 1
+            allocationSize = 1
     )
     private Long id;
 

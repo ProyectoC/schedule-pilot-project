@@ -19,7 +19,7 @@ import java.io.Serializable;
 public class ProductRolEntity extends BaseEntity implements Serializable {
 
     @EmbeddedId
-    private ProductRolId id;
+    private ProductRolId productRolId;
 
     @Column(nullable = false, name = "days")
     private int days;

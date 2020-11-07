@@ -9,18 +9,18 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "item")
+@Table(name = "product_request_status")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemEntity extends BaseEntity {
+public class ProductRequestStatusEntity extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator = "item_sequence_key_id")
+    @GeneratedValue(generator = "product_request_status_sequence_key_id")
     @SequenceGenerator(
-            name = "item_sequence_key_id",
-            sequenceName = "item_sequence_key_id",
+            name = "product_request_status_sequence_key_id",
+            sequenceName = "product_request_status_sequence_key_id",
             initialValue = 1
     )
     private Long id;
@@ -28,11 +28,6 @@ public class ItemEntity extends BaseEntity {
     @Column(nullable = false, name = "name", unique = true)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "item_status_id_fk", nullable = false)
-    private ItemStatusEntity itemStatusEntity;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id_fk", nullable = false)
-    private ProductEntity productEntity;
+    @Column(nullable = false, name = "description")
+    private String description;
 }

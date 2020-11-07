@@ -1,12 +1,14 @@
 package com.schedulepilot.core.entities.model;
 
 import com.schedulepilot.core.entities.BaseEntity;
+import com.schedulepilot.core.entities.id.ProductRolId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "product_rol")
@@ -14,17 +16,11 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductRolEntity extends BaseEntity {
+public class ProductRolEntity extends BaseEntity implements Serializable {
 
-    @Id
-    @GeneratedValue(generator = "item_status_sequence_key_id")
-    @SequenceGenerator(
-            name = "item_status_sequence_key_id",
-            sequenceName = "item_status_sequence_key_id",
-            initialValue = 1
-    )
-    private Long id;
+    @EmbeddedId
+    private ProductRolId id;
 
-    @Column(nullable = false, name = "name", unique = true)
-    private String name;
+    @Column(nullable = false, name = "days")
+    private int days;
 }

@@ -25,8 +25,11 @@ public class ItemDetailEntity extends BaseEntity {
     )
     private Long id;
 
-    @Column(nullable = false, name = "name", unique = true)
-    private String name;
+    @Column(nullable = false, name = "key", unique = true)
+    private String key;
+
+    @Column(nullable = false, name = "value", unique = true)
+    private String value;
 
     @ManyToOne
     @JoinColumn(name = "item_id_fk", nullable = false)

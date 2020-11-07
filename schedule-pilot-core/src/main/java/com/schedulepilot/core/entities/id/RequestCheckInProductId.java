@@ -1,7 +1,7 @@
 package com.schedulepilot.core.entities.id;
 
 import com.schedulepilot.core.entities.model.ProductEntity;
-import com.schedulepilot.core.entities.model.RolAccountEntity;
+import com.schedulepilot.core.entities.model.RequestCheckInEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,35 +21,27 @@ import java.util.Objects;
 @AllArgsConstructor
 @Embeddable
 @Component
-public class ProductRolId implements Serializable {
+public class RequestCheckInProductId implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id")
     private ProductEntity productEntity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "rol_id")
-    private RolAccountEntity rolAccountEntity;
-
-    public ProductRolId(ProductEntity productEntity) {
-        this.productEntity = productEntity;
-    }
-
-    public ProductRolId(RolAccountEntity rolAccountEntity) {
-        this.rolAccountEntity = rolAccountEntity;
-    }
+    @JoinColumn(name = "request_check_in")
+    private RequestCheckInEntity requestCheckInEntity;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductRolId that = (ProductRolId) o;
+        RequestCheckInProductId that = (RequestCheckInProductId) o;
         return productEntity.equals(that.productEntity) &&
-                rolAccountEntity.equals(that.rolAccountEntity);
+                requestCheckInEntity.equals(that.requestCheckInEntity);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productEntity, rolAccountEntity);
+        return Objects.hash(productEntity, requestCheckInEntity);
     }
 }

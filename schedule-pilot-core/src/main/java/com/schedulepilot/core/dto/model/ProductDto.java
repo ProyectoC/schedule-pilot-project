@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,16 +24,10 @@ public class ProductDto extends BaseDto implements Serializable {
     private Long id;
     private String name;
     private String description;
-    private String serial1;
-    private String serial2;
-    private String serial3;
-    private String serial4;
-    private String serial5;
     private String observations;
     @JsonProperty("productStatus")
     private ProductStatusDto productStatusEntity;
-    @JsonProperty("productType")
-    private ProductTypeDto productTypeEntity;
+    private List<ProductRolDto> productRoles;
 
     // Validations
     public Validator validationForDisableProduct() {
@@ -41,6 +36,37 @@ public class ProductDto extends BaseDto implements Serializable {
             validator.setValid(false);
             validator.addError("The product must be active for disable.");
             return validator;
+        }
+        validator.setValid(true);
+        return validator;
+    }
+
+    public Validator validationForCreateProduct() {
+        Validator validator = new Validator();
+        for (ProductRolDto productRolDto : productRoles) {
+            if (productRolDto.getLoanTime() <= 0) {
+                validator.setValid(false);
+                validator.addError("Rol load time are no valid: " + productRolDto.getLoanTime());
+            }
+        }
+        validator.setValid(true);
+        return validator;
+    }
+
+    public Validator validationForUpdateProduct() {
+        Validator validator = new Validator();
+
+        if (!this.getIsActive()) {
+            validator.setValid(false);
+            validator.addError("The product must be active for update.");
+            return validator;
+        }
+
+        for (ProductRolDto productRolDto : productRoles) {
+            if (productRolDto.getLoanTime() <= 0) {
+                validator.setValid(false);
+                validator.addError("Rol load time are no valid: " + productRolDto.getLoanTime());
+            }
         }
         validator.setValid(true);
         return validator;

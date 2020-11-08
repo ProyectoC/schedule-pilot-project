@@ -19,9 +19,9 @@ public interface ManageProductService {
 
     PageResponseDto<ProductDto> getAllProducts(Map<String, String> parameters) throws SchedulePilotException;
 
-    ProductDto createProduct(ProductCreateRequest productCreateRequest) throws SchedulePilotException;
+    void createProduct(ProductCreateRequest productCreateRequest) throws SchedulePilotException;
 
-    ProductDto updateProduct(ProductUpdateRequest productCreateRequest) throws SchedulePilotException;
+    void updateProduct(ProductUpdateRequest productCreateRequest) throws SchedulePilotException;
 
     void deleteProduct(ProductDeleteRequest productDeleteRequest) throws SchedulePilotException;
 }

@@ -2,6 +2,7 @@ package com.schedulepilot.core.service;
 
 import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.entities.model.RolAccountEntity;
+import com.schedulepilot.core.exception.SchedulePilotException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +29,8 @@ public interface RolAccountService {
     }
 
     List<RolAccountDto> getAll();
+
+    RolAccountDto getByIdOrException(Long id) throws SchedulePilotException;
+
+    RolAccountEntity getByIdEntityOrException(Long id) throws SchedulePilotException;
 }

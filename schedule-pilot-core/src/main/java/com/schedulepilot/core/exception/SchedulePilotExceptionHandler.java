@@ -95,11 +95,18 @@ public class SchedulePilotExceptionHandler extends ResponseEntityExceptionHandle
     }
 
     public ResponseEntity<Object> getInternalServerErrorResponseEntity(SchedulePilotException ex, WebRequest request) {
-        LOGGER.error(CommonUtil.LOG_ERROR_DEFAULT, ex.getError().getCode(), ExceptionUtils.getStackTrace(ex));
-        ErrorResponseDto errorResponseDto = new ErrorResponseDto(ex.getError().getCode(), LocalDateTime.now(), ExceptionCode.ERROR_UNKNOWN.getDescription(), Collections.emptyList());
-        ResponseDto<ErrorResponseDto> error = new ResponseDto(ResponseDto.ERROR_CODE, HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), errorResponseDto);
-        saveError(error, request, HttpStatus.INTERNAL_SERVER_ERROR);
-        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        if (ex.getError() == null) {
+            LOGGER.error(CommonUtil.LOG_ERROR_DEFAULT, ExceptionCode.ERROR_CLIENT.getCode(), ExceptionUtils.getStackTrace(ex));
+            ErrorResponseDto errorResponseDto = new ErrorResponseDto(ExceptionCode.ERROR_CLIENT.getCode(), LocalDateTime.now(), ex.getMessage(), Collections.emptyList());
+            ResponseDto<ErrorResponseDto> error = new ResponseDto(ResponseDto.ERROR_CODE, ExceptionCode.ERROR_CLIENT.getDescription(), errorResponseDto);
+            return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        } else {
+            LOGGER.error(CommonUtil.LOG_ERROR_DEFAULT, ex.getError().getCode(), ExceptionUtils.getStackTrace(ex));
+            ErrorResponseDto errorResponseDto = new ErrorResponseDto(ex.getError().getCode(), LocalDateTime.now(), ExceptionCode.ERROR_UNKNOWN.getDescription(), Collections.emptyList());
+            ResponseDto<ErrorResponseDto> error = new ResponseDto(ResponseDto.ERROR_CODE, HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), errorResponseDto);
+            saveError(error, request, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     public ResponseEntity<Object> getUnauthorizedErrorResponseEntity(SchedulePilotException ex, WebRequest request) {

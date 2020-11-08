@@ -2,7 +2,9 @@ package com.schedulepilot.core.service;
 
 import com.schedulepilot.core.dto.PageResponseDto;
 import com.schedulepilot.core.dto.model.ProductDto;
+import com.schedulepilot.core.dto.model.ProductRolDto;
 import com.schedulepilot.core.entities.model.ProductEntity;
+import com.schedulepilot.core.entities.model.ProductRolEntity;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.ProductCreateRequest;
 import com.schedulepilot.core.request.ProductUpdateRequest;
@@ -10,6 +12,7 @@ import com.schedulepilot.core.response.ProductResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +38,18 @@ public interface ProductService {
 
     static ProductDto convertEntityToDTO(ProductEntity entity) {
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
-        return modelMapper.map(entity, ProductDto.class);
+        ProductDto productDto = modelMapper.map(entity, ProductDto.class);
+
+        List<ProductRolDto> productRoles = new ArrayList<>();
+        List<ProductRolEntity> productRolEntities = entity.getProductRolEntityList();
+        for (ProductRolEntity productRolEntity : productRolEntities) {
+            ProductRolDto productRolDto = new ProductRolDto();
+            productRolDto.setLoanTime(productRolEntity.getLoanTime());
+            productRolDto.setRol(productRolEntity.getProductRolId().getRolAccountEntity().getId());
+            productRoles.add(productRolDto);
+        }
+        productDto.setProductRoles(productRoles);
+        return productDto;
     }
 
     static ProductResponse convertDTOToResponse(ProductDto dto) {
@@ -45,9 +59,11 @@ public interface ProductService {
 
     PageResponseDto<ProductDto> getAll(Map<String, String> parameters);
 
-    ProductDto getByIdThrow(Long id) throws SchedulePilotException;
+    ProductEntity getByIdOrException(Long id) throws SchedulePilotException;
 
-    ProductDto save(ProductDto productDto);
+    ProductEntity save(ProductEntity productEntity);
+
+    ProductEntity update(ProductEntity productEntity);
 
     ProductDto update(ProductDto productDto);
 

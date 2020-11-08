@@ -62,6 +62,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 if (StringUtils.isEmpty(username))
                     break allowRequest;
                 UserAccountDto userDto = userAccountService.getByUsername(username);
+                if(userDto == null)
+                    break allowRequest;
                 UserDetails userDetails = userAccountService.loadUserById(userDto.getId());
                 if (StringUtils.isEmpty(userDetails))
                     break allowRequest;

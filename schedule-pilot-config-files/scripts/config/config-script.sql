@@ -13,6 +13,21 @@ SELECT * FROM rol_account ra;
 SELECT * FROM ticket_check_status tcs;
 SELECT * FROM token_type tt;
 
+-- Create user
+SELECT * FROM user_account ua;
+SELECT * FROM product p;
+SELECT * FROM product_rol pr;
+SELECT * FROM item i;
+
+DELETE FROM product_rol;
+DELETE FROM product;
+
+ALTER TABLE product_rol
+DROP COLUMN id;
+
+--DELETE FROM user_account;
+
+SELECT now(); 
 
 
 

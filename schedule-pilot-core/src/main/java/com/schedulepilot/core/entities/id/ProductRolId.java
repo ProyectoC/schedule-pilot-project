@@ -31,10 +31,6 @@ public class ProductRolId implements Serializable {
     @JoinColumn(name = "rol_id_fk")
     private RolAccountEntity rolAccountEntity;
 
-    public ProductRolId(ProductEntity productEntity) {
-        this.productEntity = productEntity;
-    }
-
     public ProductRolId(RolAccountEntity rolAccountEntity) {
         this.rolAccountEntity = rolAccountEntity;
     }

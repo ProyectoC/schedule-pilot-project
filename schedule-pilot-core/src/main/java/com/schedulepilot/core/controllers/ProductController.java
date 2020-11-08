@@ -33,14 +33,16 @@ public class ProductController {
 
     @ResponseBody
     @PostMapping(ProductConstants.CREATE_PRODUCT_REST)
-    public ResponseEntity<ResponseDto<ProductDto>> createProduct(@RequestBody @Valid ProductCreateRequest productCreateRequest) throws SchedulePilotException {
-        return new ResponseEntity<>(ResponseDto.success(this.manageProductService.createProduct(productCreateRequest)), HttpStatus.CREATED);
+    public ResponseEntity<ResponseDto<String>> createProduct(@RequestBody @Valid ProductCreateRequest productCreateRequest) throws SchedulePilotException {
+        this.manageProductService.createProduct(productCreateRequest);
+        return new ResponseEntity<>(ResponseDto.success("Product created successfully."), HttpStatus.CREATED);
     }
 
     @ResponseBody
     @PutMapping(ProductConstants.UPDATE_PRODUCT_REST)
     public ResponseEntity<ResponseDto<ProductDto>> updateProduct(@RequestBody @Valid ProductUpdateRequest productUpdateRequest) throws SchedulePilotException {
-        return new ResponseEntity<>(ResponseDto.success(this.manageProductService.updateProduct(productUpdateRequest)), HttpStatus.OK);
+        this.manageProductService.updateProduct(productUpdateRequest);
+        return new ResponseEntity<>(ResponseDto.success("Product updated successfully."), HttpStatus.OK);
     }
 
     @ResponseBody

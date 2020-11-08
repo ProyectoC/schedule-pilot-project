@@ -28,6 +28,21 @@ public class ItemEntity extends BaseEntity {
     @Column(nullable = false, name = "name", unique = true)
     private String name;
 
+    @Column(nullable = false, name = "serial_1")
+    private String serial1;
+
+    @Column(nullable = true, name = "serial_2")
+    private String serial2;
+
+    @Column(nullable = true, name = "serial_3")
+    private String serial3;
+
+    @Column(nullable = true, name = "serial_4")
+    private String serial4;
+
+    @Column(nullable = true, name = "serial_5")
+    private String serial5;
+
     @ManyToOne
     @JoinColumn(name = "item_status_id_fk", nullable = false)
     private ItemStatusEntity itemStatusEntity;

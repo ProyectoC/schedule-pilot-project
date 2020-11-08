@@ -15,6 +15,8 @@ public enum ExceptionCode {
 
     // Manage Product
     ERROR_MANAGE_PRODUCT_DISABLE_FAILED("1010", "Product can not be disable."),
+    ERROR_MANAGE_PRODUCT_CREATE_FAILED("1011", "Product can not be created."),
+    ERROR_MANAGE_PRODUCT_UPDATE_FAILED("1012", "Product can not be updated."),
 
     // Manage Rol
     ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),

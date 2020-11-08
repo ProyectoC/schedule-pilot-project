@@ -3,6 +3,7 @@ package com.schedulepilot.core.service.imp;
 import com.schedulepilot.core.dto.model.ParameterDto;
 import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.dto.model.TokenTypeDto;
+import com.schedulepilot.core.entities.model.ProductRequestStatusEntity;
 import com.schedulepilot.core.exception.*;
 import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.util.dto.GlobalListDinamic;
@@ -23,6 +24,9 @@ public class GlobalListDinamicServiceImp implements GlobalListDinamicService {
 
     @Autowired
     private GlobalListDinamic<RolAccountDto> globalRolAccountList;
+
+    @Autowired
+    private GlobalListDinamic<ProductRequestStatusEntity> globalProductRequestStatusList;
 
     @Override
     @Transactional
@@ -71,7 +75,7 @@ public class GlobalListDinamicServiceImp implements GlobalListDinamicService {
         return parameterSecurityDto.map(ParameterDto::getValue).orElseThrow(() ->
                 new SchedulePilotException("Parameter with key: " + keyParameter + " NOT FOUND"));
     }
-    
+
     @Override
     @Transactional
     public Long getParameterValueAsLongOrException(String keyParameter) throws ManageParameterException {
@@ -82,5 +86,17 @@ public class GlobalListDinamicServiceImp implements GlobalListDinamicService {
         } else {
             throw new ManageParameterException(ExceptionCode.ERROR_MANAGE_PARAMETER_NOT_FOUND, "Parameter with key: " + keyParameter + " NOT FOUND");
         }
+    }
+
+    @Override
+    @Transactional
+    public ProductRequestStatusEntity getProductRequestStatusOrException(String status) throws SchedulePilotException {
+        Optional<ProductRequestStatusEntity> productRequestStatus = this.globalProductRequestStatusList.getItems().stream().filter(parameter ->
+                parameter.getName().equals(status)).findFirst();
+        if (productRequestStatus.isPresent()) {
+            return productRequestStatus.get();
+        }
+        throw new SchedulePilotException("Product request status with name: " + status + " NOT FOUND");
+
     }
 }

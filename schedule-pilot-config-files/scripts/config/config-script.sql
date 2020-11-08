@@ -35,13 +35,23 @@ SELECT * FROM item_status is2;
 SELECT * FROM item i;
 SELECT * FROM item_detail id;
 
+DROP TABLE item_detail;
+
+
 DELETE FROM item_detail;
 DELETE FROM item;
 
+-- Manage
+SELECT * FROM request_check_in rci;
+SELECT * FROM request_check_in_product rcip;
 
 
 
 
+
+
+
+SELECT nextval('track_id_request_check_in'); 
 
 
 

@@ -1,13 +1,15 @@
 package com.schedulepilot.core.entities.model;
 
 import com.schedulepilot.core.entities.BaseEntity;
+import com.schedulepilot.core.entities.id.RequestCheckInProductId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "request_check_in")
@@ -32,4 +34,29 @@ public class RequestCheckInEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_account_id_fk", nullable = false)
     private UserAccountEntity userAccountEntity;
+
+    @OneToMany(mappedBy = "requestCheckInProductId.requestCheckInEntity",
+            fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
+            orphanRemoval = true)
+    private List<RequestCheckInProductEntity> requestCheckInProductEntities;
+
+
+    public List<RequestCheckInProductEntity> getRequestCheckInProductEntities() {
+        if (requestCheckInProductEntities != null) {
+            List<RequestCheckInProductEntity> result = new ArrayList<>();
+            for (RequestCheckInProductEntity requestCheckInProductEntity : requestCheckInProductEntities) {
+                RequestCheckInProductId requestCheckInProductId = new RequestCheckInProductId(requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity());
+                result.add(new RequestCheckInProductEntity(requestCheckInProductId, requestCheckInProductEntity.getCount(),
+                        requestCheckInProductEntity.getLoanDate(), requestCheckInProductEntity.getProductRequestStatusEntity()));
+            }
+            return result;
+        } else {
+            return null;
+        }
+    }
+
+    public void addProductRole(RequestCheckInProductEntity requestCheckInProductEntity) {
+        this.requestCheckInProductEntities.add(requestCheckInProductEntity);
+        requestCheckInProductEntity.getRequestCheckInProductId().setRequestCheckInEntity(this);
+    }
 }

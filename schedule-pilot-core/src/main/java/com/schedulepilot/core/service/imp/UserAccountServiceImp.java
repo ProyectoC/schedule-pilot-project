@@ -39,6 +39,16 @@ public class UserAccountServiceImp implements UserAccountService {
 
     @Override
     @Transactional
+    public UserAccountEntity getByIdOrException(Long id) throws SchedulePilotException {
+        Optional<UserAccountEntity> entity = accountUserRepository.findById(id);
+        if (entity.isPresent()) {
+            return entity.get();
+        }
+        throw new SchedulePilotException("User Account Not Found");
+    }
+
+    @Override
+    @Transactional
     public UserAccountDto getByUsername(String username) {
         Optional<UserAccountEntity> entity = accountUserRepository.findByUsername(username);
         return entity.map(UserAccountService::convertEntityToDTO).orElse(null);

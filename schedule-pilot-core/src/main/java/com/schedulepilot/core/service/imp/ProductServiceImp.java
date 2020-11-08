@@ -53,7 +53,7 @@ public class ProductServiceImp implements ProductService {
     public ProductEntity getByIdOrException(Long id) throws SchedulePilotException {
         Optional<ProductEntity> entity = productRepository.findById(id);
         if (!entity.isPresent()) {
-            throw new SchedulePilotException("Product Not Found");
+            throw new SchedulePilotException("Product Not Found: " + id);
         }
         return entity.get();
     }

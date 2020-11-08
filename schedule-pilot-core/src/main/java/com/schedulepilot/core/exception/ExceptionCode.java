@@ -18,6 +18,10 @@ public enum ExceptionCode {
     ERROR_MANAGE_PRODUCT_CREATE_FAILED("1011", "Product can not be created."),
     ERROR_MANAGE_PRODUCT_UPDATE_FAILED("1012", "Product can not be updated."),
 
+    // Loan Process
+    ERROR_LOAN_PROCESS_DATE_NOT_VALID("1013", "Loan date is not valid"),
+    ERROR_LOAN_PROCESS_PRODUCTS_ARE_EMPTY("1013", "Loan, products can not be empty"),
+
     // Manage Rol
     ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),
 

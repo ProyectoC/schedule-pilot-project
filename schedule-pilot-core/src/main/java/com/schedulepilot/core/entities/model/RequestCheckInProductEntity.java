@@ -7,11 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "request_check_in_product")
@@ -26,4 +24,11 @@ public class RequestCheckInProductEntity extends BaseEntity implements Serializa
 
     @Column(nullable = false, name = "count")
     private int count;
+
+    @Column(nullable = false, name = "loan_date")
+    private LocalDateTime loanDate;
+
+    @ManyToOne
+    @JoinColumn(name = "product_request_status_id_fk", nullable = false)
+    private ProductRequestStatusEntity productRequestStatusEntity;
 }

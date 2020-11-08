@@ -34,6 +34,8 @@ public interface UserAccountService extends UserDetailsService {
 
     UserAccountDto getByIdThrow(Long id) throws SchedulePilotException;
 
+    UserAccountEntity getByIdOrException(Long id) throws SchedulePilotException;
+
     UserAccountDto getByUsername(String username);
 
     UserAccountDto getByUsernameOrException(String username) throws SchedulePilotException;

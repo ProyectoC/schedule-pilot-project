@@ -31,6 +31,10 @@ public class RequestCheckInProductId implements Serializable {
     @JoinColumn(name = "request_check_in_fk")
     private RequestCheckInEntity requestCheckInEntity;
 
+    public RequestCheckInProductId(ProductEntity productEntity) {
+        this.productEntity = productEntity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

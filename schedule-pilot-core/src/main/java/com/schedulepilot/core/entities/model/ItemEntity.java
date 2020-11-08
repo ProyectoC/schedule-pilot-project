@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "item")
@@ -50,4 +52,26 @@ public class ItemEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "product_id_fk", nullable = false)
     private ProductEntity productEntity;
+
+    @OneToMany(mappedBy = "itemEntity",
+            fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
+            orphanRemoval = true)
+    private List<ItemDetailEntity> itemDetailEntityList;
+
+    public List<ItemDetailEntity> getItemDetailEntityList() {
+        if (itemDetailEntityList != null) {
+            List<ItemDetailEntity> result = new ArrayList<>();
+            for (ItemDetailEntity itemDetailEntity : itemDetailEntityList) {
+                result.add(new ItemDetailEntity(itemDetailEntity.getId(), itemDetailEntity.getKey(), itemDetailEntity.getValue()));
+            }
+            return result;
+        } else {
+            return null;
+        }
+    }
+
+    public void addItemDetail(ItemDetailEntity itemDetailEntity) {
+        this.itemDetailEntityList.add(itemDetailEntity);
+        itemDetailEntity.setItemEntity(this);
+    }
 }

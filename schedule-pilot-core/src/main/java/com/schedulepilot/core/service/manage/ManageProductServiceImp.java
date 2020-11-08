@@ -57,7 +57,7 @@ public class ManageProductServiceImp implements ManageProductService {
     @Override
     public void updateProduct(ProductUpdateRequest productUpdateRequest) throws SchedulePilotException {
         ProductDto productDto = ProductService.convertRequestUpdateToDTO(productUpdateRequest);
-        Validator validator = productDto.validationForCreateProduct();
+        Validator validator = productDto.validationForUpdateProduct();
         if (!validator.isValid())
             throw new ManageProductException(ExceptionCode.ERROR_MANAGE_PRODUCT_UPDATE_FAILED, validator.getFirstError());
         ProductEntity productEntityNew = ProductService.convertDTOToEntity(productDto);

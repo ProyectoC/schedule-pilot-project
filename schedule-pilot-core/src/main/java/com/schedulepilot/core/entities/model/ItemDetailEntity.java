@@ -9,7 +9,9 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "item_detail")
+@Table(name = "item_detail", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"key", "item_id_fk"})
+})
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,13 +27,19 @@ public class ItemDetailEntity extends BaseEntity {
     )
     private Long id;
 
-    @Column(nullable = false, name = "key", unique = true)
+    @Column(nullable = false, name = "key")
     private String key;
 
-    @Column(nullable = false, name = "value", unique = true)
+    @Column(nullable = false, name = "value")
     private String value;
 
     @ManyToOne
     @JoinColumn(name = "item_id_fk", nullable = false)
     private ItemEntity itemEntity;
+
+    public ItemDetailEntity(Long id, String key, String value) {
+        this.id = id;
+        this.key = key;
+        this.value = value;
+    }
 }

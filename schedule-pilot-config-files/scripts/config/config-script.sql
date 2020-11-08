@@ -13,7 +13,7 @@ SELECT * FROM rol_account ra;
 SELECT * FROM ticket_check_status tcs;
 SELECT * FROM token_type tt;
 
--- Create user
+-- Manage user
 SELECT * FROM user_account ua;
 SELECT * FROM product p;
 SELECT * FROM product_rol pr;
@@ -28,6 +28,26 @@ DROP COLUMN id;
 --DELETE FROM user_account;
 
 SELECT now(); 
+
+-- Manage Items
+SELECT * FROM item_status is2;
+
+SELECT * FROM item i;
+SELECT * FROM item_detail id;
+
+DELETE FROM item_detail;
+DELETE FROM item;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

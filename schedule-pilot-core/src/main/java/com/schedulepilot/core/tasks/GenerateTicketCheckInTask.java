@@ -6,6 +6,7 @@ import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.service.ItemService;
 import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.TicketCheckInService;
+import com.schedulepilot.core.service.sequence.SequenceService;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +30,9 @@ public class GenerateTicketCheckInTask {
 
     @Autowired
     private TicketCheckInService ticketCheckInService;
+
+    @Autowired
+    private SequenceService sequenceService;
 
     @Autowired
     private GlobalListDinamicService globalListDinamicService;
@@ -76,7 +80,7 @@ public class GenerateTicketCheckInTask {
 
     private void generateTicketCheckIn() throws SchedulePilotException {
         this.ticketCheckInEntity = new TicketCheckInEntity();
-        Long trackId = this.ticketCheckInService.getTicketCheckInSequence();
+        Long trackId = this.sequenceService.getTicketCheckInSequence();
         ticketCheckInEntity.setTrackId(trackId.toString());
         ticketCheckInEntity.setItemEntity(item);
         ticketCheckInEntity.setRequestCheckInEntity(requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());

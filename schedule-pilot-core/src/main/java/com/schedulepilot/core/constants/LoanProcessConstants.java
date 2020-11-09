@@ -7,7 +7,7 @@ public class LoanProcessConstants {
 
     // REST
     public static final String CREATE_REQUEST_CHECK_IN_REST = "/create/request-check-in";
-    public static final String UPDATE_ITEM_REST = "/update";
+    public static final String CREATE_REQUEST_CHECK_OUT_REST = "/create/request-check-out";
     public static final String DELETE_ITEM_REST = "/delete";
 
     private LoanProcessConstants() {

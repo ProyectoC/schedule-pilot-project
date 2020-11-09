@@ -6,4 +6,8 @@ import org.springframework.stereotype.Service;
 public interface SequenceService {
 
     Long getRequestCheckInSequence();
+
+    Long getTicketCheckInSequence();
+
+    Long getTicketCheckOutSequence();
 }

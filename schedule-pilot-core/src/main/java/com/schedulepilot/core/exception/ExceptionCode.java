@@ -21,6 +21,7 @@ public enum ExceptionCode {
     // Loan Process
     ERROR_LOAN_PROCESS_DATE_NOT_VALID("1013", "Loan date is not valid"),
     ERROR_LOAN_PROCESS_PRODUCTS_ARE_EMPTY("1013", "Loan, products can not be empty"),
+    ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_OUT_NOT_VALID("1014", "Loan, rol from user account are not valid to generate check out"),
 
     // Manage Rol
     ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),

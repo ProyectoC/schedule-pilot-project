@@ -14,5 +14,13 @@ CREATE SEQUENCE schedule_pilot_db.track_id_ticket_check_in
 	CACHE 1
 	NO CYCLE;
 
+CREATE SEQUENCE schedule_pilot_db.track_id_ticket_check_out
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START 1
+	CACHE 1
+	NO CYCLE;
+
 
 

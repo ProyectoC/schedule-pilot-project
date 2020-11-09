@@ -26,7 +26,7 @@ public class TicketCheckOutEntity extends BaseEntity {
     private Long id;
 
     @Column(nullable = false, name = "track_id", unique = true)
-    private String trackId;
+    private Long trackId;
 
     @ManyToOne
     @JoinColumn(name = "ticket_check_in_id_fk", nullable = false)

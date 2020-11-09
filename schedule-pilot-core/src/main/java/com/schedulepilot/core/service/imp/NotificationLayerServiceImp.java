@@ -5,6 +5,10 @@ import com.schedulepilot.core.constants.AccountUserConstants;
 import com.schedulepilot.core.dto.model.NotificationDto;
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.email.constants.EmailConstants;
+import com.schedulepilot.core.entities.model.ProductEntity;
+import com.schedulepilot.core.entities.model.RequestCheckInEntity;
+import com.schedulepilot.core.entities.model.TicketCheckInEntity;
+import com.schedulepilot.core.entities.model.UserAccountEntity;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.notification.service.NotificationSenderService;
 import com.schedulepilot.core.service.GlobalListDinamicService;
@@ -165,7 +169,87 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
             LOGGER.error("Could not send notification to change password user. Error: {}", ex.getMessage());
         }
     }
-//
+
+    @Async
+    @Override
+    public void sendNotificationProductNotEnable(UserAccountEntity userAccountEntity, ProductEntity productEntity, RequestCheckInEntity requestCheckInEntity) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_PRODUCT_NOT_ENABLE);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userAccountEntity.getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID, requestCheckInEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PRODUCT_NAME, productEntity.getName());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(userAccountEntity.getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_PRODUCT_NOT_ENABLE);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification PRODUCT NOT ENABLE. Error: {}", ex.getMessage());
+        }
+    }
+
+    @Async
+    @Override
+    public void sendNotificationNotFoundProduct(UserAccountEntity userAccountEntity, ProductEntity productEntity, RequestCheckInEntity requestCheckInEntity) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_PRODUCT_NOT_FOUND);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userAccountEntity.getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID, requestCheckInEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PRODUCT_NAME, productEntity.getName());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(userAccountEntity.getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_PRODUCT_NOT_FOUND);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification PRODUCT NOT FOUND. Error: {}", ex.getMessage());
+        }
+    }
+
+    @Async
+    @Override
+    public void sendNotificationGeneratedTicketCheckIn(UserAccountEntity userAccountEntity, TicketCheckInEntity ticketCheckInEntity, RequestCheckInEntity requestCheckInEntity) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_GENERATED_TICKET_CHECK_IN);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userAccountEntity.getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID, requestCheckInEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID_TICKET, ticketCheckInEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PRODUCT_NAME, ticketCheckInEntity.getItemEntity().getName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_SERIAL_NAME, ticketCheckInEntity.getItemEntity().getSerial1());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_DELIVERY_DATE, ticketCheckInEntity.getDeliveryDate().toString());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_RETURN_DATE, ticketCheckInEntity.getReturnDate().toString());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(userAccountEntity.getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_IN);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification TICKET_CHECK_IN. Error: {}", ex.getMessage());
+        }
+    }
+
+    //
 //    @Async
 //    @Override
 //    public void sendNotificationProjectCreation(UserSecurityDTO userCreator, ProjectDto project, NotificationType type) {

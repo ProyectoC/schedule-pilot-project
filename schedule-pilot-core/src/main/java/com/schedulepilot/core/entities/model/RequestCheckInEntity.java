@@ -46,7 +46,7 @@ public class RequestCheckInEntity extends BaseEntity {
             List<RequestCheckInProductEntity> result = new ArrayList<>();
             for (RequestCheckInProductEntity requestCheckInProductEntity : requestCheckInProductEntities) {
                 RequestCheckInProductId requestCheckInProductId = new RequestCheckInProductId(requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity());
-                result.add(new RequestCheckInProductEntity(requestCheckInProductId, requestCheckInProductEntity.getCount(),
+                result.add(new RequestCheckInProductEntity(requestCheckInProductId, requestCheckInProductEntity.getAttempts(),
                         requestCheckInProductEntity.getLoanDate(), requestCheckInProductEntity.getProductRequestStatusEntity()));
             }
             return result;

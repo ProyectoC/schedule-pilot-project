@@ -21,9 +21,9 @@ public class RequestCheckInProductEntity extends BaseEntity implements Serializa
 
     @EmbeddedId
     private RequestCheckInProductId requestCheckInProductId;
-
-    @Column(nullable = false, name = "count")
-    private int count;
+    
+    @Column(nullable = true, name = "attempts")
+    private int attempts;
 
     @Column(nullable = false, name = "loan_date")
     private LocalDateTime loanDate;

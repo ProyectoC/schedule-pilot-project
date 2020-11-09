@@ -9,12 +9,11 @@ import com.schedulepilot.core.constants.ApplicationConstants;
 import com.schedulepilot.core.dto.model.ParameterDto;
 import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.dto.model.TokenTypeDto;
+import com.schedulepilot.core.entities.model.ItemStatusEntity;
 import com.schedulepilot.core.entities.model.ProductRequestStatusEntity;
+import com.schedulepilot.core.entities.model.TicketCheckStatusEntity;
 import com.schedulepilot.core.notification.service.imp.NotificationConsumer;
-import com.schedulepilot.core.service.ParameterService;
-import com.schedulepilot.core.service.ProductRequestStatusService;
-import com.schedulepilot.core.service.RolAccountService;
-import com.schedulepilot.core.service.TokenTypeService;
+import com.schedulepilot.core.service.*;
 import com.schedulepilot.core.util.CommonUtil;
 import com.schedulepilot.core.util.dto.GlobalListDinamic;
 import org.apache.logging.log4j.LogManager;
@@ -59,6 +58,12 @@ public class SchedulePilotCoreApplication implements CommandLineRunner {
     private ProductRequestStatusService productRequestStatusService;
 
     @Autowired
+    private TicketCheckStatusService ticketCheckStatusService;
+
+    @Autowired
+    private ItemStatusService itemStatusService;
+
+    @Autowired
     private EventBus eventBus;
 
     @Autowired
@@ -82,6 +87,16 @@ public class SchedulePilotCoreApplication implements CommandLineRunner {
     @Bean
     public GlobalListDinamic<ProductRequestStatusEntity> globalProductRequestStatusList() {
         return new GlobalListDinamic<>(productRequestStatusService.getAll());
+    }
+
+    @Bean
+    public GlobalListDinamic<TicketCheckStatusEntity> globalTicketCheckStatusList() {
+        return new GlobalListDinamic<>(ticketCheckStatusService.getAll());
+    }
+
+    @Bean
+    public GlobalListDinamic<ItemStatusEntity> globalItemStatusList() {
+        return new GlobalListDinamic<>(itemStatusService.getAll());
     }
 
     @Bean

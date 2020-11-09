@@ -24,10 +24,7 @@ public class CheckInProductRequest implements Serializable {
     @NotNull(message = "productId id can not be null.")
     @Positive(message = "productId id can not be a negative number")
     private Long productId;
-
-    @Positive(message = "count id can not be a negative number")
-    private int count;
-
+    
     @NotNull(message = "loanDate id can not be null.")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
     private Date loanDate;

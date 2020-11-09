@@ -2,6 +2,10 @@ package com.schedulepilot.core.service;
 
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.dto.model.UserNotificationDto;
+import com.schedulepilot.core.entities.model.ProductEntity;
+import com.schedulepilot.core.entities.model.RequestCheckInEntity;
+import com.schedulepilot.core.entities.model.TicketCheckInEntity;
+import com.schedulepilot.core.entities.model.UserAccountEntity;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.util.CommonUtil;
 import org.slf4j.Logger;
@@ -26,6 +30,13 @@ public interface NotificationLayerService {
     void sendNotificationForgotPasswordUserAccount(UserAccountDto userAccountDto, String newPassword);
 
     void sendNotificationChangePasswordUserAccount(UserAccountDto userAccountDto);
+
+    // Ticket Check In
+    void sendNotificationProductNotEnable(UserAccountEntity userAccountEntity, ProductEntity productEntity, RequestCheckInEntity requestCheckInEntity);
+
+    void sendNotificationNotFoundProduct(UserAccountEntity userAccountEntity, ProductEntity productEntity, RequestCheckInEntity requestCheckInEntity);
+
+    void sendNotificationGeneratedTicketCheckIn(UserAccountEntity userAccountEntity, TicketCheckInEntity ticketCheckInEntity, RequestCheckInEntity requestCheckInEntity);
 
 //    void sendNotificationVerificationUser(com.acqua.board.coremodule.dto.UserSecurityDTO userSecurityDTO);
 //

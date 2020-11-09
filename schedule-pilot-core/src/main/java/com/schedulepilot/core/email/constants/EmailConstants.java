@@ -22,6 +22,10 @@ public class EmailConstants {
     public static final String EMAIL_SEND_FORGOT_PASSWORD_USER = "email-forgot-password-acqua-board.html";
     public static final String EMAIL_SEND_CHANGE_PASSWORD_USER = "email-change-password-acqua-board.html";
     public static final String EMAIL_SEND_NOTIFICATION_USER = "email-notification-acqua-board.html";
+    public static final String EMAIL_SEND_PRODUCT_NOT_FOUND = "email-product-not-found.html";
+    public static final String EMAIL_SEND_PRODUCT_NOT_ENABLE = "email-product-not-enable.html";
+    public static final String EMAIL_SEND_GENERATED_TICKET_CHECK_IN = "email-generated-ticket-check-in.html";
+
 
     // Parameters Templates
     public static final String PARAMETER_TEMPLATE_USER_NAME = "[USER_NAME]";
@@ -33,6 +37,12 @@ public class EmailConstants {
     public static final String PARAMETER_TEMPLATE_SUB_TITLE = "[SUB_TITLE_MESSAGE]";
     public static final String PARAMETER_TEMPLATE_CONTENT_MESSAGE = "[CONTENT_MESSAGE]";
     public static final String PARAMETER_TEMPLATE_SHORT_MESSAGE = "[SHORT_MESSAGE]";
+    public static final String PARAMETER_TEMPLATE_TRACK_ID = "[TRACK_ID]";
+    public static final String PARAMETER_TEMPLATE_TRACK_ID_TICKET = "[TRACK_ID_TICKET]";
+    public static final String PARAMETER_TEMPLATE_PRODUCT_NAME = "[PRODUCT_NAME]";
+    public static final String PARAMETER_TEMPLATE_SERIAL_NAME = "[SERIAL_ITEM]";
+    public static final String PARAMETER_TEMPLATE_DELIVERY_DATE = "[DELIVERY_DATE]";
+    public static final String PARAMETER_TEMPLATE_RETURN_DATE = "[RETURN_DATE]";
 
     // Parameters DataBase
     public static final String PARAMETER_URL_APP = "url.app.web";
@@ -62,5 +72,8 @@ public class EmailConstants {
     public static final String SUBJECT_DEFAULT_SEND_RESPONSE_VALIDATION_EMAIL = "SchedulePilot - Email validado";
     public static final String SUBJECT_DEFAULT_SEND_CHANGE_PASSWORD = "SchedulePilot - Cambio de contraseña";
     public static final String SUBJECT_DEFAULT_SEND_REMEMBER_PASSWORD = "SchedulePilot - Restauración de contraseña";
+    public static final String SUBJECT_DEFAULT_SEND_PRODUCT_NOT_ENABLE = "SchedulePilot - Habilitación del recurso";
+    public static final String SUBJECT_DEFAULT_SEND_PRODUCT_NOT_FOUND = "SchedulePilot - Disponibilidad del recurso";
+    public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_IN = "SchedulePilot - Ticket del recurso";
     public static final String SUBJECT_DEFAULT_SEND_ACTIVATE_USER_ACCOUNT = "Account verified successfully.";
 }

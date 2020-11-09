@@ -61,7 +61,7 @@ public class LoanProcessServiceImp implements LoanProcessService {
             ProductEntity productEntity = productService.getByIdOrException(checkInProductRequest.getProductId());
 
             RequestCheckInProductEntity requestCheckInProductEntity = new RequestCheckInProductEntity();
-            requestCheckInProductEntity.setCount(checkInProductRequest.getCount());
+            requestCheckInProductEntity.setAttempts(0);
             LocalDateTime localDateTime = this.convertToLocalDateTimeViaSqlTimestamp(checkInProductRequest.getLoanDate()).plusHours(5);
             if (localDateTime.isBefore(LocalDateTime.now()))
                 throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_DATE_NOT_VALID, "Date loan: " +

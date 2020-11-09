@@ -32,7 +32,7 @@ import java.util.Map;
 public class NotificationServiceImp implements NotificationService {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(NotificationServiceImp.class);
-    public static final String FOOTER_NOTIFICATION_MESSAGE = "\n\nGracias,\nThe Myventory Team\n";
+    public static final String FOOTER_NOTIFICATION_MESSAGE = "\n\nGracias,\n SchedulePilot Team\n";
 
     @Autowired
     private NotificationRepository repository;

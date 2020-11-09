@@ -3,7 +3,9 @@ package com.schedulepilot.core.service.imp;
 import com.schedulepilot.core.dto.model.ParameterDto;
 import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.dto.model.TokenTypeDto;
+import com.schedulepilot.core.entities.model.ItemStatusEntity;
 import com.schedulepilot.core.entities.model.ProductRequestStatusEntity;
+import com.schedulepilot.core.entities.model.TicketCheckStatusEntity;
 import com.schedulepilot.core.exception.*;
 import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.util.dto.GlobalListDinamic;
@@ -27,6 +29,12 @@ public class GlobalListDinamicServiceImp implements GlobalListDinamicService {
 
     @Autowired
     private GlobalListDinamic<ProductRequestStatusEntity> globalProductRequestStatusList;
+
+    @Autowired
+    private GlobalListDinamic<TicketCheckStatusEntity> globalTicketCheckStatusList;
+
+    @Autowired
+    private GlobalListDinamic<ItemStatusEntity> globalItemStatusList;
 
     @Override
     @Transactional
@@ -98,5 +106,27 @@ public class GlobalListDinamicServiceImp implements GlobalListDinamicService {
         }
         throw new SchedulePilotException("Product request status with name: " + status + " NOT FOUND");
 
+    }
+
+    @Override
+    @Transactional
+    public TicketCheckStatusEntity getTicketCheckStatusOrException(String status) throws SchedulePilotException {
+        Optional<TicketCheckStatusEntity> ticketCheckStatusEntity = this.globalTicketCheckStatusList.getItems().stream().filter(parameter ->
+                parameter.getName().equals(status)).findFirst();
+        if (ticketCheckStatusEntity.isPresent()) {
+            return ticketCheckStatusEntity.get();
+        }
+        throw new SchedulePilotException("Ticket check status with name: " + status + " NOT FOUND");
+
+    }
+
+    @Override
+    public ItemStatusEntity getItemStatusOrException(String status) throws SchedulePilotException {
+        Optional<ItemStatusEntity> itemStatusEntityOptional = this.globalItemStatusList.getItems().stream().filter(parameter ->
+                parameter.getName().equals(status)).findFirst();
+        if (itemStatusEntityOptional.isPresent()) {
+            return itemStatusEntityOptional.get();
+        }
+        throw new SchedulePilotException("Items status with name: " + status + " NOT FOUND");
     }
 }

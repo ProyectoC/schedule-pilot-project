@@ -9,6 +9,7 @@ import com.schedulepilot.core.request.ItemUpdateRequest;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -40,7 +41,13 @@ public interface ItemService {
 
     ItemEntity getByIdOrException(Long id) throws SchedulePilotException;
 
+    List<ItemEntity> getItemsEnable(Long productId) throws SchedulePilotException;
+
     ItemEntity save(ItemEntity itemEntity);
+
+    ItemEntity setOnLoan(ItemEntity itemEntity) throws SchedulePilotException;
+
+    ItemEntity setEnable(ItemEntity itemEntity) throws SchedulePilotException;
 
     ItemEntity update(ItemEntity itemEntity);
 }

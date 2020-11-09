@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "ticket_check_in")
@@ -45,8 +42,8 @@ public class TicketCheckInEntity extends BaseEntity {
     private TicketCheckStatusEntity ticketCheckStatusEntity;
 
     @Column(nullable = false, name = "delivery_date")
-    private Date deliveryDate;
+    private LocalDateTime deliveryDate;
 
     @Column(nullable = false, name = "return_date")
-    private Date returnDate;
+    private LocalDateTime returnDate;
 }

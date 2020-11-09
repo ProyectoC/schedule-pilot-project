@@ -43,15 +43,26 @@ DELETE FROM item;
 
 -- Manage
 SELECT * FROM request_check_in rci;
-SELECT * FROM request_check_in_product rcip;
+SELECT * FROM request_check_in_product rcip ORDER BY created_date ASC;
+
+SELECT * FROM product_request_status prs;
 
 
+SELECT * FROM ticket_check_status tcs;
+SELECT * FROM ticket_check_in tci;
 
 
+ALTER TABLE request_check_in_product
+ADD COLUMN attempts numeric DEFAULT 0;
+
+ALTER TABLE request_check_in_product
+DROP COLUMN count;
+
+SELECT * FROM ticket_check_out tco;
 
 
-
-SELECT nextval('track_id_request_check_in'); 
+SELECT nextval('schedule_pilot_db.track_id_request_check_in');
+SELECT nextval('schedule_pilot_db.track_id_ticket_check_in');
 
 
 

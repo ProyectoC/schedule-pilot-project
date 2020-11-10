@@ -14,8 +14,8 @@ export class UpdateProductFormComponent extends BaseFormComponent implements OnI
 
   public productStatus = new Map([
     [1, 'Agotado'],
-    [51, 'Disponible'],
-    [101, 'En prestamo'],
+    [2, 'Disponible'],
+    [3, 'En prestamo'],
   ]);
 
   public productTypes = new Map([[1, 'Tecnologia']]);
@@ -39,10 +39,8 @@ export class UpdateProductFormComponent extends BaseFormComponent implements OnI
     this.formGroup = this.formBuilder.group({
       name: [productRequest.name, [Validators.required]],
       description: [productRequest.description, [Validators.required]],
-      serial1: [productRequest.serial1, [Validators.required]],
       observations: [productRequest.observations, [Validators.required]],
       productStatus: [productRequest.productStatus.id, [Validators.required]],
-      productType: [productRequest.productType.id, [Validators.required]],
     });
   }
 

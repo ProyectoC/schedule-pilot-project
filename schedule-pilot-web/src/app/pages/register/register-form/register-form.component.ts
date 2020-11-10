@@ -29,6 +29,18 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
     [2, 'Administración Ambiental'],
     [3, 'Arquitectura'],
     [4, 'Contaduria Publica'],
+    [5, 'Diseño de Espacios y Escenarios'],
+    [6, 'Diseño Grafico'],
+    [7, 'Economia'],
+    [8, 'Ingenieria Civil'],
+    [9, 'Ingenieria de Mercados'],
+    [10, 'Ingenieria de Sistemas'],
+    [11, 'Ingenieria de Telecomunicaciones'],
+    [12, 'Ingenieria Financiera'],
+    [13, 'Ingenieria Mecatronica'],
+    [14, 'Marketing'],
+    [15, 'Negocios Internacionales'],
+    [16, 'Psicologia'],
   ]);
 
   constructor(private formBuilder: FormBuilder) {

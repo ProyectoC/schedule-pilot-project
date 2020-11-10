@@ -29,7 +29,7 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
     'number',
     'name',
     'description',
-    'serial1',
+    'status',
     'observations',
     'update',
     'delete',
@@ -100,6 +100,8 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
   }
 
   createProduct(productRequest: ProductRequest) {
+    productRequest.productRoles = [{rol: 1, loanTime: 7200}];
+
     this.messageService.generateConfirmMessage(null, 'Se creará un nuevo producto.').then(
       (responseUser: boolean) => {
         if (responseUser) {
@@ -114,6 +116,7 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
   }
 
   updateProduct(productRequest: ProductRequest) {
+    productRequest.productRoles = [{rol: 1, loanTime: 7200}];
     this.messageService.generateConfirmMessage(null, 'Se actualizará el producto.').then(
       (responseUser: boolean) => {
         if (responseUser) {

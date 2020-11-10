@@ -47,9 +47,9 @@
                 <td mat-cell *matCellDef="let row">{{row.description}}</td>
             </ng-container>
 
-            <ng-container matColumnDef="serial1">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Serial</th>
-                <td mat-cell *matCellDef="let row">{{row.serial1}}</td>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Estado</th>
+                <td mat-cell *matCellDef="let row">{{row.productStatus.name}}</td>
             </ng-container>
 
             <ng-container matColumnDef="observations">

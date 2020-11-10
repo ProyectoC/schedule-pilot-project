@@ -15,6 +15,9 @@ SELECT * FROM token_type tt;
 
 -- Manage user
 SELECT * FROM user_account ua;
+
+delete from user_account ser;
+
 SELECT * FROM product p;
 SELECT * FROM product_rol pr;
 SELECT * FROM item i;
@@ -66,10 +69,25 @@ SELECT nextval('schedule_pilot_db.track_id_ticket_check_in');
 
 
 
+SELECT * FROM product p;
+SELECT * FROM item i;
+SELECT * FROM item_status is2;
+SELECT * FROM item_detail id;
+
+SELECT * FROM request_check_in;
+SELECT * FROM request_check_in_product rcip;
+
+SELECT * FROM product_request_status prs;
+
+SELECT * FROM product p;
+SELECT * FROM product_rol pr;
 
 
+SELECT * FROM ticket_check_in tci;
+SELECT * FROM ticket_check_status tcs;
 
-
+SELECT * FROM notification n;
+SELECT VERSION();
 
 
 

@@ -22,6 +22,11 @@ public enum ExceptionCode {
     ERROR_LOAN_PROCESS_DATE_NOT_VALID("1013", "Loan date is not valid"),
     ERROR_LOAN_PROCESS_PRODUCTS_ARE_EMPTY("1013", "Loan, products can not be empty"),
     ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_OUT_NOT_VALID("1014", "Loan, rol from user account are not valid to generate check out"),
+    ERROR_LOAN_PROCESS_TICKET_CHECK_IN_HAS_EXPIRED("1015", "Ticket check in has expired."),
+    ERROR_LOAN_PROCESS_TICKET_CHECK_IN_ALREADY_USED("1016", "Ticket check in already used."),
+    ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_LOG_NOT_VALID("1017", "Loan, rol from user account are not valid to generate check log"),
+    ERROR_LOAN_PROCESS_TICKET_CHECK_OUT_ALREADY_USED("1017", "Ticket check out already used."),
+    ERROR_LOAN_PROCESS_TICKET_CHECK_OUT_HAS_EXPIRED("1018", "Ticket check out has expired."),
 
     // Manage Rol
     ERROR_MANAGE_ROL_NOT_FOUND("1002", "Rol account not found."),

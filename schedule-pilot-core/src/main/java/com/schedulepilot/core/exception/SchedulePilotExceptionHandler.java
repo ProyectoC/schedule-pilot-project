@@ -84,6 +84,11 @@ public class SchedulePilotExceptionHandler extends ResponseEntityExceptionHandle
         return this.getBadRequestResponseEntity(ex, request);
     }
 
+    @ExceptionHandler(LoanProcessException.class)
+    public final ResponseEntity<Object> handleAllManageLoanProcessExceptions(LoanProcessException ex, WebRequest request) {
+        return this.getBadRequestResponseEntity(ex, request);
+    }
+
     public ResponseEntity<Object> getBadRequestResponseEntity(SchedulePilotException ex, WebRequest request) {
         LOGGER.error(CommonUtil.LOG_ERROR_DEFAULT, ex.getError().getCode(), ExceptionUtils.getStackTrace(ex));
         List<String> details = new ArrayList<>();

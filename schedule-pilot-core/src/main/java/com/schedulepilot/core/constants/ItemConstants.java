@@ -10,6 +10,9 @@ public class ItemConstants {
     public static final String UPDATE_ITEM_REST = "/update";
     public static final String DELETE_ITEM_REST = "/delete";
 
+    public static final String ENABLE_STATUS = "DISPONIBLE";
+    public static final String ON_LOAD_STATUS = "EN PRESTAMO";
+
     private ItemConstants() {
     }
 }

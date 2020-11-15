@@ -3,6 +3,7 @@ package com.schedulepilot.core.controllers;
 import com.schedulepilot.core.constants.LoanProcessConstants;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.CheckInRequest;
+import com.schedulepilot.core.request.CheckLogRequest;
 import com.schedulepilot.core.request.CheckOutRequest;
 import com.schedulepilot.core.service.loanprocess.LoanProcessService;
 import com.schedulepilot.core.util.dto.ResponseDto;
@@ -36,5 +37,12 @@ public class LoanProcessController {
     public ResponseEntity<ResponseDto<String>> createRequestCheckOut(@RequestBody @Valid CheckOutRequest checkOutRequest) throws SchedulePilotException {
         String trackId = this.loanProcessService.createRequestCheckOut(checkOutRequest);
         return new ResponseEntity<>(ResponseDto.success("Request CheckOut created successfully. See: " + trackId), HttpStatus.CREATED);
+    }
+
+    @ResponseBody
+    @PostMapping(LoanProcessConstants.CREATE_REQUEST_CHECK_LOG_REST)
+    public ResponseEntity<ResponseDto<String>> createRequestCheckLog(@RequestBody @Valid CheckLogRequest checkLogRequest) throws SchedulePilotException {
+        String trackId = this.loanProcessService.createRequestCheckLog(checkLogRequest);
+        return new ResponseEntity<>(ResponseDto.success("Request CheckLog created successfully. See: " + trackId), HttpStatus.CREATED);
     }
 }

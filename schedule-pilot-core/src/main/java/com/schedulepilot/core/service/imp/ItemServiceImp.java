@@ -1,5 +1,6 @@
 package com.schedulepilot.core.service.imp;
 
+import com.schedulepilot.core.constants.ItemConstants;
 import com.schedulepilot.core.dto.PageResponseDto;
 import com.schedulepilot.core.dto.model.ItemDto;
 import com.schedulepilot.core.entities.model.ItemEntity;
@@ -20,8 +21,6 @@ import java.util.*;
 public class ItemServiceImp implements ItemService {
 
     private static final List<String> LIST_ATTRIBUTES = Arrays.asList(ItemEntity_.name.getName());
-    private static final String ON_LOAD_STATUS = "EN PRESTAMO";
-    private static final String ENABLE_STATUS = "DISPONIBLE";
 
     @Autowired
     private ItemRepository itemRepository;
@@ -73,13 +72,13 @@ public class ItemServiceImp implements ItemService {
 
     @Override
     public ItemEntity setOnLoan(ItemEntity itemEntity) throws SchedulePilotException {
-        itemEntity.setItemStatusEntity(this.globalListDinamicService.getItemStatusOrException(ON_LOAD_STATUS));
+        itemEntity.setItemStatusEntity(this.globalListDinamicService.getItemStatusOrException(ItemConstants.ON_LOAD_STATUS));
         return this.itemRepository.save(itemEntity);
     }
 
     @Override
     public ItemEntity setEnable(ItemEntity itemEntity) throws SchedulePilotException {
-        itemEntity.setItemStatusEntity(this.globalListDinamicService.getItemStatusOrException(ENABLE_STATUS));
+        itemEntity.setItemStatusEntity(this.globalListDinamicService.getItemStatusOrException(ItemConstants.ENABLE_STATUS));
         return this.itemRepository.save(itemEntity);
     }
 

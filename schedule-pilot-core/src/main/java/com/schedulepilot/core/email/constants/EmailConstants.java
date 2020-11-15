@@ -25,7 +25,8 @@ public class EmailConstants {
     public static final String EMAIL_SEND_PRODUCT_NOT_FOUND = "email-product-not-found.html";
     public static final String EMAIL_SEND_PRODUCT_NOT_ENABLE = "email-product-not-enable.html";
     public static final String EMAIL_SEND_GENERATED_TICKET_CHECK_IN = "email-generated-ticket-check-in.html";
-
+    public static final String EMAIL_SEND_GENERATED_TICKET_CHECK_OUT = "email-generated-ticket-check-out.html";
+    public static final String EMAIL_SEND_GENERATED_TICKET_CHECK_LOG = "email-generated-ticket-check-log.html";
 
     // Parameters Templates
     public static final String PARAMETER_TEMPLATE_USER_NAME = "[USER_NAME]";
@@ -74,6 +75,8 @@ public class EmailConstants {
     public static final String SUBJECT_DEFAULT_SEND_REMEMBER_PASSWORD = "SchedulePilot - Restauración de contraseña";
     public static final String SUBJECT_DEFAULT_SEND_PRODUCT_NOT_ENABLE = "SchedulePilot - Habilitación del recurso";
     public static final String SUBJECT_DEFAULT_SEND_PRODUCT_NOT_FOUND = "SchedulePilot - Disponibilidad del recurso";
-    public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_IN = "SchedulePilot - Ticket del recurso";
+    public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_IN = "SchedulePilot - TicketCheckIn del recurso";
+    public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_OUT = "SchedulePilot - TicketCheckOut del recurso";
+    public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_LOG = "SchedulePilot - TicketCheckLog del recurso";
     public static final String SUBJECT_DEFAULT_SEND_ACTIVATE_USER_ACCOUNT = "Account verified successfully.";
 }

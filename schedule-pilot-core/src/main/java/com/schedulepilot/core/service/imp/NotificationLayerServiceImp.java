@@ -5,10 +5,7 @@ import com.schedulepilot.core.constants.AccountUserConstants;
 import com.schedulepilot.core.dto.model.NotificationDto;
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.email.constants.EmailConstants;
-import com.schedulepilot.core.entities.model.ProductEntity;
-import com.schedulepilot.core.entities.model.RequestCheckInEntity;
-import com.schedulepilot.core.entities.model.TicketCheckInEntity;
-import com.schedulepilot.core.entities.model.UserAccountEntity;
+import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.notification.service.NotificationSenderService;
 import com.schedulepilot.core.service.GlobalListDinamicService;
@@ -246,6 +243,63 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
             this.notificationSenderService.sendValidationNotification(notificationDto);
         } catch (SchedulePilotException ex) {
             LOGGER.error("Could not send notification TICKET_CHECK_IN. Error: {}", ex.getMessage());
+        }
+    }
+
+    @Async
+    @Override
+    public void sendNotificationGeneratedTicketCheckOut(UserAccountEntity userAccountEntity, TicketCheckOutEntity ticketCheckOutEntity, TicketCheckInEntity ticketCheckInEntity) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_GENERATED_TICKET_CHECK_OUT);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userAccountEntity.getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID, ticketCheckInEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID_TICKET, ticketCheckOutEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PRODUCT_NAME, ticketCheckInEntity.getItemEntity().getName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_SERIAL_NAME, ticketCheckInEntity.getItemEntity().getSerial1());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_DELIVERY_DATE, ticketCheckOutEntity.getCreatedDate().toString());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_RETURN_DATE, ticketCheckInEntity.getReturnDate().toString());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(userAccountEntity.getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_OUT);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification TICKET_CHECK_OUT. Error: {}", ex.getMessage());
+        }
+    }
+
+    @Async
+    @Override
+    public void sendNotificationGeneratedTicketCheckLog(UserAccountEntity userAccountEntity, TicketCheckLogEntity ticketCheckLogEntity, TicketCheckOutEntity ticketCheckOutEntity) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_GENERATED_TICKET_CHECK_LOG);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, userAccountEntity.getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID, ticketCheckOutEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PRODUCT_NAME, ticketCheckOutEntity.getTicketCheckInEntity().getItemEntity().getName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_SERIAL_NAME, ticketCheckOutEntity.getTicketCheckInEntity().getItemEntity().getSerial1());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_DELIVERY_DATE, ticketCheckOutEntity.getCreatedDate().toString());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_RETURN_DATE, ticketCheckOutEntity.getLastModifiedDate().toString());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(userAccountEntity.getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_LOG);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification TICKET_CHECK_LOG. Error: {}", ex.getMessage());
         }
     }
 

@@ -22,7 +22,7 @@ public class TicketCheckInServiceImp implements TicketCheckInService {
     }
 
     @Override
-    public TicketCheckInEntity getByTrackIdentification(Long trackIdLong) throws SchedulePilotException {
+    public TicketCheckInEntity getByTrackIdentification(String trackIdLong) throws SchedulePilotException {
         Optional<TicketCheckInEntity> ticketCheckInEntityOptional = this.ticketCheckInRepository.findByTrackId(trackIdLong);
         if (ticketCheckInEntityOptional.isPresent()) {
             return ticketCheckInEntityOptional.get();

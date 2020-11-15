@@ -8,7 +8,14 @@ public class LoanProcessConstants {
     // REST
     public static final String CREATE_REQUEST_CHECK_IN_REST = "/create/request-check-in";
     public static final String CREATE_REQUEST_CHECK_OUT_REST = "/create/request-check-out";
-    public static final String DELETE_ITEM_REST = "/delete";
+    public static final String CREATE_REQUEST_CHECK_LOG_REST = "/create/request-check-log";
+
+    // STATUS
+    public static final String EXPIRED_STATUS = "VENCIDO";
+    public static final String USED_STATUS = "REDIMIDO";
+    public static final String GENERATED_STATUS = "GENERADO";
+    public static final String NOT_FOUND_STATUS = "NO ENCONTRADO";
+    public static final String FOUND_STATUS = "ENCONTRADO";
 
     private LoanProcessConstants() {
     }

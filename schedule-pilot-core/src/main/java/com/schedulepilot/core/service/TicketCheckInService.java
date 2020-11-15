@@ -9,5 +9,5 @@ public interface TicketCheckInService {
 
     TicketCheckInEntity save(TicketCheckInEntity ticketCheckInEntity);
 
-    TicketCheckInEntity getByTrackIdentification(Long trackIdLong) throws SchedulePilotException;
+    TicketCheckInEntity getByTrackIdentification(String trackIdLong) throws SchedulePilotException;
 }

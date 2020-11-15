@@ -18,13 +18,13 @@ import java.io.Serializable;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CheckOutRequest implements Serializable {
+public class CheckLogRequest implements Serializable {
 
     @NotNull(message = "userAccountId can not be null.")
     @Positive(message = "userAccountId can not be a negative number")
     private Long userAccountId;
 
-    @NotNull(message = "trackIdentificationCheckIn can not be null.")
-    @NotBlank(message = "trackIdentificationCheckIn can not be empty.")
-    private String trackIdentificationCheckIn;
+    @NotNull(message = "trackIdentificationCheckOut can not be null.")
+    @NotBlank(message = "trackIdentificationCheckOut can not be empty.")
+    private String trackIdentificationCheckOut;
 }

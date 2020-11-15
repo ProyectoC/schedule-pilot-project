@@ -13,6 +13,5 @@ public interface TicketCheckOutRepository extends JpaRepository<TicketCheckOutEn
     @Query(value = "select nextval('schedule_pilot_db.track_id_ticket_check_out')", nativeQuery = true)
     Long getTicketCheckOutSequence();
 
-    Optional<TicketCheckOutEntity> findByTrackId(Long trackId);
-
+    Optional<TicketCheckOutEntity> findByTrackId(String trackId);
 }

@@ -73,6 +73,7 @@ SELECT * FROM product p;
 SELECT * FROM item i;
 SELECT * FROM item_status is2;
 SELECT * FROM item_detail id;
+SELECT 
 
 SELECT * FROM request_check_in;
 SELECT * FROM request_check_in_product rcip;
@@ -81,10 +82,18 @@ SELECT * FROM product_request_status prs;
 
 SELECT * FROM product p;
 SELECT * FROM product_rol pr;
+SELECT * FROM product_status ps;
+SELECT * FROM rol_account ra;
 
 
 SELECT * FROM ticket_check_in tci;
 SELECT * FROM ticket_check_status tcs;
+
+select * from ticket_check_out tco;
+
+SELECT * FROM ticket_check_log tcl;
+
+SELECT * FROM item_status is2;
 
 SELECT * FROM notification n;
 SELECT VERSION();

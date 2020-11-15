@@ -1,5 +1,6 @@
 package com.schedulepilot.core.service.loanprocess;
 
+import com.schedulepilot.core.constants.ProductConstants;
 import com.schedulepilot.core.entities.id.RequestCheckInProductId;
 import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.ExceptionCode;
@@ -7,10 +8,14 @@ import com.schedulepilot.core.exception.LoanProcessException;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.CheckInProductRequest;
 import com.schedulepilot.core.request.CheckInRequest;
+import com.schedulepilot.core.request.CheckLogRequest;
 import com.schedulepilot.core.request.CheckOutRequest;
 import com.schedulepilot.core.service.*;
 import com.schedulepilot.core.service.sequence.SequenceService;
+import com.schedulepilot.core.tasks.GenerateTicketCheckLogTask;
+import com.schedulepilot.core.tasks.GenerateTicketCheckOutTask;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -20,9 +25,6 @@ import java.util.List;
 
 @Component
 public class LoanProcessServiceImp implements LoanProcessService {
-
-    private static final String REQUESTED_STATUS = "SOLICITADO";
-    private static final String GENERATED_STATUS = "GENERADO";
 
     @Autowired
     private UserAccountService userAccountService;
@@ -44,6 +46,12 @@ public class LoanProcessServiceImp implements LoanProcessService {
 
     @Autowired
     private TicketCheckOutService ticketCheckOutService;
+
+    @Autowired
+    private ApplicationContext applicationContext;
+
+    @Autowired
+    private NotificationLayerService notificationLayerService;
 
     @Override
     public String createRequestCheckIn(CheckInRequest checkInRequest) throws SchedulePilotException {
@@ -73,7 +81,7 @@ public class LoanProcessServiceImp implements LoanProcessService {
                         localDateTime + " not valid.");
             requestCheckInProductEntity.setLoanDate(localDateTime);
 
-            ProductRequestStatusEntity productRequestStatusEntity = this.globalListDinamicService.getProductRequestStatusOrException(REQUESTED_STATUS);
+            ProductRequestStatusEntity productRequestStatusEntity = this.globalListDinamicService.getProductRequestStatusOrException(ProductConstants.REQUESTED_STATUS);
             requestCheckInProductEntity.setProductRequestStatusEntity(productRequestStatusEntity);
             RequestCheckInProductId requestCheckInProductId = new RequestCheckInProductId(productEntity);
             requestCheckInProductEntity.setRequestCheckInProductId(requestCheckInProductId);
@@ -91,33 +99,40 @@ public class LoanProcessServiceImp implements LoanProcessService {
         // Search UserAccount
         UserAccountEntity userAccountEntity = userAccountService.getByIdOrException(checkOutRequest.getUserAccountId());
         RolAccountEntity rolAccountEntity = userAccountEntity.getRolAccountEntity();
-        if (!rolAccountEntity.getName().equals("Super User") || !rolAccountEntity.getName().equals("Registro y Control")) {
-            throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_OUT_NOT_VALID, "Rol: " +
-                    rolAccountEntity.getName() + " not valid.");
-        }
+//        if (!rolAccountEntity.getName().equals("Super User") || !rolAccountEntity.getName().equals("Registro y Control")) {
+//            throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_OUT_NOT_VALID, "Rol: " +
+//                    rolAccountEntity.getName() + " not valid.");
+//        }
 
-        // TODO: Validar fecha actual de retiro debe ser igual o maximo pasarse por 15 minutos de la fecha acordada. De lo contrario
-        /**
-         * Debe cambiar el estado del ticket check int a VENCIDO. El job debera encontrar este ticket vencido y multarlo.
-         */
+        GenerateTicketCheckOutTask generateTicketCheckOutTask = this.applicationContext.getBean(GenerateTicketCheckOutTask.class,
+                ticketCheckInEntity, userAccountEntity);
+        generateTicketCheckOutTask.execute();
 
-
-        // TODO: Actualizar el ticket check in cambiarlo de estado a REDIMIDO
-
-
-        // Generate track Identificator.
-        Long trackId = this.sequenceService.getTicketCheckOutSequence();
-
-        TicketCheckOutEntity ticketCheckOutEntity = new TicketCheckOutEntity();
-        ticketCheckOutEntity.setTrackId(trackId);
-        ticketCheckOutEntity.setTicketCheckInEntity(ticketCheckInEntity);
-        ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDinamicService.getTicketCheckStatusOrException(GENERATED_STATUS));
-        ticketCheckOutEntity.setUserAccountEntity(userAccountEntity);
-
-        this.ticketCheckOutService.save(ticketCheckOutEntity);
-        return "TrackID: " + trackId;
+        this.notificationLayerService.sendNotificationGeneratedTicketCheckOut(ticketCheckInEntity.getRequestCheckInEntity().getUserAccountEntity(),
+                generateTicketCheckOutTask.getTicketCheckOutEntity(), ticketCheckInEntity);
+        return "TrackID: " + generateTicketCheckOutTask.getTicketCheckOutEntity().getTrackId();
     }
 
+    @Override
+    public String createRequestCheckLog(CheckLogRequest checkOutRequest) throws SchedulePilotException {
+        // Search ticketCheckIn
+        TicketCheckOutEntity ticketCheckOutEntity = this.ticketCheckOutService.getByTrackIdentification(checkOutRequest.getTrackIdentificationCheckOut());
+        // Search UserAccount
+        UserAccountEntity userAccountEntity = userAccountService.getByIdOrException(checkOutRequest.getUserAccountId());
+        RolAccountEntity rolAccountEntity = userAccountEntity.getRolAccountEntity();
+//        if (!rolAccountEntity.getName().equals("Super User") || !rolAccountEntity.getName().equals("Registro y Control")) {
+//            throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_LOG_NOT_VALID, "Rol: " +
+//                    rolAccountEntity.getName() + " not valid.");
+//        }
+
+        GenerateTicketCheckLogTask generateTicketCheckLogTask = this.applicationContext.getBean(GenerateTicketCheckLogTask.class,
+                ticketCheckOutEntity, userAccountEntity);
+        generateTicketCheckLogTask.execute();
+
+        this.notificationLayerService.sendNotificationGeneratedTicketCheckLog(ticketCheckOutEntity.getTicketCheckInEntity().getRequestCheckInEntity().getUserAccountEntity(),
+                generateTicketCheckLogTask.getTicketCheckLogEntity(), ticketCheckOutEntity);
+        return "TrackID validated: " + generateTicketCheckLogTask.getTicketCheckLogEntity().getTicketCheckOutEntity().getTrackId();
+    }
 
     private LocalDateTime convertToLocalDateTimeViaSqlTimestamp(Date dateToConvert) {
         return new java.sql.Timestamp(dateToConvert.getTime()).toLocalDateTime();

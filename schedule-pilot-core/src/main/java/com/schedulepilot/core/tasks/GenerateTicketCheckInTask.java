@@ -4,7 +4,6 @@ import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.service.ItemService;
-import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.TicketCheckInService;
 import com.schedulepilot.core.service.sequence.SequenceService;
 import lombok.Getter;

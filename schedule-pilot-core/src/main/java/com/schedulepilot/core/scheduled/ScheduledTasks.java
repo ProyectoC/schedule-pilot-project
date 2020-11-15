@@ -23,7 +23,7 @@ public class ScheduledTasks {
     /**
      * <second> <minute> <hour> <day-of-month> <month> <day-of-week> <year> <command>
      */
-    @Scheduled(fixedDelay = 15 * 60000, initialDelay = 1000)
+    @Scheduled(fixedDelay = 1 * 60000, initialDelay = 1000)
     public void scheduleManageRequestCheckInProducts() {
         LOGGER.info("SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: {}", LocalDateTime.now());
         try {

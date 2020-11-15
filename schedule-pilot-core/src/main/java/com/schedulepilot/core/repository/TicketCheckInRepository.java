@@ -13,6 +13,6 @@ public interface TicketCheckInRepository extends JpaRepository<TicketCheckInEnti
     @Query(value = "select nextval('schedule_pilot_db.track_id_ticket_check_in')", nativeQuery = true)
     Long getTicketCheckInSequence();
 
-    Optional<TicketCheckInEntity> findByTrackId(Long trackId);
+    Optional<TicketCheckInEntity> findByTrackId(String trackId);
 
 }

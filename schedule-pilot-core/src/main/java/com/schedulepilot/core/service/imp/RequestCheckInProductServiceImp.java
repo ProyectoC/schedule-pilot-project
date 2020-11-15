@@ -1,5 +1,6 @@
 package com.schedulepilot.core.service.imp;
 
+import com.schedulepilot.core.constants.LoanProcessConstants;
 import com.schedulepilot.core.entities.model.RequestCheckInProductEntity;
 import com.schedulepilot.core.entities.model.TicketCheckInEntity;
 import com.schedulepilot.core.exception.SchedulePilotException;
@@ -21,9 +22,6 @@ import java.util.List;
 
 @Component
 public class RequestCheckInProductServiceImp implements RequestCheckInProductService {
-
-    private static final String NOT_FOUND_STATUS = "NO ENCONTRADO";
-    private static final String FOUND_STATUS = "ENCONTRADO";
 
     @Autowired
     private RequestCheckInProductRepository requestCheckInProductRepository;
@@ -69,7 +67,7 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
             return;
         }
         if (generateTicketCheckInTask.getTicketCheckInEntity() != null) {
-            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(FOUND_STATUS));
+            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(LoanProcessConstants.FOUND_STATUS));
             this.save(requestCheckInProductEntity);
             this.manageNotificationGeneratedTicketCheckIn(requestCheckInProductEntity, generateTicketCheckInTask.getTicketCheckInEntity());
         }
@@ -80,7 +78,7 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
                         .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(),
                 requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity(),
                 requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());
-        requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(NOT_FOUND_STATUS));
+        requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(LoanProcessConstants.NOT_FOUND_STATUS));
         this.save(requestCheckInProductEntity);
     }
 
@@ -93,7 +91,7 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
     private void updateAttempts(RequestCheckInProductEntity requestCheckInProductEntity) throws SchedulePilotException {
         int attemptsActual = requestCheckInProductEntity.getAttempts();
         if (attemptsActual >= 3) {
-            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(NOT_FOUND_STATUS));
+            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(LoanProcessConstants.NOT_FOUND_STATUS));
             this.notificationLayerService.sendNotificationNotFoundProduct(requestCheckInProductEntity
                             .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(),
                     requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity(),

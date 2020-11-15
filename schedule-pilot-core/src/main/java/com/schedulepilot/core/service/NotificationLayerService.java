@@ -2,10 +2,7 @@ package com.schedulepilot.core.service;
 
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.dto.model.UserNotificationDto;
-import com.schedulepilot.core.entities.model.ProductEntity;
-import com.schedulepilot.core.entities.model.RequestCheckInEntity;
-import com.schedulepilot.core.entities.model.TicketCheckInEntity;
-import com.schedulepilot.core.entities.model.UserAccountEntity;
+import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.util.CommonUtil;
 import org.slf4j.Logger;
@@ -37,6 +34,10 @@ public interface NotificationLayerService {
     void sendNotificationNotFoundProduct(UserAccountEntity userAccountEntity, ProductEntity productEntity, RequestCheckInEntity requestCheckInEntity);
 
     void sendNotificationGeneratedTicketCheckIn(UserAccountEntity userAccountEntity, TicketCheckInEntity ticketCheckInEntity, RequestCheckInEntity requestCheckInEntity);
+
+    void sendNotificationGeneratedTicketCheckOut(UserAccountEntity userAccountEntity, TicketCheckOutEntity ticketCheckOutEntity, TicketCheckInEntity ticketCheckInEntity);
+
+    void sendNotificationGeneratedTicketCheckLog(UserAccountEntity userAccountEntity, TicketCheckLogEntity ticketCheckLogEntity, TicketCheckOutEntity ticketCheckOutEntity);
 
 //    void sendNotificationVerificationUser(com.acqua.board.coremodule.dto.UserSecurityDTO userSecurityDTO);
 //

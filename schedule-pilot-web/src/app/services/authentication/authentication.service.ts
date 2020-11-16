@@ -11,6 +11,7 @@ import { AuthenticationMessageService } from '@services/messages/authentication.
 import { AuthUser } from '@models/auth-user';
 import { EndPointsHttpConstants } from '@constants/end-points-http-constants';
 import { AuthResponse } from '@models/authentication/response/auth-response';
+import { ForgotPassword } from '@models/forgot-password';
 
 @Injectable({
   providedIn: 'root',
@@ -70,6 +71,47 @@ export class AuthenticationService {
               break;
             default:
               this.authenticationMessageService.generalErrorAuthentication(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
+
+  public restartPasswordUser(
+    forgotPasswordRequest: ForgotPassword
+  ): Observable<Response<any>> {
+    return this.httpClient
+      .post<Response<any>>(
+        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_FORGOT_PASSWORD}`, forgotPasswordRequest
+      )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse;
+          } else {
+            this.authenticationMessageService.generalErrorForgotPassword(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.authenticationMessageService.generalErrorForgotPassword(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.authenticationMessageService.generalErrorForgotPassword(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.authenticationMessageService.generalErrorForgotPassword(
                 err.message
               );
               break;

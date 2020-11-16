@@ -10,7 +10,11 @@ export class RoutingConstants {
   static readonly URL_AUTHENTICATION: string = RoutingConstants.URL_PUBLIC_LAYOUT + '/' + RoutingConstants.ROUTING_URL_AUTHENTICATION;
   
   static readonly ROUTING_URL_REGISTER: string = 'register';
-  static readonly URL_REGISTER: string = '/' + RoutingConstants.ROUTING_URL_REGISTER;
+  static readonly URL_REGISTER: string = RoutingConstants.URL_PUBLIC_LAYOUT + '/' + RoutingConstants.ROUTING_URL_REGISTER;
+
+  static readonly ROUTING_URL_FORGOT_PASSWORD: string = 'forgot-password';
+  static readonly URL_FORGOT_PASSWORD: string = RoutingConstants.URL_PUBLIC_LAYOUT + '/' + RoutingConstants.ROUTING_URL_FORGOT_PASSWORD;;
+  
   
   static readonly ROUTING_URL_HOME: string = 'home';
   static readonly URL_HOME: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_HOME;
@@ -24,8 +28,7 @@ export class RoutingConstants {
 
   
 
-  static URL_FORGOT_PASSWORD = '/forgot-password';
-  static ROUTING_URL_FORGOT_PASSWORD: string = 'forgot-password';
+  s
 
   static URL_UPDATE_USER = '/update-user';
   static ROUTING_URL_UPDATE_USER: string = 'update-user';

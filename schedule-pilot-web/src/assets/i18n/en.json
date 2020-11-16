@@ -2,7 +2,7 @@
   "general": {
     "company": "Schedule-Pilot"
   },
-  "components" : {
+  "components": {
     "authentication": {
       "title": "Log in",
       "forms": {
@@ -26,9 +26,14 @@
   "messages": {
     "services": {
       "authentication": {
-          "error": {
-            "title": "Authentication error"
-          }
+        "error": {
+          "title": "Authentication error"
+        }
+      },
+      "forgot-password": {
+        "error": {
+          "title": "Restart account failed"
+        }
       }
     }
   },

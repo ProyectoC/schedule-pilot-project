@@ -2,7 +2,7 @@
   "general": {
     "company": "Schedule-Pilot"
   },
-  "components" : {
+  "components": {
     "authentication": {
       "title": "Iniciar Sesión",
       "forms": {
@@ -26,9 +26,14 @@
   "messages": {
     "services": {
       "authentication": {
-          "error": {
-            "title": "Error autenticación"
-          }
+        "error": {
+          "title": "Error autenticación"
+        }
+      },
+      "forgot-password": {
+        "error": {
+          "title": "Error al restaurar la cuenta"
+        }
       }
     }
   },

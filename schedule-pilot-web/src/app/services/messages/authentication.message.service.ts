@@ -17,4 +17,11 @@ export class AuthenticationMessageService {
     );
     this.messageService.generateErrorMessage(titleMessage, message);
   }
+
+  generalErrorForgotPassword(message: string) {
+    let titleMessage = this.translate.instant(
+      'messages.services.forgot-password.error.title'
+    );
+    this.messageService.generateErrorMessage(titleMessage, message);
+  }
 }

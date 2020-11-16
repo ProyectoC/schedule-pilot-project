@@ -18,6 +18,9 @@ import { DynamicFormInputComponent } from '../../shared/forms/components/dynamic
 import { RegisterFormComponent } from '../../pages/register/register-form/register-form.component';
 import { RegisterPasswordFormComponent } from '../../pages/register/register-password-form/register-password-form.component';
 
+import { ForgotPasswordComponent } from '../../pages/forgot-password/forgot-password.component';
+import { ForgotPasswordFormComponent } from '../../pages/forgot-password/forgot-password-form/forgot-password-form.component';
+
 // Services
 import { FormsService } from '@services/forms/forms.service';
 
@@ -56,7 +59,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DynamicFormGroupComponent,
     DynamicFormInputComponent,
     RegisterFormComponent,
-    RegisterPasswordFormComponent
+    RegisterPasswordFormComponent,
+    ForgotPasswordComponent,
+    ForgotPasswordFormComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

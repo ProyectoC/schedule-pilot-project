@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public interface RolAccountService {
+
     ModelMapper modelMapper = new ModelMapper();
 
     static RolAccountEntity convertDTOToEntity(RolAccountDto dto) {
@@ -29,6 +30,8 @@ public interface RolAccountService {
     }
 
     List<RolAccountDto> getAll();
+
+    List<RolAccountDto> getAllWithoutSuperAdmin();
 
     RolAccountDto getByIdOrException(Long id) throws SchedulePilotException;
 

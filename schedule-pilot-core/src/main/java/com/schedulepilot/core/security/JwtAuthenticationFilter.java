@@ -3,6 +3,8 @@ package com.schedulepilot.core.security;
 import com.schedulepilot.core.config.SwaggerConfig;
 import com.schedulepilot.core.config.TokenConfig;
 import com.schedulepilot.core.constants.AccountUserConstants;
+import com.schedulepilot.core.constants.CollegeCareerConstants;
+import com.schedulepilot.core.constants.RolAccountConstants;
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.security.token.service.ManageTokenService;
 import com.schedulepilot.core.service.UserAccountService;
@@ -99,6 +101,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.ACTIVATE_USER_ACCOUNT_REST)
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.AUTH_AUTHORIZE_USER_ACCOUNT_REST)
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.FORGOT_PASSWORD_USER_ACCOUNT_REST)
+                || request.getRequestURI().contains(RolAccountConstants.REST_PATH_DEFAULT_V1)
+                || request.getRequestURI().contains(CollegeCareerConstants.REST_PATH_DEFAULT_V1)
                 || request.getRequestURI().contains(AccountUserConstants.REST_PATH_DEFAULT_V1 + "/logout")
                 || request.getRequestURI().contains(SwaggerConfig.SWAGGER_UI)
                 || request.getRequestURI().contains(SwaggerConfig.SPRING_ADMIN));

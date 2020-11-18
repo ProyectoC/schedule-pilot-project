@@ -9,6 +9,7 @@ public class ProductConstants {
     public static final String CREATE_PRODUCT_REST = "/create";
     public static final String UPDATE_PRODUCT_REST = "/update";
     public static final String DELETE_PRODUCT_REST = "/delete";
+    public static final String STATUS_PRODUCT_REST = "/status";
 
     public static final String REQUESTED_STATUS = "SOLICITADO";
 

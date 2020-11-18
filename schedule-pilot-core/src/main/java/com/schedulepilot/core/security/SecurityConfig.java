@@ -1,6 +1,8 @@
 package com.schedulepilot.core.security;
 
 import com.schedulepilot.core.constants.AccountUserConstants;
+import com.schedulepilot.core.constants.CollegeCareerConstants;
+import com.schedulepilot.core.constants.RolAccountConstants;
 import com.schedulepilot.core.service.UserAccountService;
 import com.schedulepilot.core.util.SecurityUtil;
 import org.apache.logging.log4j.LogManager;
@@ -11,8 +13,6 @@ import org.springframework.boot.actuate.audit.listener.AuditApplicationEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationEventPublisher;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -26,14 +26,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.util.StringUtils;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -105,6 +97,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.ACTIVATE_USER_ACCOUNT_REST).permitAll()
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.AUTH_AUTHORIZE_USER_ACCOUNT_REST).permitAll()
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.FORGOT_PASSWORD_USER_ACCOUNT_REST).permitAll()
+                .antMatchers(RolAccountConstants.REST_PATH_DEFAULT_V1).permitAll()
+                .antMatchers(CollegeCareerConstants.REST_PATH_DEFAULT_V1).permitAll()
                 .antMatchers(SecurityUtil.VERIFICATION_EMAIL_REST_DEFAULT + ALL_RESOURCES, "/oauth2/authorize-client").permitAll()
                 .antMatchers(SecurityUtil.AUTH_WHITELIST_APIS_DEFAULT()).permitAll()
                 .antMatchers("/oauth/token").permitAll()

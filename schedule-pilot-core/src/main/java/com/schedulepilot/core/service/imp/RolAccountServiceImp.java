@@ -26,6 +26,13 @@ public class RolAccountServiceImp implements RolAccountService {
     }
 
     @Override
+    public List<RolAccountDto> getAllWithoutSuperAdmin() {
+        List<RolAccountDto> list = new ArrayList<>();
+        this.rolAccountRepository.findAllWithoutSuperAdmin().forEach(e -> list.add(RolAccountService.convertEntityToDTO(e)));
+        return list;
+    }
+
+    @Override
     public RolAccountDto getByIdOrException(Long id) throws SchedulePilotException {
         Optional<RolAccountEntity> rolAccountEntityOptional = this.rolAccountRepository.findById(id);
         return rolAccountEntityOptional.map(RolAccountService::convertEntityToDTO).orElseThrow(() -> new SchedulePilotException("Rol Account Not Found"));

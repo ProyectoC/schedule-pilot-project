@@ -1,6 +1,7 @@
 package com.schedulepilot.core.service.loanprocess;
 
 import com.schedulepilot.core.constants.ProductConstants;
+import com.schedulepilot.core.dto.PageResponseDto;
 import com.schedulepilot.core.entities.id.RequestCheckInProductId;
 import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.ExceptionCode;
@@ -10,6 +11,7 @@ import com.schedulepilot.core.request.CheckInProductRequest;
 import com.schedulepilot.core.request.CheckInRequest;
 import com.schedulepilot.core.request.CheckLogRequest;
 import com.schedulepilot.core.request.CheckOutRequest;
+import com.schedulepilot.core.response.RequestCheckInResponse;
 import com.schedulepilot.core.service.*;
 import com.schedulepilot.core.service.sequence.SequenceService;
 import com.schedulepilot.core.tasks.GenerateTicketCheckLogTask;
@@ -22,6 +24,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class LoanProcessServiceImp implements LoanProcessService {
@@ -52,6 +55,9 @@ public class LoanProcessServiceImp implements LoanProcessService {
 
     @Autowired
     private NotificationLayerService notificationLayerService;
+
+    @Autowired
+    private RequestCheckInProductService requestCheckInProductService;
 
     @Override
     public String createRequestCheckIn(CheckInRequest checkInRequest) throws SchedulePilotException {
@@ -90,6 +96,11 @@ public class LoanProcessServiceImp implements LoanProcessService {
         }
         this.requestCheckInService.save(requestCheckInEntity);
         return "TrackID: " + trackId;
+    }
+
+    @Override
+    public PageResponseDto<RequestCheckInResponse> getRequestCheckIn(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException {
+        return this.requestCheckInProductService.getRequestCheckInProductResponse(parameters, userAccountId);
     }
 
     @Override

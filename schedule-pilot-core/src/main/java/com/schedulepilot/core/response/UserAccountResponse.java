@@ -8,6 +8,7 @@ import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.dto.model.UserNotificationDto;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -17,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserAccountResponse {
+public class UserAccountResponse implements Serializable {
     private Long id;
     private String username;
     private String firstName;

@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @Builder
@@ -12,7 +14,7 @@ import lombok.*;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserAccountAuthResponse {
+public class UserAccountAuthResponse implements Serializable {
 
     private String token;
     private UserAccountResponse user;

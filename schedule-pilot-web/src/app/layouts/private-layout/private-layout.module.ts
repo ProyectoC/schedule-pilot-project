@@ -38,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -55,9 +56,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatTooltipModule,
     MatCardModule,
     MatMenuModule,
+    MatTabsModule
   ],
   declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent,
     ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent,
     LoansContainerComponent, LoanProcessComponent, LoanProductsComponent, LoanProductModalComponent, LoanProductsSummaryComponent],
 })
-export class PrivateLayoutModule {}
+export class PrivateLayoutModule { }

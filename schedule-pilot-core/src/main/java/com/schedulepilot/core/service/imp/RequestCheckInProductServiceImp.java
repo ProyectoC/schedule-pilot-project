@@ -1,16 +1,21 @@
 package com.schedulepilot.core.service.imp;
 
 import com.schedulepilot.core.constants.LoanProcessConstants;
-import com.schedulepilot.core.entities.model.RequestCheckInProductEntity;
-import com.schedulepilot.core.entities.model.TicketCheckInEntity;
+import com.schedulepilot.core.dto.PageResponseDto;
+import com.schedulepilot.core.dto.model.ProductDto;
+import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.repository.RequestCheckInProductRepository;
+import com.schedulepilot.core.response.RequestCheckInResponse;
 import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.service.NotificationLayerService;
+import com.schedulepilot.core.service.ProductService;
 import com.schedulepilot.core.service.RequestCheckInProductService;
 import com.schedulepilot.core.tasks.GenerateTicketCheckInTask;
+import com.schedulepilot.core.tasks.PaginationAndOrderTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.domain.Page;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -18,10 +23,15 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class RequestCheckInProductServiceImp implements RequestCheckInProductService {
+
+    private static final List<String> LIST_ATTRIBUTES = Arrays.asList(RequestCheckInProductEntity_.loanDate.getName());
 
     @Autowired
     private RequestCheckInProductRepository requestCheckInProductRepository;
@@ -45,6 +55,28 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
         LocalDateTime startDate = startOfDay.toLocalDateTime();
         LocalDateTime endDate = endOfDay.toLocalDateTime();
         return this.requestCheckInProductRepository.findByPriorityDate(startDate, endDate);
+    }
+
+    @Override
+    public PageResponseDto<RequestCheckInResponse> getRequestCheckInProductResponse(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException {
+        PaginationAndOrderTask paginationAndOrderTask = this.applicationContext.getBean(PaginationAndOrderTask.class,
+                parameters, LIST_ATTRIBUTES);
+        paginationAndOrderTask.execute();
+
+        String propertyName = parameters.getOrDefault("name", "");
+        PageResponseDto<RequestCheckInResponse> pageResponse = new PageResponseDto<>();
+
+        List<RequestCheckInResponse> list = new ArrayList<>();
+        if (paginationAndOrderTask.getPageData() != null) {
+            Page<RequestCheckInProductEntity> page = this.requestCheckInProductRepository.findAllByUserAccountPage(paginationAndOrderTask.getPageData(), userAccountId);
+            page.getContent().forEach(e -> list.add(RequestCheckInProductService.convertEntityToResponse(e)));
+            pageResponse.build(list, page);
+        } else {
+            List<RequestCheckInProductEntity> requestCheckInProductEntities = this.requestCheckInProductRepository.findAllByUserAccountSort(paginationAndOrderTask.getSortData(), userAccountId);
+            requestCheckInProductEntities.forEach(e -> list.add(RequestCheckInProductService.convertEntityToResponse(e)));
+            pageResponse.build(list);
+        }
+        return pageResponse;
     }
 
     @Override

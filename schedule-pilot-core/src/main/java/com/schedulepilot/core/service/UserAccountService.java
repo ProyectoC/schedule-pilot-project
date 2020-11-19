@@ -4,6 +4,7 @@ import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.entities.model.UserAccountEntity;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.UserAccountCreateRequest;
+import com.schedulepilot.core.response.UserAccountResponse;
 import com.schedulepilot.core.util.dto.Validator;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,6 +29,11 @@ public interface UserAccountService extends UserDetailsService {
     static UserAccountDto convertEntityToDTO(UserAccountEntity entity) {
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
         return modelMapper.map(entity, UserAccountDto.class);
+    }
+
+    static UserAccountResponse convertDTOToResponse(UserAccountDto dto) {
+        modelMapper.getConfiguration().setAmbiguityIgnored(true);
+        return modelMapper.map(dto, UserAccountResponse.class);
     }
 
     UserAccountDto getByIdNull(Long id);

@@ -14,9 +14,11 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Long>, PagingAndSortingRepository<ProductEntity, Long> {
 
-    @Query(value = "SELECT p from ProductEntity p WHERE p.isActive = true")
-    Page<ProductEntity> findAllWithPage(Pageable pageable);
+    @Query(value = "SELECT p from ProductEntity p WHERE p.isActive = true AND (:productName IS NULL OR " +
+            "lower(p.name) LIKE lower(concat('%', :productName,'%')))")
+    Page<ProductEntity> findAllWithPage(Pageable pageable, String productName);
 
-    @Query(value = "SELECT p from ProductEntity p where p.isActive = true")
-    List<ProductEntity> findAllWithSort(Sort sort);
+    @Query(value = "SELECT p from ProductEntity p WHERE p.isActive = true AND (:productName IS NULL OR " +
+            "lower(p.name) LIKE lower(concat('%', :productName,'%')))")
+    List<ProductEntity> findAllWithSort(Sort sort, String productName);
 }

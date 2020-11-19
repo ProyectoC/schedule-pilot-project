@@ -1,0 +1,75 @@
+<div style="padding-bottom: 20px;">
+    <mat-card>
+        <div class="p-0 m-0">
+            <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-1 float-right">
+                        <input type="text" class="form-control" placeholder="Buscar producto" [(ngModel)]="productSearch"
+                            aria-label="Buscar producto" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button" (click)="refreshProducts()"><i
+                                    class="fa fa-search"></i> Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
+
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+            GitHub's API rate limit has been reached. It will be reset in one minute.
+        </div>
+    </div>
+
+    <div class="example-table-container">
+
+        <table mat-table [dataSource]="data" class="example-table" matSort matSortActive="name" matSortDisableClear
+            matSortDirection="desc">
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let row; let i = index;">{{i + 1}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Nombre</th>
+                <td mat-cell *matCellDef="let row">{{row.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef>Descripción</th>
+                <td mat-cell *matCellDef="let row">{{row.description}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Estado</th>
+                <td mat-cell *matCellDef="let row">{{row.productStatus.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>Seleccionar</th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-raised-button color="primary" matTooltip="Seleccionar Producto"
+                        (click)="openModalSelectProduct(row)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow style="text-align: center;">
+                <td class="mat-cell" colspan="7">No existen productos.</td>
+            </tr>
+        </table>
+    </div>
+
+    <mat-paginator [length]="resultsLength" [pageSize]="20"></mat-paginator>
+</div>
+
+<!-- Modal Select Product -->
+<app-loan-product-modal modalId="loan-product-modal" (onSelectedProductToLoan)="onSelectProduct($event)"></app-loan-product-modal>

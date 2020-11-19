@@ -1,0 +1,27 @@
+<div class="modal fade" [id]="modalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title">{{modalTitle}}</h5>
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngIf="productRequest">
+                <img src="../../../../assets/images/packing.png" alt="..." class="rounded mx-auto d-block"><br>
+                <p>
+                    <strong>Nombre: </strong>{{productRequest.name}}<br>
+                    <strong>Descripción: </strong>{{productRequest.description}}<br>
+                    <strong>Observaciones: </strong>{{productRequest.observations}}<br>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-success" (click)="selectProductToLoan()">
+                    Seleccionar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

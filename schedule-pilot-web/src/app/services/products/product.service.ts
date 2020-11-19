@@ -107,6 +107,45 @@ export class ProductService {
       );
   }
 
+  public getProductsWithFilter(parametersQuery: ParametersQuery, productName: string): Observable<Response<ResponsePage<ProductResponse>>> {
+    let parameters = ServiceUtils.getHttpParameters(parametersQuery);
+    parameters = parameters.append('name', productName);
+    return this.httpClient.get<Response<ResponsePage<ProductResponse>>>(
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_PRODUCTS}`, { params: parameters }
+    ).pipe(
+      map((bodyResponse) => {
+        if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+          return bodyResponse;
+        } else {
+          this.productMessageService.generateMessageErrorGetProducts(
+            bodyResponse.description
+          );
+        }
+        return bodyResponse;
+      }),
+      catchError((err) => {
+        const httpErrorResponse: HttpErrorResponse = err;
+        switch (httpErrorResponse.status) {
+          case 0:
+            this.productMessageService.generateMessageProductsDefault(null);
+            break;
+          case 401:
+            const errorResponse: ErrorResponse = err.error;
+            this.productMessageService.generateMessageProductsDefault(
+              errorResponse.result.message
+            );
+            break;
+          default:
+            this.productMessageService.generateMessageProductsDefault(
+              err.message
+            );
+            break;
+        }
+        throw Error(err);
+      })
+    );
+  }
+
   public createProduct(
     productRequest: ProductRequest
   ): Observable<Response<ProductResponse>> {

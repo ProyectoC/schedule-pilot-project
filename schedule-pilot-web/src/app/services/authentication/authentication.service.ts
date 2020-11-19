@@ -121,6 +121,10 @@ export class AuthenticationService {
       );
   }
 
+  public get userSession() {
+    return JSON.parse(localStorage.getItem(LocalStorageConstants.USER_SESSION));
+  }
+
   public get isLoggedIn() {
     const userAuth = JSON.parse(
       localStorage.getItem(LocalStorageConstants.USER_SESSION)

@@ -38,11 +38,11 @@ public class ProductServiceImp implements ProductService {
 
         List<ProductDto> list = new ArrayList<>();
         if (paginationAndOrderTask.getPageData() != null) {
-            Page<ProductEntity> page = this.productRepository.findAllWithPage(paginationAndOrderTask.getPageData());
+            Page<ProductEntity> page = this.productRepository.findAllWithPage(paginationAndOrderTask.getPageData(), propertyName);
             page.getContent().forEach(e -> list.add(ProductService.convertEntityToDTO(e)));
             pageResponse.build(list, page);
         } else {
-            List<ProductEntity> productEntities = this.productRepository.findAllWithSort(paginationAndOrderTask.getSortData());
+            List<ProductEntity> productEntities = this.productRepository.findAllWithSort(paginationAndOrderTask.getSortData(), propertyName);
             productEntities.forEach(e -> list.add(ProductService.convertEntityToDTO(e)));
             pageResponse.build(list);
         }

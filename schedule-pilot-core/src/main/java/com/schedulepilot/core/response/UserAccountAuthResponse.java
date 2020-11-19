@@ -2,6 +2,7 @@ package com.schedulepilot.core.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.schedulepilot.core.dto.model.UserAccountDto;
 import lombok.*;
 
 @Getter
@@ -14,4 +15,5 @@ import lombok.*;
 public class UserAccountAuthResponse {
 
     private String token;
+    private UserAccountResponse user;
 }

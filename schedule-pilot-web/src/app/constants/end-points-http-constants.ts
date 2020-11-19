@@ -31,6 +31,9 @@ export class EndPointsHttpConstants {
   static readonly SERVICE_GET_ITEM_STATUS = EndPointsHttpConstants.COMPONENT_WS + '/items/status';
   static readonly SERVICE_CREATE_ITEMS = EndPointsHttpConstants.COMPONENT_WS + '/items/create';
   static readonly SERVICE_UPDATE_ITEMS = EndPointsHttpConstants.COMPONENT_WS + '/items/update';
+
+  // Loan
+  static readonly SERVICE_CREATE_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-in';
   
   static readonly PUBLIC_SERVICES: string[] = [
     EndPointsHttpConstants.SERVICE_AUTHENTICATION,

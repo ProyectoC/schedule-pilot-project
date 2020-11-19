@@ -1,0 +1,24 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" class="needs-validation">
+    <div class="form-row" *ngIf="_productRequest">
+        <div class="form-group col-md-2 form-check mb-2 mr-sm-2">
+            <div class="custom-control custom-checkbox text-center form-control-sm" (click)="changeStatus()">
+                <input type="checkbox" class="custom-control-input " [checked]="isSelected">
+                <label class="custom-control-label">{{_productRequest.name}}</label>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Fecha del Prestamo</label>
+            <i [ngClass]="isValidCheck('dateRequest')"></i>
+            <input formControlName="dateRequest" type="date" class="form-control"
+                [ngClass]="isValidInput('dateRequest')">
+            <div class="invalid-feedback">La fecha del prestamo no es valida.</div>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Hora del Prestamo</label>
+            <i [ngClass]="isValidCheck('timeRequest')"></i>
+            <input formControlName="timeRequest" type="time" class="form-control"
+                [ngClass]="isValidInput('timeRequest')">
+            <div class="invalid-feedback">La hora del prestamo no es valida.</div>
+        </div>
+    </div>
+</form>

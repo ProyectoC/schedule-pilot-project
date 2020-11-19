@@ -134,8 +134,8 @@ public class ManageUserServiceImp implements ManageUserService {
                 new String[]{userAccountDto.getRolAccountEntity().getName()});
         userAccountDto.setAuthTokenEntity(authToken);
         userAccountDto.setFailedAttempts(0);
-        this.userAccountService.update(userAccountDto);
-        return new UserAccountAuthResponse(authToken.getKey());
+        userAccountDto = this.userAccountService.update(userAccountDto);
+        return new UserAccountAuthResponse(authToken.getKey(), UserAccountService.convertDTOToResponse(userAccountDto));
     }
 
     @Override

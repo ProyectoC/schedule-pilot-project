@@ -4,6 +4,7 @@ import { HomeComponent } from '../../pages/home/home.component';
 import { RoutingConstants } from '@constants/routing-constants';
 import { ProductsContainerComponent } from '../../pages/products/products-container/products-container.component';
 import { ItemsContainerComponent } from 'app/pages/items/items-container/items-container.component';
+import { LoansContainerComponent } from 'app/pages/loans/loans-container/loans-container.component';
 
 const routers: Routes = [
   {
@@ -25,6 +26,11 @@ const routers: Routes = [
     path: RoutingConstants.ROUTING_URL_ITEMS + '/:id-product',
     component: ItemsContainerComponent,
     data: { title: 'Items | SchedulePilot' },
+  },
+  {
+    path: RoutingConstants.ROUTING_URL_LOANS,
+    component: LoansContainerComponent,
+    data: { title: 'Loans | SchedulePilot' },
   },
 ];
 

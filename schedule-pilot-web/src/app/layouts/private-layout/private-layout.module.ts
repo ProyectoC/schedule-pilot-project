@@ -21,6 +21,13 @@ import { ItemFormComponent } from '../../pages/items/item-form/item-form.compone
 import { ItemDetailFormComponent } from '../../pages/items/item-detail-form/item-detail-form.component';
 import { ItemModalComponent } from '../../pages/items/item-modal/item-modal.component';
 
+// LOANS
+import { LoansContainerComponent } from '../../pages/loans/loans-container/loans-container.component';
+import { LoanProcessComponent } from '../../pages/loans/loan-process/loan-process.component';
+import { LoanProductsComponent } from '../../pages/loans/loan-products/loan-products.component';
+import { LoanProductModalComponent } from '../../pages/loans/loan-product-modal/loan-product-modal.component';
+import { LoanProductsSummaryComponent } from '../../pages/loans/loan-products-summary/loan-products-summary.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -50,6 +57,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
   ],
   declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent,
-    ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent],
+    ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent,
+    LoansContainerComponent, LoanProcessComponent, LoanProductsComponent, LoanProductModalComponent, LoanProductsSummaryComponent],
 })
 export class PrivateLayoutModule {}

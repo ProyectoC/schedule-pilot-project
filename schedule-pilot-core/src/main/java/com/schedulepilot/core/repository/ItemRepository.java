@@ -17,17 +17,17 @@ public interface ItemRepository extends JpaRepository<ItemEntity, Long>, PagingA
 
     @Query(value = "SELECT i from ItemEntity i " +
             "WHERE i.isActive = true " +
-            "AND(:productId <= 0L OR i.productEntity.id = :productId)")
-    Page<ItemEntity> findAllWithPage(Pageable pageable, long productId);
+            "AND(:productId IS NULL OR i.productEntity.id = :productId)")
+    Page<ItemEntity> findAllWithPage(Pageable pageable, Long productId);
 
     @Query(value = "SELECT i from ItemEntity i " +
             "WHERE i.isActive = true " +
-            "AND(:productId <= 0L OR i.productEntity.id = :productId)")
-    List<ItemEntity> findAllWithSort(Sort sort, long productId);
+            "AND(:productId IS NULL OR i.productEntity.id = :productId)")
+    List<ItemEntity> findAllWithSort(Sort sort, Long productId);
 
     @Query(value = "SELECT i from ItemEntity i " +
             "WHERE i.isActive = true " +
             "AND i.productEntity.id = :productId " +
             "AND i.itemStatusEntity.name = 'DISPONIBLE'")
-    List<ItemEntity> findByEnable(long productId);
+    List<ItemEntity> findByEnable(Long productId);
 }

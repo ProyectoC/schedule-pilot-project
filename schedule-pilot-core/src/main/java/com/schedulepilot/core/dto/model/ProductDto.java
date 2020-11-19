@@ -28,6 +28,7 @@ public class ProductDto extends BaseDto implements Serializable {
     @JsonProperty("productStatus")
     private ProductStatusDto productStatusEntity;
     private List<ProductRolDto> productRoles;
+    private long itemsCount;
 
     // Validations
     public Validator validationForDisableProduct() {

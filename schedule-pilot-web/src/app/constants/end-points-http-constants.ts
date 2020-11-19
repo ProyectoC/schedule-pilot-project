@@ -12,11 +12,14 @@ export class EndPointsHttpConstants {
   static readonly SERVICE_AUTHENTICATION = EndPointsHttpConstants.COMPONENT_SECURITY + '/users/auth';
   static readonly SERVICE_REGISTER = EndPointsHttpConstants.COMPONENT_SECURITY + '/users/create';
   static readonly SERVICE_FORGOT_PASSWORD = EndPointsHttpConstants.COMPONENT_SECURITY + '/users/forgot-password';
+  static readonly SERVICE_ROL = EndPointsHttpConstants.COMPONENT_SECURITY + '/roles';
+  static readonly SERVICE_COLLEGE_CAREER = EndPointsHttpConstants.COMPONENT_SECURITY + '/college-careers';
 
   /**
    * Administration - Private
    */
   static readonly SERVICE_GET_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products';
+  static readonly SERVICE_GET_PRODUCT_STATUS = EndPointsHttpConstants.COMPONENT_WS + '/products/status';
   static readonly SERVICE_CREATE_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products/create';
   static readonly SERVICE_UPDATE_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products/update';
   static readonly SERVICE_DELETE_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products/delete';
@@ -24,6 +27,8 @@ export class EndPointsHttpConstants {
   static readonly PUBLIC_SERVICES: string[] = [
     EndPointsHttpConstants.SERVICE_AUTHENTICATION,
     EndPointsHttpConstants.SERVICE_REGISTER,
-    EndPointsHttpConstants.SERVICE_FORGOT_PASSWORD
+    EndPointsHttpConstants.SERVICE_FORGOT_PASSWORD,
+    EndPointsHttpConstants.SERVICE_ROL,
+    EndPointsHttpConstants.SERVICE_COLLEGE_CAREER
   ];
 }

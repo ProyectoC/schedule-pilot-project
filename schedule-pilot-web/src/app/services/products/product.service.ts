@@ -10,9 +10,9 @@ import { EndPointsHttpConstants } from '@constants/end-points-http-constants';
 import { catchError, map } from 'rxjs/operators';
 import { CommonConstants } from '@constants/common-constants';
 import { ProductMessageService } from '@services/messages/product.message.service';
-import { GlobalErrorHandler } from '@services/global-error/global-error.handler.service';
 import { ErrorResponse } from '@models/error-response';
 import { ProductRequest } from '@models/product/request/product-request';
+import { ServiceUtils } from '@utils/service-utils'
 
 @Injectable({
   providedIn: 'root',
@@ -28,20 +28,12 @@ export class ProductService {
   ) {
   }
 
-  private getHttpParameters(parametersQuery: ParametersQuery): HttpParams {
-    let params = new HttpParams();
-    params = params.append('page', parametersQuery.page + '');
-    params = params.append('per_page', parametersQuery.per_page + '');
-    params = params.append('order_by', parametersQuery.order_by);
-    return params;
-  }
-
   public getProducts(
     parametersQuery: ParametersQuery
   ): Observable<Response<ResponsePage<ProductResponse>>> {
     return this.httpClient
       .get<Response<ResponsePage<ProductResponse>>>(
-        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_PRODUCTS}`, { params: this.getHttpParameters(parametersQuery) }
+        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_PRODUCTS}`, { params: ServiceUtils.getHttpParameters(parametersQuery) }
       )
       .pipe(
         map((bodyResponse) => {
@@ -164,8 +156,8 @@ export class ProductService {
   ): Observable<Response<string>> {
 
     const httpOptions = {
-        headers: {},
-        body: productRequest
+      headers: {},
+      body: productRequest
     };
 
     return this.httpClient

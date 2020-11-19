@@ -48,12 +48,28 @@ public class ProductEntity extends BaseEntity {
             orphanRemoval = true)
     private List<ProductRolEntity> productRolEntityList;
 
+    @OneToMany(mappedBy = "productEntity", fetch = FetchType.LAZY)
+    private List<ItemEntity> itemEntityList;
+
     public List<ProductRolEntity> getProductRolEntityList() {
         if (productRolEntityList != null) {
             List<ProductRolEntity> result = new ArrayList<>();
             for (ProductRolEntity productRol : productRolEntityList) {
                 ProductRolId productRolId = new ProductRolId(productRol.getProductRolId().getRolAccountEntity());
                 result.add(new ProductRolEntity(productRolId, productRol.getLoanTime()));
+            }
+            return result;
+        } else {
+            return null;
+        }
+    }
+
+    public List<ItemEntity> getItemEntityList() {
+        if (itemEntityList != null) {
+            List<ItemEntity> result = new ArrayList<>();
+            for (ItemEntity itemEntity : itemEntityList) {
+                result.add(new ItemEntity(itemEntity.getId(), itemEntity.getName(), itemEntity.getSerial1(), itemEntity.getSerial2(), itemEntity.getSerial3(),
+                        itemEntity.getSerial4(), itemEntity.getSerial5(), itemEntity.getItemStatusEntity()));
             }
             return result;
         } else {

@@ -34,6 +34,21 @@
         "error": {
           "title": "Error al restaurar la cuenta"
         }
+      },
+      "rol": {
+        "error": {
+          "title": "Error en la gestión de roles"
+        }
+      },
+      "college-career": {
+        "error": {
+          "title": "Error en la gestión de las carreras universitarias"
+        }
+      },
+      "product-status": {
+        "error": {
+          "title": "Error en la gestión de los estados de los productos."
+        }
       }
     }
   },

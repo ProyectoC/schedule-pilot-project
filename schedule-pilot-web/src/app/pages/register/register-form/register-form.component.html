@@ -56,8 +56,8 @@
             <select formControlName="rolAccount" class="form-control" id="rol-account"
                 [ngClass]="isValidInput('rolAccount')">
                 <option value="" selected>Selecciona una opción</option>
-                <option *ngFor="let rol of rolAccounts | keyvalue; trackBy: trackByFn" [value]="rol.key">
-                    {{rol.value}}
+                <option *ngFor="let rol of roles$ | async; trackBy: trackByFn" [value]="rol.id">
+                    {{rol.name}}
                 </option>
             </select>
             <div class="invalid-feedback">El tipo de usuario seleccionado no es valido.</div>
@@ -68,8 +68,8 @@
             <select formControlName="collegeCareer" class="form-control" id="college-career"
                 [ngClass]="isValidInput('collegeCareer')">
                 <option value="" selected>Selecciona una opción</option>
-                <option *ngFor="let college of collegeCareers | keyvalue; trackBy: trackByFn" [value]="college.key">
-                    {{college.value}}
+                <option *ngFor="let college of collegeCareers$ | async; trackBy: trackByFn" [value]="college.id">
+                    {{college.name}}
                 </option>
             </select>
             <div class="invalid-feedback">La carrera seleccionada no es valida.</div>
@@ -86,7 +86,7 @@
             Debes aceptar terminos y condiciones.</div>
     </div>
     <div class="form-group" style="text-align: center; padding-top: 10px;">
-        <button type="submit" class="btn btn-primary btn-block">
+        <button type="submit" class="btn btn-danger btn-block">
             Registrarse
         </button>
     </div>

@@ -12,12 +12,10 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { ProductResponse } from '@models/product/response/product-response';
 import { ModalsService } from 'app/modals/services/modals.service';
 import { BaseModalComponent } from '../../../modals/components/base-modal.component';
 import { ProductRequest } from '@models/product/request/product-request';
 import { CreateProductFormComponent } from '../create-product-form/create-product-form.component';
-import { UpdateProductFormComponent } from '../update-product-form/update-product-form.component';
 
 @Component({
   selector: 'app-product-modal',
@@ -31,16 +29,9 @@ export class ProductModalComponent extends BaseModalComponent implements OnInit,
 
   createProductFormComponent: CreateProductFormComponent;
   @ViewChild(CreateProductFormComponent, { static: false }) set contentCreateProduct(content: CreateProductFormComponent) {
-     if(content) {
-          this.createProductFormComponent = content;
-     }
-  }
-
-  updateProductFormComponent: UpdateProductFormComponent;
-  @ViewChild(UpdateProductFormComponent, { static: false }) set contentUpdateProduct(content: UpdateProductFormComponent) {
-     if(content) {
-          this.updateProductFormComponent = content;
-     }
+    if (content) {
+      this.createProductFormComponent = content;
+    }
   }
 
   public modalTitle: string;
@@ -48,10 +39,7 @@ export class ProductModalComponent extends BaseModalComponent implements OnInit,
   public isUpdate: boolean;
   public productRequest: ProductRequest;
 
-  constructor(
-    public modalService: ModalsService,
-    public elementRef: ElementRef, private changeDetectorRef: ChangeDetectorRef
-  ) {
+  constructor(public modalService: ModalsService, public elementRef: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
     super(modalService, elementRef);
   }
 
@@ -77,16 +65,14 @@ export class ProductModalComponent extends BaseModalComponent implements OnInit,
     this.isUpdate = true;
     this.modalTitle = 'Actualizar Producto';
     this.changeDetectorRef.detectChanges();
-    this.updateProductFormComponent.buildForm(productRequest);
+    this.createProductFormComponent.buildFormWithValues(productRequest);
   }
 
-  submitModal(event: string): void {
+  submitModal(event: ProductRequest): void {
     if (this.isCreate) {
-      let productRequest: ProductRequest = ProductRequest.parseToCreate(event);
-      this.onCreateProduct.emit(productRequest);
-    } else if(this.isUpdate) {
-      let productRequest: ProductRequest = ProductRequest.parseToUpdate(event, this.productRequest);
-      this.onUpdateProduct.emit(productRequest);
+      this.onCreateProduct.emit(event);
+    } else if (this.isUpdate) {
+      this.onUpdateProduct.emit(event);
     }
   }
 }

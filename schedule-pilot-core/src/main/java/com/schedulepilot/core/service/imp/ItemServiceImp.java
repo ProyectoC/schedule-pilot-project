@@ -38,7 +38,7 @@ public class ItemServiceImp implements ItemService {
         paginationAndOrderTask.execute();
 
         String productIdStr = parameters.getOrDefault("productId", null);
-        long productId = 0L;
+        Long productId = null;
         if (productIdStr != null)
             productId = Long.parseLong(productIdStr);
 

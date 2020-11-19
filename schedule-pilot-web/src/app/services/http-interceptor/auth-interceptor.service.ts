@@ -21,10 +21,10 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let retries = 0;
     if (this.isEndPointServicePublic(req.url)) {
-      const tokenCompany = environment.services['token.company'];
+      // const tokenCompany = environment.services['token.company'];
       req = req.clone({
         setHeaders: {
-          'Authorization': 'Bearer ' + tokenCompany,
+          // 'Authorization': 'Bearer ' + tokenCompany,
           'Content.Type': 'application/json',
           'Accept': 'application/json'
         }
@@ -63,12 +63,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
   isEndPointServicePublic(url: string): boolean {
     const scheduleApiEndPoint = environment.apis["schedule-api"]["end.point"];
-    EndPointsHttpConstants.PUBLIC_SERVICES.forEach(publicServiceTemp =>{
-      const serviceTemp = scheduleApiEndPoint + publicServiceTemp;
+    for(let i = 0; i < EndPointsHttpConstants.PUBLIC_SERVICES.length; i ++ ) {
+      const serviceTemp = scheduleApiEndPoint + EndPointsHttpConstants.PUBLIC_SERVICES[i];
       if (url === serviceTemp) {
         return true;
       }
-    });
+    }
     return false;
   }
 

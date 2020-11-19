@@ -1,0 +1,21 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" class="needs-validation">
+    <div class="form-row" *ngIf="_rolAccount">
+        <div class="form-group col-md-2 form-check mb-2 mr-sm-2">
+            <div class="custom-control custom-checkbox text-center form-control-sm" (click)="changeStatus()">
+                <input type="checkbox" class="custom-control-input " [checked]="isSelected">
+                <label class="custom-control-label">{{_rolAccount.name}}</label>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="last-name-user">Tiempo Prestamo (segundos)</label>
+            <i [ngClass]="isValidCheck('loanTime')"></i>
+            <input formControlName="loanTime" type="number" class="form-control form-control-sm"
+                [ngClass]="isValidInput('loanTime')">
+            <div class="invalid-feedback">Tiempo de prestamo no es valido.</div>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="last-name-user">Tiempo</label>
+            <p>{{this.textTime}}</p>
+        </div>
+    </div>
+</form>

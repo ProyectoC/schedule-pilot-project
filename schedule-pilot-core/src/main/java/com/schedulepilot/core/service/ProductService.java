@@ -40,6 +40,8 @@ public interface ProductService {
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
         ProductDto productDto = modelMapper.map(entity, ProductDto.class);
 
+        productDto.setItemsCount(entity.getItemEntityList().size());
+
         List<ProductRolDto> productRoles = new ArrayList<>();
         List<ProductRolEntity> productRolEntities = entity.getProductRolEntityList();
         for (ProductRolEntity productRolEntity : productRolEntities) {

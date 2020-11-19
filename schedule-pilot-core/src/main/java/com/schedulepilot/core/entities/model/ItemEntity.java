@@ -58,6 +58,18 @@ public class ItemEntity extends BaseEntity {
             orphanRemoval = true)
     private List<ItemDetailEntity> itemDetailEntityList;
 
+    public ItemEntity(Long id, String name, String serial1, String serial2, String serial3, String serial4, String serial5,
+                      ItemStatusEntity itemStatusEntity) {
+        this.id = id;
+        this.name = name;
+        this.serial1 = serial1;
+        this.serial2 = serial2;
+        this.serial3 = serial3;
+        this.serial4 = serial4;
+        this.serial5 = serial5;
+        this.itemStatusEntity = itemStatusEntity;
+    }
+
     public List<ItemDetailEntity> getItemDetailEntityList() {
         if (itemDetailEntityList != null) {
             List<ItemDetailEntity> result = new ArrayList<>();

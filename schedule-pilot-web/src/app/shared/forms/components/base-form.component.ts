@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
   template: ``,
 })
 export class BaseFormComponent implements OnInit {
+  
   public formGroup: FormGroup;
   public payLoad: string;
 

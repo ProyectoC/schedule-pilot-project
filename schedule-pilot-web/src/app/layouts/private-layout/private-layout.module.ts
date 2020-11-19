@@ -13,7 +13,7 @@ import { HomeComponent } from '../../pages/home/home.component';
 import { ProductsContainerComponent } from '../../pages/products/products-container/products-container.component';
 import { ProductModalComponent } from '../../pages/products/product-modal/product-modal.component';
 import { CreateProductFormComponent } from '../../pages/products/create-product-form/create-product-form.component';
-import { UpdateProductFormComponent } from '../../pages/products/update-product-form/update-product-form.component';
+import { ProductRolFormComponent } from '../../pages/products/product-rol-form/product-rol-form.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTableModule } from '@angular/material/table';
@@ -43,6 +43,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatMenuModule,
   ],
-  declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, UpdateProductFormComponent],
+  declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent],
 })
 export class PrivateLayoutModule {}

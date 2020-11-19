@@ -14,18 +14,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <app-create-product-form (onSubmitForm)="submitModal($event)" *ngIf="isCreate">
-                </app-create-product-form>
-                <app-update-product-form (onSubmitForm)="submitModal($event)" *ngIf="isUpdate">
-                </app-update-product-form>
+                <app-create-product-form (onSubmitForm)="submitModal($event)"></app-create-product-form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-success" (click)="createProductFormComponent.onSubmit()" *ngIf="isCreate">
-                    Crear Producto
-                </button>
-                <button type="submit" class="btn btn-success" (click)="updateProductFormComponent.onSubmit()" *ngIf="isUpdate">
-                    Actualizar Producto
+                <button type="submit" class="btn btn-success" (click)="createProductFormComponent.submit()">
+                    <ng-container *ngIf="isCreate">Crear Producto</ng-container>
+                    <ng-container *ngIf="isUpdate">Actualizar Producto</ng-container>
                 </button>
             </div>
         </div>

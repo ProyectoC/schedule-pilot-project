@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation">
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="first-name-user">Nombre</label>
@@ -12,8 +12,8 @@
             <select formControlName="productStatus" class="form-control" id="product-status"
                 [ngClass]="isValidInput('productStatus')">
                 <option value="" selected>Selecciona una opción</option>
-                <option *ngFor="let status of productStatus | keyvalue;" [value]="status.key">
-                    {{status.value}}
+                <option *ngFor="let status of productStatus$ | async;" [value]="status.id">
+                    {{status.name}}
                 </option>
             </select>
             <div class="invalid-feedback">El estado del producto no es valido.</div>
@@ -33,6 +33,19 @@
             <textarea formControlName="observations" class="form-control" id="observations" rows="3"
                 [ngClass]="isValidInput('observations')"></textarea>
             <div class="invalid-feedback">Las observaciónes del producto no son validas.</div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Permisos de Prestamos</h5>
+                    <ng-container *ngFor="let rol of roles$ | async;">
+                        <app-product-rol-form [rolAccount]="rol" [productRol]="getProductRol(rol)"></app-product-rol-form>
+                    </ng-container>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </form>

@@ -6,7 +6,7 @@ import { RoutingConstants } from '@constants/routing-constants';
 import { User } from '@models/user';
 import { Response } from '@models/response';
 import { MessagesService } from '@services/messages/message.service';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { RolService } from '@services/rol/rol.service';
 
 @Component({
   selector: 'app-register',
@@ -14,17 +14,19 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+
   constructor(
     private router: Router,
     public registerService: RegisterService,
     private scrollTop: ScrollTopService,
     private messageService: MessagesService,
-    private spinner: NgxSpinnerService
-  ) {}
+    public rolService: RolService
+  ) {
+    
+  }
 
   ngOnInit(): void {
     this.scrollTop.setScrollTop();
-    // this.spinner.show();
   }
 
   get routingConstants() {

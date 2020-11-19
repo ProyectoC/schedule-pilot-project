@@ -6,6 +6,7 @@ export class ProductRequest extends Product {
   constructor() {
     super();
     this.productStatus = new ProductStatus();
+    this.productRoles = [];
   }
 
   static parseToCreate(json: string): ProductRequest {

@@ -5,6 +5,11 @@ import { Validations } from '@utils/forms/validations';
 import { BaseFormComponent } from '../../../shared/forms/components/base-form.component';
 import { RoutingConstants } from '../../../constants/routing-constants';
 import { RegisterPasswordFormComponent } from '../register-password-form/register-password-form.component';
+import { Observable } from 'rxjs';
+import { RolAccount } from '@models/rol/rol-account';
+import { RolService } from '@services/rol/rol.service';
+import { CollegeCareer } from '@models/college-career/college-career';
+import { CollegeCareerService } from '@services/college-career/college-career.service';
 
 @Component({
   selector: 'app-register-form',
@@ -17,34 +22,14 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
   registerPasswordForm: RegisterPasswordFormComponent;
 
   public payLoad: string;
+  public roles$: Observable<RolAccount[]>;
+  public collegeCareers$: Observable<CollegeCareer[]>;
 
-  public rolAccounts = new Map([
-    [2, 'Registro y Control'],
-    [3, 'Docente de Planta'],
-    [4, 'Docente de Catedra'],
-    [5, 'Estudiante'],
-  ]);
-  public collegeCareers = new Map([
-    [1, 'Administración de Empresas'],
-    [2, 'Administración Ambiental'],
-    [3, 'Arquitectura'],
-    [4, 'Contaduria Publica'],
-    [5, 'Diseño de Espacios y Escenarios'],
-    [6, 'Diseño Grafico'],
-    [7, 'Economia'],
-    [8, 'Ingenieria Civil'],
-    [9, 'Ingenieria de Mercados'],
-    [10, 'Ingenieria de Sistemas'],
-    [11, 'Ingenieria de Telecomunicaciones'],
-    [12, 'Ingenieria Financiera'],
-    [13, 'Ingenieria Mecatronica'],
-    [14, 'Marketing'],
-    [15, 'Negocios Internacionales'],
-    [16, 'Psicologia'],
-  ]);
-
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, public rolService: RolService,
+    public collegeCareerService: CollegeCareerService) {
     super();
+    this.roles$ = this.rolService.getRoles();
+    this.collegeCareers$ = this.collegeCareerService.getCollegeCareers();
   }
 
   ngOnInit(): void {

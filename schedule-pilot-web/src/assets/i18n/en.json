@@ -34,6 +34,21 @@
         "error": {
           "title": "Restart account failed"
         }
+      },
+      "rol": {
+        "error": {
+          "title": "Role management error"
+        }
+      },
+      "college-career": {
+        "error": {
+          "title": "College Career management error"
+        }
+      },
+      "product-status": {
+        "error": {
+          "title": "Product Status management error"
+        }
       }
     }
   },

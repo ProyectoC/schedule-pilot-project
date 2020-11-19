@@ -53,8 +53,8 @@
             </ng-container>
 
             <ng-container matColumnDef="observations">
-                <th mat-header-cell *matHeaderCellDef>Observaciones</th>
-                <td mat-cell *matCellDef="let row">{{row.observations}}</td>
+                <th mat-header-cell *matHeaderCellDef>Cantidad Items</th>
+                <td mat-cell *matCellDef="let row"><a class="nav-link" routerLink="https://developer.mozilla.org">{{row.itemsCount}} articulo(s)</a></td>
             </ng-container>
 
             <ng-container matColumnDef="update">

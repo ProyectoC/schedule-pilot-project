@@ -15,6 +15,12 @@ import { ProductModalComponent } from '../../pages/products/product-modal/produc
 import { CreateProductFormComponent } from '../../pages/products/create-product-form/create-product-form.component';
 import { ProductRolFormComponent } from '../../pages/products/product-rol-form/product-rol-form.component';
 
+// ITEMS
+import { ItemsContainerComponent } from '../../pages/items/items-container/items-container.component';
+import { ItemFormComponent } from '../../pages/items/item-form/item-form.component';
+import { ItemDetailFormComponent } from '../../pages/items/item-detail-form/item-detail-form.component';
+import { ItemModalComponent } from '../../pages/items/item-modal/item-modal.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -43,6 +49,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatMenuModule,
   ],
-  declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent],
+  declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent,
+    ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent],
 })
 export class PrivateLayoutModule {}

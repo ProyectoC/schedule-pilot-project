@@ -18,11 +18,19 @@ export class EndPointsHttpConstants {
   /**
    * Administration - Private
    */
+
+  // Products
   static readonly SERVICE_GET_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products';
   static readonly SERVICE_GET_PRODUCT_STATUS = EndPointsHttpConstants.COMPONENT_WS + '/products/status';
   static readonly SERVICE_CREATE_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products/create';
   static readonly SERVICE_UPDATE_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products/update';
   static readonly SERVICE_DELETE_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/products/delete';
+
+  // Items
+  static readonly SERVICE_GET_ITEMS = EndPointsHttpConstants.COMPONENT_WS + '/items';
+  static readonly SERVICE_GET_ITEM_STATUS = EndPointsHttpConstants.COMPONENT_WS + '/items/status';
+  static readonly SERVICE_CREATE_ITEMS = EndPointsHttpConstants.COMPONENT_WS + '/items/create';
+  static readonly SERVICE_UPDATE_ITEMS = EndPointsHttpConstants.COMPONENT_WS + '/items/update';
   
   static readonly PUBLIC_SERVICES: string[] = [
     EndPointsHttpConstants.SERVICE_AUTHENTICATION,

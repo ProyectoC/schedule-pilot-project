@@ -49,6 +49,16 @@
         "error": {
           "title": "Product Status management error"
         }
+      },
+      "item": {
+        "error": {
+          "title": "Items management error"
+        }
+      },
+      "item-status": {
+        "error": {
+          "title": "Item status management error"
+        }
       }
     }
   },

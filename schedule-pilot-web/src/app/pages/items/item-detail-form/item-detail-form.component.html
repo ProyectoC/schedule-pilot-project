@@ -1,0 +1,16 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" class="needs-validation">
+    <div class="form-row" *ngIf="_itemDetail">
+        <div class="form-group col-md-6">
+            <label for="key">Clave</label>
+            <i [ngClass]="isValidCheck('key')"></i>
+            <input formControlName="key" type="text" class="form-control" [ngClass]="isValidInput('key')">
+            <div class="invalid-feedback">El nombre de la clave no es valido.</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="value">Valor</label>
+            <i [ngClass]="isValidCheck('value')"></i>
+            <input formControlName="value" type="text" class="form-control" [ngClass]="isValidInput('value')">
+            <div class="invalid-feedback">El valor asignado a la calve no es valido.</div>
+        </div>
+    </div>
+</form>

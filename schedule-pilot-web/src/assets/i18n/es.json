@@ -47,7 +47,17 @@
       },
       "product-status": {
         "error": {
-          "title": "Error en la gestión de los estados de los productos."
+          "title": "Error en la gestión de estados de los productos"
+        }
+      },
+      "item": {
+        "error": {
+          "title": "Error en la gestión de los articulos"
+        }
+      },
+      "item-status": {
+        "error": {
+          "title": "Error en la gestión de estados de los articulos"
         }
       }
     }

@@ -27,5 +27,6 @@ public class ItemDto extends BaseDto implements Serializable {
     private ItemStatusDto itemStatusEntity;
     @JsonProperty("product")
     private ProductDto productEntity;
+    @JsonProperty("itemDetails")
     private List<ItemDetailDto> itemDetailEntityList;
 }

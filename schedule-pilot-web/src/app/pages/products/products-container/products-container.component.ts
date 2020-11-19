@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { RoutingConstants } from '@constants/routing-constants';
 import { ParametersQuery } from '@models/parameters-query';
 import { ProductRequest } from '@models/product/request/product-request';
 import { ProductResponse } from '@models/product/response/product-response';
@@ -59,6 +60,10 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
     this.refreshProducts();
+  }
+
+  get routingConstants() {
+    return RoutingConstants;
   }
 
   refreshProducts() {

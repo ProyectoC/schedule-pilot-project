@@ -40,7 +40,7 @@ export class LoansService {
           return bodyResponse;
         } else {
           this.loanMessageService.generateCreateRequestCheckInError(
-            bodyResponse.description
+            bodyResponse.result.message
           );
         }
         return bodyResponse;
@@ -51,7 +51,7 @@ export class LoansService {
           case 0:
             this.loanMessageService.generateCreateRequestCheckInError(null);
             break;
-          case 401:
+          case 400:
             const errorResponse: ErrorResponse = err.error;
             this.loanMessageService.generateCreateRequestCheckInError(
               errorResponse.result.message

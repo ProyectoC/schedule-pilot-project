@@ -22,9 +22,9 @@ export class LoansContainerComponent implements OnInit {
   }
 
   constructor(public loanService: LoansService, public messageService: MessagesService,
-    private router: Router, public authService: AuthenticationService) { 
-      
-    }
+    private router: Router, public authService: AuthenticationService) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -38,6 +38,8 @@ export class LoansContainerComponent implements OnInit {
             this.messageService.generateSuccessMessage('Crear Solicitud', 'La solicitud se ha creado correctamente.');
             this.loanProcessComponent.isLoading = false;
             this.router.navigate([RoutingConstants.URL_HOME]).then(() => { });
+          }, (err) => {
+            this.loanProcessComponent.isLoading = false;
           });
         }
       });

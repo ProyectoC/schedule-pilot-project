@@ -33,6 +33,11 @@ export class LoanProcessComponent implements OnInit {
 
   public submit(): void {
     let productCheckIns: ProductCheckIn[] = [];
+
+    if (this.loanProductsSummaryComponents.toArray().length === 0) {
+
+    }
+
     for (let i = 0; i < this.loanProductsSummaryComponents.toArray().length; i++) {
       let loanProductsSummaryComponent = this.loanProductsSummaryComponents.toArray()[i];
       if (loanProductsSummaryComponent.isSelected) {

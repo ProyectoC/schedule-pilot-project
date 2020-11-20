@@ -2,12 +2,12 @@ package com.schedulepilot.core.controllers;
 
 import com.schedulepilot.core.constants.LoanProcessConstants;
 import com.schedulepilot.core.dto.PageResponseDto;
-import com.schedulepilot.core.dto.model.ProductDto;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.request.CheckInRequest;
 import com.schedulepilot.core.request.CheckLogRequest;
 import com.schedulepilot.core.request.CheckOutRequest;
 import com.schedulepilot.core.response.RequestCheckInResponse;
+import com.schedulepilot.core.response.TicketCheckInResponse;
 import com.schedulepilot.core.service.loanprocess.LoanProcessService;
 import com.schedulepilot.core.util.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +39,14 @@ public class LoanProcessController {
             @PathVariable Long userAccountId,
             @RequestParam Map<String, String> parameters) throws SchedulePilotException {
         return new ResponseEntity<>(ResponseDto.success(this.loanProcessService.getRequestCheckIn(parameters, userAccountId)), HttpStatus.OK);
+    }
+
+    @ResponseBody
+    @GetMapping(LoanProcessConstants.GET_REQUEST_TICKET_CHECK_IN_REST)
+    public ResponseEntity<ResponseDto<PageResponseDto<TicketCheckInResponse>>> getAllTicketCheckIn(
+            @PathVariable Long userAccountId,
+            @RequestParam Map<String, String> parameters) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.loanProcessService.getAllTicketCheckIn(parameters, userAccountId)), HttpStatus.OK);
     }
 
     @ResponseBody

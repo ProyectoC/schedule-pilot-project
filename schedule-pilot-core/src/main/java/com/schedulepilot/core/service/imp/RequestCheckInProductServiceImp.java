@@ -2,15 +2,15 @@ package com.schedulepilot.core.service.imp;
 
 import com.schedulepilot.core.constants.LoanProcessConstants;
 import com.schedulepilot.core.dto.PageResponseDto;
-import com.schedulepilot.core.dto.model.ProductDto;
 import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
+import com.schedulepilot.core.repository.AccountUserRepository;
 import com.schedulepilot.core.repository.RequestCheckInProductRepository;
 import com.schedulepilot.core.response.RequestCheckInResponse;
 import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.service.NotificationLayerService;
-import com.schedulepilot.core.service.ProductService;
 import com.schedulepilot.core.service.RequestCheckInProductService;
+import com.schedulepilot.core.service.UserAccountService;
 import com.schedulepilot.core.tasks.GenerateTicketCheckInTask;
 import com.schedulepilot.core.tasks.PaginationAndOrderTask;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +45,9 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Autowired
+    private AccountUserRepository userRepository;
+
     @Override
     public List<RequestCheckInProductEntity> getRequestCheckInProductForProcess() throws SchedulePilotException {
         final ZonedDateTime now = ZonedDateTime.now(ZoneId.of("America/Bogota"));
@@ -59,6 +62,12 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
 
     @Override
     public PageResponseDto<RequestCheckInResponse> getRequestCheckInProductResponse(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException {
+        UserAccountEntity userAccountEntity = userRepository.getOne(userAccountId);
+        RolAccountEntity rolAccountEntity = userAccountEntity.getRolAccountEntity();
+        if (!rolAccountEntity.getName().equals("Super User") || rolAccountEntity.getName().equals("Registro y Control")) {
+            userAccountId = null;
+        }
+
         PaginationAndOrderTask paginationAndOrderTask = this.applicationContext.getBean(PaginationAndOrderTask.class,
                 parameters, LIST_ATTRIBUTES);
         paginationAndOrderTask.execute();

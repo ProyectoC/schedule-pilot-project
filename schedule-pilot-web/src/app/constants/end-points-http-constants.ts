@@ -34,7 +34,8 @@ export class EndPointsHttpConstants {
 
   // Loan
   static readonly SERVICE_CREATE_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-in';
-  
+  static readonly SERVICE_GET_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';
+
   static readonly PUBLIC_SERVICES: string[] = [
     EndPointsHttpConstants.SERVICE_AUTHENTICATION,
     EndPointsHttpConstants.SERVICE_REGISTER,

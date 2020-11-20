@@ -8,6 +8,7 @@ public class LoanProcessConstants {
     // REST
     public static final String CREATE_REQUEST_CHECK_IN_REST = "/create/request-check-in";
     public static final String GET_REQUEST_CHECK_IN_REST = "/users/{userAccountId}/request-check-in";
+    public static final String GET_REQUEST_TICKET_CHECK_IN_REST = "/users/{userAccountId}/ticket-check-in";
 
     public static final String CREATE_REQUEST_CHECK_OUT_REST = "/create/request-check-out";
     public static final String CREATE_REQUEST_CHECK_LOG_REST = "/create/request-check-log";

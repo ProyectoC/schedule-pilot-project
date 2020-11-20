@@ -97,8 +97,11 @@ SELECT * FROM item_status is2;
 
 SELECT * FROM notification n;
 SELECT VERSION();
+SELECT * FROM request_check_in rci;
+SELECT * FROM request_check_in_product rcip;
 
 
+SELECT * FROM user_account ua;
 
 
 

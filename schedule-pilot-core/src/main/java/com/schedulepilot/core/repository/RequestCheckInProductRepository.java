@@ -25,12 +25,12 @@ public interface RequestCheckInProductRepository extends JpaRepository<RequestCh
     List<RequestCheckInProductEntity> findByPriorityDate(LocalDateTime createdDateStart, LocalDateTime createdDateEnd);
 
     @Query(value = "SELECT req FROM RequestCheckInProductEntity req " +
-            "WHERE req.requestCheckInProductId.requestCheckInEntity.userAccountEntity.id = :userAccountId " +
+            "WHERE (:userAccountId IS NULL) OR (req.requestCheckInProductId.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
             "ORDER BY req.createdDate ASC")
     Page<RequestCheckInProductEntity> findAllByUserAccountPage(Pageable pageable, Long userAccountId);
 
     @Query(value = "SELECT req FROM RequestCheckInProductEntity req " +
-            "WHERE req.requestCheckInProductId.requestCheckInEntity.userAccountEntity.id = :userAccountId " +
+            "WHERE (:userAccountId IS NULL) OR (req.requestCheckInProductId.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
             "ORDER BY req.createdDate ASC")
     List<RequestCheckInProductEntity> findAllByUserAccountSort(Sort sort, Long userAccountId);
 

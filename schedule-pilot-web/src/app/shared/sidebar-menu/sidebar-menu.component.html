@@ -13,19 +13,19 @@
                 <a href="#"><span class="fa fa-group"></span>Usuarios</a>
             </li>
             <li>
-                <a routerLink="/private/products"><span class="fas fa-box-open"></span>Productos</a>
+                <a *ngIf="authenticationService.isAdminUser()" routerLink="/private/products"><span class="fas fa-box-open"></span>Productos</a>
             </li>
             <li>
                 <a routerLink="/private/loans"><span class="fas fa-arrow-circle-up"></span>Prestamos</a>
             </li>
             <li>
-                <a href="#"><span class="fas fa-arrow-circle-down"></span>Devoluciones</a>
+                <a routerLink="/private/returns"><span class="fas fa-arrow-circle-down"></span>Devoluciones</a>
             </li>
             <li>
                 <a href="#"><span class="fas fa-chart-line"></span>Reportes</a>
             </li>
             <li>
-                <a href="#"><span class="fas fa-user-cog"></span>Mi Perfil</a>
+                <a routerLink="/private/users"><span class="fas fa-user-cog"></span>Mi Perfil</a>
             </li>
             <li style="background-color:#dc3545;">
                 <a (click)="logout()" id="logout-link"><span class="fas fa-sign-out-alt"></span>Cerrar Sesión</a>

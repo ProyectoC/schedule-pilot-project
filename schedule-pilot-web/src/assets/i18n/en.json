@@ -35,6 +35,11 @@
           "title": "Restart account failed"
         }
       },
+      "change-password": {
+        "error": {
+          "title": "Change account password failed"
+        }
+      },
       "rol": {
         "error": {
           "title": "Role management error"

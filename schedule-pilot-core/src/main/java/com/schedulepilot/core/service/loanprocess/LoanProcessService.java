@@ -8,6 +8,7 @@ import com.schedulepilot.core.request.CheckLogRequest;
 import com.schedulepilot.core.request.CheckOutRequest;
 import com.schedulepilot.core.response.RequestCheckInResponse;
 import com.schedulepilot.core.response.TicketCheckInResponse;
+import com.schedulepilot.core.response.TicketCheckOutResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,8 @@ public interface LoanProcessService {
     PageResponseDto<RequestCheckInResponse> getRequestCheckIn(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException;
 
     PageResponseDto<TicketCheckInResponse> getAllTicketCheckIn(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException;
+
+    PageResponseDto<TicketCheckOutResponse> getAllTicketCheckOut(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException;
 
     String createRequestCheckOut(CheckOutRequest checkOutRequest) throws SchedulePilotException;
 

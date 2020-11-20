@@ -31,7 +31,7 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
-                <div class="text-center" *ngIf="productRequests.length === 0">
+                <div class="text-center" *ngIf="!productRequests || productRequests.length === 0">
                     <i class="fa fa-folder-open-o" style="font-size:200px;color:#d9e5ee;"></i>
                 </div>
                 <ng-container *ngFor="let productRequest of productRequests;">

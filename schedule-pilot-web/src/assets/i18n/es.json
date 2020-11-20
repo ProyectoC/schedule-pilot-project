@@ -35,6 +35,11 @@
           "title": "Error al restaurar la cuenta"
         }
       },
+      "change-password": {
+        "error": {
+          "title": "Error al cambiar la contraseña"
+        }
+      },
       "rol": {
         "error": {
           "title": "Error en la gestión de roles"

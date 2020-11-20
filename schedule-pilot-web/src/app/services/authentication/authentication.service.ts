@@ -12,6 +12,7 @@ import { AuthUser } from '@models/auth-user';
 import { EndPointsHttpConstants } from '@constants/end-points-http-constants';
 import { AuthResponse } from '@models/authentication/response/auth-response';
 import { ForgotPassword } from '@models/forgot-password';
+import { ChangePasswordRequest } from '@models/authentication/request/change-password-request';
 
 @Injectable({
   providedIn: 'root',
@@ -121,8 +122,54 @@ export class AuthenticationService {
       );
   }
 
+  public changePasswordUser(changePasswordRequest: ChangePasswordRequest): Observable<Response<any>> {
+    return this.httpClient.post<Response<any>>(
+        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_CHANGE_PASSWORD}`, changePasswordRequest
+      )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse;
+          } else {
+            this.authenticationMessageService.generalErrorChangePassword(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.authenticationMessageService.generalErrorChangePassword(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.authenticationMessageService.generalErrorChangePassword(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.authenticationMessageService.generalErrorChangePassword(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
+
   public get userSession() {
     return JSON.parse(localStorage.getItem(LocalStorageConstants.USER_SESSION));
+  }
+
+  public isAdminUser(): boolean {
+    if (this.userSession.user.rolAccount.id === 1 || this.userSession.user.rolAccount.id === 2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public get isLoggedIn() {

@@ -28,6 +28,12 @@ export class RoutingConstants {
   static readonly ROUTING_URL_LOANS: string = 'loans';
   static readonly URL_LOANS: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_LOANS;
 
+  static readonly ROUTING_URL_RETURNS: string = 'returns';
+  static readonly URL_RETURNS: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_RETURNS;
+
+  static readonly ROUTING_URL_USERS: string = 'users';
+  static readonly URL_USERS: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_USERS;
+
   static URL_MENU_HOME = '/home-carousel';
   static ROUTING_URL_MENU_HOME: string = 'home-carousel';
 

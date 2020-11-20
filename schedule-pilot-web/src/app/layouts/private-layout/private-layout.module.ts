@@ -28,6 +28,12 @@ import { LoanProductsComponent } from '../../pages/loans/loan-products/loan-prod
 import { LoanProductModalComponent } from '../../pages/loans/loan-product-modal/loan-product-modal.component';
 import { LoanProductsSummaryComponent } from '../../pages/loans/loan-products-summary/loan-products-summary.component';
 import { LoanRequestCheckInContainerComponent } from '../../pages/loans/loan-request-check-in-container/loan-request-check-in-container.component';
+import { LoanTicketCheckInContainerComponent } from '../../pages/loans/loan-ticket-check-in-container/loan-ticket-check-in-container.component';
+import { ReturnsContainerComponent } from '../../pages/returns/returns-container/returns-container.component';
+import { ReturnTicketCheckOutContainerComponent } from '../../pages/returns/return-ticket-check-out-container/return-ticket-check-out-container.component';
+
+// USERS
+import { UserContainerComponent } from '../../pages/users/user-container/user-container.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTableModule } from '@angular/material/table';
@@ -61,6 +67,9 @@ import { MatTabsModule } from '@angular/material/tabs';
   ],
   declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent,
     ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent,
-    LoansContainerComponent, LoanProcessComponent, LoanProductsComponent, LoanProductModalComponent, LoanProductsSummaryComponent, LoanRequestCheckInContainerComponent],
+    LoansContainerComponent, LoanProcessComponent, LoanProductsComponent, LoanProductModalComponent, LoanProductsSummaryComponent,
+    LoanRequestCheckInContainerComponent, LoanTicketCheckInContainerComponent,
+    ReturnsContainerComponent, ReturnTicketCheckOutContainerComponent,
+    UserContainerComponent],
 })
 export class PrivateLayoutModule { }

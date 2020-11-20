@@ -16,7 +16,7 @@ export class LoanProcessComponent implements OnInit {
   @ViewChildren(LoanProductsSummaryComponent)
   public loanProductsSummaryComponents: QueryList<LoanProductsSummaryComponent>;
 
-  public productRequests: ProductRequest[];
+  public productRequests: ProductRequest[] = [];
   public requestCheckIn: RequestCheckIn;
   public isLoading: boolean;
 

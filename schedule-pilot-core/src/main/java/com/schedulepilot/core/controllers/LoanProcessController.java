@@ -8,6 +8,7 @@ import com.schedulepilot.core.request.CheckLogRequest;
 import com.schedulepilot.core.request.CheckOutRequest;
 import com.schedulepilot.core.response.RequestCheckInResponse;
 import com.schedulepilot.core.response.TicketCheckInResponse;
+import com.schedulepilot.core.response.TicketCheckOutResponse;
 import com.schedulepilot.core.service.loanprocess.LoanProcessService;
 import com.schedulepilot.core.util.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,14 @@ public class LoanProcessController {
             @PathVariable Long userAccountId,
             @RequestParam Map<String, String> parameters) throws SchedulePilotException {
         return new ResponseEntity<>(ResponseDto.success(this.loanProcessService.getAllTicketCheckIn(parameters, userAccountId)), HttpStatus.OK);
+    }
+
+    @ResponseBody
+    @GetMapping(LoanProcessConstants.GET_REQUEST_TICKET_CHECK_OUT_REST)
+    public ResponseEntity<ResponseDto<PageResponseDto<TicketCheckOutResponse>>> getAllTicketCheckOut(
+            @PathVariable Long userAccountId,
+            @RequestParam Map<String, String> parameters) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.loanProcessService.getAllTicketCheckOut(parameters, userAccountId)), HttpStatus.OK);
     }
 
     @ResponseBody

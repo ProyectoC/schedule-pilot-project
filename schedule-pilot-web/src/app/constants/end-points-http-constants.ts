@@ -12,6 +12,7 @@ export class EndPointsHttpConstants {
   static readonly SERVICE_AUTHENTICATION = EndPointsHttpConstants.COMPONENT_SECURITY + '/users/auth';
   static readonly SERVICE_REGISTER = EndPointsHttpConstants.COMPONENT_SECURITY + '/users/create';
   static readonly SERVICE_FORGOT_PASSWORD = EndPointsHttpConstants.COMPONENT_SECURITY + '/users/forgot-password';
+  static readonly SERVICE_CHANGE_PASSWORD = EndPointsHttpConstants.COMPONENT_SECURITY + '/users/change-password';
   static readonly SERVICE_ROL = EndPointsHttpConstants.COMPONENT_SECURITY + '/roles';
   static readonly SERVICE_COLLEGE_CAREER = EndPointsHttpConstants.COMPONENT_SECURITY + '/college-careers';
 
@@ -35,6 +36,12 @@ export class EndPointsHttpConstants {
   // Loan
   static readonly SERVICE_CREATE_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-in';
   static readonly SERVICE_GET_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';
+  static readonly SERVICE_GET_TICKET_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';
+
+  static readonly SERVICE_CREATE_TICKET_CHECK_OUT = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-out';
+  static readonly SERVICE_GET_TICKET_CHECK_OUT = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';
+
+  static readonly SERVICE_CREATE_REQUEST_CHECK_LOG = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-log';
 
   static readonly PUBLIC_SERVICES: string[] = [
     EndPointsHttpConstants.SERVICE_AUTHENTICATION,

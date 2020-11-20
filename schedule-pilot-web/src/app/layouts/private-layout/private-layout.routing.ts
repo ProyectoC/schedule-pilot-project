@@ -5,6 +5,8 @@ import { RoutingConstants } from '@constants/routing-constants';
 import { ProductsContainerComponent } from '../../pages/products/products-container/products-container.component';
 import { ItemsContainerComponent } from 'app/pages/items/items-container/items-container.component';
 import { LoansContainerComponent } from 'app/pages/loans/loans-container/loans-container.component';
+import { ReturnsContainerComponent } from 'app/pages/returns/returns-container/returns-container.component';
+import { UserContainerComponent } from 'app/pages/users/user-container/user-container.component';
 
 const routers: Routes = [
   {
@@ -31,6 +33,16 @@ const routers: Routes = [
     path: RoutingConstants.ROUTING_URL_LOANS,
     component: LoansContainerComponent,
     data: { title: 'Loans | SchedulePilot' },
+  },
+  {
+    path: RoutingConstants.ROUTING_URL_RETURNS,
+    component: ReturnsContainerComponent,
+    data: { title: 'Returns | SchedulePilot' },
+  },
+  {
+    path: RoutingConstants.ROUTING_URL_USERS,
+    component: UserContainerComponent,
+    data: { title: 'Users | SchedulePilot' },
   },
 ];
 

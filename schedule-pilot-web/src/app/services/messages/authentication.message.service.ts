@@ -24,4 +24,10 @@ export class AuthenticationMessageService {
     );
     this.messageService.generateErrorMessage(titleMessage, message);
   }
+
+  generalErrorChangePassword(message: string) {
+    let titleMessage = this.translate.instant(
+      'messages.services.change-password.error.title');
+    this.messageService.generateErrorMessage(titleMessage, message);
+  }
 }

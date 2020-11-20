@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { RequestCheckIn } from '@models/request-check-in/request-check-in';
 import { LoanProcessComponent } from '../loan-process/loan-process.component';
 import { LoansService } from '@services/loans/loans.service';
 import { MessagesService } from '@services/messages/message.service';
 import { Router } from '@angular/router';
 import { RoutingConstants } from '@constants/routing-constants';
+import { AuthenticationService } from '@services/authentication/authentication.service';
 
 @Component({
   selector: 'app-loans-container',
@@ -13,15 +14,19 @@ import { RoutingConstants } from '@constants/routing-constants';
 })
 export class LoansContainerComponent implements OnInit {
 
-
-  @ViewChild(LoanProcessComponent, { static: true })
   loanProcessComponent: LoanProcessComponent;
+  @ViewChild(LoanProcessComponent, { static: false }) set contentCreateProduct(content: LoanProcessComponent) {
+    if (content) {
+      this.loanProcessComponent = content;
+    }
+  }
 
   constructor(public loanService: LoansService, public messageService: MessagesService,
-    private router: Router) { }
+    private router: Router, public authService: AuthenticationService) { 
+      
+    }
 
   ngOnInit(): void {
-    this.loanProcessComponent.productRequests = [];
   }
 
   sendRequestCheckIn($event: RequestCheckIn) {

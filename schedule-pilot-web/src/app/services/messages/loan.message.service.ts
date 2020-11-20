@@ -22,4 +22,12 @@ export class LoanMessageService {
     generateCreateRequestCheckInError(message: string) {
         this.messageService.generateErrorMessage('Solicitud de prestamo', message);
     }
+
+    generateCreateTicketCheckOutError(message: string) {
+        this.messageService.generateErrorMessage('Validacion TicketCheckIn', message);
+    }
+
+    generateCreateTicketCheckLogError(message: string) {
+        this.messageService.generateErrorMessage('Validacion TicketCheckOut', message);
+    }
 }

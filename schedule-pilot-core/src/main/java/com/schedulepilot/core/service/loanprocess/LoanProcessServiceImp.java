@@ -13,6 +13,7 @@ import com.schedulepilot.core.request.CheckLogRequest;
 import com.schedulepilot.core.request.CheckOutRequest;
 import com.schedulepilot.core.response.RequestCheckInResponse;
 import com.schedulepilot.core.response.TicketCheckInResponse;
+import com.schedulepilot.core.response.TicketCheckOutResponse;
 import com.schedulepilot.core.service.*;
 import com.schedulepilot.core.service.sequence.SequenceService;
 import com.schedulepilot.core.tasks.GenerateTicketCheckLogTask;
@@ -107,6 +108,11 @@ public class LoanProcessServiceImp implements LoanProcessService {
     @Override
     public PageResponseDto<TicketCheckInResponse> getAllTicketCheckIn(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException {
         return this.ticketCheckInService.getAllTicketCheckIn(parameters, userAccountId);
+    }
+
+    @Override
+    public PageResponseDto<TicketCheckOutResponse> getAllTicketCheckOut(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException {
+        return this.ticketCheckOutService.getAllTicketCheckOut(parameters, userAccountId);
     }
 
     @Override

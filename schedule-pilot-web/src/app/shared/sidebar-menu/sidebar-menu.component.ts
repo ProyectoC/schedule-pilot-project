@@ -15,7 +15,7 @@ export class SidebarMenuComponent implements OnInit {
   public actualYear: string;
 
   constructor(
-    private authenticationService: AuthenticationService,
+    public authenticationService: AuthenticationService,
     private router: Router
   ) {
     this.actualYear = new Date().getFullYear().toString();

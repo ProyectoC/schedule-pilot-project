@@ -57,7 +57,7 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
                 now.toLocalDate().atTime(LocalTime.MAX).atZone(ZoneId.of("America/Bogota"));
         LocalDateTime startDate = startOfDay.toLocalDateTime();
         LocalDateTime endDate = endOfDay.toLocalDateTime();
-        return this.requestCheckInProductRepository.findByPriorityDate(startDate, endDate);
+        return this.requestCheckInProductRepository.findByPriorityDate(startDate, endDate, now.toLocalDateTime());
     }
 
     @Override

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '@models/user';
 import { Validations } from '@utils/forms/validations';
 import { BaseFormComponent } from '../../../shared/forms/components/base-form.component';
@@ -10,6 +10,7 @@ import { RolAccount } from '@models/rol/rol-account';
 import { RolService } from '@services/rol/rol.service';
 import { CollegeCareer } from '@models/college-career/college-career';
 import { CollegeCareerService } from '@services/college-career/college-career.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-register-form',
@@ -17,7 +18,7 @@ import { CollegeCareerService } from '@services/college-career/college-career.se
   styleUrls: ['./register-form.component.scss'],
 })
 export class RegisterFormComponent extends BaseFormComponent implements OnInit {
-  
+
   @ViewChild(RegisterPasswordFormComponent, { static: true })
   registerPasswordForm: RegisterPasswordFormComponent;
 
@@ -25,7 +26,7 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
   public roles$: Observable<RolAccount[]>;
   public collegeCareers$: Observable<CollegeCareer[]>;
 
-  constructor(private formBuilder: FormBuilder, public rolService: RolService,
+  constructor(public rolService: RolService,
     public collegeCareerService: CollegeCareerService) {
     super();
     this.roles$ = this.rolService.getRoles();
@@ -34,6 +35,7 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    this.initValueChanges();
   }
 
   get validations() {
@@ -45,47 +47,32 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
   }
 
   buildForm() {
-    this.formGroup = this.formBuilder.group({
-      firstName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(100),
-        ],
-      ],
-      lastName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(100),
-        ],
-      ],
-      identification: ['', [Validators.required, Validators.maxLength(20)]],
-      identificationCode: ['', [Validators.required, Validators.maxLength(20)]],
-      email: [
-        '',
-        Validators.compose([
-          Validators.pattern(
-            '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'
-          ),
-          Validators.required,
-        ]),
-      ],
-      emailBackup: [
-        '',
-        Validators.compose([
-          Validators.pattern(
-            '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'
-          ),
-          Validators.required,
-        ]),
-      ],
-      rolAccount: ['', Validators.required],
-      collegeCareer: ['', Validators.required],
+    this.formGroup = new FormGroup({
+      firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      identification: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      identificationCode: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      email: new FormControl('', [Validators.pattern(
+        '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'
+      ), Validators.required]),
+      emailBackup: new FormControl('', [Validators.pattern(
+        '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'
+      ), Validators.required]),
+      rolAccount: new FormControl(null, [Validators.required]),
+      collegeCareer: new FormControl('', [Validators.required]),
       password: this.registerPasswordForm.createGroup(),
-      termAndConditions: [false, Validators.requiredTrue],
+      termAndConditions: new FormControl(false, [Validators.requiredTrue]),
+    });
+  }
+
+  public initValueChanges() {
+    this.formGroup.controls.rolAccount.valueChanges.subscribe((value) => {
+      if (value === '5') {
+        this.formGroup.controls.collegeCareer.enable();
+      } else {
+        this.formGroup.controls.collegeCareer.disable();
+      }
+      this.formGroup.controls.collegeCareer.updateValueAndValidity();
     });
   }
 
@@ -102,7 +89,13 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
       user.email = this.formGroup.value['email'];
       user.emailBackup = this.formGroup.value['emailBackup'];
       user.rolAccount.id = Number(this.formGroup.value['rolAccount']);
-      user.collegeCareer.id = Number(this.formGroup.value['collegeCareer']);
+
+      if (user.rolAccount.id === 5) {
+        user.collegeCareer.id = Number(this.formGroup.value['collegeCareer']);
+      } else {
+        user.collegeCareer = null;
+      }
+      console.log('User: ', user);
       this.onSubmitForm.emit(user);
     } else {
       Validations.validateAllFormFields(this.formGroup);

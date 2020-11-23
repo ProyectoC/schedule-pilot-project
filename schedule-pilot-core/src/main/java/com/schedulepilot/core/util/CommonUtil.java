@@ -91,16 +91,17 @@ public class CommonUtil {
             return validator;
         }
 
-        if (email.contains("@upc.edu.co")) {
-            validator.addNotification("ESTUDIANTE");
-            validator.setValid(true);
-        } else if (email.contains("@unipiloto.edu.co")) {
-            validator.addNotification("NO_ESTUDIANTE");
-            validator.setValid(true);
-        } else {
-            validator.setValid(false);
-            validator.addError("email " + email + " is not valid.");
-        }
+//        if (email.contains("@upc.edu.co")) {
+//            validator.addNotification("ESTUDIANTE");
+//            validator.setValid(true);
+//        } else if (email.contains("@unipiloto.edu.co")) {
+//            validator.addNotification("NO_ESTUDIANTE");
+//            validator.setValid(true);
+//        } else {
+//            validator.setValid(false);
+//            validator.addError("email " + email + " is not valid.");
+//        }
+        validator.setValid(true);
         return validator;
     }
 }

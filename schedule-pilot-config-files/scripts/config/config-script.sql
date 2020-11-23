@@ -107,7 +107,17 @@ SELECT * FROM request_check_in_product rcip;
 
 SELECT * FROM user_account ua;
 
+delete from user_account;
+
+
 INSERT INTO usar
+
+select now();
+
+
+
+
+
 
 
 

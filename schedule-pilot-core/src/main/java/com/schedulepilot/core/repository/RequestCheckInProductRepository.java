@@ -21,8 +21,9 @@ public interface RequestCheckInProductRepository extends JpaRepository<RequestCh
     @Query(value = "SELECT req FROM RequestCheckInProductEntity req " +
             "WHERE req.productRequestStatusEntity.name = 'SOLICITADO'" +
             "AND req.loanDate >= :createdDateStart AND req.loanDate <= :createdDateEnd " +
+            "AND req.loanDate > :currentDate " +
             "ORDER BY req.createdDate ASC")
-    List<RequestCheckInProductEntity> findByPriorityDate(LocalDateTime createdDateStart, LocalDateTime createdDateEnd);
+    List<RequestCheckInProductEntity> findByPriorityDate(LocalDateTime createdDateStart, LocalDateTime createdDateEnd, LocalDateTime currentDate);
 
     @Query(value = "SELECT req FROM RequestCheckInProductEntity req " +
             "WHERE (:userAccountId IS NULL) OR (req.requestCheckInProductId.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +

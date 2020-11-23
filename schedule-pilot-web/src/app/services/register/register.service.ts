@@ -50,10 +50,12 @@ export class RegisterService {
                 null
               );
               break;
-            case 401:
+            case 400:
               const errorResponse: ErrorResponse = err.error;
+              console.log(errorResponse);
+              
               this.registerMessageService.generalErrorRegister(
-                errorResponse.result.message
+                errorResponse.result.details[0]
               );
               break;
             default:

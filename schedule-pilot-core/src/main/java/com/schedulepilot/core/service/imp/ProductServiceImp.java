@@ -33,16 +33,19 @@ public class ProductServiceImp implements ProductService {
                 parameters, LIST_ATTRIBUTES);
         paginationAndOrderTask.execute();
 
-        String propertyName = parameters.getOrDefault("name", "");
+        String productName = parameters.getOrDefault("name", "");
+        String productDescription = parameters.getOrDefault("description", "");
+        String productStatus = parameters.getOrDefault("status", "");
+
         PageResponseDto<ProductDto> pageResponse = new PageResponseDto<>();
 
         List<ProductDto> list = new ArrayList<>();
         if (paginationAndOrderTask.getPageData() != null) {
-            Page<ProductEntity> page = this.productRepository.findAllWithPage(paginationAndOrderTask.getPageData(), propertyName);
+            Page<ProductEntity> page = this.productRepository.findAllWithPage(paginationAndOrderTask.getPageData(), productName, productDescription, productStatus);
             page.getContent().forEach(e -> list.add(ProductService.convertEntityToDTO(e)));
             pageResponse.build(list, page);
         } else {
-            List<ProductEntity> productEntities = this.productRepository.findAllWithSort(paginationAndOrderTask.getSortData(), propertyName);
+            List<ProductEntity> productEntities = this.productRepository.findAllWithSort(paginationAndOrderTask.getSortData(), productName, productDescription, productStatus);
             productEntities.forEach(e -> list.add(ProductService.convertEntityToDTO(e)));
             pageResponse.build(list);
         }

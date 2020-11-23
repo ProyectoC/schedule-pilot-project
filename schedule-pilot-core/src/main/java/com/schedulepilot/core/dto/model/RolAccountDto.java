@@ -44,17 +44,17 @@ public class RolAccountDto {
         if (!validator.isValid())
             return validator;
 
-        if (this.getName().equals("Estudiante") && validator.getFirstNotification().equals("NO_ESTUDIANTE")) {
-            validator.setValid(false);
-            validator.addError("Email @unipiloto.edu.co not valid for student user.");
-            return validator;
-        }
-
-        if (!this.getName().equals("Estudiante") && validator.getFirstNotification().equals("ESTUDIANTE")) {
-            validator.setValid(false);
-            validator.addError("Email @upc.edu.co is only valid for student users.");
-            return validator;
-        }
+//        if (this.getName().equals("Estudiante") && validator.getFirstNotification().equals("NO_ESTUDIANTE")) {
+//            validator.setValid(false);
+//            validator.addError("Email @unipiloto.edu.co not valid for student user.");
+//            return validator;
+//        }
+//
+//        if (!this.getName().equals("Estudiante") && validator.getFirstNotification().equals("ESTUDIANTE")) {
+//            validator.setValid(false);
+//            validator.addError("Email @upc.edu.co is only valid for student users.");
+//            return validator;
+//        }
 
         validator.setValid(true);
         return validator;

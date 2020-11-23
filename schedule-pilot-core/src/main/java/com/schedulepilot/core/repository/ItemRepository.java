@@ -16,14 +16,20 @@ import java.util.Optional;
 public interface ItemRepository extends JpaRepository<ItemEntity, Long>, PagingAndSortingRepository<ItemEntity, Long> {
 
     @Query(value = "SELECT i from ItemEntity i " +
-            "WHERE i.isActive = true " +
-            "AND(:productId IS NULL OR i.productEntity.id = :productId)")
-    Page<ItemEntity> findAllWithPage(Pageable pageable, Long productId);
+            "WHERE i.isActive = TRUE " +
+            "AND(:productId IS NULL OR i.productEntity.id = :productId) " +
+            "AND (:name IS NULL OR LOWER(i.name) LIKE LOWER(CONCAT('%', :name,'%'))) " +
+            "AND (:serial IS NULL OR LOWER(i.serial1) LIKE LOWER(CONCAT('%', :serial,'%'))) " +
+            "AND (:status IS NULL OR LOWER(i.itemStatusEntity.name) LIKE LOWER(CONCAT('%', :status,'%'))) ")
+    Page<ItemEntity> findAllWithPage(Pageable pageable, Long productId, String name, String serial, String status);
 
     @Query(value = "SELECT i from ItemEntity i " +
-            "WHERE i.isActive = true " +
-            "AND(:productId IS NULL OR i.productEntity.id = :productId)")
-    List<ItemEntity> findAllWithSort(Sort sort, Long productId);
+            "WHERE i.isActive = TRUE " +
+            "AND(:productId IS NULL OR i.productEntity.id = :productId) " +
+            "AND (:name IS NULL OR LOWER(i.name) LIKE LOWER(CONCAT('%', :name,'%'))) " +
+            "AND (:serial IS NULL OR LOWER(i.serial1) LIKE LOWER(CONCAT('%', :serial,'%'))) " +
+            "AND (:status IS NULL OR LOWER(i.itemStatusEntity.name) LIKE LOWER(CONCAT('%', :status,'%'))) ")
+    List<ItemEntity> findAllWithSort(Sort sort, Long productId, String name, String serial, String status);
 
     @Query(value = "SELECT i from ItemEntity i " +
             "WHERE i.isActive = true " +

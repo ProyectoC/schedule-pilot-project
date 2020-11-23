@@ -38,6 +38,10 @@ public class ItemServiceImp implements ItemService {
         paginationAndOrderTask.execute();
 
         String productIdStr = parameters.getOrDefault("productId", null);
+        String itemName = parameters.getOrDefault("name", "");
+        String serialName = parameters.getOrDefault("serial", "");
+        String statusName = parameters.getOrDefault("status", "");
+
         Long productId = null;
         if (productIdStr != null)
             productId = Long.parseLong(productIdStr);
@@ -45,11 +49,13 @@ public class ItemServiceImp implements ItemService {
         PageResponseDto<ItemDto> pageResponse = new PageResponseDto<>();
         List<ItemDto> list = new ArrayList<>();
         if (paginationAndOrderTask.getPageData() != null) {
-            Page<ItemEntity> page = this.itemRepository.findAllWithPage(paginationAndOrderTask.getPageData(), productId);
+            Page<ItemEntity> page = this.itemRepository.findAllWithPage(paginationAndOrderTask.getPageData(), productId,
+                    itemName, serialName, statusName);
             page.getContent().forEach(e -> list.add(ItemService.convertEntityToDTO(e)));
             pageResponse.build(list, page);
         } else {
-            List<ItemEntity> itemEntities = this.itemRepository.findAllWithSort(paginationAndOrderTask.getSortData(), productId);
+            List<ItemEntity> itemEntities = this.itemRepository.findAllWithSort(paginationAndOrderTask.getSortData(), productId,
+                    itemName, serialName, statusName);
             itemEntities.forEach(e -> list.add(ItemService.convertEntityToDTO(e)));
             pageResponse.build(list);
         }

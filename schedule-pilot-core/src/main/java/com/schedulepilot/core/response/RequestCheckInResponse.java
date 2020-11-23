@@ -1,5 +1,6 @@
 package com.schedulepilot.core.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +23,7 @@ public class RequestCheckInResponse implements Serializable {
     private String productName;
     private String trackId;
     private LocalDateTime loanDate;
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss", timezone="America/Bogota")
     private Date createdDate;
     private int attempts;
     @JsonProperty("productRequestStatus")

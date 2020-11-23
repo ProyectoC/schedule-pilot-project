@@ -10,9 +10,9 @@ import com.schedulepilot.core.response.RequestCheckInResponse;
 import com.schedulepilot.core.service.GlobalListDinamicService;
 import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.RequestCheckInProductService;
-import com.schedulepilot.core.service.UserAccountService;
 import com.schedulepilot.core.tasks.GenerateTicketCheckInTask;
 import com.schedulepilot.core.tasks.PaginationAndOrderTask;
+import com.schedulepilot.core.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
@@ -23,10 +23,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class RequestCheckInProductServiceImp implements RequestCheckInProductService {
@@ -72,16 +69,25 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
                 parameters, LIST_ATTRIBUTES);
         paginationAndOrderTask.execute();
 
-        String propertyName = parameters.getOrDefault("name", "");
+        String productName = parameters.getOrDefault("product_name", "");
+        String trackId = parameters.getOrDefault("track_id", null);
+        LocalDateTime loanDateStart = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("loan_date_start", null));
+        LocalDateTime loanDateEnd = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("loan_date_end", null));
+        Date requestDateStart = CommonUtil.convertStringToDate(parameters.getOrDefault("request_date_start", null));
+        Date requestDateEnd = CommonUtil.convertStringToDate(parameters.getOrDefault("request_date_end", null));
+        String status = parameters.getOrDefault("status", "");
+
         PageResponseDto<RequestCheckInResponse> pageResponse = new PageResponseDto<>();
 
         List<RequestCheckInResponse> list = new ArrayList<>();
         if (paginationAndOrderTask.getPageData() != null) {
-            Page<RequestCheckInProductEntity> page = this.requestCheckInProductRepository.findAllByUserAccountPage(paginationAndOrderTask.getPageData(), userAccountId);
+            Page<RequestCheckInProductEntity> page = this.requestCheckInProductRepository.findAllByUserAccountPage(paginationAndOrderTask.getPageData(), userAccountId,
+                    productName, trackId, loanDateStart, loanDateEnd, requestDateStart, requestDateEnd, status);
             page.getContent().forEach(e -> list.add(RequestCheckInProductService.convertEntityToResponse(e)));
             pageResponse.build(list, page);
         } else {
-            List<RequestCheckInProductEntity> requestCheckInProductEntities = this.requestCheckInProductRepository.findAllByUserAccountSort(paginationAndOrderTask.getSortData(), userAccountId);
+            List<RequestCheckInProductEntity> requestCheckInProductEntities = this.requestCheckInProductRepository.findAllByUserAccountSort(paginationAndOrderTask.getSortData(), userAccountId,
+                    productName, trackId, loanDateStart, loanDateEnd, requestDateStart, requestDateEnd, status);
             requestCheckInProductEntities.forEach(e -> list.add(RequestCheckInProductService.convertEntityToResponse(e)));
             pageResponse.build(list);
         }
@@ -142,4 +148,6 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
         }
         this.save(requestCheckInProductEntity);
     }
+
+
 }

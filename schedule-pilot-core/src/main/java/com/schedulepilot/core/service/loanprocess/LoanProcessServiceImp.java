@@ -122,10 +122,10 @@ public class LoanProcessServiceImp implements LoanProcessService {
         // Search UserAccount
         UserAccountEntity userAccountEntity = userAccountService.getByIdOrException(checkOutRequest.getUserAccountId());
         RolAccountEntity rolAccountEntity = userAccountEntity.getRolAccountEntity();
-//        if (!rolAccountEntity.getName().equals("Super User") || !rolAccountEntity.getName().equals("Registro y Control")) {
-//            throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_OUT_NOT_VALID, "Rol: " +
-//                    rolAccountEntity.getName() + " not valid.");
-//        }
+        if (!rolAccountEntity.getName().equals("Super User") || !rolAccountEntity.getName().equals("Registro y Control")) {
+            throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_OUT_NOT_VALID, "Rol: " +
+                    rolAccountEntity.getName() + " not valid.");
+        }
 
         GenerateTicketCheckOutTask generateTicketCheckOutTask = this.applicationContext.getBean(GenerateTicketCheckOutTask.class,
                 ticketCheckInEntity, userAccountEntity);
@@ -143,10 +143,10 @@ public class LoanProcessServiceImp implements LoanProcessService {
         // Search UserAccount
         UserAccountEntity userAccountEntity = userAccountService.getByIdOrException(checkOutRequest.getUserAccountId());
         RolAccountEntity rolAccountEntity = userAccountEntity.getRolAccountEntity();
-//        if (!rolAccountEntity.getName().equals("Super User") || !rolAccountEntity.getName().equals("Registro y Control")) {
-//            throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_LOG_NOT_VALID, "Rol: " +
-//                    rolAccountEntity.getName() + " not valid.");
-//        }
+        if (!rolAccountEntity.getName().equals("Super User") || !rolAccountEntity.getName().equals("Registro y Control")) {
+            throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_USER_ACCOUNT_GENERATE_TICKET_CHECK_LOG_NOT_VALID, "Rol: " +
+                    rolAccountEntity.getName() + " not valid.");
+        }
 
         GenerateTicketCheckLogTask generateTicketCheckLogTask = this.applicationContext.getBean(GenerateTicketCheckLogTask.class,
                 ticketCheckOutEntity, userAccountEntity);

@@ -1,5 +1,6 @@
 package com.schedulepilot.core.util;
 
+import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.util.dto.Validator;
 import org.springframework.util.ResourceUtils;
 
@@ -12,8 +13,12 @@ import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.util.Date;
 import java.util.stream.Stream;
 
 public class CommonUtil {
@@ -34,8 +39,9 @@ public class CommonUtil {
     public static final String LOG_EXECUTING_APPLICATION = "EXECUTING: {} command line runner";
     public static final String LOG_ERROR_DEFAULT = "ERROR CODE: {} - ERROR DESCRIPTION: {}";
     public static final String REDIRECT_ANOTHER_PAGE_COMMAND = "redirect:";
-
+    public static DateTimeFormatter LOCAL_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     public static final SimpleDateFormat DATE_FORMAT_DEFAULT = new SimpleDateFormat("yyyy-MM-dd");
+    public static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     //    public static final String URL_APP_WEB = "http://localhost:4200";
     public static final String END_POINT_LOGIN_WEB = "/#/login";
@@ -103,5 +109,23 @@ public class CommonUtil {
 //        }
         validator.setValid(true);
         return validator;
+    }
+
+    public static LocalDateTime convertStringToLocalDateTime(String localDateTimeStr) {
+        if (localDateTimeStr != null) {
+            return LocalDateTime.parse(localDateTimeStr, LOCAL_DATE_TIME_FORMATTER);
+        }
+        return null;
+    }
+
+    public static Date convertStringToDate(String localDateTimeStr) throws SchedulePilotException {
+        if (localDateTimeStr != null) {
+            try {
+                return DATE_TIME_FORMATTER.parse(localDateTimeStr);
+            } catch (ParseException ex) {
+                throw new SchedulePilotException(ex);
+            }
+        }
+        return null;
     }
 }

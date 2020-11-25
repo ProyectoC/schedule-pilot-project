@@ -33,6 +33,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import reactor.bus.EventBus;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
 import static reactor.bus.selector.Selectors.$;
 
 @SpringBootApplication
@@ -44,6 +48,10 @@ import static reactor.bus.selector.Selectors.$;
 public class SchedulePilotCoreApplication implements CommandLineRunner {
 
     public static final Logger LOGGER = LogManager.getLogger(SchedulePilotCoreApplication.class);
+
+    // Find your Account Sid and Token at twilio.com/user/account
+    public static final String ACCOUNT_SID = "ACb00996a2f2fc7f7993b8e2d7ea8966c7";
+    public static final String AUTH_TOKEN = "e48a34165a16e1ed04219a0cb45c6f22";
 
     @Autowired
     private TokenTypeService tokenTypeService;
@@ -130,6 +138,19 @@ public class SchedulePilotCoreApplication implements CommandLineRunner {
         for (int i = 0; i < args.length; ++i) {
             LOGGER.info("args[{}]: {}", i, args[i]);
         }
+        this.sendMessage();
+    }
+
+    static {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+    }
+
+    public void sendMessage() {
+        Message message = Message.creator(new PhoneNumber("+573057515066"),
+                new PhoneNumber("+4672500913"),
+                "Como vamos!! enviado desde los servicios de SchedulePilot, nos toca validar para pedirle los numeros " +
+                        "de telefono a los usuarios para enviarlos").create();
+        LOGGER.info("Send message: {}", message.getSid());
     }
 
 }

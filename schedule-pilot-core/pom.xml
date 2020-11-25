@@ -229,6 +229,19 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
+		<!-- Send Messages -->
+		<!-- <dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>8.3.0</version>
+		</dependency> -->
+
+		<dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>7.16.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<profiles>

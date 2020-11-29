@@ -11,11 +11,13 @@ import com.schedulepilot.core.repository.TicketCheckOutRepository;
 import com.schedulepilot.core.response.TicketCheckOutResponse;
 import com.schedulepilot.core.service.TicketCheckOutService;
 import com.schedulepilot.core.tasks.PaginationAndOrderTask;
+import com.schedulepilot.core.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Component
@@ -58,16 +60,26 @@ public class TicketCheckOutServiceImp implements TicketCheckOutService {
                 parameters, LIST_ATTRIBUTES);
         paginationAndOrderTask.execute();
 
-        String propertyName = parameters.getOrDefault("name", "");
+        String trackIdOut = parameters.getOrDefault("track_id_out", null);
+        String trackIdIn = parameters.getOrDefault("track_id_in", null);
+        LocalDateTime deliveryDateStart = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("delivery_date_start", null));
+        LocalDateTime deliveryDateEnd = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("delivery_date_end", null));
+        LocalDateTime returnDateStart = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("return_date_start", null));
+        LocalDateTime returnDateEnd = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("return_date_end", null));
+        String itemName = parameters.getOrDefault("item_name", "");
+        String status = parameters.getOrDefault("status", "");
+
         PageResponseDto<TicketCheckOutResponse> pageResponse = new PageResponseDto<>();
 
         List<TicketCheckOutResponse> list = new ArrayList<>();
         if (paginationAndOrderTask.getPageData() != null) {
-            Page<TicketCheckOutEntity> page = this.ticketCheckOutRepository.findAllTicketCheckOutPage(paginationAndOrderTask.getPageData(), userAccountId);
+            Page<TicketCheckOutEntity> page = this.ticketCheckOutRepository.findAllTicketCheckOutPage(paginationAndOrderTask.getPageData(), userAccountId,
+                    trackIdOut, trackIdIn, deliveryDateStart, deliveryDateEnd, returnDateStart, returnDateEnd, itemName, status);
             page.getContent().forEach(e -> list.add(TicketCheckOutService.convertEntityToResponse(e)));
             pageResponse.build(list, page);
         } else {
-            List<TicketCheckOutEntity> ticketCheckOutEntities = this.ticketCheckOutRepository.findAllTicketCheckOutSort(paginationAndOrderTask.getSortData(), userAccountId);
+            List<TicketCheckOutEntity> ticketCheckOutEntities = this.ticketCheckOutRepository.findAllTicketCheckOutSort(paginationAndOrderTask.getSortData(), userAccountId,
+                    trackIdOut, trackIdIn, deliveryDateStart, deliveryDateEnd, returnDateStart, returnDateEnd, itemName, status);
             ticketCheckOutEntities.forEach(e -> list.add(TicketCheckOutService.convertEntityToResponse(e)));
             pageResponse.build(list);
         }

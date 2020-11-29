@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,12 +23,36 @@ public interface TicketCheckOutRepository extends JpaRepository<TicketCheckOutEn
     Optional<TicketCheckOutEntity> findByTrackId(String trackId);
 
     @Query(value = "SELECT tco FROM TicketCheckOutEntity tco " +
-            "WHERE (:userAccountId IS NULL) OR (tco.ticketCheckInEntity.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
-            "ORDER BY tco.createdDate ASC")
-    Page<TicketCheckOutEntity> findAllTicketCheckOutPage(Pageable pageable, Long userAccountId);
+            "INNER JOIN tco.ticketCheckInEntity tci " +
+            "INNER JOIN tci.itemEntity item " +
+            "WHERE (:userAccountId IS NULL OR tco.ticketCheckInEntity.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
+            "AND (:trackIdTicketOut IS NULL OR tco.trackId = :trackIdTicketOut) " +
+            "AND (:trackIdTicketIn IS NULL OR tci.trackId = :trackIdTicketIn) " +
+            "AND (cast(:deliveryDateStart AS date) IS NULL OR tci.deliveryDate >= :deliveryDateStart) " +
+            "AND (cast(:deliveryDateEnd AS date) IS NULL OR tci.deliveryDate <= :deliveryDateEnd) " +
+            "AND (cast(:returnDateStart AS date) IS NULL OR tci.returnDate >= :returnDateStart) " +
+            "AND (cast(:returnDateEnd AS date) IS NULL OR tci.returnDate <= :returnDateEnd) " +
+            "AND (:itemName IS NULL OR LOWER(item.name) LIKE LOWER(CONCAT('%', :itemName,'%'))) " +
+            "AND (:status IS NULL OR LOWER(tco.ticketCheckStatusEntity.name) LIKE LOWER(CONCAT('%', :status,'%'))) ")
+    Page<TicketCheckOutEntity> findAllTicketCheckOutPage(Pageable pageable, Long userAccountId, String trackIdTicketOut,
+                                                         String trackIdTicketIn, LocalDateTime deliveryDateStart,
+                                                         LocalDateTime deliveryDateEnd, LocalDateTime returnDateStart,
+                                                         LocalDateTime returnDateEnd, String itemName, String status);
 
     @Query(value = "SELECT tco FROM TicketCheckOutEntity tco " +
-            "WHERE (:userAccountId IS NULL) OR (tco.ticketCheckInEntity.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
-            "ORDER BY tco.createdDate ASC")
-    List<TicketCheckOutEntity> findAllTicketCheckOutSort(Sort sort, Long userAccountId);
+            "INNER JOIN tco.ticketCheckInEntity tci " +
+            "INNER JOIN tci.itemEntity item " +
+            "WHERE (:userAccountId IS NULL OR tco.ticketCheckInEntity.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
+            "AND (:trackIdTicketOut IS NULL OR tco.trackId = :trackIdTicketOut) " +
+            "AND (:trackIdTicketIn IS NULL OR tci.trackId = :trackIdTicketIn) " +
+            "AND (cast(:deliveryDateStart AS date) IS NULL OR tci.deliveryDate >= :deliveryDateStart) " +
+            "AND (cast(:deliveryDateEnd AS date) IS NULL OR tci.deliveryDate <= :deliveryDateEnd) " +
+            "AND (cast(:returnDateStart AS date) IS NULL OR tci.returnDate >= :returnDateStart) " +
+            "AND (cast(:returnDateEnd AS date) IS NULL OR tci.returnDate <= :returnDateEnd) " +
+            "AND (:itemName IS NULL OR LOWER(item.name) LIKE LOWER(CONCAT('%', :itemName,'%'))) " +
+            "AND (:status IS NULL OR LOWER(tco.ticketCheckStatusEntity.name) LIKE LOWER(CONCAT('%', :status,'%'))) ")
+    List<TicketCheckOutEntity> findAllTicketCheckOutSort(Sort sort, Long userAccountId, String trackIdTicketOut,
+                                                         String trackIdTicketIn, LocalDateTime deliveryDateStart,
+                                                         LocalDateTime deliveryDateEnd, LocalDateTime returnDateStart,
+                                                         LocalDateTime returnDateEnd, String itemName, String status);
 }

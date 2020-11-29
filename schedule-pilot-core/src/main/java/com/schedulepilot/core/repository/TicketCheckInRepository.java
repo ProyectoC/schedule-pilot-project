@@ -25,7 +25,7 @@ public interface TicketCheckInRepository extends JpaRepository<TicketCheckInEnti
     @Query(value = "SELECT tci FROM TicketCheckInEntity tci " +
             "INNER JOIN tci.requestCheckInEntity rci " +
             "INNER JOIN tci.itemEntity ie " +
-            "WHERE (:userAccountId IS NULL) OR (tci.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
+            "WHERE (:userAccountId IS NULL OR tci.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
             "AND (:trackIdTicket IS NULL OR tci.trackId = :trackIdTicket) " +
             "AND (:trackIdRequest IS NULL OR rci.trackId = :trackIdRequest) " +
             "AND (cast(:deliveryDateStart AS date) IS NULL OR tci.deliveryDate >= :deliveryDateStart) " +
@@ -42,7 +42,7 @@ public interface TicketCheckInRepository extends JpaRepository<TicketCheckInEnti
     @Query(value = "SELECT tci FROM TicketCheckInEntity tci " +
             "INNER JOIN tci.requestCheckInEntity rci " +
             "INNER JOIN tci.itemEntity ie " +
-            "WHERE (:userAccountId IS NULL) OR (tci.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
+            "WHERE (:userAccountId IS NULL OR tci.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +
             "AND (:trackIdTicket IS NULL OR tci.trackId = :trackIdTicket) " +
             "AND (:trackIdRequest IS NULL OR rci.trackId = :trackIdRequest) " +
             "AND (cast(:deliveryDateStart AS date) IS NULL OR tci.deliveryDate >= :deliveryDateStart) " +

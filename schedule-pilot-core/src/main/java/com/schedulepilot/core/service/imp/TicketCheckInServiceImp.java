@@ -74,11 +74,13 @@ public class TicketCheckInServiceImp implements TicketCheckInService {
 
         List<TicketCheckInResponse> list = new ArrayList<>();
         if (paginationAndOrderTask.getPageData() != null) {
-            Page<TicketCheckInEntity> page = this.ticketCheckInRepository.findAllTicketCheckInPage(paginationAndOrderTask.getPageData(), userAccountId);
+            Page<TicketCheckInEntity> page = this.ticketCheckInRepository.findAllTicketCheckInPage(paginationAndOrderTask.getPageData(), userAccountId,
+                    trackIdTicket, trackIdRequest, deliveryDateStart, deliveryDateEnd, returnDateStart, returnDateEnd, itemName, status);
             page.getContent().forEach(e -> list.add(TicketCheckInService.convertEntityToResponse(e)));
             pageResponse.build(list, page);
         } else {
-            List<TicketCheckInEntity> ticketCheckInEntities = this.ticketCheckInRepository.findAllTicketCheckInSort(paginationAndOrderTask.getSortData(), userAccountId);
+            List<TicketCheckInEntity> ticketCheckInEntities = this.ticketCheckInRepository.findAllTicketCheckInSort(paginationAndOrderTask.getSortData(), userAccountId,
+                    trackIdTicket, trackIdRequest, deliveryDateStart, deliveryDateEnd, returnDateStart, returnDateEnd, itemName, status);
             ticketCheckInEntities.forEach(e -> list.add(TicketCheckInService.convertEntityToResponse(e)));
             pageResponse.build(list);
         }

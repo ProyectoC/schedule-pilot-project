@@ -11,11 +11,13 @@ import com.schedulepilot.core.repository.TicketCheckInRepository;
 import com.schedulepilot.core.response.TicketCheckInResponse;
 import com.schedulepilot.core.service.TicketCheckInService;
 import com.schedulepilot.core.tasks.PaginationAndOrderTask;
+import com.schedulepilot.core.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Component
@@ -59,7 +61,15 @@ public class TicketCheckInServiceImp implements TicketCheckInService {
                 parameters, LIST_ATTRIBUTES);
         paginationAndOrderTask.execute();
 
-        String propertyName = parameters.getOrDefault("name", "");
+        String trackIdTicket = parameters.getOrDefault("track_id_ticket", null);
+        String trackIdRequest = parameters.getOrDefault("track_id_request", null);
+        LocalDateTime deliveryDateStart = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("delivery_date_start", null));
+        LocalDateTime deliveryDateEnd = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("delivery_date_end", null));
+        LocalDateTime returnDateStart = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("return_date_start", null));
+        LocalDateTime returnDateEnd = CommonUtil.convertStringToLocalDateTime(parameters.getOrDefault("return_date_end", null));
+        String itemName = parameters.getOrDefault("item_name", "");
+        String status = parameters.getOrDefault("status", "");
+
         PageResponseDto<TicketCheckInResponse> pageResponse = new PageResponseDto<>();
 
         List<TicketCheckInResponse> list = new ArrayList<>();

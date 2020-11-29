@@ -138,7 +138,7 @@ public class SchedulePilotCoreApplication implements CommandLineRunner {
         for (int i = 0; i < args.length; ++i) {
             LOGGER.info("args[{}]: {}", i, args[i]);
         }
-        this.sendMessage();
+        // this.sendMessage();
     }
 
     static {

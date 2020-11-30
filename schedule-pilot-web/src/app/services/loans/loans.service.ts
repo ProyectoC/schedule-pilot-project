@@ -19,6 +19,7 @@ import { TicketCheckOutResponse } from '@models/ticket-check-out/response/ticket
 import { TicketCheckLogRequest } from '@models/ticket-check-log/request/ticket-check-log-request';
 import { RequestCheckInParameters } from '@models/request-check-in/request/request-check-in-search-parameters';
 import { RequestTicketCheckInParameters } from '@models/ticket-check-in/request/request-ticket-check-in-parameters';
+import { RequestTicketCheckOutParameters } from '@models/ticket-check-out/request/request-ticket-check-out-parameters';
 
 @Injectable({
   providedIn: 'root'
@@ -161,7 +162,6 @@ export class LoansService {
       parameters = parameters.append('return_date_end', requestTicketCheckInParameters.returnDateEnd);
     }
 
-
     return this.httpClient.get<Response<ResponsePage<TicketCheckInResponse>>>(
       `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_TICKET_CHECK_IN}/${userAccountId}/ticket-check-in`, { params: parameters }
     ).pipe(
@@ -235,8 +235,35 @@ export class LoansService {
     );
   }
 
-  public getTicketCheckOut(parametersQuery: ParametersQuery, userAccountId: number): Observable<Response<ResponsePage<TicketCheckOutResponse>>> {
+  public getTicketCheckOut(parametersQuery: ParametersQuery, userAccountId: number,
+    requestTicketCheckOutParameters: RequestTicketCheckOutParameters): Observable<Response<ResponsePage<TicketCheckOutResponse>>> {
     let parameters = ServiceUtils.getHttpParameters(parametersQuery);
+
+    if(requestTicketCheckOutParameters.trackIdOut != null && requestTicketCheckOutParameters.trackIdOut.trim() != "") {
+      parameters = parameters.append('track_id_out', requestTicketCheckOutParameters.trackIdOut);
+    }
+    if(requestTicketCheckOutParameters.trackIdIn != null && requestTicketCheckOutParameters.trackIdIn.trim() != "") {
+      parameters = parameters.append('track_id_in', requestTicketCheckOutParameters.trackIdIn);
+    }
+    if(requestTicketCheckOutParameters.itemName != null && requestTicketCheckOutParameters.itemName.trim() != "") {
+      parameters = parameters.append('item_name', requestTicketCheckOutParameters.itemName);
+    }
+    if(requestTicketCheckOutParameters.status != null && requestTicketCheckOutParameters.status.trim() != "") {
+      parameters = parameters.append('status', requestTicketCheckOutParameters.status);
+    }
+    if(requestTicketCheckOutParameters.deliveryDateStart != null && requestTicketCheckOutParameters.deliveryDateStart.trim() != "") {
+      parameters = parameters.append('delivery_date_start', requestTicketCheckOutParameters.deliveryDateStart);
+    }
+    if(requestTicketCheckOutParameters.deliveryDateEnd != null && requestTicketCheckOutParameters.deliveryDateEnd.trim() != "") {
+      parameters = parameters.append('delivery_date_end', requestTicketCheckOutParameters.deliveryDateEnd);
+    }
+    if(requestTicketCheckOutParameters.returnDateStart != null && requestTicketCheckOutParameters.returnDateStart.trim() != "") {
+      parameters = parameters.append('return_date_start', requestTicketCheckOutParameters.returnDateStart);
+    }
+    if(requestTicketCheckOutParameters.returnDateEnd != null && requestTicketCheckOutParameters.returnDateEnd.trim() != "") {
+      parameters = parameters.append('return_date_end', requestTicketCheckOutParameters.returnDateEnd);
+    }
+
     return this.httpClient.get<Response<ResponsePage<TicketCheckOutResponse>>>(
       `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_TICKET_CHECK_OUT}/${userAccountId}/ticket-check-out`, { params: parameters }
     ).pipe(

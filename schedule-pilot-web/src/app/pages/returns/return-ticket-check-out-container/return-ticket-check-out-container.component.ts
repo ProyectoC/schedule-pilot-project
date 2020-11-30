@@ -3,6 +3,7 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ParametersQuery } from '@models/parameters-query';
 import { TicketCheckLogRequest } from '@models/ticket-check-log/request/ticket-check-log-request';
+import { RequestTicketCheckOutParameters } from '@models/ticket-check-out/request/request-ticket-check-out-parameters';
 import { TicketCheckOutResponse } from '@models/ticket-check-out/response/ticket-check-out-response';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { LoansService } from '@services/loans/loans.service';
@@ -40,6 +41,7 @@ export class ReturnTicketCheckOutContainerComponent implements OnInit, AfterView
   public resultsLength = 0;
   public isLoadingResults = true;
   public isRateLimitReached = false;
+  public requestTicketCheckOutParameters: RequestTicketCheckOutParameters;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -48,6 +50,7 @@ export class ReturnTicketCheckOutContainerComponent implements OnInit, AfterView
     public authService: AuthenticationService, public messageService: MessagesService) { }
 
   ngOnInit(): void {
+    this.requestTicketCheckOutParameters = new RequestTicketCheckOutParameters();
     this.scrollTop.setScrollTop();
   }
 
@@ -67,7 +70,8 @@ export class ReturnTicketCheckOutContainerComponent implements OnInit, AfterView
           parametersQuery.page = this.paginator.pageIndex;
           parametersQuery.per_page = this.paginator.pageSize;
           parametersQuery.order_by = `${this.sort.direction}:${this.sort.active}:1`;
-          return this.loanService!.getTicketCheckOut(parametersQuery, this.authService.userSession.user.id);
+          return this.loanService!.getTicketCheckOut(parametersQuery, this.authService.userSession.user.id,
+            this.requestTicketCheckOutParameters);
         }),
         map((data) => {
           this.isLoadingResults = false;
@@ -82,6 +86,11 @@ export class ReturnTicketCheckOutContainerComponent implements OnInit, AfterView
         })
       )
       .subscribe((data) => (this.data = data));
+  }
+
+  public filterRequestTicketCheckOut(requestTicketCheckOutParameters: RequestTicketCheckOutParameters): void {
+    this.requestTicketCheckOutParameters = requestTicketCheckOutParameters;
+    this.refreshTicketCheckOut();
   }
 
   public validateTicketCheckOut(ticketCheckOut: TicketCheckOutResponse) {

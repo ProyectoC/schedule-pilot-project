@@ -14,12 +14,14 @@ import { ProductsContainerComponent } from '../../pages/products/products-contai
 import { ProductModalComponent } from '../../pages/products/product-modal/product-modal.component';
 import { CreateProductFormComponent } from '../../pages/products/create-product-form/create-product-form.component';
 import { ProductRolFormComponent } from '../../pages/products/product-rol-form/product-rol-form.component';
+import { ProductSearchComponent } from '../../pages/products/product-search/product-search.component';
 
 // ITEMS
 import { ItemsContainerComponent } from '../../pages/items/items-container/items-container.component';
 import { ItemFormComponent } from '../../pages/items/item-form/item-form.component';
 import { ItemDetailFormComponent } from '../../pages/items/item-detail-form/item-detail-form.component';
 import { ItemModalComponent } from '../../pages/items/item-modal/item-modal.component';
+import { ItemSearchComponent } from '../../pages/items/item-search/item-search.component';
 
 // LOANS
 import { LoansContainerComponent } from '../../pages/loans/loans-container/loans-container.component';
@@ -31,6 +33,7 @@ import { LoanRequestCheckInContainerComponent } from '../../pages/loans/loan-req
 import { LoanTicketCheckInContainerComponent } from '../../pages/loans/loan-ticket-check-in-container/loan-ticket-check-in-container.component';
 import { ReturnsContainerComponent } from '../../pages/returns/returns-container/returns-container.component';
 import { ReturnTicketCheckOutContainerComponent } from '../../pages/returns/return-ticket-check-out-container/return-ticket-check-out-container.component';
+import { LoanRequestCheckInSearchComponent } from '../../pages/loans/loan-request-check-in-search/loan-request-check-in-search.component';
 
 // USERS
 import { UserContainerComponent } from '../../pages/users/user-container/user-container.component';
@@ -65,10 +68,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatMenuModule,
     MatTabsModule
   ],
-  declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent,
-    ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent,
+  declarations: [HomeComponent, ProductsContainerComponent, ProductModalComponent, CreateProductFormComponent, ProductRolFormComponent, ProductSearchComponent,
+    ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent, ItemSearchComponent,
     LoansContainerComponent, LoanProcessComponent, LoanProductsComponent, LoanProductModalComponent, LoanProductsSummaryComponent,
-    LoanRequestCheckInContainerComponent, LoanTicketCheckInContainerComponent,
+    LoanRequestCheckInContainerComponent, LoanTicketCheckInContainerComponent, LoanRequestCheckInSearchComponent,
     ReturnsContainerComponent, ReturnTicketCheckOutContainerComponent,
     UserContainerComponent],
 })

@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { RoutingConstants } from '@constants/routing-constants';
 import { ParametersQuery } from '@models/parameters-query';
 import { ProductRequest } from '@models/product/request/product-request';
+import { ProductSearchParameters } from '@models/product/request/product-search-parameters';
 import { ProductResponse } from '@models/product/response/product-response';
 import { MessagesService } from '@services/messages/message.service';
 import { ProductService } from '@services/products/product.service';
@@ -40,6 +41,7 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
+  public productSearchParameters: ProductSearchParameters;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -54,6 +56,7 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
+    this.productSearchParameters = new ProductSearchParameters();
     this.scrollTop.setScrollTop();
   }
 
@@ -77,7 +80,7 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
           parametersQuery.page = this.paginator.pageIndex;
           parametersQuery.per_page = this.paginator.pageSize;
           parametersQuery.order_by = `${this.sort.direction}:${this.sort.active}:1`;
-          return this.productsService!.getProducts(parametersQuery);
+          return this.productsService!.getProducts(parametersQuery, this.productSearchParameters);
         }),
         map((data) => {
           this.isLoadingResults = false;
@@ -92,6 +95,11 @@ export class ProductsContainerComponent implements OnInit, AfterViewInit {
         })
       )
       .subscribe((data) => (this.data = data));
+  }
+
+  public filterProducts(productSearchParameters: ProductSearchParameters): void {
+    this.productSearchParameters = productSearchParameters;
+    this.refreshProducts();
   }
 
   openModalCreateProduct() {

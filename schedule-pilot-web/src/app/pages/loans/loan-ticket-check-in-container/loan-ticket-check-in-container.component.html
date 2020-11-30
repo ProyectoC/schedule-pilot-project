@@ -58,8 +58,7 @@
             <ng-container matColumnDef="validate">
                 <th [hidden]="!authService.isAdminUser()" mat-header-cell *matHeaderCellDef>Validar</th>
                 <td [hidden]="!authService.isAdminUser()" mat-cell *matCellDef="let row">
-                    <button mat-raised-button (click)="validateTicketCheckIn(row)"
-                        matTooltip="Validar TicketCheckIn">
+                    <button mat-raised-button (click)="validateTicketCheckIn(row)" matTooltip="Validar TicketCheckIn">
                         <i class="fa fa-pencil-square-o button-icon-update"></i>
                     </button>
                 </td>

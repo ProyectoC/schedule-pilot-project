@@ -14,6 +14,7 @@ import { CommonConstants } from '@constants/common-constants';
 import { ErrorResponse } from '@models/error-response';
 import { ItemStatus } from '@models/item/item-status';
 import { ItemRequest } from '@models/item/request/item-request';
+import { ItemSearchParameters } from '@models/item/request/item-search-parameters';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +30,22 @@ export class ItemsService {
   ) {
   }
   
-  public getItems(parametersQuery: ParametersQuery, productId: number): Observable<Response<ResponsePage<ItemResponse>>> {
+  public getItems(parametersQuery: ParametersQuery, productId: number,
+    itemSearchParameters: ItemSearchParameters): Observable<Response<ResponsePage<ItemResponse>>> {
     let parameters = ServiceUtils.getHttpParameters(parametersQuery);
     if (productId) {
       parameters = parameters.append('productId', productId.toString());
     }
+    if(itemSearchParameters.name != null && itemSearchParameters.name.trim() != "") {
+      parameters = parameters.append('name', itemSearchParameters.name);
+    }
+    if(itemSearchParameters.serial != null && itemSearchParameters.serial.trim() != "") {
+      parameters = parameters.append('serial', itemSearchParameters.serial);
+    }
+    if(itemSearchParameters.status != null && itemSearchParameters.status.trim() != "") {
+      parameters = parameters.append('status', itemSearchParameters.status);
+    }
+
     return this.httpClient
       .get<Response<ResponsePage<ItemResponse>>>(
         `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_ITEMS}`, { params: parameters }

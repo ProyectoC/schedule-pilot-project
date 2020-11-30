@@ -1,0 +1,37 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <input formControlName="productName" type="text" class="form-control" id="product-name" placeholder="Nombre Producto">
+        </div>
+        <div class="form-group col-md-4">
+            <input formControlName="trackId" type="text" class="form-control" id="track-id" placeholder="Track-ID">
+        </div>
+        <div class="form-group col-md-4">
+            <select formControlName="requestStatus" class="form-control" id="request-status">
+                <option value="" selected>Selecciona un estado</option>
+                <option *ngFor="let status of requestStatus$ | async;" [value]="status.name">
+                    {{status.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <input formControlName="loanDateStart" matTooltip="Fecha Prestamo (Inicial)" class="form-control" id="loan-date-start" type="datetime-local">
+        </div>
+        <div class="form-group col-md-3">
+            <input formControlName="loanDateEnd" matTooltip="Fecha Prestamo (Final)" class="form-control" id="loan-date-end" type="datetime-local">
+        </div>
+        <div class="form-group col-md-3">
+            <input formControlName="requestDateStart" matTooltip="Fecha Solicitud (Inicial)" class="form-control" id="request-date-start" type="datetime-local">
+        </div>
+        <div class="form-group col-md-3">
+            <input formControlName="requestDateEnd" matTooltip="Fecha Solicitud (Final)" class="form-control" id="request-date-end" type="datetime-local">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-danger float-right"><i class="fa fa-search"></i> Buscar</button>
+        </div>
+    </div>
+</form>

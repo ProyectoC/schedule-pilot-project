@@ -64,6 +64,11 @@
         "error": {
           "title": "Item status management error"
         }
+      },
+      "status": {
+        "error": {
+          "title": "Status management error"
+        }
       }
     }
   },

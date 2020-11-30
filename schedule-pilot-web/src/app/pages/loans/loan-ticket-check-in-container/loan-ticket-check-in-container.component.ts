@@ -11,6 +11,7 @@ import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 import { TicketCheckInPaginatorConfiguration } from '../../../config/pagination/ticket-check-in-pagination-configuration';
 import { TicketCheckOutRequest } from '@models/ticket-check-out/request/ticket-check-out-request';
 import { MessagesService } from '@services/messages/message.service';
+import { RequestCheckInParameters } from '@models/request-check-in/request/request-check-in-search-parameters';
 
 @Component({
   selector: 'app-loan-ticket-check-in-container',

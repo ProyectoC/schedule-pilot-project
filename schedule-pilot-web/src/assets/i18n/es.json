@@ -64,6 +64,11 @@
         "error": {
           "title": "Error en la gestión de estados de los articulos"
         }
+      },
+      "status": {
+        "error": {
+          "title": "Error en la gestión de estados"
+        }
       }
     }
   },

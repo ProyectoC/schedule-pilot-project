@@ -17,6 +17,7 @@ import { TicketCheckInResponse } from '@models/ticket-check-in/response/ticket-c
 import { TicketCheckOutRequest } from '@models/ticket-check-out/request/ticket-check-out-request';
 import { TicketCheckOutResponse } from '@models/ticket-check-out/response/ticket-check-out-response';
 import { TicketCheckLogRequest } from '@models/ticket-check-log/request/ticket-check-log-request';
+import { RequestCheckInParameters } from '@models/request-check-in/request/request-check-in-search-parameters';
 
 @Injectable({
   providedIn: 'root'
@@ -68,8 +69,32 @@ export class LoansService {
     );
   }
 
-  public getRequestCheckIn(parametersQuery: ParametersQuery, userAccountId: number): Observable<Response<ResponsePage<RequestCheckInResponse>>> {
+  public getRequestCheckIn(parametersQuery: ParametersQuery, userAccountId: number,
+    requestCheckInParameters: RequestCheckInParameters): Observable<Response<ResponsePage<RequestCheckInResponse>>> {
     let parameters = ServiceUtils.getHttpParameters(parametersQuery);
+
+    if(requestCheckInParameters.productName != null && requestCheckInParameters.productName.trim() != "") {
+      parameters = parameters.append('product_name', requestCheckInParameters.productName);
+    }
+    if(requestCheckInParameters.trackId != null && requestCheckInParameters.trackId.trim() != "") {
+      parameters = parameters.append('track_id', requestCheckInParameters.trackId);
+    }
+    if(requestCheckInParameters.status != null && requestCheckInParameters.status.trim() != "") {
+      parameters = parameters.append('status', requestCheckInParameters.status);
+    }
+    if(requestCheckInParameters.loanDateStart != null && requestCheckInParameters.loanDateStart.trim() != "") {
+      parameters = parameters.append('loan_date_start', requestCheckInParameters.loanDateStart);
+    }
+    if(requestCheckInParameters.loanDateEnd != null && requestCheckInParameters.loanDateEnd.trim() != "") {
+      parameters = parameters.append('loan_date_end', requestCheckInParameters.loanDateEnd);
+    }
+    if(requestCheckInParameters.requestDateStart != null && requestCheckInParameters.requestDateStart.trim() != "") {
+      parameters = parameters.append('request_date_start', requestCheckInParameters.requestDateStart);
+    }
+    if(requestCheckInParameters.requestDateEnd != null && requestCheckInParameters.requestDateEnd.trim() != "") {
+      parameters = parameters.append('request_date_end', requestCheckInParameters.requestDateEnd);
+    }
+
     return this.httpClient.get<Response<ResponsePage<RequestCheckInResponse>>>(
       `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_REQUEST_CHECK_IN}/${userAccountId}/request-check-in`, { params: parameters }
     ).pipe(

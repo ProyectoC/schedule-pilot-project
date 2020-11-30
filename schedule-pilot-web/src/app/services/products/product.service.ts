@@ -13,6 +13,7 @@ import { ProductMessageService } from '@services/messages/product.message.servic
 import { ErrorResponse } from '@models/error-response';
 import { ProductRequest } from '@models/product/request/product-request';
 import { ServiceUtils } from '@utils/service-utils'
+import { ProductSearchParameters } from '@models/product/request/product-search-parameters';
 
 @Injectable({
   providedIn: 'root',
@@ -29,11 +30,25 @@ export class ProductService {
   }
 
   public getProducts(
-    parametersQuery: ParametersQuery
+    parametersQuery: ParametersQuery, productSearchParameters: ProductSearchParameters
   ): Observable<Response<ResponsePage<ProductResponse>>> {
+
+    let httpParameters = ServiceUtils.getHttpParameters(parametersQuery);
+
+    if(productSearchParameters.name != null && productSearchParameters.name.trim() != "") {
+      httpParameters = httpParameters.append('name', productSearchParameters.name);
+    }
+
+    if(productSearchParameters.description != null && productSearchParameters.description.trim() != "") {
+      httpParameters = httpParameters.append('description', productSearchParameters.description);
+    }
+
+    if(productSearchParameters.status != null && productSearchParameters.status.trim() != "") {
+      httpParameters = httpParameters.append('status', productSearchParameters.status);
+    }
     return this.httpClient
       .get<Response<ResponsePage<ProductResponse>>>(
-        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_PRODUCTS}`, { params: ServiceUtils.getHttpParameters(parametersQuery) }
+        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_PRODUCTS}`, { params: httpParameters }
       )
       .pipe(
         map((bodyResponse) => {

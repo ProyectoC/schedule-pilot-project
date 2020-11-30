@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ParametersQuery } from '@models/parameters-query';
+import { RequestCheckInParameters } from '@models/request-check-in/request/request-check-in-search-parameters';
 import { RequestCheckInResponse } from '@models/request-check-in/response/request-check-in-response';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { LoansService } from '@services/loans/loans.service';
@@ -36,6 +37,7 @@ export class LoanRequestCheckInContainerComponent implements OnInit, AfterViewIn
   public resultsLength = 0;
   public isLoadingResults = true;
   public isRateLimitReached = false;
+  public requestCheckInParameters: RequestCheckInParameters;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -44,6 +46,7 @@ export class LoanRequestCheckInContainerComponent implements OnInit, AfterViewIn
     public authService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.requestCheckInParameters = new RequestCheckInParameters();
     this.scrollTop.setScrollTop();
   }
 
@@ -63,7 +66,8 @@ export class LoanRequestCheckInContainerComponent implements OnInit, AfterViewIn
           parametersQuery.page = this.paginator.pageIndex;
           parametersQuery.per_page = this.paginator.pageSize;
           parametersQuery.order_by = `${this.sort.direction}:${this.sort.active}:1`;
-          return this.loanService!.getRequestCheckIn(parametersQuery, this.authService.userSession.user.id);
+          return this.loanService!.getRequestCheckIn(parametersQuery, this.authService.userSession.user.id,
+            this.requestCheckInParameters);
         }),
         map((data) => {
           this.isLoadingResults = false;
@@ -79,6 +83,12 @@ export class LoanRequestCheckInContainerComponent implements OnInit, AfterViewIn
       )
       .subscribe((data) => (this.data = data));
   }
+
+  public filterRequestCheckIn(requestCheckInParameters: RequestCheckInParameters): void {
+    this.requestCheckInParameters = requestCheckInParameters;
+    this.refreshRequestCheckIn();
+  }
+
 
 
 }

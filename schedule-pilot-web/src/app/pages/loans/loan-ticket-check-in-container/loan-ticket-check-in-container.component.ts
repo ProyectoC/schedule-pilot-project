@@ -12,6 +12,7 @@ import { TicketCheckInPaginatorConfiguration } from '../../../config/pagination/
 import { TicketCheckOutRequest } from '@models/ticket-check-out/request/ticket-check-out-request';
 import { MessagesService } from '@services/messages/message.service';
 import { RequestCheckInParameters } from '@models/request-check-in/request/request-check-in-search-parameters';
+import { RequestTicketCheckInParameters } from '@models/ticket-check-in/request/request-ticket-check-in-parameters';
 
 @Component({
   selector: 'app-loan-ticket-check-in-container',
@@ -41,6 +42,7 @@ export class LoanTicketCheckInContainerComponent implements OnInit, AfterViewIni
   public resultsLength = 0;
   public isLoadingResults = true;
   public isRateLimitReached = false;
+  public requestTicketCheckInParameters: RequestTicketCheckInParameters;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -50,6 +52,7 @@ export class LoanTicketCheckInContainerComponent implements OnInit, AfterViewIni
 
   ngOnInit(): void {
     this.scrollTop.setScrollTop();
+    this.requestTicketCheckInParameters = new RequestTicketCheckInParameters();
   }
 
   ngAfterViewInit() {
@@ -68,7 +71,8 @@ export class LoanTicketCheckInContainerComponent implements OnInit, AfterViewIni
           parametersQuery.page = this.paginator.pageIndex;
           parametersQuery.per_page = this.paginator.pageSize;
           parametersQuery.order_by = `${this.sort.direction}:${this.sort.active}:1`;
-          return this.loanService!.getTicketCheckIn(parametersQuery, this.authService.userSession.user.id);
+          return this.loanService!.getTicketCheckIn(parametersQuery, this.authService.userSession.user.id,
+            this.requestTicketCheckInParameters);
         }),
         map((data) => {
           this.isLoadingResults = false;
@@ -83,6 +87,11 @@ export class LoanTicketCheckInContainerComponent implements OnInit, AfterViewIni
         })
       )
       .subscribe((data) => (this.data = data));
+  }
+
+  public filterRequestTicketCheckIn(requestTicketCheckInParameters: RequestTicketCheckInParameters): void {
+    this.requestTicketCheckInParameters = requestTicketCheckInParameters;
+    this.refreshTicketCheckIn();
   }
 
   public validateTicketCheckIn(ticketCheckIn: TicketCheckInResponse) {

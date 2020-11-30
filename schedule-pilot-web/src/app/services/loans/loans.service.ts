@@ -18,6 +18,7 @@ import { TicketCheckOutRequest } from '@models/ticket-check-out/request/ticket-c
 import { TicketCheckOutResponse } from '@models/ticket-check-out/response/ticket-check-out-response';
 import { TicketCheckLogRequest } from '@models/ticket-check-log/request/ticket-check-log-request';
 import { RequestCheckInParameters } from '@models/request-check-in/request/request-check-in-search-parameters';
+import { RequestTicketCheckInParameters } from '@models/ticket-check-in/request/request-ticket-check-in-parameters';
 
 @Injectable({
   providedIn: 'root'
@@ -131,8 +132,36 @@ export class LoansService {
     );
   }
 
-  public getTicketCheckIn(parametersQuery: ParametersQuery, userAccountId: number): Observable<Response<ResponsePage<TicketCheckInResponse>>> {
+  public getTicketCheckIn(parametersQuery: ParametersQuery, userAccountId: number,
+    requestTicketCheckInParameters: RequestTicketCheckInParameters): Observable<Response<ResponsePage<TicketCheckInResponse>>> {
     let parameters = ServiceUtils.getHttpParameters(parametersQuery);
+
+    if(requestTicketCheckInParameters.trackIdTicket != null && requestTicketCheckInParameters.trackIdTicket.trim() != "") {
+      parameters = parameters.append('track_id_ticket', requestTicketCheckInParameters.trackIdTicket);
+    }
+    if(requestTicketCheckInParameters.trackIdRequest != null && requestTicketCheckInParameters.trackIdRequest.trim() != "") {
+      parameters = parameters.append('track_id_request', requestTicketCheckInParameters.trackIdRequest);
+    }
+    if(requestTicketCheckInParameters.itemName != null && requestTicketCheckInParameters.itemName.trim() != "") {
+      parameters = parameters.append('item_name', requestTicketCheckInParameters.itemName);
+    }
+    if(requestTicketCheckInParameters.status != null && requestTicketCheckInParameters.status.trim() != "") {
+      parameters = parameters.append('status', requestTicketCheckInParameters.status);
+    }
+    if(requestTicketCheckInParameters.deliveryDateStart != null && requestTicketCheckInParameters.deliveryDateStart.trim() != "") {
+      parameters = parameters.append('delivery_date_start', requestTicketCheckInParameters.deliveryDateStart);
+    }
+    if(requestTicketCheckInParameters.deliveryDateEnd != null && requestTicketCheckInParameters.deliveryDateEnd.trim() != "") {
+      parameters = parameters.append('delivery_date_end', requestTicketCheckInParameters.deliveryDateEnd);
+    }
+    if(requestTicketCheckInParameters.returnDateStart != null && requestTicketCheckInParameters.returnDateStart.trim() != "") {
+      parameters = parameters.append('return_date_start', requestTicketCheckInParameters.returnDateStart);
+    }
+    if(requestTicketCheckInParameters.returnDateEnd != null && requestTicketCheckInParameters.returnDateEnd.trim() != "") {
+      parameters = parameters.append('return_date_end', requestTicketCheckInParameters.returnDateEnd);
+    }
+
+
     return this.httpClient.get<Response<ResponsePage<TicketCheckInResponse>>>(
       `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_GET_TICKET_CHECK_IN}/${userAccountId}/ticket-check-in`, { params: parameters }
     ).pipe(

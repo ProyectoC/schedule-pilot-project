@@ -34,6 +34,7 @@ import { LoanTicketCheckInContainerComponent } from '../../pages/loans/loan-tick
 import { ReturnsContainerComponent } from '../../pages/returns/returns-container/returns-container.component';
 import { ReturnTicketCheckOutContainerComponent } from '../../pages/returns/return-ticket-check-out-container/return-ticket-check-out-container.component';
 import { LoanRequestCheckInSearchComponent } from '../../pages/loans/loan-request-check-in-search/loan-request-check-in-search.component';
+import { LoanTicketCheckInSearchComponent } from '../../pages/loans/loan-ticket-check-in-search/loan-ticket-check-in-search.component';
 
 // USERS
 import { UserContainerComponent } from '../../pages/users/user-container/user-container.component';
@@ -72,7 +73,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ItemsContainerComponent, ItemFormComponent, ItemDetailFormComponent, ItemModalComponent, ItemSearchComponent,
     LoansContainerComponent, LoanProcessComponent, LoanProductsComponent, LoanProductModalComponent, LoanProductsSummaryComponent,
     LoanRequestCheckInContainerComponent, LoanTicketCheckInContainerComponent, LoanRequestCheckInSearchComponent,
-    ReturnsContainerComponent, ReturnTicketCheckOutContainerComponent,
+    ReturnsContainerComponent, ReturnTicketCheckOutContainerComponent, LoanTicketCheckInSearchComponent,
     UserContainerComponent],
 })
 export class PrivateLayoutModule { }

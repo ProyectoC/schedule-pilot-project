@@ -1,10 +1,17 @@
 <div style="padding-bottom: 20px;">
     <mat-card>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-        </mat-menu>
+        <div class="form-row">
+            <div class="form-group col-md-1">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                </mat-menu>
+            </div>
+            <div class="form-group col-md-11">
+                <app-loan-ticket-check-in-search (onSubmitForm)="filterRequestTicketCheckIn($event)"></app-loan-ticket-check-in-search>
+            </div>
+        </div>
     </mat-card>
 </div>
 

@@ -7,6 +7,7 @@ public class StatusConstants {
 
     // REST
     public static final String GET_REQUEST_CHECK_IN_REST = "/request/check-in";
+    public static final String GET_TICKET_CHECK_IN_REST = "/ticket";
 
     private StatusConstants() {
 

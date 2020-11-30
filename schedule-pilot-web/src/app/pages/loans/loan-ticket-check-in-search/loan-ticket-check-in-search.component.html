@@ -1,0 +1,37 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <input formControlName="trackIdTicket" type="text" class="form-control" id="track-id-ticket" placeholder="Track Id Ticket">
+        </div>
+        <div class="form-group col-md-4">
+            <input formControlName="trackIdRequest" type="text" class="form-control" id="track-id-request" placeholder="Track Id Request">
+        </div>
+        <div class="form-group col-md-4">
+            <select formControlName="status" class="form-control" id="status">
+                <option value="" selected>Selecciona un estado</option>
+                <option *ngFor="let status of ticketStatus$ | async;" [value]="status.name">
+                    {{status.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <input formControlName="deliveryDateStart" matTooltip="Fecha Entrega (Inicial)" class="form-control" id="delivery-date-start" type="datetime-local">
+        </div>
+        <div class="form-group col-md-3">
+            <input formControlName="deliveryDateEnd" matTooltip="Fecha Entrega (Final)" class="form-control" id="delivery-date-end" type="datetime-local">
+        </div>
+        <div class="form-group col-md-3">
+            <input formControlName="returnDateStart" matTooltip="Fecha Devolución (Inicial)" class="form-control" id="return-date-start" type="datetime-local">
+        </div>
+        <div class="form-group col-md-3">
+            <input formControlName="returnDateEnd" matTooltip="Fecha Devolución (Final)" class="form-control" id="return-date-end" type="datetime-local">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-danger float-right"><i class="fa fa-search"></i> Buscar</button>
+        </div>
+    </div>
+</form>

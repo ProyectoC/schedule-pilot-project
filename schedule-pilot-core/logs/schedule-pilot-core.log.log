@@ -1,0 +1,103 @@
+[INFO ] 2020-11-30 18:09:08.416 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE STARTED!
+ [INFO ] 2020-11-30 18:09:08.527 [main] RestartApplicationListener - Restart disabled due to System property 'spring.devtools.restart.enabled' being set to false
+ [INFO ] 2020-11-30 18:09:09.142 [main] SchedulePilotCoreApplication - Starting SchedulePilotCoreApplication on cristhian-X455LAB with PID 19782 (/home/cristhian/Documentos/kentaurus-projects/unipiloto/schedule-pilot-project/schedule-pilot-core/target/classes started by cristhian in /home/cristhian/Documentos/kentaurus-projects/unipiloto/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2020-11-30 18:09:09.143 [main] SchedulePilotCoreApplication - The following profiles are active: prod
+ [INFO ] 2020-11-30 18:09:09.230 [main] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+ [INFO ] 2020-11-30 18:09:10.394 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2020-11-30 18:09:10.588 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 186ms. Found 22 repository interfaces.
+ [INFO ] 2020-11-30 18:09:11.241 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$1fe874cb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.336 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2a24dca6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.384 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$c2d2a4e0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.392 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.398 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6963b88c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.404 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$e7a74792] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.420 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$cfc5fa8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.424 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.426 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:09:11.914 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+ [INFO ] 2020-11-30 18:09:11.928 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2020-11-30 18:09:11.937 [main] StandardService - Starting service [Tomcat]
+ [INFO ] 2020-11-30 18:09:11.938 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+ [INFO ] 2020-11-30 18:09:12.032 [main] [/api] - Initializing Spring embedded WebApplicationContext
+ [INFO ] 2020-11-30 18:09:12.032 [main] ContextLoader - Root WebApplicationContext: initialization completed in 2802 ms
+ [INFO ] 2020-11-30 18:09:28.861 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2020-11-30 18:09:28.911 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2020-11-30 18:09:28.913 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2020-11-30 18:09:29.044 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2020-11-30 18:09:29.242 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2020-11-30 18:09:29.259 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2020-11-30 18:09:29.265 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@6684f7f2
+ [INFO ] 2020-11-30 18:09:43.673 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2020-11-30 18:09:44.886 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2020-11-30 18:09:48.871 [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2020-11-30 18:09:49.246 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27260f9c, org.springframework.security.web.context.SecurityContextPersistenceFilter@50331591, org.springframework.security.web.header.HeaderWriterFilter@2bb118ae, org.springframework.web.filter.CorsFilter@25031fd4, org.springframework.security.web.authentication.logout.LogoutFilter@2f83467, com.schedulepilot.core.security.JwtAuthenticationFilter@1a06ec24, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53fb3e1b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@363ee411, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54faa040, org.springframework.security.web.session.SessionManagementFilter@5afaae7e, org.springframework.security.web.access.ExceptionTranslationFilter@27f4761b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6768dc74]
+ [INFO ] 2020-11-30 18:09:49.261 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2020-11-30 18:09:49.262 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2020-11-30 18:09:50.186 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2020-11-30 18:09:50.190 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2020-11-30 18:09:50.209 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+ [INFO ] 2020-11-30 18:09:50.213 [main] SchedulePilotCoreApplication - Started SchedulePilotCoreApplication in 41.694 seconds (JVM running for 43.061)
+ [INFO ] 2020-11-30 18:09:50.233 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2020-11-30 18:09:50.234 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE COMPLETED!
+ [INFO ] 2020-11-30 18:09:50.768 [RMI TCP Connection(1)-127.0.0.1] [/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+ [INFO ] 2020-11-30 18:09:50.768 [RMI TCP Connection(1)-127.0.0.1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ [INFO ] 2020-11-30 18:09:50.783 [RMI TCP Connection(1)-127.0.0.1] DispatcherServlet - Completed initialization in 14 ms
+ [INFO ] 2020-11-30 18:09:51.192 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2020-11-30T18:09:51.192
+ [INFO ] 2020-11-30 18:09:51.328 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2020-11-30T18:09:51.328
+ [INFO ] 2020-11-30 18:10:26.342 [Thread-88] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2020-11-30 18:10:26.352 [Thread-88] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2020-11-30 18:11:02.612 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE STARTED!
+ [INFO ] 2020-11-30 18:11:02.709 [main] RestartApplicationListener - Restart disabled due to System property 'spring.devtools.restart.enabled' being set to false
+ [INFO ] 2020-11-30 18:11:03.307 [main] SchedulePilotCoreApplication - Starting SchedulePilotCoreApplication on cristhian-X455LAB with PID 20174 (/home/cristhian/Documentos/kentaurus-projects/unipiloto/schedule-pilot-project/schedule-pilot-core/target/classes started by cristhian in /home/cristhian/Documentos/kentaurus-projects/unipiloto/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2020-11-30 18:11:03.308 [main] SchedulePilotCoreApplication - The following profiles are active: prod
+ [INFO ] 2020-11-30 18:11:03.390 [main] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+ [INFO ] 2020-11-30 18:11:04.597 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2020-11-30 18:11:04.749 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 146ms. Found 22 repository interfaces.
+ [INFO ] 2020-11-30 18:11:05.223 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$8111ea3b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.270 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8b4e5216] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.305 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$23fc1a50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.312 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.315 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@9f86dc3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.320 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$48d0bd02] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.331 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$6e25d518] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.334 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.335 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2020-11-30 18:11:05.745 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+ [INFO ] 2020-11-30 18:11:05.758 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2020-11-30 18:11:05.768 [main] StandardService - Starting service [Tomcat]
+ [INFO ] 2020-11-30 18:11:05.769 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+ [INFO ] 2020-11-30 18:11:05.861 [main] [/api] - Initializing Spring embedded WebApplicationContext
+ [INFO ] 2020-11-30 18:11:05.861 [main] ContextLoader - Root WebApplicationContext: initialization completed in 2470 ms
+ [INFO ] 2020-11-30 18:11:17.120 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2020-11-30 18:11:17.180 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2020-11-30 18:11:17.182 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2020-11-30 18:11:17.286 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2020-11-30 18:11:17.429 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2020-11-30 18:11:17.444 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2020-11-30 18:11:17.450 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7af0d91b
+ [INFO ] 2020-11-30 18:11:29.204 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2020-11-30 18:11:30.472 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2020-11-30 18:11:34.506 [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2020-11-30 18:11:34.862 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36e11b60, org.springframework.security.web.context.SecurityContextPersistenceFilter@20724c21, org.springframework.security.web.header.HeaderWriterFilter@6dcdc378, org.springframework.web.filter.CorsFilter@71d8794f, org.springframework.security.web.authentication.logout.LogoutFilter@12bb8943, com.schedulepilot.core.security.JwtAuthenticationFilter@431923ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@eb66b47, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6edb093f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6af02de0, org.springframework.security.web.session.SessionManagementFilter@1a23136f, org.springframework.security.web.access.ExceptionTranslationFilter@280f061e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@268f126f]
+ [INFO ] 2020-11-30 18:11:34.874 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2020-11-30 18:11:34.875 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2020-11-30 18:11:35.643 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2020-11-30 18:11:35.648 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2020-11-30 18:11:35.665 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+ [INFO ] 2020-11-30 18:11:35.667 [main] SchedulePilotCoreApplication - Started SchedulePilotCoreApplication in 32.969 seconds (JVM running for 34.255)
+ [INFO ] 2020-11-30 18:11:35.680 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2020-11-30 18:11:35.680 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE COMPLETED!
+ [INFO ] 2020-11-30 18:11:35.861 [RMI TCP Connection(4)-127.0.0.1] [/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+ [INFO ] 2020-11-30 18:11:35.862 [RMI TCP Connection(4)-127.0.0.1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ [INFO ] 2020-11-30 18:11:35.876 [RMI TCP Connection(4)-127.0.0.1] DispatcherServlet - Completed initialization in 14 ms
+ [INFO ] 2020-11-30 18:11:36.652 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2020-11-30T18:11:36.652
+ [INFO ] 2020-11-30 18:11:36.815 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2020-11-30T18:11:36.815
+ [INFO ] 2020-11-30 18:12:36.816 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2020-11-30T18:12:36.816
+ [INFO ] 2020-11-30 18:12:37.082 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2020-11-30T18:12:37.082
+ [INFO ] 2020-11-30 18:12:37.308 [Thread-70] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2020-11-30 18:12:37.318 [Thread-70] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ 

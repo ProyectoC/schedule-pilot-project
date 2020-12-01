@@ -1,0 +1,46 @@
+Configuration:
+  name: Default
+
+  Properties:
+    Property:
+      name: log-path
+      value: "logs"
+
+  Appenders:
+
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      follow: true
+      PatternLayout:
+        pattern: "%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} %highlight{${LOG_LEVEL_PATTERN:-%5p}}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{${sys:PID}}{magenta} [%15.15t] %style{%-40.40C{1.}}{yellow} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+    RollingFile:
+      - name: RollingFile_Appender
+        fileName: ${log-path}/schedule-pilot-core.log.log
+        filePattern: "logs/archive/schedule-pilot-core.log.%d{yyyy-MM-dd-hh-mm}.log"
+        PatternLayout:
+          alwaysWriteExceptions: true
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n ${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 10 MB
+        DefaultRollOverStrategy:
+          max: 30
+
+  Loggers:
+
+    Root:
+      level: info
+      AppenderRef:
+        - ref: Console_Appender
+    Logger:
+      - name: com
+        level: info
+        AppenderRef:
+          - ref: RollingFile_Appender
+            level: info
+      - name: org
+        level: info
+        AppenderRef:
+          - ref: RollingFile_Appender
+            level: info

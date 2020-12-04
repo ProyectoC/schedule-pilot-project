@@ -48,8 +48,7 @@ import static reactor.bus.selector.Selectors.$;
 public class SchedulePilotCoreApplication implements CommandLineRunner {
 
     public static final Logger LOGGER = LogManager.getLogger(SchedulePilotCoreApplication.class);
-
-    // Find your Account Sid and Token at twilio.com/user/account
+    
     public static final String ACCOUNT_SID = "ACb00996a2f2fc7f7993b8e2d7ea8966c7";
     public static final String AUTH_TOKEN = "e48a34165a16e1ed04219a0cb45c6f22";
 

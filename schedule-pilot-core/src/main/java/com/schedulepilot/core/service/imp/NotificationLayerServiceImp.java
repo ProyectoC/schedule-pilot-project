@@ -8,7 +8,7 @@ import com.schedulepilot.core.email.constants.EmailConstants;
 import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.notification.service.NotificationSenderService;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.Map;
 public class NotificationLayerServiceImp implements NotificationLayerService {
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private NotificationConfig notificationConfig;
@@ -55,7 +55,7 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
         String templateClient = filePath.toString();
 
         // Get Properties
-        String urlWebApi = this.globalListDinamicService.getParameterValueEmpty(EmailConstants.PARAMETER_WEB_API);
+        String urlWebApi = this.globalListDynamicService.getParameterValueEmpty(EmailConstants.PARAMETER_WEB_API);
 
         // Build Parameters
         Map<String, String> parameters = new HashMap<>();
@@ -101,7 +101,7 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
         String templateClient = filePath.toString();
 
         // Get Properties
-        String urlAppWeb = this.globalListDinamicService.getParameterValueEmpty(EmailConstants.PARAMETER_URL_APP);
+        String urlAppWeb = this.globalListDynamicService.getParameterValueEmpty(EmailConstants.PARAMETER_URL_APP);
 
         // Build Parameters
         Map<String, String> parameters = new HashMap<>();
@@ -186,7 +186,7 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
         notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_PRODUCT_NOT_ENABLE);
         try {
             notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
-            this.notificationSenderService.sendValidationNotification(notificationDto);
+            this.notificationSenderService.sendAlertNotification(notificationDto);
         } catch (SchedulePilotException ex) {
             LOGGER.error("Could not send notification PRODUCT NOT ENABLE. Error: {}", ex.getMessage());
         }

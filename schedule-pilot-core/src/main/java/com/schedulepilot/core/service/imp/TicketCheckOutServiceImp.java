@@ -52,7 +52,7 @@ public class TicketCheckOutServiceImp implements TicketCheckOutService {
     public PageResponseDto<TicketCheckOutResponse> getAllTicketCheckOut(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException {
         UserAccountEntity userAccountEntity = accountUserRepository.getOne(userAccountId);
         RolAccountEntity rolAccountEntity = userAccountEntity.getRolAccountEntity();
-        if (!rolAccountEntity.getName().equals("Super User") || rolAccountEntity.getName().equals("Registro y Control")) {
+        if (rolAccountEntity.getName().equals("Super User") || rolAccountEntity.getName().equals("Registro y Control")) {
             userAccountId = null;
         }
 

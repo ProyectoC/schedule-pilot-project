@@ -96,7 +96,7 @@ SELECT * FROM ticket_check_log tcl;
 SELECT * FROM item_status is2;
 
 
-
+SELECT * FROM college_career cc;
 
 
 SELECT * FROM notification n;
@@ -114,8 +114,28 @@ INSERT INTO usar
 
 select now();
 
+SELECT * FROM user_account ua;
+SELECT * FROM rol_account ra;
 
+SELECT ua.username FROM rol_account ra
+INNER JOIN user_account ua ON ra.id = ua.rol_account_id_fk
+WHERE ra."name" = 'Estudiante';
 
+SELECT now();
+
+SELECT now_current();
+
+SELECT * FROM user_account uas;
+
+DELETE FROM user_account WHERE id = 5;
+
+SELECT * FROM country;
+
+DELETE FROM country WHERE id NOT IN (47);
+
+SELECT * FROM country c;
+
+SELECT * FROM notification n;
 
 
 

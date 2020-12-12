@@ -52,6 +52,14 @@ public class UserAccountCreateRequest implements Serializable {
     @Email(message = "emailBackup is not valid email address.")
     private String emailBackup;
 
+    @NotNull(message = "phoneNumber can not be null.")
+    @NotBlank(message = "phoneNumber can not be blank.")
+    private String phoneNumber;
+
+    @NotNull(message = "phoneCountryCode can not be null.")
+    @NotBlank(message = "phoneCountryCode can not be blank.")
+    private String phoneCountryCode;
+
     @NotNull(message = "rolAccount can not be null.")
     @JsonProperty("rolAccount")
     @Valid

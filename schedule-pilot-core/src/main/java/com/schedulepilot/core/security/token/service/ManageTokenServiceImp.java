@@ -9,7 +9,7 @@ import com.schedulepilot.core.exception.ManageParameterException;
 import com.schedulepilot.core.exception.ManageTokenException;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.security.token.core.ManageTokenGenerator;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.service.TokenService;
 import com.schedulepilot.core.util.dto.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class ManageTokenServiceImp implements ManageTokenService {
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private TokenService tokenService;
@@ -50,7 +50,7 @@ public class ManageTokenServiceImp implements ManageTokenService {
                     authorities));
             newTokenUser.setExpirationDate(LocalDateTime.now().plusSeconds(this.tokenConfig.getClients().getUserCommon()
                     .getExpirationTime()));
-            newTokenUser.setTokenTypeEntity(globalListDinamicService.getTokenTypeByNameOrException(TOKEN_TYPE_LOGIN_USER));
+            newTokenUser.setTokenTypeEntity(globalListDynamicService.getTokenTypeByNameOrException(TOKEN_TYPE_LOGIN_USER));
             return this.tokenService.save(newTokenUser);
         } catch (UnsupportedEncodingException exception) {
             LOGGER.error(ERROR_TOKEN_USER_CREATION_UNSUPPORTED, exception.getMessage());
@@ -65,7 +65,7 @@ public class ManageTokenServiceImp implements ManageTokenService {
     @Override
     public TokenDto createUserAccountActivationToken() {
         try {
-            Long secondsTokenExpiration = this.globalListDinamicService
+            Long secondsTokenExpiration = this.globalListDynamicService
                     .getParameterValueAsLongOrException(ParameterConstants.PARAMETER_TOKEN_ACTIVATION_EXPIRATION_USER_ACCOUNT);
             TokenDto newTokenUser = new TokenDto();
             newTokenUser.setTimesUsed(0);
@@ -73,7 +73,7 @@ public class ManageTokenServiceImp implements ManageTokenService {
             newTokenUser.setIsActive(true);
             newTokenUser.setKey(ManageTokenGenerator.generateEmailToken());
             newTokenUser.setExpirationDate(LocalDateTime.now().plusSeconds(secondsTokenExpiration));
-            newTokenUser.setTokenTypeEntity(globalListDinamicService.getTokenTypeByNameOrException(TOKEN_TYPE_ACTIVATE_USER));
+            newTokenUser.setTokenTypeEntity(globalListDynamicService.getTokenTypeByNameOrException(TOKEN_TYPE_ACTIVATE_USER));
             return this.tokenService.save(newTokenUser);
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
             throw new RuntimeException(ex);

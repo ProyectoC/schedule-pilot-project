@@ -7,7 +7,7 @@ import com.schedulepilot.core.entities.model.ItemEntity;
 import com.schedulepilot.core.entities.model.ItemEntity_;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.repository.ItemRepository;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.service.ItemService;
 import com.schedulepilot.core.tasks.PaginationAndOrderTask;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class ItemServiceImp implements ItemService {
     private ItemRepository itemRepository;
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -78,13 +78,13 @@ public class ItemServiceImp implements ItemService {
 
     @Override
     public ItemEntity setOnLoan(ItemEntity itemEntity) throws SchedulePilotException {
-        itemEntity.setItemStatusEntity(this.globalListDinamicService.getItemStatusOrException(ItemConstants.ON_LOAD_STATUS));
+        itemEntity.setItemStatusEntity(this.globalListDynamicService.getItemStatusOrException(ItemConstants.ON_LOAD_STATUS));
         return this.itemRepository.save(itemEntity);
     }
 
     @Override
     public ItemEntity setEnable(ItemEntity itemEntity) throws SchedulePilotException {
-        itemEntity.setItemStatusEntity(this.globalListDinamicService.getItemStatusOrException(ItemConstants.ENABLE_STATUS));
+        itemEntity.setItemStatusEntity(this.globalListDynamicService.getItemStatusOrException(ItemConstants.ENABLE_STATUS));
         return this.itemRepository.save(itemEntity);
     }
 

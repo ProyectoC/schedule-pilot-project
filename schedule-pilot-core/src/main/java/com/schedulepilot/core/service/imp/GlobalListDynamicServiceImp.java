@@ -7,7 +7,7 @@ import com.schedulepilot.core.entities.model.ItemStatusEntity;
 import com.schedulepilot.core.entities.model.ProductRequestStatusEntity;
 import com.schedulepilot.core.entities.model.TicketCheckStatusEntity;
 import com.schedulepilot.core.exception.*;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.util.dto.GlobalListDinamic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Component
-public class GlobalListDinamicServiceImp implements GlobalListDinamicService {
+public class GlobalListDynamicServiceImp implements GlobalListDynamicService {
 
     @Autowired
     private GlobalListDinamic<TokenTypeDto> globalTokenTypesList;

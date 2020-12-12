@@ -59,6 +59,13 @@ public class UserAccountEntity extends BaseEntity {
     @Column(nullable = false, name = "email_backup", unique = true)
     private String emailBackup;
 
+    @Column(nullable = false, name = "phone_number", unique = true)
+    private String phoneNumber;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "phone_country_id_fk", nullable = false)
+    private CountryEntity countryEntity;
+
     @Column(nullable = false, name = "block")
     private Boolean block = false;
 

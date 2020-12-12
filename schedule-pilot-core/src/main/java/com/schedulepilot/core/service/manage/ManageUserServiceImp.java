@@ -1,10 +1,13 @@
 package com.schedulepilot.core.service.manage;
 
 import com.schedulepilot.core.constants.ParameterConstants;
+import com.schedulepilot.core.dto.model.CountryDto;
 import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.dto.model.TokenDto;
 import com.schedulepilot.core.dto.model.UserAccountDto;
 import com.schedulepilot.core.email.constants.EmailConstants;
+import com.schedulepilot.core.entities.model.CountryEntity;
+import com.schedulepilot.core.entities.model.UserAccountEntity;
 import com.schedulepilot.core.exception.ExceptionCode;
 import com.schedulepilot.core.exception.ManageUserException;
 import com.schedulepilot.core.exception.SchedulePilotException;
@@ -14,10 +17,11 @@ import com.schedulepilot.core.request.UserAccountCreateRequest;
 import com.schedulepilot.core.request.UserAccountForgotPasswordRequest;
 import com.schedulepilot.core.response.UserAccountAuthResponse;
 import com.schedulepilot.core.security.token.service.ManageTokenService;
-import com.schedulepilot.core.service.GlobalListDinamicService;
-import com.schedulepilot.core.service.manage.ManageUserService;
+import com.schedulepilot.core.service.CountryEntityService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.UserAccountService;
+import com.schedulepilot.core.service.modelmapper.CountryMapperService;
 import com.schedulepilot.core.util.SecurityUtil;
 import com.schedulepilot.core.util.dto.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +52,16 @@ public class ManageUserServiceImp implements ManageUserService {
     private NotificationLayerService notificationLayerService;
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private CountryEntityService countryEntityService;
+
+    @Autowired
+    private CountryMapperService countryMapperService;
 
     @Override
     @Transactional
@@ -64,7 +74,7 @@ public class ManageUserServiceImp implements ManageUserService {
         if (!validator.isValid())
             throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CREATE_USER, validator.getFirstError());
 
-        RolAccountDto rolAccount = this.globalListDinamicService.getRolAccountByIdOrException(userAccount.getRolAccountEntity().getId());
+        RolAccountDto rolAccount = this.globalListDynamicService.getRolAccountByIdOrException(userAccount.getRolAccountEntity().getId());
         validator = rolAccount.validationForCreateUser(userAccount);
         if (!validator.isValid())
             throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CREATE_USER, validator.getFirstError());
@@ -73,6 +83,9 @@ public class ManageUserServiceImp implements ManageUserService {
         userAccount.setPassword(this.passwordEncoder.encode(userAccount.getPassword()));
         userAccount.setPasswordExpiredDate(LocalDateTime.now().plusSeconds(this.getPasswordExpiration()));
 
+        CountryEntity countryEntity = this.countryEntityService.getCountryByCode(userAccountCreateRequest.getPhoneCountryCode());
+        CountryDto countryDto = this.countryMapperService.convertEntityToDto(countryEntity);
+        userAccount.setCountryEntity(countryDto);
         userAccount = this.userAccountService.save(userAccount);
 
         this.notificationLayerService.sendNotificationCreateUserAccount(userAccount);
@@ -83,7 +96,7 @@ public class ManageUserServiceImp implements ManageUserService {
     @Override
     @Transactional
     public String activateUserAccount(String token, Long userAccountId) throws SchedulePilotException {
-        String urlConfirmEmail = this.globalListDinamicService.getParameterValueEmpty(EmailConstants.PARAMETER_URL_CONFIRM_EMAIL);
+        String urlConfirmEmail = this.globalListDynamicService.getParameterValueEmpty(EmailConstants.PARAMETER_URL_CONFIRM_EMAIL);
         StringBuilder uriBuilder = new StringBuilder(urlConfirmEmail);
         uriBuilder.append("?message=");
 
@@ -182,7 +195,7 @@ public class ManageUserServiceImp implements ManageUserService {
     }
 
     private void updateUserFailedAuth(UserAccountDto userAccountDto) throws SchedulePilotException {
-        String limitLoginStr = this.globalListDinamicService.getParameterValueThrow(EmailConstants.PARAMETER_LIMIT_FAILED_ATTEMPTS);
+        String limitLoginStr = this.globalListDynamicService.getParameterValueThrow(EmailConstants.PARAMETER_LIMIT_FAILED_ATTEMPTS);
         int limitLogin = Integer.parseInt(limitLoginStr);
         Integer failedAttempts = userAccountDto.getFailedAttempts();
         failedAttempts++;
@@ -193,7 +206,7 @@ public class ManageUserServiceImp implements ManageUserService {
     }
 
     private Long getPasswordExpiration() throws SchedulePilotException {
-        return this.globalListDinamicService.getParameterValueAsLongOrException(ParameterConstants.PARAMETER_PASSWORD_EXPIRATION_USER_ACCOUNT);
+        return this.globalListDynamicService.getParameterValueAsLongOrException(ParameterConstants.PARAMETER_PASSWORD_EXPIRATION_USER_ACCOUNT);
     }
 
 }

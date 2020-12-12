@@ -33,11 +33,15 @@ export class EndPointsHttpConstants {
   static readonly SERVICE_CREATE_ITEMS = EndPointsHttpConstants.COMPONENT_WS + '/items/create';
   static readonly SERVICE_UPDATE_ITEMS = EndPointsHttpConstants.COMPONENT_WS + '/items/update';
 
+
+  // Countries
+  static readonly SERVICE_GET_COUNTRIES = EndPointsHttpConstants.COMPONENT_WS + '/countries';
+
   // Loan
   static readonly SERVICE_CREATE_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-in';
   static readonly SERVICE_GET_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';
   static readonly SERVICE_REQUEST_CHECK_IN_STATUS = EndPointsHttpConstants.COMPONENT_WS + '/status/request/check-in';
-  
+
   static readonly SERVICE_TICKET_CHECK_STATUS = EndPointsHttpConstants.COMPONENT_WS + '/status/ticket';
   static readonly SERVICE_GET_TICKET_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';
 
@@ -51,6 +55,7 @@ export class EndPointsHttpConstants {
     EndPointsHttpConstants.SERVICE_REGISTER,
     EndPointsHttpConstants.SERVICE_FORGOT_PASSWORD,
     EndPointsHttpConstants.SERVICE_ROL,
-    EndPointsHttpConstants.SERVICE_COLLEGE_CAREER
+    EndPointsHttpConstants.SERVICE_COLLEGE_CAREER,
+    EndPointsHttpConstants.SERVICE_GET_COUNTRIES 
   ];
 }

@@ -2,7 +2,7 @@ package com.schedulepilot.core.tasks;
 
 import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.service.ItemService;
 import com.schedulepilot.core.service.TicketCheckInService;
 import com.schedulepilot.core.service.sequence.SequenceService;
@@ -34,7 +34,7 @@ public class GenerateTicketCheckInTask {
     private SequenceService sequenceService;
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     private final RequestCheckInProductEntity requestCheckInProductEntity;
     private ItemEntity item;
@@ -83,7 +83,7 @@ public class GenerateTicketCheckInTask {
         ticketCheckInEntity.setTrackId(trackId.toString());
         ticketCheckInEntity.setItemEntity(item);
         ticketCheckInEntity.setRequestCheckInEntity(requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());
-        ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDinamicService.getTicketCheckStatusOrException(GENERATED_STATUS));
+        ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(GENERATED_STATUS));
         LocalDateTime loanDate = requestCheckInProductEntity.getLoanDate();
         ticketCheckInEntity.setDeliveryDate(loanDate);
         ticketCheckInEntity.setReturnDate(loanDate.plusSeconds(productRolEntity.getLoanTime()));

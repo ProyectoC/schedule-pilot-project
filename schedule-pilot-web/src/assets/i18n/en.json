@@ -69,6 +69,11 @@
         "error": {
           "title": "Status management error"
         }
+      },
+      "country": {
+        "error": {
+          "title": "Country management error"
+        }
       }
     }
   },

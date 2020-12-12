@@ -7,7 +7,7 @@ import com.schedulepilot.core.entities.model.UserAccountEntity;
 import com.schedulepilot.core.exception.ExceptionCode;
 import com.schedulepilot.core.exception.LoanProcessException;
 import com.schedulepilot.core.exception.SchedulePilotException;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.service.TicketCheckInService;
 import com.schedulepilot.core.service.TicketCheckOutService;
 import com.schedulepilot.core.service.sequence.SequenceService;
@@ -31,7 +31,7 @@ public class GenerateTicketCheckOutTask {
     private TicketCheckOutService ticketCheckOutService;
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private TicketCheckInService ticketCheckInService;
@@ -55,14 +55,14 @@ public class GenerateTicketCheckOutTask {
 
         this.validateTicketCheckIn(ticketCheckInEntity);
 
-        this.ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDinamicService.getTicketCheckStatusOrException(LoanProcessConstants.USED_STATUS));
+        this.ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.USED_STATUS));
         this.ticketCheckInEntity = this.ticketCheckInService.save(ticketCheckInEntity);
 
         Long trackId = this.sequenceService.getTicketCheckOutSequence();
         this.ticketCheckOutEntity = new TicketCheckOutEntity();
         this.ticketCheckOutEntity.setTrackId(trackId.toString());
         this.ticketCheckOutEntity.setTicketCheckInEntity(ticketCheckInEntity);
-        this.ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDinamicService.getTicketCheckStatusOrException(LoanProcessConstants.GENERATED_STATUS));
+        this.ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.GENERATED_STATUS));
         this.ticketCheckOutEntity.setUserAccountEntity(userAccountEntity);
         this.ticketCheckOutEntity = this.ticketCheckOutService.save(ticketCheckOutEntity);
         
@@ -84,7 +84,7 @@ public class GenerateTicketCheckOutTask {
         }
 
         if (dateDelivery.isBefore(LocalDateTime.now())) {
-            ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDinamicService.getTicketCheckStatusOrException(LoanProcessConstants.EXPIRED_STATUS));
+            ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.EXPIRED_STATUS));
             this.ticketCheckInService.save(ticketCheckInEntity);
             throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_TICKET_CHECK_IN_HAS_EXPIRED, "TicketCheckIn TrackID: " +
                     ticketCheckInEntity.getTrackId() + " has expired on: " + ticketCheckInEntity.getDeliveryDate());

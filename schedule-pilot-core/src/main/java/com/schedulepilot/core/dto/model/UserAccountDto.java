@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.schedulepilot.core.dto.BaseDto;
+import com.schedulepilot.core.entities.model.CountryEntity;
 import com.schedulepilot.core.util.dto.Validator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,6 +40,8 @@ public class UserAccountDto extends BaseDto implements UserDetails {
     private String identificationCode;
     private String email;
     private String emailBackup;
+    private String phoneNumber;
+    private CountryDto countryEntity;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Boolean block = false;
     private RolAccountDto rolAccountEntity;

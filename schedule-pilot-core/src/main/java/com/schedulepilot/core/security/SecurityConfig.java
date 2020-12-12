@@ -2,6 +2,7 @@ package com.schedulepilot.core.security;
 
 import com.schedulepilot.core.constants.AccountUserConstants;
 import com.schedulepilot.core.constants.CollegeCareerConstants;
+import com.schedulepilot.core.constants.CountryConstants;
 import com.schedulepilot.core.constants.RolAccountConstants;
 import com.schedulepilot.core.service.UserAccountService;
 import com.schedulepilot.core.util.SecurityUtil;
@@ -98,6 +99,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.AUTH_AUTHORIZE_USER_ACCOUNT_REST).permitAll()
                 .antMatchers(AccountUserConstants.REST_PATH_DEFAULT_V1 + AccountUserConstants.FORGOT_PASSWORD_USER_ACCOUNT_REST).permitAll()
                 .antMatchers(RolAccountConstants.REST_PATH_DEFAULT_V1).permitAll()
+                .antMatchers(CountryConstants.REST_PATH_DEFAULT_V1).permitAll()
                 .antMatchers(CollegeCareerConstants.REST_PATH_DEFAULT_V1).permitAll()
                 .antMatchers(SecurityUtil.VERIFICATION_EMAIL_REST_DEFAULT + ALL_RESOURCES, "/oauth2/authorize-client").permitAll()
                 .antMatchers(SecurityUtil.AUTH_WHITELIST_APIS_DEFAULT()).permitAll()

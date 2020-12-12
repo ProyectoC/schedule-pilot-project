@@ -69,6 +69,11 @@
         "error": {
           "title": "Error en la gestión de estados"
         }
+      },
+      "country": {
+        "error": {
+          "title": "Error en la gestión de paises"
+        }
       }
     }
   },

@@ -2,6 +2,7 @@ package com.schedulepilot.core.config;
 
 import com.schedulepilot.core.audit.AuditorInterceptor;
 import com.schedulepilot.core.interceptor.SchedulePilotoInterceptor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,6 +30,12 @@ public class AppConfig implements WebMvcConfigurer {
 //        EventBus evBus = EventBus.create(env, Environment.newDispatcher(REACTOR_CAPACITY,REACTOR_CONSUMERS_COUNT,
 //                DispatcherType.THREAD_POOL_EXECUTOR));
         return EventBus.create(env, Environment.THREAD_POOL);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper;
     }
 
     @Override

@@ -41,7 +41,7 @@ public class LoanProcessServiceImp implements LoanProcessService {
     private ProductService productService;
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private RequestCheckInService requestCheckInService;
@@ -57,6 +57,9 @@ public class LoanProcessServiceImp implements LoanProcessService {
 
     @Autowired
     private NotificationLayerService notificationLayerService;
+
+    @Autowired
+    private MessageLayerService messageLayerService;
 
     @Autowired
     private RequestCheckInProductService requestCheckInProductService;
@@ -89,7 +92,7 @@ public class LoanProcessServiceImp implements LoanProcessService {
                         localDateTime + " not valid.");
             requestCheckInProductEntity.setLoanDate(localDateTime);
 
-            ProductRequestStatusEntity productRequestStatusEntity = this.globalListDinamicService.getProductRequestStatusOrException(ProductConstants.REQUESTED_STATUS);
+            ProductRequestStatusEntity productRequestStatusEntity = this.globalListDynamicService.getProductRequestStatusOrException(ProductConstants.REQUESTED_STATUS);
             requestCheckInProductEntity.setProductRequestStatusEntity(productRequestStatusEntity);
             RequestCheckInProductId requestCheckInProductId = new RequestCheckInProductId(productEntity);
             requestCheckInProductEntity.setRequestCheckInProductId(requestCheckInProductId);
@@ -133,6 +136,10 @@ public class LoanProcessServiceImp implements LoanProcessService {
 
         this.notificationLayerService.sendNotificationGeneratedTicketCheckOut(ticketCheckInEntity.getRequestCheckInEntity().getUserAccountEntity(),
                 generateTicketCheckOutTask.getTicketCheckOutEntity(), ticketCheckInEntity);
+
+        this.messageLayerService.sendNotificationGeneratedTicketCheckOut(ticketCheckInEntity.getRequestCheckInEntity().getUserAccountEntity(),
+                generateTicketCheckOutTask.getTicketCheckOutEntity(), ticketCheckInEntity);
+
         return "TrackID: " + generateTicketCheckOutTask.getTicketCheckOutEntity().getTrackId();
     }
 
@@ -154,6 +161,10 @@ public class LoanProcessServiceImp implements LoanProcessService {
 
         this.notificationLayerService.sendNotificationGeneratedTicketCheckLog(ticketCheckOutEntity.getTicketCheckInEntity().getRequestCheckInEntity().getUserAccountEntity(),
                 generateTicketCheckLogTask.getTicketCheckLogEntity(), ticketCheckOutEntity);
+
+        this.messageLayerService.sendNotificationGeneratedTicketCheckLog(ticketCheckOutEntity.getTicketCheckInEntity().getRequestCheckInEntity().getUserAccountEntity(),
+                generateTicketCheckLogTask.getTicketCheckLogEntity(), ticketCheckOutEntity);
+
         return "TrackID validated: " + generateTicketCheckLogTask.getTicketCheckLogEntity().getTicketCheckOutEntity().getTrackId();
     }
 

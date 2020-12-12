@@ -11,6 +11,8 @@ import { RolService } from '@services/rol/rol.service';
 import { CollegeCareer } from '@models/college-career/college-career';
 import { CollegeCareerService } from '@services/college-career/college-career.service';
 import { JsonPipe } from '@angular/common';
+import { CountryService } from '@services/countries/country.service';
+import { CountryResponse } from '@models/country/country-response';
 
 @Component({
   selector: 'app-register-form',
@@ -25,12 +27,14 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
   public payLoad: string;
   public roles$: Observable<RolAccount[]>;
   public collegeCareers$: Observable<CollegeCareer[]>;
+  public countries$: Observable<CountryResponse[]>
 
   constructor(public rolService: RolService,
-    public collegeCareerService: CollegeCareerService) {
+    public collegeCareerService: CollegeCareerService, public countryService: CountryService) {
     super();
     this.roles$ = this.rolService.getRoles();
     this.collegeCareers$ = this.collegeCareerService.getCollegeCareers();
+    this.countries$ = this.countryService.getCountries();
   }
 
   ngOnInit(): void {
@@ -61,6 +65,8 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
       rolAccount: new FormControl(null, [Validators.required]),
       collegeCareer: new FormControl('', [Validators.required]),
       password: this.registerPasswordForm.createGroup(),
+      countryCode: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required]),
       termAndConditions: new FormControl(false, [Validators.requiredTrue]),
     });
   }
@@ -88,6 +94,8 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
       user.identificationCode = this.formGroup.value['identificationCode'];
       user.email = this.formGroup.value['email'];
       user.emailBackup = this.formGroup.value['emailBackup'];
+      user.phoneNumber = this.formGroup.value['phoneNumber'];
+      user.phoneCountryCode = this.formGroup.value['countryCode'];
       user.rolAccount.id = Number(this.formGroup.value['rolAccount']);
 
       if (user.rolAccount.id === 5) {

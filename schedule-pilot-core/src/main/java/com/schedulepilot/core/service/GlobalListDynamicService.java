@@ -11,7 +11,7 @@ import com.schedulepilot.core.exception.SchedulePilotException;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface GlobalListDinamicService {
+public interface GlobalListDynamicService {
 
     TokenTypeDto getTokenTypeByNameOrException(String tokenTypeName) throws ManageTokenException;
 

@@ -7,7 +7,8 @@ import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.repository.AccountUserRepository;
 import com.schedulepilot.core.repository.RequestCheckInProductRepository;
 import com.schedulepilot.core.response.RequestCheckInResponse;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
+import com.schedulepilot.core.service.MessageLayerService;
 import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.RequestCheckInProductService;
 import com.schedulepilot.core.tasks.GenerateTicketCheckInTask;
@@ -34,10 +35,13 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
     private RequestCheckInProductRepository requestCheckInProductRepository;
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private NotificationLayerService notificationLayerService;
+
+    @Autowired
+    private MessageLayerService messageLayerService;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -61,7 +65,7 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
     public PageResponseDto<RequestCheckInResponse> getRequestCheckInProductResponse(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException {
         UserAccountEntity userAccountEntity = userRepository.getOne(userAccountId);
         RolAccountEntity rolAccountEntity = userAccountEntity.getRolAccountEntity();
-        if (!rolAccountEntity.getName().equals("Super User") || rolAccountEntity.getName().equals("Registro y Control")) {
+        if (rolAccountEntity.getName().equals("Super User") || rolAccountEntity.getName().equals("Registro y Control")) {
             userAccountId = null;
         }
 
@@ -114,7 +118,7 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
             return;
         }
         if (generateTicketCheckInTask.getTicketCheckInEntity() != null) {
-            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(LoanProcessConstants.FOUND_STATUS));
+            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDynamicService.getProductRequestStatusOrException(LoanProcessConstants.FOUND_STATUS));
             this.save(requestCheckInProductEntity);
             this.manageNotificationGeneratedTicketCheckIn(requestCheckInProductEntity, generateTicketCheckInTask.getTicketCheckInEntity());
         }
@@ -125,7 +129,13 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
                         .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(),
                 requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity(),
                 requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());
-        requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(LoanProcessConstants.NOT_FOUND_STATUS));
+
+        this.messageLayerService.sendNotificationProductNotEnable(requestCheckInProductEntity
+                .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(),
+                requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity(),
+                requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());
+
+        requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDynamicService.getProductRequestStatusOrException(LoanProcessConstants.NOT_FOUND_STATUS));
         this.save(requestCheckInProductEntity);
     }
 
@@ -133,13 +143,21 @@ public class RequestCheckInProductServiceImp implements RequestCheckInProductSer
         this.notificationLayerService.sendNotificationGeneratedTicketCheckIn(requestCheckInProductEntity
                         .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(), ticketCheckInEntity,
                 requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());
+
+        this.messageLayerService.sendNotificationGeneratedTicketCheckIn(requestCheckInProductEntity
+                        .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(), ticketCheckInEntity,
+                requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());
     }
 
     private void updateAttempts(RequestCheckInProductEntity requestCheckInProductEntity) throws SchedulePilotException {
         int attemptsActual = requestCheckInProductEntity.getAttempts();
         if (attemptsActual >= 3) {
-            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDinamicService.getProductRequestStatusOrException(LoanProcessConstants.NOT_FOUND_STATUS));
+            requestCheckInProductEntity.setProductRequestStatusEntity(this.globalListDynamicService.getProductRequestStatusOrException(LoanProcessConstants.NOT_FOUND_STATUS));
             this.notificationLayerService.sendNotificationNotFoundProduct(requestCheckInProductEntity
+                            .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(),
+                    requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity(),
+                    requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());
+            this.messageLayerService.sendNotificationNotFoundProduct(requestCheckInProductEntity
                             .getRequestCheckInProductId().getRequestCheckInEntity().getUserAccountEntity(),
                     requestCheckInProductEntity.getRequestCheckInProductId().getProductEntity(),
                     requestCheckInProductEntity.getRequestCheckInProductId().getRequestCheckInEntity());

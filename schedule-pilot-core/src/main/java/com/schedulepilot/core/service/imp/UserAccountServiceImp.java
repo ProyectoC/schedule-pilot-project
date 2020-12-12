@@ -121,7 +121,7 @@ public class UserAccountServiceImp implements UserAccountService {
         userAccountDto.setIsActive(false);
         return UserAccountService.convertEntityToDTO(this.accountUserRepository.saveAndFlush(UserAccountService.convertDTOToEntity(userAccountDto)));
     }
-
+    
     @Override
     @Transactional
     public UserAccountDto update(UserAccountDto userAccountDto) {

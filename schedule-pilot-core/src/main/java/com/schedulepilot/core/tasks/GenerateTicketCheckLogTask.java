@@ -9,7 +9,7 @@ import com.schedulepilot.core.entities.model.UserAccountEntity;
 import com.schedulepilot.core.exception.ExceptionCode;
 import com.schedulepilot.core.exception.LoanProcessException;
 import com.schedulepilot.core.exception.SchedulePilotException;
-import com.schedulepilot.core.service.GlobalListDinamicService;
+import com.schedulepilot.core.service.GlobalListDynamicService;
 import com.schedulepilot.core.service.ItemService;
 import com.schedulepilot.core.service.TicketCheckLogService;
 import com.schedulepilot.core.service.TicketCheckOutService;
@@ -40,7 +40,7 @@ public class GenerateTicketCheckLogTask {
     private ItemService itemService;
 
     @Autowired
-    private GlobalListDinamicService globalListDinamicService;
+    private GlobalListDynamicService globalListDynamicService;
 
     @Autowired
     private SequenceService sequenceService;
@@ -61,11 +61,11 @@ public class GenerateTicketCheckLogTask {
 
         this.validateTicketCheckOut(ticketCheckOutEntity);
 
-        this.ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDinamicService.getTicketCheckStatusOrException(LoanProcessConstants.USED_STATUS));
+        this.ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.USED_STATUS));
         this.ticketCheckOutEntity = this.ticketCheckOutService.save(ticketCheckOutEntity);
 
         ItemEntity itemEntity = this.ticketCheckOutEntity.getTicketCheckInEntity().getItemEntity();
-        itemEntity.setItemStatusEntity(this.globalListDinamicService.getItemStatusOrException(ItemConstants.ENABLE_STATUS));
+        itemEntity.setItemStatusEntity(this.globalListDynamicService.getItemStatusOrException(ItemConstants.ENABLE_STATUS));
         this.itemService.save(itemEntity);
 
         this.ticketCheckLogEntity = new TicketCheckLogEntity();
@@ -91,7 +91,7 @@ public class GenerateTicketCheckLogTask {
         }
 
         if (dateReturn.isBefore(LocalDateTime.now())) {
-            ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDinamicService.getTicketCheckStatusOrException(LoanProcessConstants.EXPIRED_STATUS));
+            ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.EXPIRED_STATUS));
             this.ticketCheckOutService.save(ticketCheckOutEntity);
             throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_TICKET_CHECK_OUT_HAS_EXPIRED, "TicketCheckOut TrackID: " +
                     ticketCheckOutEntity.getTrackId() + " has expired on: " + ticketCheckOutEntity.getTicketCheckInEntity().getReturnDate());

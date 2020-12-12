@@ -10,6 +10,8 @@ export class User {
     public email: string;
     public emailBackup: string;
     public password: string;
+    public phoneNumber: string;
+    public phoneCountryCode: string;
     public rolAccount: RolUser;
     public collegeCareer: CollageCareer;
 

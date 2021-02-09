@@ -24,8 +24,14 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -47,6 +53,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
         LOGGER.info("### AUTH: Url Request: {} ###", request.getRequestURI());
+        HeaderMapRequestWrapper requestWrapper = new HeaderMapRequestWrapper(request);
+
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.sendError(HttpServletResponse.SC_OK, "success");
             return;
@@ -65,7 +73,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 if (StringUtils.isEmpty(username))
                     break allowRequest;
                 UserAccountDto userDto = userAccountService.getByUsername(username);
-                if(userDto == null)
+                if (userDto == null)
                     break allowRequest;
                 UserDetails userDetails = userAccountService.loadUserById(userDto.getId());
                 if (StringUtils.isEmpty(userDetails))
@@ -82,18 +90,26 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                             userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
-                    request.setAttribute(SecurityUtil.USER_NAME_KEY, username);
+                    requestWrapper.addHeader(SecurityUtil.USER_NAME_KEY, username);
+                    requestWrapper.addHeader(SecurityUtil.USER_NAME_ID_KEY, userDto.getId().toString());
+
+                    // request.setAttribute(SecurityUtil.USER_NAME_KEY, username);
+                    // request.setAttribute(SecurityUtil.USER_NAME_ID_KEY, userDto.getId());
                 } else if (userDto.getAuthTokenEntity().getKey().equals(token)) {
                     LOGGER.info("### AUTH: Authentication request with UserCommon Token Username: {} ###", username);
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                             userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
-                    request.setAttribute(SecurityUtil.USER_NAME_KEY, username);
+                    requestWrapper.addHeader(SecurityUtil.USER_NAME_KEY, username);
+                    requestWrapper.addHeader(SecurityUtil.USER_NAME_ID_KEY, userDto.getId().toString());
+
+                    // request.setAttribute(SecurityUtil.USER_NAME_KEY, username);
+                    // request.setAttribute(SecurityUtil.USER_NAME_ID_KEY, userDto.getId());
                 }
             }
         }
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(requestWrapper, response);
     }
 
     private boolean allowRequestWithOutToken(HttpServletRequest request) {
@@ -120,5 +136,65 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(SecurityUtil.TOKEN_TYPE))
             return bearerToken.substring(7, bearerToken.length());
         return "";
+    }
+
+    /**
+     * allow adding additional header entries to a request
+     *
+     * @author wf
+     *
+     */
+    public class HeaderMapRequestWrapper extends HttpServletRequestWrapper {
+        /**
+         * construct a wrapper for this request
+         *
+         * @param request
+         */
+        public HeaderMapRequestWrapper(HttpServletRequest request) {
+            super(request);
+        }
+
+        private Map<String, String> headerMap = new HashMap<>();
+
+        /**
+         * add a header with given name and value
+         *
+         * @param name
+         * @param value
+         */
+        public void addHeader(String name, String value) {
+            headerMap.put(name, value);
+        }
+
+        @Override
+        public String getHeader(String name) {
+            String headerValue = super.getHeader(name);
+            if (headerMap.containsKey(name)) {
+                headerValue = headerMap.get(name);
+            }
+            return headerValue;
+        }
+
+        /**
+         * get the Header names
+         */
+        @Override
+        public Enumeration<String> getHeaderNames() {
+            List<String> names = Collections.list(super.getHeaderNames());
+            for (String name : headerMap.keySet()) {
+                names.add(name);
+            }
+            return Collections.enumeration(names);
+        }
+
+        @Override
+        public Enumeration<String> getHeaders(String name) {
+            List<String> values = Collections.list(super.getHeaders(name));
+            if (headerMap.containsKey(name)) {
+                values.add(headerMap.get(name));
+            }
+            return Collections.enumeration(values);
+        }
+
     }
 }

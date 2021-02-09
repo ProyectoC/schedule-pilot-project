@@ -37,6 +37,9 @@ export class EndPointsHttpConstants {
   // Countries
   static readonly SERVICE_GET_COUNTRIES = EndPointsHttpConstants.COMPONENT_WS + '/countries';
 
+  // DashBoards
+  static readonly SERVICE_DASHBOARD_GET_STATUS_OPERATIONS = EndPointsHttpConstants.COMPONENT_WS + '/dashboard/status-operations';
+
   // Loan
   static readonly SERVICE_CREATE_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-in';
   static readonly SERVICE_GET_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';

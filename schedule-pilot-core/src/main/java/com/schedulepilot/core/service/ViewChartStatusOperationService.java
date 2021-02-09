@@ -8,5 +8,5 @@ import java.util.List;
 @Service
 public interface ViewChartStatusOperationService {
 
-    List<ViewChartStatusOperation> getAll();
+    ViewChartStatusOperation getByUserAccountId(Long userAccountId);
 }

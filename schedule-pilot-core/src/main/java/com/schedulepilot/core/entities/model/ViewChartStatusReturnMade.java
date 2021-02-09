@@ -19,6 +19,9 @@ import javax.persistence.Table;
 public class ViewChartStatusReturnMade {
 
     @Id
+    @Column(name = "id")
+    private Long id;
+
     @Column(name = "user_account_id_fk")
     private Long userAccountId;
 

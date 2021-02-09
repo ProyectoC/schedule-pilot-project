@@ -26,4 +26,19 @@ public class DashboardController {
         return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardStatusOperation(userAccountId)), HttpStatus.OK);
     }
 
+    @GetMapping(DashboardConstants.STATUS_LOAN_MADE_REST)
+    public ResponseEntity<ResponseDto<GeneralChart>> getStatusLoanMade(@RequestHeader(SecurityUtil.USER_NAME_ID_KEY) Long userAccountId) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardStatusLoanMade(userAccountId)), HttpStatus.OK);
+    }
+
+    @GetMapping(DashboardConstants.STATUS_RETURN_MADE_REST)
+    public ResponseEntity<ResponseDto<GeneralChart>> getStatusReturnMade(@RequestHeader(SecurityUtil.USER_NAME_ID_KEY) Long userAccountId) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardStatusReturnMade(userAccountId)), HttpStatus.OK);
+    }
+
+    @GetMapping(DashboardConstants.PRINCIPAL_REST)
+    public ResponseEntity<ResponseDto<GeneralChart>> getPrincipal(@RequestHeader(SecurityUtil.USER_NAME_ID_KEY) Long userAccountId) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardPrincipal(userAccountId)), HttpStatus.OK);
+    }
+
 }

@@ -11,23 +11,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "v_chart_status_loans_made")
+@Table(name = "v_chart_dashboard_requests")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ViewChartStatusLoanMade {
+public class ViewChartDashboardRequests {
 
     @Id
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "date")
+    private String date;
 
-    @Column(name = "user_account_id_fk")
-    private Long userAccountId;
+    @Column(name = "requests")
+    private Long requests;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "loans")
-    private Long loans;
 }

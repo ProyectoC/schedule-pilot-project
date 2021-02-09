@@ -59,4 +59,118 @@ export class DashboardService {
         })
       );
   }
+
+  public getDashboardStatusLoanMade(): Observable<GeneralChart> {
+    return this.httpClient.get<Response<GeneralChart>>(
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_DASHBOARD_GET_STATUS_LOAN_MADE}`, { params: {} }
+    )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse.result;
+          } else {
+            this.dashboardMessageService.generateDefaultError(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse.result;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.dashboardMessageService.generateDefaultError(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.dashboardMessageService.generateDefaultError(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.dashboardMessageService.generateDefaultError(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
+
+  public getDashboardStatusReturnMade(): Observable<GeneralChart> {
+    return this.httpClient.get<Response<GeneralChart>>(
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_DASHBOARD_GET_STATUS_RETURN_MADE}`, { params: {} }
+    )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse.result;
+          } else {
+            this.dashboardMessageService.generateDefaultError(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse.result;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.dashboardMessageService.generateDefaultError(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.dashboardMessageService.generateDefaultError(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.dashboardMessageService.generateDefaultError(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
+
+  public getDashboardPrincipal(): Observable<GeneralChart> {
+    return this.httpClient.get<Response<GeneralChart>>(
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_DASHBOARD_GET_PRINCIPAL}`, { params: {} }
+    )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse.result;
+          } else {
+            this.dashboardMessageService.generateDefaultError(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse.result;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.dashboardMessageService.generateDefaultError(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.dashboardMessageService.generateDefaultError(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.dashboardMessageService.generateDefaultError(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
 }

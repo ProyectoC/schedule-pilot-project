@@ -25,7 +25,9 @@ public class EmailConstants {
     public static final String EMAIL_SEND_PRODUCT_NOT_FOUND = "email-product-not-found.html";
     public static final String EMAIL_SEND_PRODUCT_NOT_ENABLE = "email-product-not-enable.html";
     public static final String EMAIL_SEND_GENERATED_TICKET_CHECK_IN = "email-generated-ticket-check-in.html";
+    public static final String EMAIL_SEND_EXPIRED_TICKET_CHECK_IN = "email-expired-ticket-check-in.html";
     public static final String EMAIL_SEND_GENERATED_TICKET_CHECK_OUT = "email-generated-ticket-check-out.html";
+    public static final String EMAIL_SEND_EXPIRED_TICKET_CHECK_OUT = "email-expired-ticket-check-out.html";
     public static final String EMAIL_SEND_GENERATED_TICKET_CHECK_LOG = "email-generated-ticket-check-log.html";
 
     // Parameters Templates
@@ -44,6 +46,7 @@ public class EmailConstants {
     public static final String PARAMETER_TEMPLATE_SERIAL_NAME = "[SERIAL_ITEM]";
     public static final String PARAMETER_TEMPLATE_DELIVERY_DATE = "[DELIVERY_DATE]";
     public static final String PARAMETER_TEMPLATE_RETURN_DATE = "[RETURN_DATE]";
+    public static final String PARAMETER_TEMPLATE_PENALTY_PRICE = "[PENALTY_PRICE]";
 
     // Parameters DataBase
     public static final String PARAMETER_URL_APP = "url.app.web";
@@ -76,6 +79,7 @@ public class EmailConstants {
     public static final String SUBJECT_DEFAULT_SEND_PRODUCT_NOT_ENABLE = "SchedulePilot - Habilitación del recurso";
     public static final String SUBJECT_DEFAULT_SEND_PRODUCT_NOT_FOUND = "SchedulePilot - Disponibilidad del recurso";
     public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_IN = "SchedulePilot - TicketCheckIn del recurso";
+    public static final String SUBJECT_DEFAULT_SEND_EXPIRED_TICKET_CHECK_IN = "SchedulePilot - TicketCheckIn del recurso EXPIRO!";
     public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_OUT = "SchedulePilot - TicketCheckOut del recurso";
     public static final String SUBJECT_DEFAULT_SEND_GENERATED_TICKET_CHECK_LOG = "SchedulePilot - TicketCheckLog del recurso";
     public static final String SUBJECT_DEFAULT_SEND_ACTIVATE_USER_ACCOUNT = "Account verified successfully.";

@@ -84,8 +84,6 @@ public class GenerateTicketCheckOutTask {
         }
 
         if (dateDelivery.isBefore(LocalDateTime.now())) {
-            ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.EXPIRED_STATUS));
-            this.ticketCheckInService.save(ticketCheckInEntity);
             throw new LoanProcessException(ExceptionCode.ERROR_LOAN_PROCESS_TICKET_CHECK_IN_HAS_EXPIRED, "TicketCheckIn TrackID: " +
                     ticketCheckInEntity.getTrackId() + " has expired on: " + ticketCheckInEntity.getDeliveryDate());
         }

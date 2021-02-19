@@ -35,7 +35,11 @@ public interface NotificationLayerService {
 
     void sendNotificationGeneratedTicketCheckIn(UserAccountEntity userAccountEntity, TicketCheckInEntity ticketCheckInEntity, RequestCheckInEntity requestCheckInEntity);
 
+    void sendNotificationExpiredTicketCheckIn(TicketCheckInEntity ticketCheckInEntity);
+
     void sendNotificationGeneratedTicketCheckOut(UserAccountEntity userAccountEntity, TicketCheckOutEntity ticketCheckOutEntity, TicketCheckInEntity ticketCheckInEntity);
+
+    void sendNotificationExpiredTicketCheckOut(TicketCheckOutEntity ticketCheckOutEntity, PenaltyCheckOut penaltyCheckOut);
 
     void sendNotificationGeneratedTicketCheckLog(UserAccountEntity userAccountEntity, TicketCheckLogEntity ticketCheckLogEntity, TicketCheckOutEntity ticketCheckOutEntity);
 

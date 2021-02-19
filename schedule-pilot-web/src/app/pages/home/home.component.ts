@@ -3,6 +3,7 @@ import * as Chart from 'chart.js';
 import { DashboardService } from '@services/dashboard/dashboard.service';
 import { GeneralChart } from '@models/dashboard/general-chart';
 import { CommonUtils } from '@utils/common-utils';
+import { AuthenticationService } from '@services/authentication/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public dashboardStatusReturnMade: GeneralChart;
   public dashboardPrincipal: GeneralChart;
 
-  constructor(public dashboardService: DashboardService) { }
+  constructor(public dashboardService: DashboardService, public authenticationService: AuthenticationService) { }
 
   public ngOnInit(): void { }
 

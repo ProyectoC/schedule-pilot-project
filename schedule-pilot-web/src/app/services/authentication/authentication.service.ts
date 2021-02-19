@@ -124,8 +124,8 @@ export class AuthenticationService {
 
   public changePasswordUser(changePasswordRequest: ChangePasswordRequest): Observable<Response<any>> {
     return this.httpClient.post<Response<any>>(
-        `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_CHANGE_PASSWORD}`, changePasswordRequest
-      )
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_CHANGE_PASSWORD}`, changePasswordRequest
+    )
       .pipe(
         map((bodyResponse) => {
           if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {

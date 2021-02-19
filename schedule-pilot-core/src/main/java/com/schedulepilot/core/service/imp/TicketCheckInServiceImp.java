@@ -1,20 +1,22 @@
 package com.schedulepilot.core.service.imp;
 
+import com.schedulepilot.core.constants.LoanProcessConstants;
 import com.schedulepilot.core.dto.PageResponseDto;
-import com.schedulepilot.core.entities.model.RolAccountEntity;
-import com.schedulepilot.core.entities.model.TicketCheckInEntity;
-import com.schedulepilot.core.entities.model.TicketCheckInEntity_;
-import com.schedulepilot.core.entities.model.UserAccountEntity;
+import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.repository.AccountUserRepository;
 import com.schedulepilot.core.repository.TicketCheckInRepository;
 import com.schedulepilot.core.response.TicketCheckInResponse;
+import com.schedulepilot.core.service.GlobalListDynamicService;
+import com.schedulepilot.core.service.ItemService;
+import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.TicketCheckInService;
 import com.schedulepilot.core.tasks.PaginationAndOrderTask;
 import com.schedulepilot.core.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -33,6 +35,15 @@ public class TicketCheckInServiceImp implements TicketCheckInService {
 
     @Autowired
     private ApplicationContext applicationContext;
+
+    @Autowired
+    private ItemService itemService;
+
+    @Autowired
+    private GlobalListDynamicService globalListDynamicService;
+
+    @Autowired
+    private NotificationLayerService notificationLayerService;
 
     @Override
     public TicketCheckInEntity save(TicketCheckInEntity ticketCheckInEntity) {
@@ -85,5 +96,23 @@ public class TicketCheckInServiceImp implements TicketCheckInService {
             pageResponse.build(list);
         }
         return pageResponse;
+    }
+
+    @Override
+    public List<TicketCheckInEntity> getAllExpiredTicketCheckIn() {
+        LocalDateTime localDateTime = LocalDateTime.now().plusMinutes(-15);
+        return this.ticketCheckInRepository.findAllExpiredTicketCheckIn("GENERADO", localDateTime);
+    }
+
+    @Override
+    @Async
+    public void processExpiredTicketCheckIn(TicketCheckInEntity ticketCheckInEntity) throws SchedulePilotException {
+        ItemEntity item = ticketCheckInEntity.getItemEntity();
+        this.itemService.setEnable(item);
+
+        ticketCheckInEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.EXPIRED_STATUS));
+        this.save(ticketCheckInEntity);
+
+        this.notificationLayerService.sendNotificationExpiredTicketCheckIn(ticketCheckInEntity);
     }
 }

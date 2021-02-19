@@ -207,5 +207,8 @@
       }
     }
   },
-  "defaultProject": "schedule-pilot-web"
+  "defaultProject": "schedule-pilot-web",
+  "cli": {
+    "analytics": "64f7b496-e381-4666-903e-37d98e64102a"
+  }
 }

@@ -1,5 +1,6 @@
 package com.schedulepilot.core.repository;
 
+import com.schedulepilot.core.entities.model.TicketCheckInEntity;
 import com.schedulepilot.core.entities.model.TicketCheckOutEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,13 @@ public interface TicketCheckOutRepository extends JpaRepository<TicketCheckOutEn
     Long getTicketCheckOutSequence();
 
     Optional<TicketCheckOutEntity> findByTrackId(String trackId);
+
+    @Query(value = "SELECT tco FROM TicketCheckOutEntity tco " +
+            "INNER JOIN tco.ticketCheckStatusEntity tcse " +
+            "INNER JOIN tco.ticketCheckInEntity tci " +
+            "WHERE tcse.name = :status " +
+            "AND tci.returnDate <= :returnDate ")
+    List<TicketCheckOutEntity> findAllExpiredTicketCheckOut(String status, LocalDateTime returnDate);
 
     @Query(value = "SELECT tco FROM TicketCheckOutEntity tco " +
             "INNER JOIN tco.ticketCheckInEntity tci " +

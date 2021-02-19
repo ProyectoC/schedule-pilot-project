@@ -1,20 +1,22 @@
 package com.schedulepilot.core.service.imp;
 
+import com.schedulepilot.core.constants.LoanProcessConstants;
 import com.schedulepilot.core.dto.PageResponseDto;
-import com.schedulepilot.core.entities.model.RolAccountEntity;
-import com.schedulepilot.core.entities.model.TicketCheckOutEntity;
-import com.schedulepilot.core.entities.model.TicketCheckOutEntity_;
-import com.schedulepilot.core.entities.model.UserAccountEntity;
+import com.schedulepilot.core.entities.model.*;
 import com.schedulepilot.core.exception.SchedulePilotException;
 import com.schedulepilot.core.repository.AccountUserRepository;
 import com.schedulepilot.core.repository.TicketCheckOutRepository;
 import com.schedulepilot.core.response.TicketCheckOutResponse;
+import com.schedulepilot.core.service.GlobalListDynamicService;
+import com.schedulepilot.core.service.NotificationLayerService;
 import com.schedulepilot.core.service.TicketCheckOutService;
+import com.schedulepilot.core.service.manage.ManagePenaltyService;
 import com.schedulepilot.core.tasks.PaginationAndOrderTask;
 import com.schedulepilot.core.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -32,7 +34,16 @@ public class TicketCheckOutServiceImp implements TicketCheckOutService {
     private AccountUserRepository accountUserRepository;
 
     @Autowired
+    private ManagePenaltyService managePenaltyService;
+
+    @Autowired
     private ApplicationContext applicationContext;
+
+    @Autowired
+    private GlobalListDynamicService globalListDynamicService;
+
+    @Autowired
+    private NotificationLayerService notificationLayerService;
 
     @Override
     public TicketCheckOutEntity save(TicketCheckOutEntity ticketCheckOutEntity) {
@@ -84,5 +95,20 @@ public class TicketCheckOutServiceImp implements TicketCheckOutService {
             pageResponse.build(list);
         }
         return pageResponse;
+    }
+
+    @Override
+    public List<TicketCheckOutEntity> getAllExpiredTicketCheckOut() {
+        LocalDateTime now = LocalDateTime.now().plusMinutes(-15);
+        return this.ticketCheckOutRepository.findAllExpiredTicketCheckOut("GENERADO", now);
+    }
+
+    @Async
+    @Override
+    public void processExpiredTicketCheckOut(TicketCheckOutEntity ticketCheckOutEntity) throws SchedulePilotException {
+        ticketCheckOutEntity.setTicketCheckStatusEntity(this.globalListDynamicService.getTicketCheckStatusOrException(LoanProcessConstants.EXPIRED_STATUS));
+        this.save(ticketCheckOutEntity);
+        PenaltyCheckOut penaltyCheckOut = this.managePenaltyService.generatePenaltyCheckOut(ticketCheckOutEntity);
+        this.notificationLayerService.sendNotificationExpiredTicketCheckOut(ticketCheckOutEntity, penaltyCheckOut);
     }
 }

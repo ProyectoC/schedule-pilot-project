@@ -23,6 +23,12 @@ public interface TicketCheckInRepository extends JpaRepository<TicketCheckInEnti
     Optional<TicketCheckInEntity> findByTrackId(String trackId);
 
     @Query(value = "SELECT tci FROM TicketCheckInEntity tci " +
+    "INNER JOIN tci.ticketCheckStatusEntity tcse " +
+    "WHERE tcse.name = :status " +
+    "AND tci.deliveryDate <= :deliveryDate ")
+    List<TicketCheckInEntity> findAllExpiredTicketCheckIn(String status, LocalDateTime deliveryDate);
+
+    @Query(value = "SELECT tci FROM TicketCheckInEntity tci " +
             "INNER JOIN tci.requestCheckInEntity rci " +
             "INNER JOIN tci.itemEntity ie " +
             "WHERE (:userAccountId IS NULL OR tci.requestCheckInEntity.userAccountEntity.id = :userAccountId) " +

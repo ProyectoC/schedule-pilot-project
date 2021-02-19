@@ -34,19 +34,6 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
     @Autowired
     private NotificationSenderService notificationSenderService;
 
-//    @Autowired
-//    private UserNotificationService userNotificationService;
-
-//    @Autowired
-//    private UserService userService;
-
-//    @Autowired
-//    private QueryService queryService;
-
-//    @Autowired
-//    private GlobalListDinamic<StatusDto> globalStatusList;
-
-
     @Async
     @Override
     public void sendNotificationCreateUserAccount(UserAccountDto userNew) {
@@ -248,6 +235,34 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
 
     @Async
     @Override
+    public void sendNotificationExpiredTicketCheckIn(TicketCheckInEntity ticketCheckInEntity) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_EXPIRED_TICKET_CHECK_IN);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, ticketCheckInEntity.getRequestCheckInEntity().getUserAccountEntity().getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID, ticketCheckInEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PRODUCT_NAME, ticketCheckInEntity.getItemEntity().getName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_SERIAL_NAME, ticketCheckInEntity.getItemEntity().getSerial1());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_DELIVERY_DATE, ticketCheckInEntity.getDeliveryDate().toString());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_RETURN_DATE, ticketCheckInEntity.getReturnDate().toString());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(ticketCheckInEntity.getRequestCheckInEntity().getUserAccountEntity().getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_EXPIRED_TICKET_CHECK_IN);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification EXPIRED TICKET_CHECK_IN. Error: {}", ex.getMessage());
+        }
+    }
+
+    @Async
+    @Override
     public void sendNotificationGeneratedTicketCheckOut(UserAccountEntity userAccountEntity, TicketCheckOutEntity ticketCheckOutEntity, TicketCheckInEntity ticketCheckInEntity) {
         // Get Template
         Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_GENERATED_TICKET_CHECK_OUT);
@@ -272,6 +287,35 @@ public class NotificationLayerServiceImp implements NotificationLayerService {
             this.notificationSenderService.sendValidationNotification(notificationDto);
         } catch (SchedulePilotException ex) {
             LOGGER.error("Could not send notification TICKET_CHECK_OUT. Error: {}", ex.getMessage());
+        }
+    }
+
+    @Override
+    @Async
+    public void sendNotificationExpiredTicketCheckOut(TicketCheckOutEntity ticketCheckOutEntity, PenaltyCheckOut penaltyCheckOut) {
+        // Get Template
+        Path filePath = Paths.get(this.notificationConfig.getCommon().getPathFiles(), EmailConstants.EMAIL_SEND_EXPIRED_TICKET_CHECK_OUT);
+        String templateClient = filePath.toString();
+
+        // Build Parameters
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_USER_NAME, ticketCheckOutEntity.getTicketCheckInEntity().getRequestCheckInEntity().getUserAccountEntity().getFirstName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_TRACK_ID, ticketCheckOutEntity.getTrackId());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PRODUCT_NAME, ticketCheckOutEntity.getTicketCheckInEntity().getItemEntity().getName());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_SERIAL_NAME, ticketCheckOutEntity.getTicketCheckInEntity().getItemEntity().getSerial1());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_DELIVERY_DATE, ticketCheckOutEntity.getTicketCheckInEntity().getDeliveryDate().toString());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_RETURN_DATE, ticketCheckOutEntity.getTicketCheckInEntity().getReturnDate().toString());
+        parameters.put(EmailConstants.PARAMETER_TEMPLATE_PENALTY_PRICE, penaltyCheckOut.getPricePenalty().toString());
+
+        // Build Notification
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setEmails(Collections.singletonList(ticketCheckOutEntity.getTicketCheckInEntity().getRequestCheckInEntity().getUserAccountEntity().getEmail()));
+        notificationDto.setSubject(EmailConstants.SUBJECT_DEFAULT_SEND_EXPIRED_TICKET_CHECK_IN);
+        try {
+            notificationDto.setContent(NotificationLayerService.matchParametersToFileTemplate(templateClient, parameters));
+            this.notificationSenderService.sendValidationNotification(notificationDto);
+        } catch (SchedulePilotException ex) {
+            LOGGER.error("Could not send notification EXPIRED TICKET_CHECK_OUT. Error: {}", ex.getMessage());
         }
     }
 

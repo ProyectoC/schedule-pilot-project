@@ -38,9 +38,11 @@ public class ManageDashboardServiceImp implements ManageDashboardService {
         chart.addLabel("Prestamos");
         chart.addLabel("Devoluciones");
         ItemGeneralChart itemRequest = new ItemGeneralChart("Cantidad");
-        itemRequest.addItem(BigDecimal.valueOf(statusOperation.getRequests()));
-        itemRequest.addItem(BigDecimal.valueOf(statusOperation.getTickets()));
-        itemRequest.addItem(BigDecimal.valueOf(statusOperation.getRefunds()));
+        if (statusOperation != null) {
+            itemRequest.addItem(BigDecimal.valueOf(statusOperation.getRequests()));
+            itemRequest.addItem(BigDecimal.valueOf(statusOperation.getTickets()));
+            itemRequest.addItem(BigDecimal.valueOf(statusOperation.getRefunds()));
+        }
         chart.addItemGeneral(itemRequest);
 
         return chart;

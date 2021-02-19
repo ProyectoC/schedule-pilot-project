@@ -9,6 +9,7 @@ import com.schedulepilot.core.response.TicketCheckInResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -29,4 +30,8 @@ public interface TicketCheckInService {
     TicketCheckInEntity getByTrackIdentification(String trackIdLong) throws SchedulePilotException;
 
     PageResponseDto<TicketCheckInResponse> getAllTicketCheckIn(Map<String, String> parameters, Long userAccountId) throws SchedulePilotException;
+
+    List<TicketCheckInEntity> getAllExpiredTicketCheckIn();
+
+    void processExpiredTicketCheckIn(TicketCheckInEntity ticketCheckInEntity) throws SchedulePilotException;
 }

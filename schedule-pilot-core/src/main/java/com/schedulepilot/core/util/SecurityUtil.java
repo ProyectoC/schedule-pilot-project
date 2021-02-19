@@ -22,6 +22,7 @@ public class SecurityUtil {
 
     // Default keys
     public static final String USER_NAME_KEY = "username";
+    public static final String USER_NAME_ID_KEY = "user_id";
     public static final String COMPANY_NAME_KEY = "company";
 
     // Times tokens

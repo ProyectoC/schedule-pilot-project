@@ -1,12 +1,16 @@
 package com.schedulepilot.core.service.manage;
 
-import com.schedulepilot.core.entities.model.ViewChartStatusOperation;
+import com.schedulepilot.core.response.dashboards.GeneralChart;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public interface ManageDashboardService {
 
-    List<ViewChartStatusOperation> getAllStatusOperation();
+    GeneralChart getDashboardStatusOperation(Long userAccountId);
+
+    GeneralChart getDashboardStatusLoanMade(Long userAccountId);
+
+    GeneralChart getDashboardStatusReturnMade(Long userAccountId);
+
+    GeneralChart getDashboardPrincipal(Long userAccountId);
 }

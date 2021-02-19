@@ -1,1 +1,120 @@
-<p>home works!</p>
+<div class="container-fluid">
+    <div class="row" style="padding-top: 0px;">
+        <div class="col-xl-4">
+            <div class="card spur-card">
+                <div class="card-header">
+                    <div class="spur-card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="spur-card-title"> Estado Operaciones </div>
+                    <div class="spur-card-menu">
+                        <div class="dropdown show">
+                            <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-sync"></i>
+                                    Refrescar</a>
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-download"></i>
+                                    Exportar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body spur-card-body-chart">
+                    <canvas id="chart-status-operations" height="50" width="50"></canvas>
+                    <div class="center" *ngIf="dashboardStatusOperations === null">
+                        <i class="fas fa-chart-line" style="font-size:100px;color:#d9e5ee;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card spur-card">
+                <div class="card-header">
+                    <div class="spur-card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="spur-card-title"> Estado Prestamos </div>
+                    <div class="spur-card-menu">
+                        <div class="dropdown show">
+                            <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-sync"></i>
+                                    Refrescar</a>
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-download"></i>
+                                    Exportar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body spur-card-body-chart">
+                    <canvas id="chart-status-loan-made" height="50" width="50"></canvas>
+                    <div class="center" *ngIf="dashboardStatusLoanMade === null">
+                        <i class="fas fa-chart-line" style="font-size:100px;color:#d9e5ee;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card spur-card">
+                <div class="card-header">
+                    <div class="spur-card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="spur-card-title"> Estado Devoluciones </div>
+                    <div class="spur-card-menu">
+                        <div class="dropdown show">
+                            <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-sync"></i>
+                                    Refrescar</a>
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-download"></i>
+                                    Exportar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body spur-card-body-chart">
+                    <canvas id="chart-status-return-made" height="50" width="50"></canvas>
+                    <div class="center" *ngIf="dashboardStatusReturnMade === null">
+                        <i class="fas fa-chart-line" style="font-size:100px;color:#d9e5ee;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-12">
+            <div class="card spur-card">
+                <div class="card-header">
+                    <div class="spur-card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="spur-card-title"> Estado de Actividad </div>
+                    <div class="spur-card-menu">
+                        <div class="dropdown show">
+                            <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-sync"></i>
+                                    Refrescar</a>
+                                <a class="dropdown-item" style="cursor: pointer;"><i class="fas fa-download"></i>
+                                    Exportar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body spur-card-body-chart">
+                    <canvas id="chart-principal" height="50" width="50"></canvas>
+                    <div class="center" *ngIf="dashboardPrincipal === null">
+                        <i class="fas fa-chart-line" style="font-size:100px;color:#d9e5ee;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

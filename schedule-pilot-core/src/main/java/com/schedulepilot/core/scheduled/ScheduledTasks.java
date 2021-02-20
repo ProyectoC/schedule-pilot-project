@@ -48,7 +48,6 @@ public class ScheduledTasks {
         LOGGER.info("SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: {}", LocalDateTime.now());
     }
 
-
     @Scheduled(fixedDelay = 5 * 60000, initialDelay = 5000)
     public void scheduleManageExpiredTicketCheckInProducts() {
         LOGGER.info("SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: {}", LocalDateTime.now());

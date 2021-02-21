@@ -34,12 +34,11 @@ export class RoutingConstants {
   static readonly ROUTING_URL_USERS: string = 'users';
   static readonly URL_USERS: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_USERS;
 
+  static readonly ROUTING_URL_REPORTS: string = 'reports';
+  static readonly URL_REPORTS: string = RoutingConstants.URL_PRIVATE_LAYOUT + '/' + RoutingConstants.ROUTING_URL_REPORTS;
+
   static URL_MENU_HOME = '/home-carousel';
   static ROUTING_URL_MENU_HOME: string = 'home-carousel';
-
-  
-
-  s
 
   static URL_UPDATE_USER = '/update-user';
   static ROUTING_URL_UPDATE_USER: string = 'update-user';

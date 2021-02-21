@@ -43,6 +43,11 @@ import { ReturnTicketCheckOutSearchComponent } from '../../pages/returns/return-
 // USERS
 import { UserContainerComponent } from '../../pages/users/user-container/user-container.component';
 
+// REPORTS
+import { ReportFilterComponent } from 'app/pages/reports/report-filter/report-filter.component';
+import { ReportContainerComponent } from 'app/pages/reports/report-container/report-container.component';
+import { ReportChartsComponent } from 'app/pages/reports/report-charts/report-charts.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -78,6 +83,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     LoansContainerComponent, LoanProcessComponent, LoanProductsComponent, LoanProductModalComponent, LoanProductsSummaryComponent,
     LoanRequestCheckInContainerComponent, LoanTicketCheckInContainerComponent, LoanRequestCheckInSearchComponent,
     ReturnsContainerComponent, ReturnTicketCheckOutContainerComponent, LoanTicketCheckInSearchComponent, ReturnTicketCheckOutSearchComponent,
-    UserContainerComponent],
+    UserContainerComponent, ReportFilterComponent, ReportContainerComponent, ReportChartsComponent],
 })
 export class PrivateLayoutModule { }

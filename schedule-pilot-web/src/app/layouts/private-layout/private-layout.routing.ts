@@ -7,6 +7,7 @@ import { ItemsContainerComponent } from 'app/pages/items/items-container/items-c
 import { LoansContainerComponent } from 'app/pages/loans/loans-container/loans-container.component';
 import { ReturnsContainerComponent } from 'app/pages/returns/returns-container/returns-container.component';
 import { UserContainerComponent } from 'app/pages/users/user-container/user-container.component';
+import { ReportContainerComponent } from 'app/pages/reports/report-container/report-container.component';
 
 const routers: Routes = [
   {
@@ -43,6 +44,11 @@ const routers: Routes = [
     path: RoutingConstants.ROUTING_URL_USERS,
     component: UserContainerComponent,
     data: { title: 'Users | SchedulePilot' },
+  },
+  {
+    path: RoutingConstants.ROUTING_URL_REPORTS,
+    component: ReportContainerComponent,
+    data: { title: 'Reports | SchedulePilot' },
   },
 ];
 

@@ -170,4 +170,14 @@ public class UserAccountServiceImp implements UserAccountService {
         validator.setValid(true);
         return validator;
     }
+
+    @Override
+    public boolean isAdminUser(Long userAccountId) {
+        return this.accountUserRepository.isAdminUser(userAccountId);
+    }
+
+    @Override
+    public boolean isCommonUser(Long userAccountId) {
+        return this.accountUserRepository.isCommonUser(userAccountId);
+    }
 }

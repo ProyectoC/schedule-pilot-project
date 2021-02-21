@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { EndPointsHttpConstants } from '@constants/end-points-http-constants';
 import { catchError, map } from 'rxjs/operators';
 import { CommonConstants } from '@constants/common-constants';
 import { ErrorResponse } from '@models/error-response';
+import { RequestReport } from '@models/reports/request-report';
 
 @Injectable({
   providedIn: 'root'
@@ -173,4 +174,153 @@ export class DashboardService {
         })
       );
   }
+
+  // Reports
+  public getDashboardLoanProducts(requestReport: RequestReport): Observable<GeneralChart> {
+
+    let parameters = new HttpParams();
+
+    if(requestReport.startDate != null && requestReport.startDate.trim() != "") {
+      parameters = parameters.append('date_start', requestReport.startDate);
+    }
+    if(requestReport.endDate != null && requestReport.endDate.trim() != "") {
+      parameters = parameters.append('date_end', requestReport.endDate);
+    }
+
+    return this.httpClient.get<Response<GeneralChart>>(
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_DASHBOARD_GET_LOAN_PRODUCTS}`, { params: parameters }
+    )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse.result;
+          } else {
+            this.dashboardMessageService.generateDefaultError(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse.result;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.dashboardMessageService.generateDefaultError(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.dashboardMessageService.generateDefaultError(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.dashboardMessageService.generateDefaultError(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
+
+
+  public getDashboardRequestVsLoans(requestReport: RequestReport): Observable<GeneralChart> {
+
+    let parameters = new HttpParams();
+
+    if(requestReport.startDate != null && requestReport.startDate.trim() != "") {
+      parameters = parameters.append('date_start', requestReport.startDate);
+    }
+    if(requestReport.endDate != null && requestReport.endDate.trim() != "") {
+      parameters = parameters.append('date_end', requestReport.endDate);
+    }
+
+    return this.httpClient.get<Response<GeneralChart>>(
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_DASHBOARD_GET_REQUEST_VS_LOANS}`, { params: parameters }
+    )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse.result;
+          } else {
+            this.dashboardMessageService.generateDefaultError(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse.result;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.dashboardMessageService.generateDefaultError(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.dashboardMessageService.generateDefaultError(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.dashboardMessageService.generateDefaultError(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
+
+  public getDashboardPenaltySummary(requestReport: RequestReport): Observable<GeneralChart> {
+
+    let parameters = new HttpParams();
+
+    if(requestReport.startDate != null && requestReport.startDate.trim() != "") {
+      parameters = parameters.append('date_start', requestReport.startDate);
+    }
+    if(requestReport.endDate != null && requestReport.endDate.trim() != "") {
+      parameters = parameters.append('date_end', requestReport.endDate);
+    }
+
+    return this.httpClient.get<Response<GeneralChart>>(
+      `${this.apiScheduleEndPoint}${EndPointsHttpConstants.SERVICE_DASHBOARD_GET_PENALTY_SUMMARY}`, { params: parameters }
+    )
+      .pipe(
+        map((bodyResponse) => {
+          if (bodyResponse.code === CommonConstants.SUCCESS_CODE) {
+            return bodyResponse.result;
+          } else {
+            this.dashboardMessageService.generateDefaultError(
+              bodyResponse.description
+            );
+          }
+          return bodyResponse.result;
+        }),
+        catchError((err) => {
+          const httpErrorResponse: HttpErrorResponse = err;
+          switch (httpErrorResponse.status) {
+            case 0:
+              this.dashboardMessageService.generateDefaultError(null);
+              break;
+            case 401:
+              const errorResponse: ErrorResponse = err.error;
+              this.dashboardMessageService.generateDefaultError(
+                errorResponse.result.message
+              );
+              break;
+            default:
+              this.dashboardMessageService.generateDefaultError(
+                err.message
+              );
+              break;
+          }
+          throw Error(err);
+        })
+      );
+  }
+
+
+
 }

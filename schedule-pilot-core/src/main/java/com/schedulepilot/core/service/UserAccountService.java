@@ -61,4 +61,8 @@ public interface UserAccountService extends UserDetailsService {
     UserAccountDto update(UserAccountDto userAccountDto);
 
     Validator validationBeforeSave(UserAccountDto userAccountDto);
+
+    boolean isAdminUser(Long userAccountId);
+
+    boolean isCommonUser(Long userAccountId);
 }

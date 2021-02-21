@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = DashboardConstants.REST_PATH_DEFAULT_V1)
@@ -39,6 +42,21 @@ public class DashboardController {
     @GetMapping(DashboardConstants.PRINCIPAL_REST)
     public ResponseEntity<ResponseDto<GeneralChart>> getPrincipal(@RequestHeader(SecurityUtil.USER_NAME_ID_KEY) Long userAccountId) throws SchedulePilotException {
         return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardPrincipal(userAccountId)), HttpStatus.OK);
+    }
+
+    @GetMapping(DashboardConstants.REPORT_LOAN_PRODUCTS)
+    public ResponseEntity<ResponseDto<GeneralChart>> getLoanProducts(@RequestParam Map<String, String> parameters, @RequestHeader(SecurityUtil.USER_NAME_ID_KEY) Long userAccountId) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardLoanProduct(parameters, userAccountId)), HttpStatus.OK);
+    }
+
+    @GetMapping(DashboardConstants.REPORT_REQUESTS_VS_LOANS)
+    public ResponseEntity<ResponseDto<GeneralChart>> getRequestsVsLoans(@RequestParam Map<String, String> parameters, @RequestHeader(SecurityUtil.USER_NAME_ID_KEY) Long userAccountId) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardRequestVsLoans(parameters, userAccountId)), HttpStatus.OK);
+    }
+
+    @GetMapping(DashboardConstants.REPORT_PENALTY_SUMMARY)
+    public ResponseEntity<ResponseDto<GeneralChart>> getSummaryPenalty(@RequestParam Map<String, String> parameters, @RequestHeader(SecurityUtil.USER_NAME_ID_KEY) Long userAccountId) throws SchedulePilotException {
+        return new ResponseEntity<>(ResponseDto.success(this.manageDashboardService.getDashboardPenaltySummary(parameters, userAccountId)), HttpStatus.OK);
     }
 
 }

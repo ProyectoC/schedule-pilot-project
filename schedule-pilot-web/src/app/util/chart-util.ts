@@ -11,7 +11,7 @@ export class ChartUtil {
     if (day.length < 2) day = '0' + day;
     return [year, month, day].join('-');
   }
-
+  
   static getLineChart(chartData: any): any {
     let listDataSets: Array<any> = [];
     //Get position current date

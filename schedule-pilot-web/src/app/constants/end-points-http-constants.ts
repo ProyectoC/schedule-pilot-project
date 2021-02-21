@@ -43,6 +43,15 @@ export class EndPointsHttpConstants {
   static readonly SERVICE_DASHBOARD_GET_STATUS_RETURN_MADE = EndPointsHttpConstants.COMPONENT_WS + '/dashboard/status-return-made';
   static readonly SERVICE_DASHBOARD_GET_PRINCIPAL = EndPointsHttpConstants.COMPONENT_WS + '/dashboard/principal';
 
+  static readonly SERVICE_DASHBOARD_GET_LOAN_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/dashboard/loan-products';
+  static readonly SERVICE_DASHBOARD_GET_REQUEST_VS_LOANS = EndPointsHttpConstants.COMPONENT_WS + '/dashboard/request-vs-loans';
+  static readonly SERVICE_DASHBOARD_GET_PENALTY_SUMMARY = EndPointsHttpConstants.COMPONENT_WS + '/dashboard/penalty-summary';
+
+  // Reports
+  static readonly SERVICE_REPORTS_GET_LOAN_PRODUCTS = EndPointsHttpConstants.COMPONENT_WS + '/report/loan-products';
+  static readonly SERVICE_REPORTS_GET_PENALTY_SUMMARY = EndPointsHttpConstants.COMPONENT_WS + '/report/penalty-summary';
+
+
   // Loan
   static readonly SERVICE_CREATE_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/create/request-check-in';
   static readonly SERVICE_GET_REQUEST_CHECK_IN = EndPointsHttpConstants.COMPONENT_WS + '/loan/users';

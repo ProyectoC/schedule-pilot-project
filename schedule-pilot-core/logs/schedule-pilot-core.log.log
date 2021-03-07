@@ -21564,4 +21564,197 @@ Caused by: org.hibernate.QueryException: Named parameter not bound : userAccount
  [INFO ] 2021-03-03 12:37:57.353 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-03T12:37:57.353
  [INFO ] 2021-03-03 12:38:04.790 [Thread-67] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
  [INFO ] 2021-03-03 12:38:04.799 [Thread-67] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-06 20:02:36.489 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE STARTED!
+ [INFO ] 2021-03-06 20:02:36.606 [main] RestartApplicationListener - Restart disabled due to System property 'spring.devtools.restart.enabled' being set to false
+ [INFO ] 2021-03-06 20:02:37.045 [main] SchedulePilotCoreApplication - Starting SchedulePilotCoreApplication on MacBook-Pro-de-Cristhian.local with PID 2145 (/Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core/target/classes started by cristhianeduardocastilloerazo in /Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2021-03-06 20:02:37.046 [main] SchedulePilotCoreApplication - The following profiles are active: prod
+ [INFO ] 2021-03-06 20:02:37.138 [main] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+ [INFO ] 2021-03-06 20:02:38.530 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2021-03-06 20:02:38.723 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 180ms. Found 30 repository interfaces.
+ [INFO ] 2021-03-06 20:02:39.162 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$64f73973] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.210 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6f33a14e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.247 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$7e16988] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.254 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.257 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1de0641b' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.263 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$2cb60c3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.274 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$520b2450] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.277 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.278 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:02:39.753 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+ [INFO ] 2021-03-06 20:02:39.771 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-06 20:02:39.780 [main] StandardService - Starting service [Tomcat]
+ [INFO ] 2021-03-06 20:02:39.781 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+ [INFO ] 2021-03-06 20:02:39.901 [main] [/api] - Initializing Spring embedded WebApplicationContext
+ [INFO ] 2021-03-06 20:02:39.902 [main] ContextLoader - Root WebApplicationContext: initialization completed in 2764 ms
+ [INFO ] 2021-03-06 20:02:52.438 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2021-03-06 20:02:52.530 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2021-03-06 20:02:52.533 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2021-03-06 20:02:52.716 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2021-03-06 20:02:52.909 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2021-03-06 20:02:52.929 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2021-03-06 20:02:52.938 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@14b95942
+ [INFO ] 2021-03-06 20:03:05.190 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-06 20:03:06.168 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2021-03-06 20:03:12.652 [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2021-03-06 20:03:13.074 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3437fc4f, org.springframework.security.web.context.SecurityContextPersistenceFilter@103a1ad3, org.springframework.security.web.header.HeaderWriterFilter@7d5176d6, org.springframework.web.filter.CorsFilter@42a198dd, org.springframework.security.web.authentication.logout.LogoutFilter@66450129, com.schedulepilot.core.security.JwtAuthenticationFilter@48d14ea0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b18fa79, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37c49a55, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5924ea91, org.springframework.security.web.session.SessionManagementFilter@623c9988, org.springframework.security.web.access.ExceptionTranslationFilter@70a8654, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@765e5a55]
+ [INFO ] 2021-03-06 20:03:13.090 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2021-03-06 20:03:13.092 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-06 20:03:13.973 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2021-03-06 20:03:13.979 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-06 20:03:14.017 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+ [INFO ] 2021-03-06 20:03:14.020 [main] SchedulePilotCoreApplication - Started SchedulePilotCoreApplication in 37.425 seconds (JVM running for 38.801)
+ [INFO ] 2021-03-06 20:03:14.032 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2021-03-06 20:03:14.033 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE COMPLETED!
+ [INFO ] 2021-03-06 20:03:14.397 [RMI TCP Connection(5)-127.0.0.1] [/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+ [INFO ] 2021-03-06 20:03:14.397 [RMI TCP Connection(5)-127.0.0.1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ [INFO ] 2021-03-06 20:03:14.413 [RMI TCP Connection(5)-127.0.0.1] DispatcherServlet - Completed initialization in 16 ms
+ [INFO ] 2021-03-06 20:03:14.993 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:03:14.992
+ [INFO ] 2021-03-06 20:03:15.170 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:03:15.170
+ [INFO ] 2021-03-06 20:03:18.980 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:03:18.979
+ [INFO ] 2021-03-06 20:03:18.980 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-06T20:03:18.980
+ [INFO ] 2021-03-06 20:03:19.217 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:03:19.217
+ [INFO ] 2021-03-06 20:03:19.228 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-06T20:03:19.228
+ [INFO ] 2021-03-06 20:03:53.524 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/college-careers ###
+ [INFO ] 2021-03-06 20:03:53.524 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/countries ###
+ [INFO ] 2021-03-06 20:03:53.524 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/roles ###
+ [INFO ] 2021-03-06 20:03:53.527 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:03:53.527 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:03:53.527 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:03:53.556 [http-nio-8080-exec-5] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-06 20:03:53.557 [http-nio-8080-exec-5] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-06 20:03:53.819 [http-nio-8080-exec-1] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/roles ###
+ [INFO ] 2021-03-06 20:03:53.952 [http-nio-8080-exec-5] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/countries ###
+ [INFO ] 2021-03-06 20:03:54.126 [http-nio-8080-exec-4] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/college-careers ###
+ [INFO ] 2021-03-06 20:04:15.176 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:04:15.176
+ [INFO ] 2021-03-06 20:04:15.483 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:04:15.483
+ [INFO ] 2021-03-06 20:05:15.489 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:05:15.489
+ [INFO ] 2021-03-06 20:05:15.728 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:05:15.728
+ [INFO ] 2021-03-06 20:06:15.731 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:06:15.731
+ [INFO ] 2021-03-06 20:06:16.014 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:06:16.014
+ [INFO ] 2021-03-06 20:06:51.100 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/countries ###
+ [INFO ] 2021-03-06 20:06:51.100 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/roles ###
+ [INFO ] 2021-03-06 20:06:51.101 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:06:51.101 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:06:51.101 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/college-careers ###
+ [INFO ] 2021-03-06 20:06:51.101 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:06:51.104 [http-nio-8080-exec-9] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-06 20:06:51.104 [http-nio-8080-exec-9] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-06 20:06:51.354 [http-nio-8080-exec-10] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/roles ###
+ [INFO ] 2021-03-06 20:06:51.498 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/countries ###
+ [INFO ] 2021-03-06 20:06:51.671 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/college-careers ###
+ [INFO ] 2021-03-06 20:07:16.016 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:07:16.016
+ [INFO ] 2021-03-06 20:07:16.244 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:07:16.244
+ [INFO ] 2021-03-06 20:07:35.286 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/roles ###
+ [INFO ] 2021-03-06 20:07:35.286 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/college-careers ###
+ [INFO ] 2021-03-06 20:07:35.286 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/countries ###
+ [INFO ] 2021-03-06 20:07:35.287 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:07:35.287 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:07:35.287 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-06 20:07:35.288 [http-nio-8080-exec-3] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-06 20:07:35.289 [http-nio-8080-exec-3] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-06 20:07:35.542 [http-nio-8080-exec-1] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/roles ###
+ [INFO ] 2021-03-06 20:07:35.668 [http-nio-8080-exec-3] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/countries ###
+ [INFO ] 2021-03-06 20:07:35.884 [http-nio-8080-exec-5] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/college-careers ###
+ [INFO ] 2021-03-06 20:08:16.244 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:08:16.244
+ [INFO ] 2021-03-06 20:08:16.469 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:08:16.469
+ [INFO ] 2021-03-06 20:08:19.216 [task-pool-app5] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:08:19.216
+ [INFO ] 2021-03-06 20:08:19.335 [task-pool-app5] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:08:19.335
+ [INFO ] 2021-03-06 20:09:16.472 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:09:16.472
+ [INFO ] 2021-03-06 20:09:16.827 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:09:16.827
+ [INFO ] 2021-03-06 20:09:19.229 [task-pool-app8] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-06T20:09:19.229
+ [INFO ] 2021-03-06 20:09:19.353 [task-pool-app8] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-06T20:09:19.353
+ [INFO ] 2021-03-06 20:10:16.830 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:10:16.830
+ [INFO ] 2021-03-06 20:10:17.166 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:10:17.166
+ [INFO ] 2021-03-06 20:11:17.170 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:11:17.169
+ [INFO ] 2021-03-06 20:11:17.524 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:11:17.524
+ [INFO ] 2021-03-06 20:12:17.527 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:12:17.527
+ [INFO ] 2021-03-06 20:12:17.913 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:12:17.912
+ [INFO ] 2021-03-06 20:13:17.915 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:13:17.915
+ [INFO ] 2021-03-06 20:13:18.262 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:13:18.261
+ [INFO ] 2021-03-06 20:13:19.341 [task-pool-app10] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:13:19.341
+ [INFO ] 2021-03-06 20:13:19.463 [task-pool-app10] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:13:19.463
+ [INFO ] 2021-03-06 20:14:18.265 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:14:18.265
+ [INFO ] 2021-03-06 20:14:18.610 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:14:18.610
+ [INFO ] 2021-03-06 20:15:18.612 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:15:18.612
+ [INFO ] 2021-03-06 20:15:18.948 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:15:18.947
+ [INFO ] 2021-03-06 20:15:19.360 [task-pool-app4] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-06T20:15:19.360
+ [INFO ] 2021-03-06 20:15:19.482 [task-pool-app4] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-06T20:15:19.482
+ [INFO ] 2021-03-06 20:16:18.951 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:16:18.950
+ [INFO ] 2021-03-06 20:16:19.277 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:16:19.277
+ [INFO ] 2021-03-06 20:17:19.282 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:17:19.282
+ [INFO ] 2021-03-06 20:17:19.616 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:17:19.616
+ [INFO ] 2021-03-06 20:18:19.471 [task-pool-app6] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:18:19.471
+ [INFO ] 2021-03-06 20:18:19.622 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:18:19.622
+ [INFO ] 2021-03-06 20:18:19.699 [task-pool-app6] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:18:19.699
+ [INFO ] 2021-03-06 20:18:19.865 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:18:19.865
+ [INFO ] 2021-03-06 20:19:19.871 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:19:19.870
+ [INFO ] 2021-03-06 20:19:20.181 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:19:20.181
+ [INFO ] 2021-03-06 20:20:20.182 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:20:20.182
+ [INFO ] 2021-03-06 20:20:20.421 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:20:20.421
+ [INFO ] 2021-03-06 20:20:36.009 [Thread-77] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-06 20:20:36.023 [Thread-77] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-06 20:21:17.975 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE STARTED!
+ [INFO ] 2021-03-06 20:21:18.085 [main] RestartApplicationListener - Restart disabled due to System property 'spring.devtools.restart.enabled' being set to false
+ [INFO ] 2021-03-06 20:21:18.479 [main] SchedulePilotCoreApplication - Starting SchedulePilotCoreApplication on MacBook-Pro-de-Cristhian.local with PID 2273 (/Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core/target/classes started by cristhianeduardocastilloerazo in /Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2021-03-06 20:21:18.480 [main] SchedulePilotCoreApplication - The following profiles are active: prod
+ [INFO ] 2021-03-06 20:21:18.539 [main] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+ [INFO ] 2021-03-06 20:21:19.604 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2021-03-06 20:21:19.764 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 154ms. Found 30 repository interfaces.
+ [INFO ] 2021-03-06 20:21:20.097 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$3d2a26a8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.137 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$47668e83] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.166 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$e01456bd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.172 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.174 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@202ae86f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.175 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4e8f96f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.184 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$2a3e1185] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.187 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.189 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-06 20:21:20.521 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+ [INFO ] 2021-03-06 20:21:20.532 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-06 20:21:20.540 [main] StandardService - Starting service [Tomcat]
+ [INFO ] 2021-03-06 20:21:20.541 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+ [INFO ] 2021-03-06 20:21:20.629 [main] [/api] - Initializing Spring embedded WebApplicationContext
+ [INFO ] 2021-03-06 20:21:20.629 [main] ContextLoader - Root WebApplicationContext: initialization completed in 2089 ms
+ [INFO ] 2021-03-06 20:21:32.207 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2021-03-06 20:21:32.254 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2021-03-06 20:21:32.256 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2021-03-06 20:21:32.343 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2021-03-06 20:21:32.487 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2021-03-06 20:21:32.503 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2021-03-06 20:21:32.508 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7185e611
+ [INFO ] 2021-03-06 20:21:44.700 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-06 20:21:45.440 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2021-03-06 20:21:49.941 [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2021-03-06 20:21:50.270 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40dd2cfe, org.springframework.security.web.context.SecurityContextPersistenceFilter@765d67dd, org.springframework.security.web.header.HeaderWriterFilter@2cc82c83, org.springframework.web.filter.CorsFilter@21cb5648, org.springframework.security.web.authentication.logout.LogoutFilter@2d21d12b, com.schedulepilot.core.security.JwtAuthenticationFilter@1abd1a28, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fda92e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66e44f9f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69fa5536, org.springframework.security.web.session.SessionManagementFilter@5f3bc119, org.springframework.security.web.access.ExceptionTranslationFilter@3763aafd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30b0d5a7]
+ [INFO ] 2021-03-06 20:21:50.284 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2021-03-06 20:21:50.286 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-06 20:21:51.029 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2021-03-06 20:21:51.033 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-06 20:21:51.065 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+ [INFO ] 2021-03-06 20:21:51.068 [main] SchedulePilotCoreApplication - Started SchedulePilotCoreApplication in 32.997 seconds (JVM running for 34.155)
+ [INFO ] 2021-03-06 20:21:51.078 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2021-03-06 20:21:51.078 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE COMPLETED!
+ [INFO ] 2021-03-06 20:21:51.359 [RMI TCP Connection(1)-127.0.0.1] [/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+ [INFO ] 2021-03-06 20:21:51.360 [RMI TCP Connection(1)-127.0.0.1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ [INFO ] 2021-03-06 20:21:51.373 [RMI TCP Connection(1)-127.0.0.1] DispatcherServlet - Completed initialization in 13 ms
+ [INFO ] 2021-03-06 20:21:52.050 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:21:52.050
+ [INFO ] 2021-03-06 20:21:52.217 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:21:52.217
+ [INFO ] 2021-03-06 20:21:56.034 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-06T20:21:56.034
+ [INFO ] 2021-03-06 20:21:56.034 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:21:56.033
+ [INFO ] 2021-03-06 20:21:56.278 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:21:56.278
+ [INFO ] 2021-03-06 20:21:56.283 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-06T20:21:56.283
+ [INFO ] 2021-03-06 20:22:52.162 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:22:52.162
+ [INFO ] 2021-03-06 20:22:52.747 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:22:52.746
+ [INFO ] 2021-03-06 20:23:52.766 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:23:52.766
+ [INFO ] 2021-03-06 20:23:53.022 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:23:53.022
+ [INFO ] 2021-03-06 20:24:53.023 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:24:53.023
+ [INFO ] 2021-03-06 20:24:53.275 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:24:53.275
+ [INFO ] 2021-03-06 20:25:53.280 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-06T20:25:53.280
+ [INFO ] 2021-03-06 20:25:53.523 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:25:53.523
+ [INFO ] 2021-03-06 20:25:56.016 [Thread-70] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-06 20:25:56.028 [Thread-70] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
  

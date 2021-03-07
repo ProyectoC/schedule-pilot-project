@@ -54,7 +54,7 @@ export class RegisterFormComponent extends BaseFormComponent implements OnInit {
     this.formGroup = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
-      identification: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      identification: new FormControl('', [Validators.required, Validators.min(99999), Validators.max(99999999999999999999)]),
       identificationCode: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       email: new FormControl('', [Validators.pattern(
         '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'

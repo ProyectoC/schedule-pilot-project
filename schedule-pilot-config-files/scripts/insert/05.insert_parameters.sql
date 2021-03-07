@@ -43,3 +43,7 @@ INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, va
 VALUES('default_script', now(), 'Mensaje corto para notificar el cambio de una contraseña', FALSE, 'email.change-password.user.short-message', 'QXByZWNpYWRvKGEpIHVzdWFyaW8sIHN1IGNvbnRyYXNlw7FhIGhhIHNpZG8gY2FtYmlhZGEgY29ycmVjdGFtZW50ZS4=');
 INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, value)
 VALUES('default_script', now(), 'Contenido para notificar el cambio de una contraseña', FALSE, 'email.change-password.user.message', 'PHA+QXByZWNpYWRvKGEpIFtVU0VSX05BTUVdIHN1IGNvbnRyYXNlw7FhIGhhIHNpZG8gY2FtYmlhZGEgY29ycmVjdGFtZW50ZS48L3A+');
+
+-- SMS configuration
+INSERT INTO PARAMETER(created_by, created_date, description, encrypted, name, value)
+VALUES('default_script', now(), 'Llave de Twillo', FALSE, 'twilio.configuration.auth-token', '2a7f8903ceb2eb0d850447f0649a5f0e');

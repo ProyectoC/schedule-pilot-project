@@ -19,7 +19,7 @@
         <div class="form-group col-md-6">
             <label for="identification-user">Identificación</label>
             <i [ngClass]="isValidCheck('identification')"></i>
-            <input formControlName="identification" type="text" class="form-control" id="identification-user"
+            <input formControlName="identification" type="number" class="form-control" id="identification-user"
                 [ngClass]="isValidInput('identification')">
             <div class="invalid-feedback">La identificación no es valida.</div>
         </div>

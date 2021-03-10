@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from '@services/authentication/authentication.service';
 import { Response } from '@models/response';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthUser } from '@models/auth-user';
 import { FormGroup } from '@angular/forms';
 import { ScrollTopService } from '@services/scroll-top/scroll-top.service';
@@ -30,9 +30,11 @@ export class AuthenticationComponent implements OnInit {
   private dynamicFormComponent: DynamicFormComponent;
 
   public authForm: FormGroup;
+  public urlReturn: string;
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     public formsService: FormsService,
     public authenticationService: AuthenticationService,
     private scrollTopService: ScrollTopService,
@@ -52,6 +54,8 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollTopService.setScrollTop();
+    this.route.queryParams
+      .subscribe(params => this.urlReturn = params['redirect_url'] || RoutingConstants.URL_HOME);
   }
 
   private buildAuthForm() {
@@ -81,7 +85,7 @@ export class AuthenticationComponent implements OnInit {
 
     this.authenticationService.authenticateUser(authUser).subscribe(
       (bodyResponse: Response<AuthResponse>) => {
-        this.router.navigate([RoutingConstants.URL_HOME]).then(() => {});
+        this.router.navigate([this.urlReturn]).then(() => {});
       },
       (error) => {
         console.log(error);

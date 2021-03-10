@@ -21757,4 +21757,734 @@ Caused by: org.hibernate.QueryException: Named parameter not bound : userAccount
  [INFO ] 2021-03-06 20:25:53.523 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-06T20:25:53.523
  [INFO ] 2021-03-06 20:25:56.016 [Thread-70] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
  [INFO ] 2021-03-06 20:25:56.028 [Thread-70] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-09 19:40:24.260 [main] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.schedulepilot.core.test.CollegeCareerControllerTest], using SpringBootContextLoader
+ [INFO ] 2021-03-09 19:40:24.296 [main] AbstractContextLoader - Could not detect default resource locations for test class [com.schedulepilot.core.test.CollegeCareerControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+ [INFO ] 2021-03-09 19:40:24.298 [main] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.schedulepilot.core.test.CollegeCareerControllerTest]: CollegeCareerControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+ [INFO ] 2021-03-09 19:40:24.623 [main] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.schedulepilot.core.SchedulePilotCoreApplication for test class com.schedulepilot.core.test.CollegeCareerControllerTest
+ [INFO ] 2021-03-09 19:40:24.944 [main] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener]
+ [INFO ] 2021-03-09 19:40:24.989 [main] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6fb365ed, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6e950bcf, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@16414e40, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@74bada02, org.springframework.test.context.support.DirtiesContextTestExecutionListener@525575, org.springframework.test.context.transaction.TransactionalTestExecutionListener@46dffdc3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5a709816, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@78383390, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@6ad3381f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@53dbe163, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@db57326, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@34a875b3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4748a0f9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4b14918a]
+ [INFO ] 2021-03-09 19:40:25.599 [main] CollegeCareerControllerTest - Starting CollegeCareerControllerTest on MacBook-Pro-de-Cristhian.local with PID 1157 (started by cristhianeduardocastilloerazo in /Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2021-03-09 19:40:26.301 [main] CollegeCareerControllerTest - The following profiles are active: prod
+ [INFO ] 2021-03-09 19:40:29.646 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2021-03-09 19:40:29.933 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 274ms. Found 30 repository interfaces.
+ [INFO ] 2021-03-09 19:40:30.924 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$508482b6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:30.964 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5ac0ea91] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:31.033 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$f36eb2cb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:31.045 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:31.047 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@525647f3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:31.059 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$1843557d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:31.077 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$3d986d93] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:31.084 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:40:31.089 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:41:00.481 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2021-03-09 19:41:00.616 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2021-03-09 19:41:00.618 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2021-03-09 19:41:00.870 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2021-03-09 19:41:01.061 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2021-03-09 19:41:01.087 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2021-03-09 19:41:01.094 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@6f2d3391
+ [INFO ] 2021-03-09 19:41:24.777 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-09 19:41:25.910 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2021-03-09 19:41:35.600 [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2021-03-09 19:41:36.445 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6def1699, org.springframework.security.web.context.SecurityContextPersistenceFilter@54632794, org.springframework.security.web.header.HeaderWriterFilter@7f680a9a, org.springframework.web.filter.CorsFilter@64dbb343, org.springframework.security.web.authentication.logout.LogoutFilter@5add0cc0, com.schedulepilot.core.security.JwtAuthenticationFilter@5d28e108, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@303a484e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@be56353, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b0483f2, org.springframework.security.web.session.SessionManagementFilter@526a1b51, org.springframework.security.web.access.ExceptionTranslationFilter@6aa7d7a0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c4940d2]
+ [INFO ] 2021-03-09 19:41:36.494 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2021-03-09 19:41:36.509 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-09 19:41:38.086 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2021-03-09 19:41:38.097 [main] CollegeCareerControllerTest - Started CollegeCareerControllerTest in 73.011 seconds (JVM running for 76.106)
+ [INFO ] 2021-03-09 19:41:38.108 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2021-03-09 19:41:38.222 [main] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+ [INFO ] 2021-03-09 19:41:38.223 [main] TestDispatcherServlet - Initializing Servlet ''
+ [INFO ] 2021-03-09 19:41:38.243 [main] TestDispatcherServlet - Completed initialization in 20 ms
+ [INFO ] 2021-03-09 19:41:39.099 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T19:41:39.099
+ [INFO ] 2021-03-09 19:41:40.006 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T19:41:40.006
+ [WARN ] 2021-03-09 19:41:40.393 [main] AuditorInterceptor - ### AUTH: Unknown user ... Unauthenticated. ###
+ [INFO ] 2021-03-09 19:41:40.397 [main] AuditorInterceptor - ### AUTH: Log security registered for: /v1/public/security/college-careers ###
+ [INFO ] 2021-03-09 19:41:40.417 [Thread-4] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-09 19:41:40.435 [Thread-4] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-09 19:44:20.185 [main] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.schedulepilot.core.test.ItemControllerTest], using SpringBootContextLoader
+ [INFO ] 2021-03-09 19:44:20.197 [main] AbstractContextLoader - Could not detect default resource locations for test class [com.schedulepilot.core.test.ItemControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+ [INFO ] 2021-03-09 19:44:20.198 [main] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.schedulepilot.core.test.ItemControllerTest]: ItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+ [INFO ] 2021-03-09 19:44:20.312 [main] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.schedulepilot.core.SchedulePilotCoreApplication for test class com.schedulepilot.core.test.ItemControllerTest
+ [INFO ] 2021-03-09 19:44:20.424 [main] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener]
+ [INFO ] 2021-03-09 19:44:20.442 [main] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@16414e40, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@74bada02, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@525575, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@46dffdc3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5a709816, org.springframework.test.context.transaction.TransactionalTestExecutionListener@78383390, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6ad3381f, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@53dbe163, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@db57326, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@34a875b3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4748a0f9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4b14918a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6d1ef78d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1a6c1270]
+ [INFO ] 2021-03-09 19:44:20.732 [main] ItemControllerTest - Starting ItemControllerTest on MacBook-Pro-de-Cristhian.local with PID 1250 (started by cristhianeduardocastilloerazo in /Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2021-03-09 19:44:20.733 [main] ItemControllerTest - The following profiles are active: prod
+ [INFO ] 2021-03-09 19:44:22.377 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2021-03-09 19:44:22.620 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 236ms. Found 30 repository interfaces.
+ [INFO ] 2021-03-09 19:44:23.420 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$7eacbc13] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.457 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$88e923ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.524 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$2196ec28] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.536 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.539 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@f245bdd' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.546 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$466b8eda] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.564 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$6bc0a6f0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.572 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:23.577 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:44:51.632 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2021-03-09 19:44:51.791 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2021-03-09 19:44:51.794 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2021-03-09 19:44:52.114 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2021-03-09 19:44:52.428 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2021-03-09 19:44:52.455 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2021-03-09 19:44:52.465 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@6335f04a
+ [INFO ] 2021-03-09 19:46:36.690 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-09 19:46:37.728 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2021-03-09 19:46:49.745 [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2021-03-09 19:46:50.248 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13e12ab6, org.springframework.security.web.context.SecurityContextPersistenceFilter@7f680a9a, org.springframework.security.web.header.HeaderWriterFilter@560e1459, org.springframework.web.filter.CorsFilter@5bafe1f1, org.springframework.security.web.authentication.logout.LogoutFilter@6971f5f4, com.schedulepilot.core.security.JwtAuthenticationFilter@4f5d587c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@526a1b51, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@303a484e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5be783a, org.springframework.security.web.session.SessionManagementFilter@4c3125ff, org.springframework.security.web.access.ExceptionTranslationFilter@57d8d8e2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@27381497]
+ [INFO ] 2021-03-09 19:46:50.277 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2021-03-09 19:46:50.284 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-09 19:46:51.443 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2021-03-09 19:46:51.453 [main] ItemControllerTest - Started ItemControllerTest in 150.971 seconds (JVM running for 152.534)
+ [INFO ] 2021-03-09 19:46:51.460 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2021-03-09 19:46:51.531 [main] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+ [INFO ] 2021-03-09 19:46:51.532 [main] TestDispatcherServlet - Initializing Servlet ''
+ [INFO ] 2021-03-09 19:46:51.551 [main] TestDispatcherServlet - Completed initialization in 19 ms
+ [INFO ] 2021-03-09 19:46:51.609 [main] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 19:46:51.610 [main] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 19:46:52.459 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T19:46:52.459
+ [INFO ] 2021-03-09 19:46:53.320 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T19:46:53.320
+ [INFO ] 2021-03-09 19:46:56.449 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-09T19:46:56.449
+ [INFO ] 2021-03-09 19:46:56.449 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-09T19:46:56.449
+ [INFO ] 2021-03-09 19:46:56.856 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-09T19:46:56.856
+ [INFO ] 2021-03-09 19:46:56.877 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T19:46:56.877
+ [WARN ] 2021-03-09 19:47:01.728 [main] AuditorInterceptor - ### AUTH: Unknown user ... Unauthenticated. ###
+ [INFO ] 2021-03-09 19:47:01.733 [main] AuditorInterceptor - ### AUTH: Log security registered for: /v1/public/ws/items ###
+ [INFO ] 2021-03-09 19:47:01.750 [Thread-4] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-09 19:47:01.768 [Thread-4] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-09 19:57:15.759 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE STARTED!
+ [INFO ] 2021-03-09 19:57:15.866 [main] RestartApplicationListener - Restart disabled due to System property 'spring.devtools.restart.enabled' being set to false
+ [INFO ] 2021-03-09 19:57:16.254 [main] SchedulePilotCoreApplication - Starting SchedulePilotCoreApplication on MacBook-Pro-de-Cristhian.local with PID 1880 (/Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core/target/classes started by cristhianeduardocastilloerazo in /Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2021-03-09 19:57:16.254 [main] SchedulePilotCoreApplication - The following profiles are active: prod
+ [INFO ] 2021-03-09 19:57:16.372 [main] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+ [INFO ] 2021-03-09 19:57:17.848 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2021-03-09 19:57:18.035 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 178ms. Found 30 repository interfaces.
+ [INFO ] 2021-03-09 19:57:18.434 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$b771448f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.481 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c1adac6a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.520 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$5a5b74a4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.526 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.529 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3d4ecc67' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.533 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$7f301756] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.545 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$a4852f6c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.548 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.549 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-09 19:57:18.963 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+ [INFO ] 2021-03-09 19:57:18.977 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-09 19:57:18.986 [main] StandardService - Starting service [Tomcat]
+ [INFO ] 2021-03-09 19:57:18.987 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+ [INFO ] 2021-03-09 19:57:19.099 [main] [/api] - Initializing Spring embedded WebApplicationContext
+ [INFO ] 2021-03-09 19:57:19.100 [main] ContextLoader - Root WebApplicationContext: initialization completed in 2727 ms
+ [INFO ] 2021-03-09 19:57:56.572 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2021-03-09 19:57:56.859 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2021-03-09 19:57:56.863 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2021-03-09 19:57:57.151 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2021-03-09 19:57:57.414 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2021-03-09 19:57:57.435 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2021-03-09 19:57:57.443 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5a8656a2
+ [INFO ] 2021-03-09 19:58:26.702 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-09 19:58:27.476 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2021-03-09 19:58:34.372 [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2021-03-09 19:58:34.798 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15aa3084, org.springframework.security.web.context.SecurityContextPersistenceFilter@12f85dc8, org.springframework.security.web.header.HeaderWriterFilter@77198cce, org.springframework.web.filter.CorsFilter@4e6c4c55, org.springframework.security.web.authentication.logout.LogoutFilter@63604641, com.schedulepilot.core.security.JwtAuthenticationFilter@4c2057c6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b8d0c21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26169be3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74fbee59, org.springframework.security.web.session.SessionManagementFilter@383c94ed, org.springframework.security.web.access.ExceptionTranslationFilter@76480730, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2e962cec]
+ [INFO ] 2021-03-09 19:58:34.817 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2021-03-09 19:58:34.818 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-09 19:58:35.765 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2021-03-09 19:58:35.771 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-09 19:58:35.809 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+ [INFO ] 2021-03-09 19:58:35.812 [main] SchedulePilotCoreApplication - Started SchedulePilotCoreApplication in 79.96 seconds (JVM running for 82.001)
+ [INFO ] 2021-03-09 19:58:35.823 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2021-03-09 19:58:35.824 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE COMPLETED!
+ [INFO ] 2021-03-09 19:58:36.183 [RMI TCP Connection(14)-192.168.5.141] [/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+ [INFO ] 2021-03-09 19:58:36.184 [RMI TCP Connection(14)-192.168.5.141] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ [INFO ] 2021-03-09 19:58:36.202 [RMI TCP Connection(14)-192.168.5.141] DispatcherServlet - Completed initialization in 18 ms
+ [INFO ] 2021-03-09 19:58:36.775 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T19:58:36.775
+ [INFO ] 2021-03-09 19:58:37.053 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T19:58:37.053
+ [INFO ] 2021-03-09 19:58:40.773 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-09T19:58:40.772
+ [INFO ] 2021-03-09 19:58:40.773 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-09T19:58:40.773
+ [INFO ] 2021-03-09 19:58:42.690 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T19:58:42.690
+ [INFO ] 2021-03-09 19:58:42.708 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-09T19:58:42.708
+ [INFO ] 2021-03-09 19:59:37.057 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T19:59:37.057
+ [INFO ] 2021-03-09 19:59:37.817 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T19:59:37.817
+ [INFO ] 2021-03-09 20:00:37.817 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:00:37.817
+ [INFO ] 2021-03-09 20:00:42.495 [task-pool-app2] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:00:42.495
+ [INFO ] 2021-03-09 20:01:42.501 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:01:42.501
+ [INFO ] 2021-03-09 20:01:46.216 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:01:46.216
+ [INFO ] 2021-03-09 20:02:46.222 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:02:46.222
+ [INFO ] 2021-03-09 20:02:49.780 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:02:49.780
+ [INFO ] 2021-03-09 20:03:42.761 [task-pool-app1] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:03:42.761
+ [INFO ] 2021-03-09 20:03:43.039 [task-pool-app1] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:03:43.039
+ [INFO ] 2021-03-09 20:03:49.853 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:03:49.853
+ [INFO ] 2021-03-09 20:03:50.280 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:03:50.280
+ [INFO ] 2021-03-09 20:04:42.778 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-09T20:04:42.778
+ [INFO ] 2021-03-09 20:04:43.096 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-09T20:04:43.096
+ [INFO ] 2021-03-09 20:04:50.284 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:04:50.284
+ [INFO ] 2021-03-09 20:04:50.848 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:04:50.848
+ [INFO ] 2021-03-09 20:05:50.852 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:05:50.852
+ [INFO ] 2021-03-09 20:05:51.283 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:05:51.283
+ [INFO ] 2021-03-09 20:06:51.288 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:06:51.288
+ [INFO ] 2021-03-09 20:06:51.695 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:06:51.695
+ [INFO ] 2021-03-09 20:07:45.419 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:07:45.421 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [ERROR] 2021-03-09 20:07:46.101 [http-nio-8080-exec-1] SchedulePilotExceptionHandler - THE USER AUTHENTICATION CAN NOT BE ESTABLISHED IN THE SECURITY CONTEXT
+ [ERROR] 2021-03-09 20:07:46.112 [http-nio-8080-exec-1] SchedulePilotExceptionHandler - ERROR CODE: 1005 - ERROR DESCRIPTION: com.schedulepilot.core.exception.ManageUserException: User Account Not Found
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp.lambda$getByUsernameOrException$1(UserAccountServiceImp.java:61)
+	at java.util.Optional.orElseThrow(Optional.java:290)
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp.getByUsernameOrException(UserAccountServiceImp.java:61)
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp$$FastClassBySpringCGLIB$$ca591f69.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp$$EnhancerBySpringCGLIB$$f65d7677.getByUsernameOrException(<generated>)
+	at com.schedulepilot.core.service.manage.ManageUserServiceImp.authUserAccount(ManageUserServiceImp.java:129)
+	at com.schedulepilot.core.service.manage.ManageUserServiceImp$$FastClassBySpringCGLIB$$68331e22.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.schedulepilot.core.service.manage.ManageUserServiceImp$$EnhancerBySpringCGLIB$$3c7fee42.authUserAccount(<generated>)
+	at com.schedulepilot.core.controllers.AccountUserController.authUserAccount(AccountUserController.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.schedulepilot.core.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:112)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:114)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:104)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+ [INFO ] 2021-03-09 20:07:46.173 [http-nio-8080-exec-1] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:07:51.700 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:07:51.700
+ [INFO ] 2021-03-09 20:07:51.975 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:07:51.975
+ [INFO ] 2021-03-09 20:07:54.588 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:07:54.588 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-09 20:08:00.016 [http-nio-8080-exec-2] AuthenticationSuccessFailureHandler - Success Login cristhian-castillo@upc.edu.co
+ [INFO ] 2021-03-09 20:08:00.890 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:08:01.209 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:08:01.209 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:08:01.210 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:08:01.210 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:08:01.210 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:08:01.211 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:08:01.211 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:08:01.211 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:08:03.135 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:08:03.135 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:08:03.271 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:08:03.283 [http-nio-8080-exec-8] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:08:03.507 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:08:04.111 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:08:04.265 [http-nio-8080-exec-7] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:08:05.216 [http-nio-8080-exec-10] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:08:43.048 [task-pool-app4] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:08:43.048
+ [INFO ] 2021-03-09 20:08:43.382 [task-pool-app4] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:08:43.382
+ [INFO ] 2021-03-09 20:08:51.981 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:08:51.981
+ [INFO ] 2021-03-09 20:08:52.420 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:08:52.420
+ [INFO ] 2021-03-09 20:09:52.426 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:09:52.426
+ [INFO ] 2021-03-09 20:09:52.841 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:09:52.841
+ [INFO ] 2021-03-09 20:10:43.105 [task-pool-app9] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-09T20:10:43.104
+ [INFO ] 2021-03-09 20:10:43.398 [task-pool-app9] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-09T20:10:43.398
+ [INFO ] 2021-03-09 20:10:52.844 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:10:52.844
+ [INFO ] 2021-03-09 20:10:53.267 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:10:53.267
+ [INFO ] 2021-03-09 20:11:44.076 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:11:44.078 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-09 20:11:45.498 [http-nio-8080-exec-5] AuthenticationSuccessFailureHandler - Success Login cristhian-castillo@upc.edu.co
+ [INFO ] 2021-03-09 20:11:46.163 [http-nio-8080-exec-5] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:11:46.456 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:11:46.456 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:46.456 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:11:46.457 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:46.457 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:11:46.458 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:46.458 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:11:46.459 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:48.425 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:48.463 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:48.482 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:48.546 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:11:48.602 [http-nio-8080-exec-8] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:11:48.646 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/status/request/check-in ###
+ [INFO ] 2021-03-09 20:11:48.646 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:48.664 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:11:48.665 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:48.682 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/products ###
+ [INFO ] 2021-03-09 20:11:48.682 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:48.682 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/loan/users/7/request-check-in ###
+ [INFO ] 2021-03-09 20:11:48.682 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:48.687 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:48.839 [http-nio-8080-exec-6] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:11:48.844 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/loan/users/7/ticket-check-in ###
+ [INFO ] 2021-03-09 20:11:48.845 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:11:50.053 [http-nio-8080-exec-7] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:11:50.646 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:50.655 [http-nio-8080-exec-8] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:11:50.659 [http-nio-8080-exec-8] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:11:50.696 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:51.087 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:51.190 [http-nio-8080-exec-10] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:11:51.192 [http-nio-8080-exec-10] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:11:51.382 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:51.641 [http-nio-8080-exec-3] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:11:51.907 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:11:51.918 [http-nio-8080-exec-1] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/status/request/check-in ###
+ [INFO ] 2021-03-09 20:11:52.586 [http-nio-8080-exec-2] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:11:52.588 [http-nio-8080-exec-2] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:11:52.709 [http-nio-8080-exec-10] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/loan/users/7/request-check-in ###
+ [INFO ] 2021-03-09 20:11:53.270 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:11:53.270
+ [INFO ] 2021-03-09 20:11:53.355 [http-nio-8080-exec-8] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/products ###
+ [INFO ] 2021-03-09 20:11:53.407 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:11:53.407
+ [INFO ] 2021-03-09 20:11:53.786 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/loan/users/7/ticket-check-in ###
+ [INFO ] 2021-03-09 20:12:13.540 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:12:13.541 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-09 20:12:14.909 [http-nio-8080-exec-4] AuthenticationSuccessFailureHandler - Success Login cristhian-castillo@upc.edu.co
+ [INFO ] 2021-03-09 20:12:15.464 [http-nio-8080-exec-4] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:12:15.496 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:12:15.497 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:15.499 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:12:15.500 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:15.501 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:12:15.501 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:12:15.501 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:15.501 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:17.392 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:17.451 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:17.526 [http-nio-8080-exec-5] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:12:17.582 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:12:17.795 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:17.834 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:17.978 [http-nio-8080-exec-7] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:12:19.884 [http-nio-8080-exec-6] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:12:34.699 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:12:34.699 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:12:34.700 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:34.701 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:34.702 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:12:34.702 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:34.704 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:12:34.705 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:36.649 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:36.649 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:36.773 [http-nio-8080-exec-10] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:12:36.818 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:36.849 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:36.959 [http-nio-8080-exec-3] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:12:36.995 [http-nio-8080-exec-1] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:12:38.217 [http-nio-8080-exec-8] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:12:43.863 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:12:43.864 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:12:43.864 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:43.865 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:43.865 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:12:43.866 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:43.867 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:12:43.868 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:45.878 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:45.895 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:46.017 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:12:46.238 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:46.238 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:46.405 [http-nio-8080-exec-4] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:12:46.418 [http-nio-8080-exec-5] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:12:46.456 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/status/request/check-in ###
+ [INFO ] 2021-03-09 20:12:46.457 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:46.475 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:12:46.476 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:46.489 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/products ###
+ [INFO ] 2021-03-09 20:12:46.490 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:46.491 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/loan/users/7/request-check-in ###
+ [INFO ] 2021-03-09 20:12:46.491 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/loan/users/7/ticket-check-in ###
+ [INFO ] 2021-03-09 20:12:46.491 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:46.492 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:12:47.462 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:12:48.416 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:48.416 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:48.419 [http-nio-8080-exec-10] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:12:48.419 [http-nio-8080-exec-10] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:12:48.487 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:48.830 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:48.905 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:12:48.914 [http-nio-8080-exec-7] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/status/request/check-in ###
+ [INFO ] 2021-03-09 20:12:49.026 [http-nio-8080-exec-1] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:12:49.027 [http-nio-8080-exec-1] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:12:49.408 [http-nio-8080-exec-6] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:12:49.557 [http-nio-8080-exec-3] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:12:49.557 [http-nio-8080-exec-3] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:12:50.127 [http-nio-8080-exec-1] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/loan/users/7/ticket-check-in ###
+ [INFO ] 2021-03-09 20:12:51.193 [http-nio-8080-exec-10] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/products ###
+ [INFO ] 2021-03-09 20:12:51.438 [http-nio-8080-exec-3] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/loan/users/7/request-check-in ###
+ [INFO ] 2021-03-09 20:12:53.409 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:12:53.409
+ [INFO ] 2021-03-09 20:12:53.557 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:12:53.557
+ [INFO ] 2021-03-09 20:13:08.077 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:13:08.077 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-09 20:13:09.556 [http-nio-8080-exec-8] AuthenticationSuccessFailureHandler - Success Login cristhian-castillo@upc.edu.co
+ [INFO ] 2021-03-09 20:13:10.103 [http-nio-8080-exec-8] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:13:10.153 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/status/request/check-in ###
+ [INFO ] 2021-03-09 20:13:10.154 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:13:10.166 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:13:10.167 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:13:10.177 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/products ###
+ [INFO ] 2021-03-09 20:13:10.177 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:13:10.177 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/loan/users/7/request-check-in ###
+ [INFO ] 2021-03-09 20:13:10.177 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:13:10.178 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/loan/users/7/ticket-check-in ###
+ [INFO ] 2021-03-09 20:13:10.178 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:13:12.124 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:13:12.124 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:13:12.124 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:13:12.124 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:13:12.326 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:13:12.331 [http-nio-8080-exec-5] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:13:12.332 [http-nio-8080-exec-5] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:13:12.618 [http-nio-8080-exec-4] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:13:12.653 [http-nio-8080-exec-9] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:13:12.653 [http-nio-8080-exec-9] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:13:12.654 [http-nio-8080-exec-7] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:13:12.655 [http-nio-8080-exec-7] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:13:12.656 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/status/request/check-in ###
+ [INFO ] 2021-03-09 20:13:13.639 [http-nio-8080-exec-7] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/loan/users/7/ticket-check-in ###
+ [INFO ] 2021-03-09 20:13:14.171 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/loan/users/7/request-check-in ###
+ [INFO ] 2021-03-09 20:13:15.577 [http-nio-8080-exec-5] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/products ###
+ [INFO ] 2021-03-09 20:13:43.388 [task-pool-app6] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:13:43.388
+ [INFO ] 2021-03-09 20:13:43.670 [task-pool-app6] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:13:43.670
+ [INFO ] 2021-03-09 20:13:53.565 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:13:53.565
+ [INFO ] 2021-03-09 20:13:53.849 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:13:53.849
+ [INFO ] 2021-03-09 20:14:25.774 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:14:25.774 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:25.783 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/loan/users/7/ticket-check-out ###
+ [INFO ] 2021-03-09 20:14:25.783 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:27.638 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:14:28.011 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:14:28.112 [http-nio-8080-exec-9] PaginationAndOrderTask - Starting
+ [INFO ] 2021-03-09 20:14:28.114 [http-nio-8080-exec-9] PaginationAndOrderTask - Finished successfully
+ [INFO ] 2021-03-09 20:14:28.250 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/loan/users/7/ticket-check-out ###
+ [INFO ] 2021-03-09 20:14:28.593 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/status/ticket ###
+ [INFO ] 2021-03-09 20:14:28.951 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:14:28.951 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:28.961 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:14:28.962 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:28.962 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:14:28.962 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:14:28.963 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:28.963 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:30.829 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:14:30.959 [http-nio-8080-exec-5] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:14:30.959 [http-nio-8080-exec-6] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:14:30.960 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:14:30.966 [http-nio-8080-exec-10] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:14:31.080 [http-nio-8080-exec-5] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:14:31.084 [http-nio-8080-exec-6] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:14:32.673 [http-nio-8080-exec-1] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:14:49.221 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:14:49.221 [http-nio-8080-exec-3] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [ERROR] 2021-03-09 20:14:49.578 [http-nio-8080-exec-3] SchedulePilotExceptionHandler - THE USER AUTHENTICATION CAN NOT BE ESTABLISHED IN THE SECURITY CONTEXT
+ [ERROR] 2021-03-09 20:14:49.581 [http-nio-8080-exec-3] SchedulePilotExceptionHandler - ERROR CODE: 1005 - ERROR DESCRIPTION: com.schedulepilot.core.exception.ManageUserException: User Account Not Found
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp.lambda$getByUsernameOrException$1(UserAccountServiceImp.java:61)
+	at java.util.Optional.orElseThrow(Optional.java:290)
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp.getByUsernameOrException(UserAccountServiceImp.java:61)
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp$$FastClassBySpringCGLIB$$ca591f69.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.schedulepilot.core.service.imp.UserAccountServiceImp$$EnhancerBySpringCGLIB$$f65d7677.getByUsernameOrException(<generated>)
+	at com.schedulepilot.core.service.manage.ManageUserServiceImp.authUserAccount(ManageUserServiceImp.java:129)
+	at com.schedulepilot.core.service.manage.ManageUserServiceImp$$FastClassBySpringCGLIB$$68331e22.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:295)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.schedulepilot.core.service.manage.ManageUserServiceImp$$EnhancerBySpringCGLIB$$3c7fee42.authUserAccount(<generated>)
+	at com.schedulepilot.core.controllers.AccountUserController.authUserAccount(AccountUserController.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.schedulepilot.core.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:112)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:114)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:104)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+ [INFO ] 2021-03-09 20:14:49.585 [http-nio-8080-exec-3] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:14:53.851 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:14:53.851
+ [INFO ] 2021-03-09 20:14:54.117 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:14:54.117
+ [INFO ] 2021-03-09 20:14:54.783 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:14:54.784 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-09 20:14:56.464 [http-nio-8080-exec-8] AuthenticationSuccessFailureHandler - Success Login cristhian-castillo@upc.edu.co
+ [INFO ] 2021-03-09 20:14:57.248 [http-nio-8080-exec-8] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:14:57.303 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:14:57.303 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:57.303 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:14:57.304 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:57.304 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:14:57.304 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:14:57.304 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:14:57.305 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:15:00.182 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:15:00.305 [http-nio-8080-exec-4] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:15:00.348 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:15:00.421 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:15:00.578 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:15:00.656 [http-nio-8080-exec-7] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:15:00.728 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:15:02.785 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:15:23.187 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:15:23.187 [http-nio-8080-exec-10] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-09 20:15:24.565 [http-nio-8080-exec-10] AuthenticationSuccessFailureHandler - Success Login cristhian-castillo@upc.edu.co
+ [INFO ] 2021-03-09 20:15:25.116 [http-nio-8080-exec-10] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:15:54.122 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:15:54.122
+ [INFO ] 2021-03-09 20:15:54.387 [task-pool-app4] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:15:54.387
+ [INFO ] 2021-03-09 20:16:43.409 [task-pool-app10] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-09T20:16:43.409
+ [INFO ] 2021-03-09 20:16:43.731 [task-pool-app10] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-09T20:16:43.730
+ [INFO ] 2021-03-09 20:16:54.392 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:16:54.392
+ [INFO ] 2021-03-09 20:16:54.718 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:16:54.718
+ [INFO ] 2021-03-09 20:17:54.435 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:17:54.436 [http-nio-8080-exec-8] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-09 20:17:54.724 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:17:54.724
+ [INFO ] 2021-03-09 20:17:54.954 [task-pool-app8] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:17:54.953
+ [INFO ] 2021-03-09 20:17:55.860 [http-nio-8080-exec-8] AuthenticationSuccessFailureHandler - Success Login cristhian-castillo@upc.edu.co
+ [INFO ] 2021-03-09 20:17:56.637 [http-nio-8080-exec-8] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/security/users/auth ###
+ [INFO ] 2021-03-09 20:17:56.943 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:17:56.943 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:17:56.943 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:17:56.944 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:17:56.944 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:17:56.945 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:17:56.945 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Url Request: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:17:56.946 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Allow request with UserCommon Token ###
+ [INFO ] 2021-03-09 20:18:00.272 [http-nio-8080-exec-7] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:18:00.284 [http-nio-8080-exec-9] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:18:00.461 [http-nio-8080-exec-4] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:18:00.550 [http-nio-8080-exec-7] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-return-made ###
+ [INFO ] 2021-03-09 20:18:00.550 [http-nio-8080-exec-9] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-loan-made ###
+ [INFO ] 2021-03-09 20:18:00.570 [http-nio-8080-exec-4] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/status-operations ###
+ [INFO ] 2021-03-09 20:18:00.706 [http-nio-8080-exec-2] JwtAuthenticationFilter - ### AUTH: Authentication request with UserCommon Token Username: cristhian-castillo@upc.edu.co ###
+ [INFO ] 2021-03-09 20:18:02.591 [http-nio-8080-exec-2] AuditorInterceptor - ### AUTH: Log security registered for: /api/v1/public/ws/dashboard/principal ###
+ [INFO ] 2021-03-09 20:18:43.620 [task-pool-app5] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:18:43.620
+ [INFO ] 2021-03-09 20:18:43.860 [task-pool-app5] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:18:43.860
+ [INFO ] 2021-03-09 20:18:54.900 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:18:54.900
+ [INFO ] 2021-03-09 20:18:55.137 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:18:55.137
+ [INFO ] 2021-03-09 20:19:55.140 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:19:55.140
+ [INFO ] 2021-03-09 20:19:55.372 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:19:55.372
+ [INFO ] 2021-03-09 20:20:55.373 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:20:55.372
+ [INFO ] 2021-03-09 20:21:03.163 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:21:03.163
+ [INFO ] 2021-03-09 20:22:03.167 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:22:03.167
+ [INFO ] 2021-03-09 20:22:03.559 [task-pool-app3] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:22:03.559
+ [INFO ] 2021-03-09 20:22:43.681 [task-pool-app9] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-09T20:22:43.681
+ [INFO ] 2021-03-09 20:22:43.925 [task-pool-app9] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-09T20:22:43.925
+ [INFO ] 2021-03-09 20:23:03.564 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:23:03.564
+ [INFO ] 2021-03-09 20:23:03.931 [task-pool-app7] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:23:03.931
+ [INFO ] 2021-03-09 20:23:43.862 [task-pool-app8] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:23:43.862
+ [INFO ] 2021-03-09 20:23:44.119 [task-pool-app8] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:23:44.119
+ [INFO ] 2021-03-09 20:24:03.934 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:24:03.934
+ [INFO ] 2021-03-09 20:24:04.292 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:24:04.292
+ [INFO ] 2021-03-09 20:25:04.293 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:25:04.293
+ [INFO ] 2021-03-09 20:25:04.658 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:25:04.657
+ [INFO ] 2021-03-09 20:26:04.663 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:26:04.663
+ [INFO ] 2021-03-09 20:26:05.037 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:26:05.037
+ [INFO ] 2021-03-09 20:27:05.042 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:27:05.042
+ [INFO ] 2021-03-09 20:27:05.402 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:27:05.401
  

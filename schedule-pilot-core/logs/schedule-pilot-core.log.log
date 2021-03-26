@@ -22487,4 +22487,266 @@ Caused by: org.hibernate.QueryException: Named parameter not bound : userAccount
  [INFO ] 2021-03-09 20:26:05.037 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:26:05.037
  [INFO ] 2021-03-09 20:27:05.042 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:27:05.042
  [INFO ] 2021-03-09 20:27:05.402 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:27:05.401
+ [INFO ] 2021-03-09 20:28:05.404 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-09T20:28:05.404
+ [INFO ] 2021-03-09 20:28:05.752 [task-pool-app5] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-09T20:28:05.752
+ [INFO ] 2021-03-09 20:28:42.744 [Thread-161] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-09 20:28:42.755 [Thread-161] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-26 18:12:53.703 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE STARTED!
+ [INFO ] 2021-03-26 18:12:53.801 [main] RestartApplicationListener - Restart disabled due to System property 'spring.devtools.restart.enabled' being set to false
+ [INFO ] 2021-03-26 18:12:54.230 [main] SchedulePilotCoreApplication - Starting SchedulePilotCoreApplication on MacBook-Pro-de-Cristhian.local with PID 5815 (/Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core/target/classes started by cristhianeduardocastilloerazo in /Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2021-03-26 18:12:54.231 [main] SchedulePilotCoreApplication - The following profiles are active: prod
+ [INFO ] 2021-03-26 18:12:54.286 [main] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+ [INFO ] 2021-03-26 18:12:55.595 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2021-03-26 18:12:55.795 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 191ms. Found 30 repository interfaces.
+ [INFO ] 2021-03-26 18:12:56.231 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$53ecd677] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.278 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5e293e52] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.311 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$f6d7068c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.317 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.319 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@51fc862e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.325 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$1baba93e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.336 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$4100c154] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.338 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.340 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:12:56.735 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+ [INFO ] 2021-03-26 18:12:56.752 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-26 18:12:56.761 [main] StandardService - Starting service [Tomcat]
+ [INFO ] 2021-03-26 18:12:56.762 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+ [INFO ] 2021-03-26 18:12:56.872 [main] [/api] - Initializing Spring embedded WebApplicationContext
+ [INFO ] 2021-03-26 18:12:56.872 [main] ContextLoader - Root WebApplicationContext: initialization completed in 2585 ms
+ [INFO ] 2021-03-26 18:13:10.211 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2021-03-26 18:13:10.296 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2021-03-26 18:13:10.298 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2021-03-26 18:13:10.464 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2021-03-26 18:13:10.660 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2021-03-26 18:13:10.680 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2021-03-26 18:13:10.689 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7d88fa9c
+ [INFO ] 2021-03-26 18:13:29.978 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-26 18:13:31.193 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2021-03-26 18:13:36.829 [main] EndpointLinksResolver - Exposing 16 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2021-03-26 18:13:37.247 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@726d0482, org.springframework.security.web.context.SecurityContextPersistenceFilter@14f1545c, org.springframework.security.web.header.HeaderWriterFilter@a3f1f32, org.springframework.web.filter.CorsFilter@15ab0461, org.springframework.security.web.authentication.logout.LogoutFilter@16422f27, com.schedulepilot.core.security.JwtAuthenticationFilter@439d649c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14927cd4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1315d910, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f403d0a, org.springframework.security.web.session.SessionManagementFilter@580a5b6e, org.springframework.security.web.access.ExceptionTranslationFilter@4dfe56dc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67e37d25]
+ [INFO ] 2021-03-26 18:13:37.262 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2021-03-26 18:13:37.263 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-26 18:13:38.143 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2021-03-26 18:13:38.148 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-26 18:13:38.183 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+ [INFO ] 2021-03-26 18:13:38.187 [main] SchedulePilotCoreApplication - Started SchedulePilotCoreApplication in 44.395 seconds (JVM running for 45.936)
+ [INFO ] 2021-03-26 18:13:38.198 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2021-03-26 18:13:38.199 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE COMPLETED!
+ [INFO ] 2021-03-26 18:13:38.630 [RMI TCP Connection(1)-127.0.0.1] [/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+ [INFO ] 2021-03-26 18:13:38.630 [RMI TCP Connection(1)-127.0.0.1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ [INFO ] 2021-03-26 18:13:38.644 [RMI TCP Connection(1)-127.0.0.1] DispatcherServlet - Completed initialization in 14 ms
+ [INFO ] 2021-03-26 18:13:39.154 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-26T18:13:39.154
+ [INFO ] 2021-03-26 18:13:39.320 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-26T18:13:39.320
+ [INFO ] 2021-03-26 18:13:43.147 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-26T18:13:43.147
+ [INFO ] 2021-03-26 18:13:43.147 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-26T18:13:43.147
+ [INFO ] 2021-03-26 18:13:43.433 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-26T18:13:43.433
+ [INFO ] 2021-03-26 18:13:43.438 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-26T18:13:43.437
+ [INFO ] 2021-03-26 18:14:39.330 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-26T18:14:39.328
+ [INFO ] 2021-03-26 18:14:39.574 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-26T18:14:39.574
+ [INFO ] 2021-03-26 18:14:46.487 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Url Request: /api/actuator/shutdown ###
+ [INFO ] 2021-03-26 18:14:46.489 [http-nio-8080-exec-1] JwtAuthenticationFilter - ### AUTH: Allow request without Token ###
+ [INFO ] 2021-03-26 18:14:47.073 [Thread-101] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-26 18:14:47.089 [Thread-101] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-26 18:17:05.485 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE STARTED!
+ [INFO ] 2021-03-26 18:17:05.549 [main] RestartApplicationListener - Restart disabled due to System property 'spring.devtools.restart.enabled' being set to false
+ [INFO ] 2021-03-26 18:17:05.927 [main] SchedulePilotCoreApplication - Starting SchedulePilotCoreApplication on MacBook-Pro-de-Cristhian.local with PID 5867 (/Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core/target/classes started by cristhianeduardocastilloerazo in /Users/cristhianeduardocastilloerazo/Desktop/kentaurus_projects/schedule-pilot-project/schedule-pilot-core)
+ [INFO ] 2021-03-26 18:17:05.928 [main] SchedulePilotCoreApplication - The following profiles are active: prod
+ [INFO ] 2021-03-26 18:17:05.976 [main] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+ [INFO ] 2021-03-26 18:17:07.176 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+ [INFO ] 2021-03-26 18:17:07.343 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 161ms. Found 30 repository interfaces.
+ [INFO ] 2021-03-26 18:17:07.727 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$2a836fe0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.775 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$34bfd7bb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.807 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$cd6d9ff5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.813 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.815 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1d98daa0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.820 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$f24242a7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.830 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration$$EnhancerBySpringCGLIB$$17975abd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.836 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:07.837 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+ [INFO ] 2021-03-26 18:17:08.188 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+ [INFO ] 2021-03-26 18:17:08.199 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-26 18:17:08.208 [main] StandardService - Starting service [Tomcat]
+ [INFO ] 2021-03-26 18:17:08.209 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+ [INFO ] 2021-03-26 18:17:08.304 [main] [/api] - Initializing Spring embedded WebApplicationContext
+ [INFO ] 2021-03-26 18:17:08.304 [main] ContextLoader - Root WebApplicationContext: initialization completed in 2328 ms
+ [INFO ] 2021-03-26 18:17:19.079 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+ [INFO ] 2021-03-26 18:17:19.134 [main] Version - HHH000412: Hibernate Core {5.3.10.Final}
+ [INFO ] 2021-03-26 18:17:19.137 [main] Environment - HHH000206: hibernate.properties not found
+ [INFO ] 2021-03-26 18:17:19.259 [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ [INFO ] 2021-03-26 18:17:19.445 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ [INFO ] 2021-03-26 18:17:19.459 [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+ [INFO ] 2021-03-26 18:17:19.465 [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@fabef2e
+ [INFO ] 2021-03-26 18:17:29.978 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+ [INFO ] 2021-03-26 18:17:30.702 [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+ [INFO ] 2021-03-26 18:17:35.966 [main] EndpointLinksResolver - Exposing 16 endpoint(s) beneath base path '/actuator'
+ [INFO ] 2021-03-26 18:17:36.311 [main] DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@167ccc3c, org.springframework.security.web.context.SecurityContextPersistenceFilter@7053a864, org.springframework.security.web.header.HeaderWriterFilter@5dfb65d5, org.springframework.web.filter.CorsFilter@292b7a02, org.springframework.security.web.authentication.logout.LogoutFilter@62ad5f35, com.schedulepilot.core.security.JwtAuthenticationFilter@1fe37d27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d6c7152, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57eb2555, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e242137, org.springframework.security.web.session.SessionManagementFilter@713c8cbb, org.springframework.security.web.access.ExceptionTranslationFilter@5fc42998, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@769c80d1]
+ [INFO ] 2021-03-26 18:17:36.326 [main] ThreadPoolTaskExecutor - Initializing ExecutorService
+ [INFO ] 2021-03-26 18:17:36.327 [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-26 18:17:37.227 [main] EnvironmentConfigurationLogger - ====== Environment and configuration ======
+ [INFO ] 2021-03-26 18:17:37.227 [main] EnvironmentConfigurationLogger - Active profiles: [prod]
+ [INFO ] 2021-03-26 18:17:37.228 [main] EnvironmentConfigurationLogger - java.runtime.name
+ [INFO ] 2021-03-26 18:17:37.229 [main] EnvironmentConfigurationLogger - spring.output.ansi.enabled
+ [INFO ] 2021-03-26 18:17:37.229 [main] EnvironmentConfigurationLogger - sun.boot.library.path
+ [INFO ] 2021-03-26 18:17:37.229 [main] EnvironmentConfigurationLogger - java.vm.version
+ [INFO ] 2021-03-26 18:17:37.229 [main] EnvironmentConfigurationLogger - user.country.format
+ [INFO ] 2021-03-26 18:17:37.229 [main] EnvironmentConfigurationLogger - gopherProxySet
+ [INFO ] 2021-03-26 18:17:37.229 [main] EnvironmentConfigurationLogger - java.vm.vendor
+ [INFO ] 2021-03-26 18:17:37.230 [main] EnvironmentConfigurationLogger - java.vendor.url
+ [INFO ] 2021-03-26 18:17:37.230 [main] EnvironmentConfigurationLogger - java.rmi.server.randomIDs
+ [INFO ] 2021-03-26 18:17:37.230 [main] EnvironmentConfigurationLogger - path.separator
+ [INFO ] 2021-03-26 18:17:37.230 [main] EnvironmentConfigurationLogger - java.vm.name
+ [INFO ] 2021-03-26 18:17:37.230 [main] EnvironmentConfigurationLogger - file.encoding.pkg
+ [INFO ] 2021-03-26 18:17:37.231 [main] EnvironmentConfigurationLogger - user.country
+ [INFO ] 2021-03-26 18:17:37.231 [main] EnvironmentConfigurationLogger - sun.java.launcher
+ [INFO ] 2021-03-26 18:17:37.231 [main] EnvironmentConfigurationLogger - sun.os.patch.level
+ [INFO ] 2021-03-26 18:17:37.231 [main] EnvironmentConfigurationLogger - PID
+ [INFO ] 2021-03-26 18:17:37.231 [main] EnvironmentConfigurationLogger - java.vm.specification.name
+ [INFO ] 2021-03-26 18:17:37.231 [main] EnvironmentConfigurationLogger - user.dir
+ [INFO ] 2021-03-26 18:17:37.232 [main] EnvironmentConfigurationLogger - java.runtime.version
+ [INFO ] 2021-03-26 18:17:37.232 [main] EnvironmentConfigurationLogger - java.awt.graphicsenv
+ [INFO ] 2021-03-26 18:17:37.232 [main] EnvironmentConfigurationLogger - java.endorsed.dirs
+ [INFO ] 2021-03-26 18:17:37.232 [main] EnvironmentConfigurationLogger - os.arch
+ [INFO ] 2021-03-26 18:17:37.232 [main] EnvironmentConfigurationLogger - java.io.tmpdir
+ [INFO ] 2021-03-26 18:17:37.232 [main] EnvironmentConfigurationLogger - line.separator
+ [INFO ] 2021-03-26 18:17:37.233 [main] EnvironmentConfigurationLogger - java.vm.specification.vendor
+ [INFO ] 2021-03-26 18:17:37.233 [main] EnvironmentConfigurationLogger - os.name
+ [INFO ] 2021-03-26 18:17:37.233 [main] EnvironmentConfigurationLogger - sun.jnu.encoding
+ [INFO ] 2021-03-26 18:17:37.233 [main] EnvironmentConfigurationLogger - spring.beaninfo.ignore
+ [INFO ] 2021-03-26 18:17:37.233 [main] EnvironmentConfigurationLogger - java.library.path
+ [INFO ] 2021-03-26 18:17:37.234 [main] EnvironmentConfigurationLogger - spring.jmx.enabled
+ [INFO ] 2021-03-26 18:17:37.234 [main] EnvironmentConfigurationLogger - java.specification.name
+ [INFO ] 2021-03-26 18:17:37.234 [main] EnvironmentConfigurationLogger - java.class.version
+ [INFO ] 2021-03-26 18:17:37.234 [main] EnvironmentConfigurationLogger - sun.management.compiler
+ [INFO ] 2021-03-26 18:17:37.235 [main] EnvironmentConfigurationLogger - spring.liveBeansView.mbeanDomain
+ [INFO ] 2021-03-26 18:17:37.235 [main] EnvironmentConfigurationLogger - os.version
+ [INFO ] 2021-03-26 18:17:37.235 [main] EnvironmentConfigurationLogger - http.nonProxyHosts
+ [INFO ] 2021-03-26 18:17:37.235 [main] EnvironmentConfigurationLogger - user.home
+ [INFO ] 2021-03-26 18:17:37.236 [main] EnvironmentConfigurationLogger - catalina.useNaming
+ [INFO ] 2021-03-26 18:17:37.236 [main] EnvironmentConfigurationLogger - user.timezone
+ [INFO ] 2021-03-26 18:17:37.236 [main] EnvironmentConfigurationLogger - java.awt.printerjob
+ [INFO ] 2021-03-26 18:17:37.236 [main] EnvironmentConfigurationLogger - file.encoding
+ [INFO ] 2021-03-26 18:17:37.236 [main] EnvironmentConfigurationLogger - java.specification.version
+ [INFO ] 2021-03-26 18:17:37.236 [main] EnvironmentConfigurationLogger - catalina.home
+ [INFO ] 2021-03-26 18:17:37.236 [main] EnvironmentConfigurationLogger - java.class.path
+ [INFO ] 2021-03-26 18:17:37.237 [main] EnvironmentConfigurationLogger - user.name
+ [INFO ] 2021-03-26 18:17:37.237 [main] EnvironmentConfigurationLogger - com.sun.management.jmxremote
+ [INFO ] 2021-03-26 18:17:37.237 [main] EnvironmentConfigurationLogger - spring.devtools.restart.enabled
+ [INFO ] 2021-03-26 18:17:37.237 [main] EnvironmentConfigurationLogger - java.vm.specification.version
+ [INFO ] 2021-03-26 18:17:37.237 [main] EnvironmentConfigurationLogger - sun.java.command
+ [INFO ] 2021-03-26 18:17:37.237 [main] EnvironmentConfigurationLogger - java.home
+ [INFO ] 2021-03-26 18:17:37.238 [main] EnvironmentConfigurationLogger - sun.arch.data.model
+ [INFO ] 2021-03-26 18:17:37.238 [main] EnvironmentConfigurationLogger - user.language
+ [INFO ] 2021-03-26 18:17:37.238 [main] EnvironmentConfigurationLogger - java.specification.vendor
+ [INFO ] 2021-03-26 18:17:37.238 [main] EnvironmentConfigurationLogger - awt.toolkit
+ [INFO ] 2021-03-26 18:17:37.238 [main] EnvironmentConfigurationLogger - java.vm.info
+ [INFO ] 2021-03-26 18:17:37.239 [main] EnvironmentConfigurationLogger - java.version
+ [INFO ] 2021-03-26 18:17:37.239 [main] EnvironmentConfigurationLogger - java.ext.dirs
+ [INFO ] 2021-03-26 18:17:37.239 [main] EnvironmentConfigurationLogger - sun.boot.class.path
+ [INFO ] 2021-03-26 18:17:37.239 [main] EnvironmentConfigurationLogger - java.awt.headless
+ [INFO ] 2021-03-26 18:17:37.239 [main] EnvironmentConfigurationLogger - java.vendor
+ [INFO ] 2021-03-26 18:17:37.240 [main] EnvironmentConfigurationLogger - catalina.base
+ [INFO ] 2021-03-26 18:17:37.240 [main] EnvironmentConfigurationLogger - spring.application.admin.enabled
+ [INFO ] 2021-03-26 18:17:37.240 [main] EnvironmentConfigurationLogger - file.separator
+ [INFO ] 2021-03-26 18:17:37.240 [main] EnvironmentConfigurationLogger - java.vendor.url.bug
+ [INFO ] 2021-03-26 18:17:37.240 [main] EnvironmentConfigurationLogger - sun.io.unicode.encoding
+ [INFO ] 2021-03-26 18:17:37.240 [main] EnvironmentConfigurationLogger - sun.cpu.endian
+ [INFO ] 2021-03-26 18:17:37.240 [main] EnvironmentConfigurationLogger - socksNonProxyHosts
+ [INFO ] 2021-03-26 18:17:37.241 [main] EnvironmentConfigurationLogger - ftp.nonProxyHosts
+ [INFO ] 2021-03-26 18:17:37.241 [main] EnvironmentConfigurationLogger - sun.cpu.isalist
+ [INFO ] 2021-03-26 18:17:37.241 [main] EnvironmentConfigurationLogger - PATH
+ [INFO ] 2021-03-26 18:17:37.241 [main] EnvironmentConfigurationLogger - __CFBundleIdentifier
+ [INFO ] 2021-03-26 18:17:37.241 [main] EnvironmentConfigurationLogger - NVM_CD_FLAGS
+ [INFO ] 2021-03-26 18:17:37.242 [main] EnvironmentConfigurationLogger - SHELL
+ [INFO ] 2021-03-26 18:17:37.242 [main] EnvironmentConfigurationLogger - NVM_DIR
+ [INFO ] 2021-03-26 18:17:37.242 [main] EnvironmentConfigurationLogger - MANPATH
+ [INFO ] 2021-03-26 18:17:37.242 [main] EnvironmentConfigurationLogger - OLDPWD
+ [INFO ] 2021-03-26 18:17:37.242 [main] EnvironmentConfigurationLogger - USER
+ [INFO ] 2021-03-26 18:17:37.242 [main] EnvironmentConfigurationLogger - COMMAND_MODE
+ [INFO ] 2021-03-26 18:17:37.242 [main] EnvironmentConfigurationLogger - TMPDIR
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - SSH_AUTH_SOCK
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - XPC_FLAGS
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - VERSIONER_PYTHON_VERSION
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - NVM_IOJS_ORG_MIRROR
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - __CF_USER_TEXT_ENCODING
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - LOGNAME
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - LC_CTYPE
+ [INFO ] 2021-03-26 18:17:37.243 [main] EnvironmentConfigurationLogger - NVM_NODEJS_ORG_MIRROR
+ [INFO ] 2021-03-26 18:17:37.244 [main] EnvironmentConfigurationLogger - PWD
+ [INFO ] 2021-03-26 18:17:37.244 [main] EnvironmentConfigurationLogger - XPC_SERVICE_NAME
+ [INFO ] 2021-03-26 18:17:37.244 [main] EnvironmentConfigurationLogger - NVM_BIN
+ [INFO ] 2021-03-26 18:17:37.244 [main] EnvironmentConfigurationLogger - HOME
+ [INFO ] 2021-03-26 18:17:37.244 [main] EnvironmentConfigurationLogger - JAVA_MAIN_CLASS_5867
+ [INFO ] 2021-03-26 18:17:37.244 [main] EnvironmentConfigurationLogger - spring.datasource.platform
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - spring.datasource.url
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - spring.datasource.username
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - spring.datasource.password
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - spring.jpa.properties.hibernate.dialect
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - spring.jpa.properties.hibernate.default_schema
+ [INFO ] 2021-03-26 18:17:37.245 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.origin
+ [INFO ] 2021-03-26 18:17:37.246 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.password-origin
+ [INFO ] 2021-03-26 18:17:37.246 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.is-smtp-auth
+ [INFO ] 2021-03-26 18:17:37.246 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.is-starttls-enable
+ [INFO ] 2021-03-26 18:17:37.246 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.smtp-host
+ [INFO ] 2021-03-26 18:17:37.246 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.smtp-port
+ [INFO ] 2021-03-26 18:17:37.246 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.us
+ [INFO ] 2021-03-26 18:17:37.247 [main] EnvironmentConfigurationLogger - app.configuration.notification.common.path-files
+ [INFO ] 2021-03-26 18:17:37.247 [main] EnvironmentConfigurationLogger - server.port
+ [INFO ] 2021-03-26 18:17:37.247 [main] EnvironmentConfigurationLogger - server.servlet.context-path
+ [INFO ] 2021-03-26 18:17:37.247 [main] EnvironmentConfigurationLogger - spring.jpa.show-sql
+ [INFO ] 2021-03-26 18:17:37.247 [main] EnvironmentConfigurationLogger - spring.jpa.generate-ddl
+ [INFO ] 2021-03-26 18:17:37.248 [main] EnvironmentConfigurationLogger - spring.jpa.open-in-view
+ [INFO ] 2021-03-26 18:17:37.248 [main] EnvironmentConfigurationLogger - spring.jpa.properties.hibernate.jdbc.batch_size
+ [INFO ] 2021-03-26 18:17:37.248 [main] EnvironmentConfigurationLogger - spring.jpa.properties.hibernate.enable_lazy_load_no_trans
+ [INFO ] 2021-03-26 18:17:37.248 [main] EnvironmentConfigurationLogger - spring.datasource.type
+ [INFO ] 2021-03-26 18:17:37.249 [main] EnvironmentConfigurationLogger - spring.datasource.tomcat.initial-size
+ [INFO ] 2021-03-26 18:17:37.249 [main] EnvironmentConfigurationLogger - spring.datasource.tomcat.max-wait
+ [INFO ] 2021-03-26 18:17:37.249 [main] EnvironmentConfigurationLogger - spring.datasource.tomcat.max-active
+ [INFO ] 2021-03-26 18:17:37.250 [main] EnvironmentConfigurationLogger - spring.datasource.tomcat.max-idle
+ [INFO ] 2021-03-26 18:17:37.250 [main] EnvironmentConfigurationLogger - spring.datasource.tomcat.min-idle
+ [INFO ] 2021-03-26 18:17:37.250 [main] EnvironmentConfigurationLogger - spring.datasource.tomcat.default-auto-commit
+ [INFO ] 2021-03-26 18:17:37.251 [main] EnvironmentConfigurationLogger - spring.profiles.active
+ [INFO ] 2021-03-26 18:17:37.251 [main] EnvironmentConfigurationLogger - app.configuration.token.clients.host.key
+ [INFO ] 2021-03-26 18:17:37.251 [main] EnvironmentConfigurationLogger - app.configuration.token.clients.host.expiration-time
+ [INFO ] 2021-03-26 18:17:37.252 [main] EnvironmentConfigurationLogger - app.configuration.token.clients.user-common.key
+ [INFO ] 2021-03-26 18:17:37.252 [main] EnvironmentConfigurationLogger - app.configuration.token.clients.user-common.expiration-time
+ [INFO ] 2021-03-26 18:17:37.252 [main] EnvironmentConfigurationLogger - app.configuration.token.clients.user-common.key-validate-register
+ [INFO ] 2021-03-26 18:17:37.252 [main] EnvironmentConfigurationLogger - app.twilio.configuration.account.sid
+ [INFO ] 2021-03-26 18:17:37.252 [main] EnvironmentConfigurationLogger - app.twilio.configuration.account.number
+ [INFO ] 2021-03-26 18:17:37.253 [main] EnvironmentConfigurationLogger - app.configuration.job.clients.notification.cron-expression
+ [INFO ] 2021-03-26 18:17:37.253 [main] EnvironmentConfigurationLogger - spring.security.oauth2.client.registration.google.clientId
+ [INFO ] 2021-03-26 18:17:37.253 [main] EnvironmentConfigurationLogger - spring.security.oauth2.client.registration.google.clientSecret
+ [INFO ] 2021-03-26 18:17:37.253 [main] EnvironmentConfigurationLogger - spring.security.oauth2.client.registration.google.redirectUri
+ [INFO ] 2021-03-26 18:17:37.253 [main] EnvironmentConfigurationLogger - spring.security.oauth2.client.registration.google.scope
+ [INFO ] 2021-03-26 18:17:37.254 [main] EnvironmentConfigurationLogger - app.configuration.oauth.social-networks.token-secret
+ [INFO ] 2021-03-26 18:17:37.254 [main] EnvironmentConfigurationLogger - app.configuration.oauth.social-networks.token-expiratio-msec
+ [INFO ] 2021-03-26 18:17:37.254 [main] EnvironmentConfigurationLogger - app.configuration.oauth.social-networks.authorized-redirect-uris
+ [INFO ] 2021-03-26 18:17:37.254 [main] EnvironmentConfigurationLogger - management.endpoints.web.exposure.include
+ [INFO ] 2021-03-26 18:17:37.254 [main] EnvironmentConfigurationLogger - management.endpoint.shutdown.enabled
+ [INFO ] 2021-03-26 18:17:37.254 [main] EnvironmentConfigurationLogger - endpoints.shutdown.enabled
+ [INFO ] 2021-03-26 18:17:37.254 [main] EnvironmentConfigurationLogger - ===========================================
+ [INFO ] 2021-03-26 18:17:37.266 [main] ThreadPoolTaskScheduler - Initializing ExecutorService
+ [INFO ] 2021-03-26 18:17:37.272 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+ [INFO ] 2021-03-26 18:17:37.308 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+ [INFO ] 2021-03-26 18:17:37.311 [main] SchedulePilotCoreApplication - Started SchedulePilotCoreApplication in 31.769 seconds (JVM running for 32.841)
+ [INFO ] 2021-03-26 18:17:37.325 [main] SchedulePilotCoreApplication - EXECUTING: SCHEDULE-PILOT-CORE command line runner
+ [INFO ] 2021-03-26 18:17:37.326 [main] SchedulePilotCoreApplication - STARTING THE APPLICATION: SCHEDULE-PILOT-CORE COMPLETED!
+ [INFO ] 2021-03-26 18:17:37.451 [RMI TCP Connection(4)-127.0.0.1] [/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+ [INFO ] 2021-03-26 18:17:37.452 [RMI TCP Connection(4)-127.0.0.1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+ [INFO ] 2021-03-26 18:17:37.469 [RMI TCP Connection(4)-127.0.0.1] DispatcherServlet - Completed initialization in 17 ms
+ [INFO ] 2021-03-26 18:17:38.279 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-26T18:17:38.279
+ [INFO ] 2021-03-26 18:17:38.419 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-26T18:17:38.419
+ [INFO ] 2021-03-26 18:17:42.273 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO STARTED! AT: 2021-03-26T18:17:42.273
+ [INFO ] 2021-03-26 18:17:42.273 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO STARTED! AT: 2021-03-26T18:17:42.273
+ [INFO ] 2021-03-26 18:17:42.493 [task-pool-app3] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-OUT ---> GO FINISHED! AT: 2021-03-26T18:17:42.493
+ [INFO ] 2021-03-26 18:17:42.498 [task-pool-app2] ScheduledTasks - SCHEDULING EXPIRED TICKET-CHECK-IN ---> GO FINISHED! AT: 2021-03-26T18:17:42.498
+ [INFO ] 2021-03-26 18:18:38.426 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO STARTED! AT: 2021-03-26T18:18:38.425
+ [INFO ] 2021-03-26 18:18:38.667 [task-pool-app1] ScheduledTasks - SCHEDULING REQUEST-CHECK-IN ---> GO FINISHED! AT: 2021-03-26T18:18:38.667
+ [INFO ] 2021-03-26 18:18:55.900 [Thread-67] ThreadPoolTaskExecutor - Shutting down ExecutorService 'threadPoolTaskExecutor'
+ [INFO ] 2021-03-26 18:18:55.913 [Thread-67] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
  

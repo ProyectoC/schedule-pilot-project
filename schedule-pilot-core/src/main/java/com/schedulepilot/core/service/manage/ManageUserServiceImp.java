@@ -1,5 +1,10 @@
 package com.schedulepilot.core.service.manage;
 
+import com.schedulepilot.core.commands.base.CommandDispatcher;
+import com.schedulepilot.core.commands.validateroltask.ValidateRolCommand;
+import com.schedulepilot.core.commands.validateroltask.ValidateRolCommandResult;
+import com.schedulepilot.core.commands.validateusertask.ValidateUserCommand;
+import com.schedulepilot.core.commands.validateusertask.ValidateUserCommandResult;
 import com.schedulepilot.core.constants.ParameterConstants;
 import com.schedulepilot.core.dto.model.RolAccountDto;
 import com.schedulepilot.core.dto.model.TokenDto;
@@ -53,6 +58,9 @@ public class ManageUserServiceImp implements ManageUserService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private CommandDispatcher commandDispatcher;
+
     @Override
     @Transactional
     public UserAccountDto createUserAccount(UserAccountCreateRequest userAccountCreateRequest) throws SchedulePilotException {
@@ -60,12 +68,18 @@ public class ManageUserServiceImp implements ManageUserService {
         UserAccountDto userAccount = UserAccountService.convertRequestToDTO(userAccountCreateRequest);
         userAccount.setUsername(userAccount.getEmail());
 
-        Validator validator = this.userAccountService.validationBeforeSave(userAccount);
+        // Without command
+//        Validator validator = this.userAccountService.validationBeforeSave(userAccount);
+        ValidateUserCommandResult result = this.commandDispatcher.dispatch(new ValidateUserCommand(userAccount));
+        Validator validator = result.getValidator();
         if (!validator.isValid())
             throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CREATE_USER, validator.getFirstError());
 
-        RolAccountDto rolAccount = this.globalListDinamicService.getRolAccountByIdOrException(userAccount.getRolAccountEntity().getId());
-        validator = rolAccount.validationForCreateUser(userAccount);
+        // Without command
+//        RolAccountDto rolAccount = this.globalListDinamicService.getRolAccountByIdOrException(userAccount.getRolAccountEntity().getId());
+//        validator = rolAccount.validationForCreateUser(userAccount);
+        ValidateRolCommandResult rolCommandResult = this.commandDispatcher.dispatch(new ValidateRolCommand(userAccount));
+        validator = rolCommandResult.getValidator();
         if (!validator.isValid())
             throw new ManageUserException(ExceptionCode.ERROR_MANAGE_USER_CREATE_USER, validator.getFirstError());
 
